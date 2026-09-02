@@ -20,13 +20,13 @@
       "last_error": "403 Client Error: Forbidden for url: https://simplycodes.com/"
     },
     "https://www.nike.com/promo-code/": {
-      "hash": "2108d7d093e71395830429e45f24aa36a65ab683661162361a8f3ccbf5d702bc",
-      "last_checked": "2026-09-02T07:19:20.644337+00:00",
-      "last_changed": "2026-09-02T07:19:20.644359+00:00",
+      "hash": "cd52dfe5b647389b29d6c01b0e8f7c2275f6b047fe9289289de6d142d4996d49",
+      "last_checked": "2026-09-02T07:39:27.648437+00:00",
+      "last_changed": "2026-09-02T07:39:27.648461+00:00",
       "official_domain": "nike.com"
     },
     "https://www.adidas.com/us/promotions": {
-      "last_checked": "2026-09-02T07:19:20.946981+00:00",
+      "last_checked": "2026-09-02T07:39:27.980408+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/promotions"
     }
   },
