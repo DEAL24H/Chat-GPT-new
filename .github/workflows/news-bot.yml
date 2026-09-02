@@ -42,6 +42,8 @@ jobs:
         run: pip install -r bot/requirements.txt
       - name: Collect public coupon deals
         run: python bot/news_bot.py
+      - name: Collect expanded official brand and marketplace sources
+        run: python bot/expanded_sources.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
       - name: Generate international SEO pages
@@ -53,17 +55,6 @@ jobs:
           git add CNAME data/news.json data/deal_state.json sitemap.xml sitemap-brands.xml robots.txt fashion beauty gaming consumer brand
           git diff --cached --quiet || git commit -m 'chore: update coupon data, promotion links and SEO pages'
           git push
-      - name: Set GitHub Pages custom domain
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method PUT \
-            -H 'Accept: application/vnd.github+json' \
-            -H 'X-GitHub-Api-Version: 2026-03-10' \
-            "/repos/${GITHUB_REPOSITORY}/pages" \
-            -f cname='deal24h.net' \
-            -F https_enforced=true \
-            -f build_type='workflow'
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
