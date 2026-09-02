@@ -46,8 +46,8 @@ def post_id(url: str) -> str:
 
 
 def fetch_article_text(url: str) -> str:
-    # Source text is fetched transiently for factual summarisation and is never
-    # written to the repository or republished as a rewritten full article.
+    # The source article is fetched transiently so the model can identify facts.
+    # The source text is never written to the repository or republished in full.
     response = requests.get(url, headers=HEADERS, timeout=20)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
@@ -63,24 +63,32 @@ def ai_summary(source_text: str, title: str, category: str) -> str:
     api_key = os.environ.get("CEREBRAS_API_KEY")
     if not api_key or not source_text:
         return ""
-    # Cerebras' OpenAI-compatible inference endpoint is /v1, not the public
-    # cerebras.ai website. This keeps the OpenAI SDK interface while routing to Cerebras.
+
     client = OpenAI(
         base_url="https://api.cerebras.ai/v1",
         api_key=api_key,
     )
+
     prompt = (
-        "Bạn là biên tập viên của một trang tổng hợp tin tức. Hãy tạo một bản tóm tắt "
-        "nguyên bản bằng tiếng Việt, không chép lại và không viết lại toàn văn bài nguồn. "
-        "Giữ các dữ kiện chính, không bịa, không thêm nhận xét. Dài khoảng 120-180 từ, "
-        "chia thành 2-3 đoạn ngắn.\n\n"
-        f"Tiêu đề: {title}\nChuyên mục: {category}\n\nNội dung nguồn:\n{source_text}"
+        "Bạn là biên tập viên của trang tổng hợp tin tức ĐIỂM TIN 24H. "
+        "Dựa trên nội dung nguồn được cung cấp, hãy viết một bản tin phân tích chi tiết "
+        "bằng tiếng Việt theo cách diễn đạt hoàn toàn nguyên bản. Không chép câu, không "
+        "tái tạo toàn văn và không cố thay thế bài báo nguồn. Chỉ giữ các dữ kiện quan trọng, "
+        "nhân vật, số liệu, diễn biến và bối cảnh cần thiết; không bịa hoặc thêm nhận xét "
+        "không có trong nguồn. Độ dài mục tiêu 250-400 từ, chia 4-6 đoạn ngắn, có cấu trúc "
+        "mạch lạc như một bản tin độc lập.\n\n"
+        f"Tiêu đề nguồn: {title}\nChuyên mục: {category}\n\n"
+        f"Nội dung nguồn (chỉ dùng để kiểm chứng dữ kiện):\n{source_text}"
     )
+
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.2,
         messages=[
-            {"role": "system", "content": "Tóm tắt tin tức chính xác, nguyên bản, ngắn gọn."},
+            {
+                "role": "system",
+                "content": "Viết bản tin nguyên bản, chính xác theo nguồn, không chép và không tái bản toàn văn.",
+            },
             {"role": "user", "content": prompt},
         ],
     )
@@ -114,7 +122,7 @@ def main():
             summary = ai_summary(source_text, item["title"], item["category"])
             if summary:
                 item["summary"] = summary
-                item["summary_type"] = "cerebras_ai"
+                item["summary_type"] = "cerebras_ai_detailed_summary"
             else:
                 item["summary_type"] = "source_excerpt"
         except Exception as exc:
@@ -126,11 +134,11 @@ def main():
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "items": posts,
         "policy": {
-            "max_posts_per_day": MAX_POSTS,
+            "max_posts_per_run": MAX_POSTS,
             "full_source_text_stored": False,
             "source_images_stored": False,
             "source_attribution": True,
-            "ai_mode": "factual_summary_only",
+            "ai_mode": "detailed_original_summary",
             "ai_provider": "Cerebras",
             "ai_model": MODEL,
         },
