@@ -40,6 +40,10 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
+      - name: Validate code syntax
+        run: |
+          python -m py_compile bot/*.py
+          node --check assets/app-fix.js
       - name: Collect public coupon deals
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
