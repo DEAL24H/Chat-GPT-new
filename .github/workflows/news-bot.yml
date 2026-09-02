@@ -3,6 +3,10 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'data/news.json'
 permissions:
   contents: write
 jobs:
