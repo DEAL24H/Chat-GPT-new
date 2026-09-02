@@ -1,6 +1,16 @@
 {
-  "updated_at": "2026-09-02T03:59:33.804410+00:00",
+  "updated_at": "2026-09-02T04:02:34.046395+00:00",
   "items": [
+    {
+      "id": "aff4277d497ebb7f",
+      "title": "Những ngày cuối đời của Chủ tịch Hồ Chí Minh",
+      "url": "https://vnexpress.net/nhung-ngay-cuoi-doi-cua-chu-tich-ho-chi-minh-5115677.html",
+      "summary": "Trong những ngày bệnh nặng, Chủ tịch Hồ Chí Minh vẫn xử lý công việc, theo dõi chiến trường, lo lũ sông Hồng và mong được gặp đồng bào dịp Quốc khánh.",
+      "category": "Việt Nam",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T03:54:50+00:00",
+      "summary_type": "source_excerpt"
+    },
     {
       "id": "c5820a9a238a4120",
       "title": "Peru cắt quan hệ với Iran",
@@ -9,16 +19,6 @@
       "category": "Thế giới",
       "source": "VnExpress",
       "published_at": "2026-09-02T03:38:29+00:00",
-      "summary_type": "source_excerpt"
-    },
-    {
-      "id": "2e56a1b93ce00a54",
-      "title": "Thông xe đoạn đường đầu tiên ven rạch Xuyên Tâm",
-      "url": "https://vnexpress.net/thong-xe-doan-duong-dau-tien-ven-rach-xuyen-tam-5115743.html",
-      "summary": "Khoảng 1,4 km đường ven rạch Xuyên Tâm được thông xe sáng 2/9, tạo diện mạo mới cho khu vực từng dày đặc nhà lụp xụp, ô nhiễm ở TP HCM.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T03:31:26+00:00",
       "summary_type": "source_excerpt"
     },
     {
