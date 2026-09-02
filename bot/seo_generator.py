@@ -8,7 +8,7 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
-BASE = "https://deal24h.github.io/Chat-GPT-new"
+BASE = "https://deal24h.net"
 CATEGORIES = {"fashion": "Fashion", "beauty": "Beauty", "gaming": "Gaming", "consumer": "Consumer"}
 CATEGORY_ALIASES = {"Thời trang": "fashion", "Fashion": "fashion", "Mỹ phẩm": "beauty", "Beauty": "beauty", "Game": "gaming", "Gaming": "gaming", "Hàng tiêu dùng": "consumer", "Consumer": "consumer"}
 KNOWN_BRANDS = {'fashion': ['Nike', 'Adidas', 'Zara', 'H&M', 'UNIQLO', 'SHEIN', 'ASOS', "Levi's", 'PUMA', 'Crocs'], 'beauty': ["L'Oréal Paris", 'Maybelline', 'MAC Cosmetics', 'NYX Professional Makeup', 'e.l.f. Cosmetics', 'CeraVe', 'La Roche-Posay', 'Rare Beauty', 'Charlotte Tilbury', 'Sephora'], 'gaming': ['Steam', 'PlayStation', 'Xbox', 'Nintendo', 'Epic Games', 'Ubisoft', 'EA', 'Blizzard', 'Riot Games', 'Humble'], 'consumer': ['Apple', 'Samsung', 'Sony', 'Dell', 'Lenovo', 'HP', 'Logitech', 'Philips', 'IKEA', 'Dyson']}
@@ -67,7 +67,7 @@ def jsonld(data):
 
 def page(title, description, canonical, body, structured=None, robots="index,follow"):
     schema = jsonld(structured) if structured else ""
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{schema}<link rel="stylesheet" href="/Chat-GPT-new/assets/style.css"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/Chat-GPT-new/">DEAL <span>24H</span></a><a href="/Chat-GPT-new/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Public coupon and deal data with source attribution.</div></footer></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{schema}<link rel="stylesheet" href="/assets/style.css"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL <span>24H</span></a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Public coupon and deal data with source attribution.</div></footer></body></html>'''
 
 def deal_card(deal):
     brand = brand_name(deal)
@@ -105,7 +105,7 @@ def main():
             brand_items = grouped.get((cat, brand.lower()), [])
             if brand_items:
                 bslug = slug(brand)
-                links.append(f'<li><a href="/Chat-GPT-new/brand/{bslug}/">{esc(brand)} coupons & promotions</a></li>')
+                links.append(f'<li><a href="/brand/{bslug}/">{esc(brand)} coupons & promotions</a></li>')
         body = f'<section class="hero"><div><p class="eyebrow">INTERNATIONAL DEALS</p><h1>{label} Coupons & Promotions</h1><p class="lead">Fresh public coupon codes and promotion links for {label.lower()} stores. Offers are collected only from official merchant sources and shown with source attribution.</p></div></section><section><h2>Latest {label} offers</h2><div class="grid">{cards}</div></section><section><h2>Brands with active offers</h2><ul>{"".join(links) or "<li>No active brand offers currently listed.</li>"}</ul></section>'
         write(ROOT / cat / "index.html", page(f"{label} Coupons & Promotions | DEAL 24H", f"Find international {label.lower()} coupon codes, promotions and deals updated by DEAL 24H.", f"{BASE}/{cat}/", body))
 
@@ -115,14 +115,14 @@ def main():
             bslug = slug(brand)
             brand_url = f"{BASE}/brand/{bslug}/"
             if not items:
-                write(ROOT / "brand" / bslug / "index.html", page(f"{brand} Coupons | DEAL 24H", f"No active {brand} coupon codes or promotion offers are currently available on DEAL 24H.", brand_url, None, robots="noindex,follow"))
+                write(ROOT / "brand" / bslug / "index.html", page(f"{brand} Coupons | DEAL 24H", f"No active {brand} coupon codes or promotion offers are currently available on DEAL 24H.", brand_url, "<p>No active offers are currently listed.</p>", robots="noindex,follow"))
                 continue
 
             active_brands.append((brand, cat, items, brand_url))
             cards = "".join(deal_card(d) for d in items)
             logo = brand_logo(brand)
             logo_html = f'<img class="brandhero-img" src="{esc(logo)}" alt="{esc(brand)} logo" loading="eager">' if logo else ""
-            body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{logo_html}</div><div><p class="eyebrow">{esc(label.upper())} · COUPONS & PROMOTIONS</p><h1>{esc(brand)} Coupons, Promo Codes & Deals</h1></div></div><p class="lead">Find active {esc(brand)} coupon codes and official promotion links from merchant sources.</p></section><section><h2>Active {esc(brand)} offers</h2><div class="grid">{cards}</div></section><p><a href="/Chat-GPT-new/{cat}/">← More {esc(label)} offers</a></p>'
+            body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{logo_html}</div><div><p class="eyebrow">{esc(label.upper())} · COUPONS & PROMOTIONS</p><h1>{esc(brand)} Coupons, Promo Codes & Deals</h1></div></div><p class="lead">Find active {esc(brand)} coupon codes and official promotion links from merchant sources.</p></section><section><h2>Active {esc(brand)} offers</h2><div class="grid">{cards}</div></section><p><a href="/{cat}/">← More {esc(label)} offers</a></p>'
             item_list = []
             for pos, d in enumerate(items, 1):
                 item_list.append({"@type": "ListItem", "position": pos, "name": f"{brand} {'coupon code ' + str(d.get('code')) if d.get('code') else 'promotion offer'}", "url": d.get("promotion_url") or d.get("source_url") or d.get("url") or brand_url})
