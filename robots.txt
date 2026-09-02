@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chayso2015-ctrl.github.io/Chat-GPT-new/sitemap.xml
