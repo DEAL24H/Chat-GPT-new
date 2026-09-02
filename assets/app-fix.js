@@ -1,7 +1,8 @@
 const state = { items: [], category: 'All', query: '' };
 const $ = (s) => document.querySelector(s);
 const DATA_URLS = [new URL('data/news.json', document.baseURI).href, 'https://raw.githubusercontent.com/DEAL24H/Chat-GPT-new/main/data/news.json'];
-const CATEGORY_LABELS = { 'Thời trang':'Fashion', 'Mỹ phẩm':'Beauty', 'Game':'Gaming', 'Tổng hợp':'Deals' };
+const CATEGORY_LABELS = { 'Thời trang':'Fashion', 'Mỹ phẩm':'Beauty', 'Game':'Gaming', 'Hàng tiêu dùng':'Consumer', 'Tổng hợp':'Deals' };
+const FILTER_CATEGORIES = ['All', 'Fashion', 'Beauty', 'Gaming', 'Consumer'];
 const BRAND_DOMAINS = {
   dell:'dell.com', nike:'nike.com', adidas:'adidas.com', puma:'puma.com', shein:'shein.com', asos:'asos.com', mango:'shop.mango.com', hm:'hm.com', 'h&m':'hm.com', uniqlo:'uniqlo.com', zara:'zara.com', crocs:'crocs.com', gap:'gap.com', converse:'converse.com', 'under armour':'underarmour.com',
   sephora:'sephora.com', ulta:'ulta.com', nars:'narscosmetics.com', mac:'maccosmetics.com', cerave:'cerave.com', 'the ordinary':'theordinary.com', farmacy:'farmacybeauty.com', 'bobbi brown':'bobbibrowncosmetics.com', kosas:'kosas.com', paulaschoice:'paulaschoice.com', 'paula\'s choice':'paulaschoice.com', glossier:'glossier.com', clinique:'clinique.com',
@@ -20,8 +21,8 @@ function brandName(item) { const hit = findBrandKey(item); if (!hit) return item
 function brandDomain(item) { const hit = findBrandKey(item); return hit ? BRAND_DOMAINS[hit] : (item.merchant_domain || ''); }
 function brandLogo(item) { const domain = brandDomain(item); return domain ? `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128` : ''; }
 function brandSlug(name) { return String(name || '').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
-function brandHref(item) { const brand = brandSlug(brandName(item)); const cat = label(item.category).toLowerCase(); return brand && cat !== 'deals' ? `${cat}/${brand}-coupons/` : '#'; }
-function renderFilters() { const cats = ['All', ...new Set(state.items.map(x => label(x.category)).filter(Boolean))]; $('#filters').innerHTML = cats.map(c => `<button class="filter ${state.category === c ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join(''); document.querySelectorAll('[data-cat]').forEach(b => b.onclick = () => { state.category = b.dataset.cat; render(); }); }
+function brandHref(item) { const brand = brandSlug(brandName(item)); const cat = label(item.category).toLowerCase(); return brand && cat !== 'deals' ? `${cat === 'consumer' ? 'consumer' : cat}/${brand}-coupons/` : '#'; }
+function renderFilters() { const cats = FILTER_CATEGORIES; $('#filters').innerHTML = cats.map(c => `<button class="filter ${state.category === c ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join(''); document.querySelectorAll('[data-cat]').forEach(b => b.onclick = () => { state.category = b.dataset.cat; render(); }); }
 function render() {
   renderFilters(); const q = state.query.toLowerCase().trim();
   const items = state.items.filter(x => (state.category === 'All' || label(x.category) === state.category) && (!q || [x.merchant,x.code,x.title,x.content,label(x.category)].join(' ').toLowerCase().includes(q)));
