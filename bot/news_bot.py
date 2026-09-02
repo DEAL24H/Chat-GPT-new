@@ -19,12 +19,17 @@ SOURCES = [
     {"name": "DealAtlas", "url": "https://dealatlas.org/", "category": "Tổng hợp"},
     {"name": "SimplyCodes", "url": "https://simplycodes.com/", "category": "Tổng hợp"},
 ]
-CATEGORIES = {"Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo"], "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique"], "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"]}
+CATEGORIES = {
+    "Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo", "mango", "crocs", "gap", "converse", "under armour", "reebok"],
+    "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique", "paula's choice", "farmacy", "bobbi brown", "kosas"],
+    "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"],
+    "Hàng tiêu dùng": ["consumer", "electronics", "electronic", "laptop", "computer", "phone", "smartphone", "tablet", "tv", "television", "headphone", "monitor", "printer", "home", "household", "kitchen", "appliance", "furniture", "mattress", "pet", "baby", "grocery", "food", "supplement", "health", "office", "dell", "lenovo", "hp", "best buy", "amazon", "walmart", "target", "ikea", "wayfair", "iherb"]
+}
 CODE_RE = re.compile(r"\b[A-Z0-9][A-Z0-9_-]{3,24}\b")
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
 BAD_CODES = {"COPY", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "SAVE", "HTTPS", "WWW", "CLICK", "VERIFY", "AUTHORITY", "EDITORS", "EDITOR", "HAND-TESTED", "TESTED", "POPULAR", "LATEST", "ACTIVE", "EXCLUSIVE", "PROMO", "PROMOS", "OFFER", "OFFERS"}
 GENERIC_MERCHANTS = {"dealatlas", "couponscouter", "coupon kent", "simplycodes", "today's top coupons", "popular coupons", "latest coupons"}
-KNOWN_BRANDS = ["Nike", "Adidas", "PUMA", "SHEIN", "ASOS", "Zara", "H&M", "UNIQLO", "Mango", "Crocs", "Gap", "Converse", "Under Armour", "Sephora", "Ulta", "NARS", "MAC", "CeraVe", "The Ordinary", "Glossier", "Clinique", "Paula's Choice", "Farmacy", "Bobbi Brown", "Kosas", "Steam", "Epic Games", "PlayStation", "Xbox", "Nintendo", "Humble", "Fanatical", "Ubisoft", "EA", "Dell", "Lenovo", "HP", "Best Buy", "Reebok", "iHerb"]
+KNOWN_BRANDS = ["Nike", "Adidas", "PUMA", "SHEIN", "ASOS", "Zara", "H&M", "UNIQLO", "Mango", "Crocs", "Gap", "Converse", "Under Armour", "Sephora", "Ulta", "NARS", "MAC", "CeraVe", "The Ordinary", "Glossier", "Clinique", "Paula's Choice", "Farmacy", "Bobbi Brown", "Kosas", "Steam", "Epic Games", "PlayStation", "Xbox", "Nintendo", "Humble", "Fanatical", "Ubisoft", "EA", "Dell", "Lenovo", "HP", "Best Buy", "Reebok", "iHerb", "Amazon", "Walmart", "Target", "IKEA", "Wayfair"]
 
 def clean(text): return re.sub(r"\s+", " ", BeautifulSoup(text or "", "html.parser").get_text(" ")).strip()
 def now(): return datetime.now(timezone.utc).isoformat()
@@ -40,7 +45,7 @@ def category_for(text, fallback="Tổng hợp"):
     value = text.lower()
     for category, words in CATEGORIES.items():
         if any(re.search(r"\b" + re.escape(word) + r"\b", value) for word in words): return category
-    return fallback
+    return "Hàng tiêu dùng" if fallback == "Tổng hợp" else fallback
 def merchant_from_context(context, source_name):
     context = clean(context); low = context.lower()
     for brand in KNOWN_BRANDS:
@@ -97,7 +102,7 @@ def main():
             state["sources"][source["url"]]["last_changed"] = now(); changed_sources += 1; deals = extract_deals(html, source)
             for deal in deals:
                 key = (deal["merchant"].lower(), deal["code"].lower()); old = by_key.get(key)
-                if old: old.update({"last_checked": now(), "status": "active", "source_url": deal["source_url"], "source_label": deal["source_label"]})
+                if old: old.update({"last_checked": now(), "status": "active", "source_url": deal["source_url"], "source_label": deal["source_label"], "category": deal["category"]})
                 else: by_key[key] = deal; new_count += 1
             print(f"CHANGED {source['name']}: discovered {len(deals)} offers")
         except Exception as exc:
