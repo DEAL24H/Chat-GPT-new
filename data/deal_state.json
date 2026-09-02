@@ -2,21 +2,21 @@
   "sources": {
     "https://couponscouter.com/": {
       "hash": "d3903d43deb84e3ea0419d8c883d53257bf8b1f0b174ccced687f70ae8bafa57",
-      "last_checked": "2026-09-02T06:48:13.153269+00:00",
+      "last_checked": "2026-09-02T06:48:56.153507+00:00",
       "last_changed": "2026-09-02T05:48:02.503735+00:00"
     },
     "https://couponkent.com/": {
       "hash": "4468b554b6f37cdc124b76a472a69f3bde82145b3bd445080827fd450ce76be4",
-      "last_checked": "2026-09-02T06:48:13.305439+00:00",
+      "last_checked": "2026-09-02T06:48:56.293004+00:00",
       "last_changed": "2026-09-02T06:29:55.912639+00:00"
     },
     "https://dealatlas.org/": {
-      "hash": "3a53b262983027025c93b236f9924a39923df6d67347a04ef7b718e0fff9c415",
-      "last_checked": "2026-09-02T06:48:14.412419+00:00",
-      "last_changed": "2026-09-02T06:48:14.412435+00:00"
+      "hash": "e801858d1c8da271d325608d83f35f7392ce55264ceb3e43d623d72b19bb443e",
+      "last_checked": "2026-09-02T06:48:57.073847+00:00",
+      "last_changed": "2026-09-02T06:48:57.073867+00:00"
     },
     "https://simplycodes.com/": {
-      "last_checked": "2026-09-02T06:48:14.560345+00:00",
+      "last_checked": "2026-09-02T06:48:57.160228+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://simplycodes.com/"
     }
   },
