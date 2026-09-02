@@ -2,7 +2,7 @@ name: Admin Pages Deploy
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: [Admin Control]
+    workflows: [Admin Control, Analytics Snapshot]
     types: [completed]
     branches: [main]
 permissions:
