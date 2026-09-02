@@ -25,7 +25,6 @@ MAX_SOURCE_CHARS = 24000
 MODEL = "llama3.1-8b"
 HEADERS = {"User-Agent": "DiemTin24H/1.1 (+GitHub Pages editorial bot)"}
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
-ALLOWED_LICENSES = ("CC BY", "CC BY-SA", "CC0", "Public domain", "PD")
 STOPWORDS = {"và", "của", "với", "cho", "một", "các", "những", "được", "trong", "tháng", "năm", "tại", "từ", "sẽ", "là", "bị", "đã", "the", "and", "with"}
 
 
@@ -53,8 +52,7 @@ def fetch_article_text(url: str) -> str:
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
     paragraphs = []
-    selectors = ["article.fck_detail p.Normal", ".fck_detail p.Normal", "p.Normal"]
-    for selector in selectors:
+    for selector in ["article.fck_detail p.Normal", ".fck_detail p.Normal", "p.Normal"]:
         paragraphs = []
         for p in soup.select(selector):
             text = clean(p.get_text(" "))
@@ -63,8 +61,6 @@ def fetch_article_text(url: str) -> str:
         if paragraphs:
             break
 
-    # Some VnExpress pages expose the article body in JSON-LD. Read it only transiently
-    # for factual grounding; never write the source article back to news.json.
     if not paragraphs:
         for script in soup.select('script[type="application/ld+json"]'):
             try:
@@ -86,7 +82,14 @@ def fetch_article_text(url: str) -> str:
 
 def _license_ok(meta):
     license_name = clean(meta.get("LicenseShortName", {}).get("value", ""))
-    return license_name if license_name and any(x.lower() in license_name.lower() for x in ALLOWED_LICENSES) else ""
+    normalized = license_name.lower().replace("–", "-").strip()
+    if normalized == "cc0" or normalized.startswith("public domain") or normalized in {"pd", "pd-us", "pd-old"}:
+        return license_name
+    # Explicitly allow attribution/share-alike licenses, but never NC/ND variants.
+    if normalized.startswith("cc by-sa") or normalized.startswith("cc by ") or normalized == "cc by":
+        if "nc" not in normalized and "nd" not in normalized:
+            return license_name
+    return ""
 
 
 def _commons_search(query: str, wanted_tokens=None, limit=15):
@@ -132,14 +135,10 @@ def _tokens(text):
 
 
 def find_openly_licensed_images(title: str, category: str):
-    """Return only topical Commons images with explicit open/public-domain metadata.
-    If no relevant licensed image is found, return none rather than an unrelated picture.
-    """
+    """Return only topical Commons images with explicit open/public-domain metadata."""
     selected = []
     lower_title = title.lower()
 
-    # For people/entertainment stories, search the named people directly. This is much safer
-    # than searching a broad category and accidentally getting a random document or object.
     person_queries = []
     if "thu trang" in lower_title:
         person_queries.append(("Thu Trang", ["thu", "trang"]))
@@ -154,7 +153,6 @@ def find_openly_licensed_images(title: str, category: str):
         except Exception as exc:
             print(f"Commons people image search failed for {query!r}: {exc}")
 
-    # For other topics, require visible overlap between the article title and Commons filename.
     if not selected:
         tokens = _tokens(title)
         query = " ".join(tokens[:6]) or category
@@ -167,7 +165,6 @@ def find_openly_licensed_images(title: str, category: str):
         except Exception as exc:
             print(f"Commons topical image search failed for {title!r}: {exc}")
 
-    # Never publish a random category image merely to fill the slot.
     dedup = []
     seen = set()
     for image in selected:
@@ -263,7 +260,6 @@ def main():
     for item in candidates[:MAX_POSTS]:
         try:
             source_text = fetch_article_text(item["url"])
-            # RSS summary is only a fallback grounding signal when a page exposes no article body.
             if len(source_text) < 500:
                 source_text = item["summary"]
             content, new_title = ai_article(source_text, item["title"], item["category"])
@@ -301,7 +297,7 @@ def main():
             "ai_provider": "Cerebras",
             "ai_model": MODEL,
             "image_provider": "Wikimedia Commons",
-            "image_policy": "only topically relevant files with explicit open-license or public-domain metadata; otherwise no image",
+            "image_policy": "only relevant CC BY/CC BY-SA/CC0/public-domain files; otherwise no image",
         },
     }
     OUT.parent.mkdir(exist_ok=True)
