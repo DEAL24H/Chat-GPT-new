@@ -36,50 +36,56 @@
       "official_domain": "nike.com"
     },
     "https://www.adidas.com/us/regular-sale": {
-      "last_checked": "2026-09-02T07:49:54.853772+00:00",
+      "last_checked": "2026-09-02T07:51:01.117547+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/regular-sale"
     },
     "https://www.zara.com/vn/vi/": {
-      "hash": "1f14f23c3ade813862c361b991abf032b69a96082f39cb81ef3b2cc15c3569eb",
-      "last_checked": "2026-09-02T07:49:55.422221+00:00",
-      "last_changed": "2026-09-02T07:49:55.422245+00:00",
+      "hash": "59c918d7d5d3818bd9af4d2466143d22b22778cb63ab8022df504da147340e17",
+      "last_checked": "2026-09-02T07:51:01.765144+00:00",
+      "last_changed": "2026-09-02T07:51:01.765160+00:00",
       "official_domain": "zara.com"
     },
     "https://www2.hm.com/en_us/member/offers/bonus.html": {
-      "last_checked": "2026-09-02T07:49:55.512046+00:00",
+      "last_checked": "2026-09-02T07:51:01.822700+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www2.hm.com/en_us/member/offers/bonus.html"
     },
     "https://www.uniqlo.com/vn/vi/": {
-      "last_checked": "2026-09-02T07:49:55.711504+00:00",
+      "last_checked": "2026-09-02T07:51:01.945962+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.uniqlo.com/vn/vi/"
     },
     "https://m.shein.com/us/coupon-a-368.html": {
-      "hash": "6fd44ce7888bb8ed7dfa7c06f4eec2a1c2c7f8443740ff265eca0e5e6f88eb3f",
-      "last_checked": "2026-09-02T07:49:56.266811+00:00",
-      "last_changed": "2026-09-02T07:49:56.266838+00:00",
+      "hash": "6d7a506f22efcbca36183e61ee9aec6df1397fc05440746e366306d826e536da",
+      "last_checked": "2026-09-02T07:51:02.432926+00:00",
+      "last_changed": "2026-09-02T07:51:02.432946+00:00",
       "official_domain": "shein.com"
     },
     "https://www.asos.com/customer-care/payment-promos-gift-vouchers/how-do-your-promo-codes-work/": {
-      "hash": "046bcb231b3151291d98e5f4feadf2f7d06ebc0eca7702d9e0fe7b3d84305c7d",
-      "last_checked": "2026-09-02T07:49:57.072284+00:00",
-      "last_changed": "2026-09-02T07:49:57.072309+00:00",
+      "hash": "a8c39c697a70d7f3a4fc868a5306eabb5a1aacf2855188aca45af7d186d5ad79",
+      "last_checked": "2026-09-02T07:51:02.748078+00:00",
+      "last_changed": "2026-09-02T07:51:02.748093+00:00",
       "official_domain": "asos.com"
     },
     "https://help.levi.com/hc/en-us/articles/10872016647821-Levi-s-Promotional-Offers": {
-      "hash": "0f7b3391c4786c1f897797ff1c7fad276638b1a060ae8b265b7ba8f2cded58c9",
-      "last_checked": "2026-09-02T07:49:57.500447+00:00",
-      "last_changed": "2026-09-02T07:49:57.500469+00:00",
+      "hash": "908852e82148e5004c382f4afc6ede441c2a7b21c7efb49f4f099102d7a51c3c",
+      "last_checked": "2026-09-02T07:51:03.076643+00:00",
+      "last_changed": "2026-09-02T07:51:03.076656+00:00",
       "official_domain": "levi.com"
     },
     "https://vn.puma.com/vn/en/promotions-and-sale.html": {
-      "hash": "b3a2db131c281d2757c8725e73be2d5489041e731fb018d86ff80afc540a85b9",
-      "last_checked": "2026-09-02T07:49:57.933646+00:00",
-      "last_changed": "2026-09-02T07:49:57.933672+00:00",
+      "hash": "7363a8979a853a63342fbc07ace6bb38a96b497efaac7a06031041cb78f79d71",
+      "last_checked": "2026-09-02T07:51:03.492200+00:00",
+      "last_changed": "2026-09-02T07:51:03.492216+00:00",
       "official_domain": "puma.com"
     },
     "https://www.crocs.com/c/promotions": {
-      "last_checked": "2026-09-02T07:49:58.258792+00:00",
+      "last_checked": "2026-09-02T07:51:03.812626+00:00",
       "last_error": "429 Client Error: Too Many Requests for url: https://www.crocs.com/c/promotions"
+    },
+    "https://www.nike.com/gb/promo-terms-bts2026": {
+      "hash": "7ef4152782df05bff0e598c5269ba4fdede5585af3e9cd2bb67ed6cece4f6106",
+      "last_checked": "2026-09-02T07:51:00.921953+00:00",
+      "last_changed": "2026-09-02T07:51:00.921973+00:00",
+      "official_domain": "nike.com"
     }
   },
   "deals": {}
