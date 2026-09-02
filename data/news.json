@@ -1,14 +1,24 @@
 {
-  "updated_at": "2026-09-02T04:14:40.261641+00:00",
+  "updated_at": "2026-09-02T04:22:37.034476+00:00",
   "items": [
     {
-      "id": "f19792b00ebd203a",
-      "title": "Nam du khách bị nước cuốn mất tích tại thác Khâu Làn",
-      "url": "https://vnexpress.net/nam-du-khach-bi-nuoc-cuon-mat-tich-tai-thac-khau-lan-5115752.html",
-      "summary": "Một nam du khách 28 tuổi ở TP HCM bị dòng nước cuốn mất tích khi xuống tắm tại thác Khâu Làn, xã Quản Bạ, tối 1/9.",
+      "id": "13f5d0e8ba025e4b",
+      "title": "Lợi nhuận Mixue suy giảm, tiếp tục đóng cửa hàng",
+      "url": "https://vnexpress.net/loi-nhuan-mixue-suy-giam-tiep-tuc-dong-cua-hang-5115726.html",
+      "summary": "Mixue giảm 89 cửa hàng ở nước ngoài, chủ yếu ở Việt Nam và Indonesia, trong khi lợi nhuận ròng 6 tháng sụt 15% so với cùng kỳ năm trước.",
       "category": "Việt Nam",
       "source": "VnExpress",
-      "published_at": "2026-09-02T04:07:19+00:00",
+      "published_at": "2026-09-02T04:00:00+00:00",
+      "summary_type": "source_excerpt"
+    },
+    {
+      "id": "13f5d0e8ba025e4b",
+      "title": "Lợi nhuận Mixue suy giảm, tiếp tục đóng cửa hàng",
+      "url": "https://vnexpress.net/loi-nhuan-mixue-suy-giam-tiep-tuc-dong-cua-hang-5115726.html",
+      "summary": "Mixue giảm 89 cửa hàng ở nước ngoài, chủ yếu ở Việt Nam và Indonesia, trong khi lợi nhuận ròng 6 tháng sụt 15% so với cùng kỳ năm trước.",
+      "category": "Kinh doanh",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T04:00:00+00:00",
       "summary_type": "source_excerpt"
     },
     {
@@ -39,16 +49,6 @@
       "category": "Giải trí",
       "source": "VnExpress",
       "published_at": "2026-09-02T02:13:22+00:00",
-      "summary_type": "source_excerpt"
-    },
-    {
-      "id": "31f45bb57ea0780c",
-      "title": "Giá vàng thế giới xuống thấp nhất hai tuần",
-      "url": "https://vnexpress.net/gia-vang-the-gioi-xuong-thap-nhat-hai-tuan-5115706.html",
-      "summary": "Mỗi ounce vàng thế giới giảm hơn 100 USD chỉ trong một phiên, hiện về sát mốc 4.300 USD.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T00:39:39+00:00",
       "summary_type": "source_excerpt"
     }
   ],
