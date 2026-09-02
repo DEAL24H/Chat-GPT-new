@@ -14,8 +14,6 @@ STATE = DATA_DIR / "deal_state.json"
 HEADERS = {"User-Agent": "Deal24H/1.0 (+GitHub Pages public coupon collector)"}
 MAX_DEALS = 1200
 
-# Public pages used as discovery sources. The bot only reads publicly visible offer data.
-# If a source has not changed since the previous run, it is not parsed again.
 SOURCES = [
     {"name": "CouponScouter", "url": "https://couponscouter.com/", "category": "Thời trang"},
     {"name": "Coupon Kent", "url": "https://couponkent.com/", "category": "Tổng hợp"},
@@ -29,9 +27,18 @@ CATEGORIES = {
     "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"],
 }
 
-CODE_RE = re.compile(r"\b[A-Z][A-Z0-9_-]{3,24}\b")
+CODE_RE = re.compile(r"\b[A-Z0-9][A-Z0-9_-]{3,24}\b")
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
-BAD_CODES = {"COPY", "CODE", "COUPON", "TODAY", "DEAL", "SALE", "NEW", "SHOP", "SAVE", "HTTPS", "WWW", "CLICK", "VERIFY"}
+BAD_CODES = {
+    "COPY", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "SAVE", "HTTPS", "WWW", "CLICK", "VERIFY",
+    "AUTHORITY", "EDITORS", "EDITOR", "HAND-TESTED", "TESTED", "POPULAR", "LATEST", "ACTIVE", "EXCLUSIVE", "PROMO", "PROMOS", "OFFER", "OFFERS",
+}
+GENERIC_MERCHANTS = {"dealatlas", "couponscouter", "coupon kent", "simplycodes", "today's top coupons", "popular coupons", "latest coupons"}
+KNOWN_BRANDS = [
+    "Nike", "Adidas", "PUMA", "SHEIN", "ASOS", "Zara", "H&M", "UNIQLO", "Mango", "Crocs", "Gap", "Converse", "Under Armour",
+    "Sephora", "Ulta", "NARS", "MAC", "CeraVe", "The Ordinary", "Glossier", "Clinique", "Paula's Choice", "Farmacy", "Bobbi Brown", "Kosas",
+    "Steam", "Epic Games", "PlayStation", "Xbox", "Nintendo", "Humble", "Fanatical", "Ubisoft", "EA", "Dell", "Lenovo", "HP", "Best Buy",
+]
 
 
 def clean(text):
@@ -71,12 +78,18 @@ def category_for(text, fallback="Tổng hợp"):
 
 def merchant_from_context(context, source_name):
     context = clean(context)
-    # Prefer a heading-like phrase before the offer text.
-    bits = re.split(r"\s+[|·•–—]\s+", context)
+    low = context.lower()
+    for brand in KNOWN_BRANDS:
+        if re.search(r"\b" + re.escape(brand.lower()) + r"\b", low):
+            return brand
+    bits = re.split(r"\s+[|·•–—:]\s+", context)
     candidate = bits[0] if bits else context
-    candidate = re.sub(r"^(verified|new|hot deal|deal|coupon|promo|code)\s*", "", candidate, flags=re.I).strip()
+    candidate = re.sub(r"^(verified|new|hot deal|deal|coupon|promo|code|use)\s*", "", candidate, flags=re.I).strip()
     candidate = candidate[:90]
-    if not candidate or candidate.lower() in {source_name.lower(), "today's top coupons", "popular coupons"}:
+    if not candidate or candidate.lower() in GENERIC_MERCHANTS or candidate.lower() == source_name.lower():
+        return ""
+    # Do not treat an all-caps code-like token or editorial phrase as a merchant.
+    if re.fullmatch(r"[A-Z0-9_-]{4,30}", candidate) or re.search(r"\b(authority|editors|hand-tested|verified codes)\b", candidate, re.I):
         return ""
     return candidate
 
@@ -84,7 +97,6 @@ def merchant_from_context(context, source_name):
 def extract_deals(html, source):
     soup = BeautifulSoup(html, "html.parser")
     blocks = []
-    # Small visible blocks reduce false matches and keep the parser cheap.
     for tag in soup.find_all(["article", "li", "div", "section"]):
         text = clean(tag.get_text(" ", strip=True))
         if 25 <= len(text) <= 700 and re.search(r"\b(?:code|coupon|promo)\b", text, re.I):
@@ -96,20 +108,22 @@ def extract_deals(html, source):
     seen = set()
     for block in blocks:
         codes = []
-        for match in CODE_RE.findall(block.upper()):
+        upper = block.upper()
+        for match in CODE_RE.findall(upper):
             if match in BAD_CODES or len(match) < 4:
                 continue
-            # Require a code-like cue near the token. This prevents random headings being published.
-            pos = block.upper().find(match)
-            window = block[max(0, pos - 45):pos + len(match) + 45].lower()
-            if "code" in window or "coupon" in window or "promo" in window:
+            pos = upper.find(match)
+            window = block[max(0, pos - 55):pos + len(match) + 55].lower()
+            cue = bool(re.search(r"\b(?:coupon|promo)\s*(?:code|codes)?\b|\bcode\b|\buse\s+this\b", window))
+            # Codes should contain a digit or be at least 5 chars; this removes ordinary uppercase words.
+            if cue and (any(ch.isdigit() for ch in match) or len(match) >= 5):
                 codes.append(match)
         if not codes:
             continue
-        discount = DISCOUNT_RE.search(block)
         merchant = merchant_from_context(block, source["name"])
         if not merchant:
-            merchant = source["name"]
+            continue
+        discount = DISCOUNT_RE.search(block)
         category = category_for(block + " " + merchant, source["category"])
         for code in codes[:3]:
             key = (merchant.lower(), code.lower())
@@ -118,13 +132,13 @@ def extract_deals(html, source):
             seen.add(key)
             deals.append({
                 "id": hashlib.sha256((source["name"] + "|" + merchant + "|" + code).encode()).hexdigest()[:16],
-                "title": f"{merchant} — {discount.group(0) if discount else 'Ưu đãi'}",
+                "title": f"{merchant} — {discount.group(0) if discount else 'Coupon code'}",
                 "content": block[:500],
                 "code": code,
                 "discount": discount.group(0) if discount else "",
                 "merchant": merchant,
                 "category": category,
-                "country": "Quốc tế",
+                "country": "International",
                 "url": source["url"],
                 "source_url": source["url"],
                 "source_label": source["name"],
@@ -145,11 +159,9 @@ def main():
     existing = load_json(OUT, [])
     if not isinstance(existing, list):
         existing = []
-
     by_key = {(d.get("merchant", "").lower(), d.get("code", "").lower()): d for d in existing if d.get("code")}
     changed_sources = 0
     new_count = 0
-
     for source in SOURCES:
         previous = state["sources"].get(source["url"], {})
         try:
@@ -176,12 +188,9 @@ def main():
         except Exception as exc:
             state["sources"][source["url"]] = {**previous, "last_checked": now(), "last_error": str(exc)[:240]}
             print(f"SOURCE ERROR {source['name']}: {exc}")
-
-    # Newest first; keep a bounded database so Pages stays fast.
     all_deals = list(by_key.values())
     all_deals.sort(key=lambda d: d.get("last_checked", ""), reverse=True)
     all_deals = all_deals[:MAX_DEALS]
-
     save_json(OUT, all_deals)
     save_json(STATE, state)
     print(f"DONE: changed_sources={changed_sources}, new_deals={new_count}, total={len(all_deals)}")
