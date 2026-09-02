@@ -34,14 +34,12 @@ def active(d):
     except ValueError:return False
 def parse_expiry(text):
     t=re.sub(r"\s+"," ",str(text or "")).strip()
-    pats=[r"(?:valid|offer|promotion)[^.!?]{0,140}?(?:through|until|ends?\s+(?:on)?)[^\d]*(\w+\s+\d{1,2},?\s+\d{4})",r"(?:valid|offer|promotion)[^.!?]{0,80}?(\w+\s+\d{1,2},?\s+\d{4})"]
-    for p in pats:
+    for p in [r"(?:valid|offer|promotion)[^.!?]{0,140}?(?:through|until|ends?\s+(?:on)?)[^\d]*(\w+\s+\d{1,2},?\s+\d{4})",r"(?:valid|offer|promotion)[^.!?]{0,80}?(\w+\s+\d{1,2},?\s+\d{4})"]:
         m=re.search(p,t,re.I)
-        if m:
-            try:return datetime.strptime(re.sub(r",",",",m.group(1)),"%b %d, %Y").replace(tzinfo=timezone.utc).isoformat()
-            except ValueError:
-                try:return datetime.strptime(m.group(1).replace(",",""),"%B %d %Y").replace(tzinfo=timezone.utc).isoformat()
-                except ValueError:pass
+        if not m: continue
+        for fmt,raw in [("%b %d, %Y",m.group(1)),("%B %d %Y",m.group(1).replace(",",""))]:
+            try:return datetime.strptime(raw,fmt).replace(tzinfo=timezone.utc).isoformat()
+            except ValueError:pass
     return ""
 def offer(d):
     b=brand_name(d); text=re.sub(r"\s+"," ",str(d.get("content","")).strip()); pct=re.search(r"\b(\d{1,3})\s*%\s*off\b",text,re.I); save=re.search(r"\bsave\s+\$\s*([\d,.]+)",text,re.I); free=re.search(r"\bfree\s+shipping\b",text,re.I); student=re.search(r"\b(?:student|educator)\b",text,re.I); member=re.search(r"\b(?:member|family|club)\b",text,re.I)
@@ -64,22 +62,22 @@ def offer(d):
     desc=re.sub(r"Review:\s*.*$","",text,flags=re.I); desc=re.sub(r"More options.*$","",desc,flags=re.I).strip()
     if len(desc)>190:desc=desc[:187].rsplit(" ",1)[0]+"…"
     expiry=d.get("expires_at") or parse_expiry(text); c=catkey(d); return {"brand":b,"category":c,"type":"PROMO CODE" if d.get("code") else "DEAL","benefit":benefit,"title":title,"description":desc,"expiry":expiry,"code":str(d.get("code") or ""),"url":d.get("promotion_url") or d.get("source_url") or d.get("url") or "#"}
-def domain(b):return DOMAINS.get(norm(b),"")
+def domain(b):return DOMAINS.get(norm(b),"
 def logo(b):
     d=domain(b); return f"https://www.google.com/s2/favicons?domain={quote(d)}&sz=128" if d else ""
 def jsonld(x):return '<script type="application/ld+json">'+json.dumps(x,ensure_ascii=False,separators=(",",":"))+'</script>'
 def page(title,desc,canonical,body,schema=None,robots="index,follow"):
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(desc)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{jsonld(schema) if schema else ""}<link rel="stylesheet" href="/assets/style.css?v=20260902i"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL <span>24H</span></a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
 def card(d):
-    o=offer(d); b=o["brand"]; code=esc(o["code"]); url=esc(o["url"]); conditions=[]
+    o=offer(d); b=o["brand"]; code=esc(o["code"]); url=esc(o["url"]); conditions=[]; logo_url=logo(b); logo_html=f'<img class="brandlogo-img" src="{esc(logo_url)}" alt="{esc(b)} logo" loading="lazy">' if logo_url else ''
     if o["expiry"]:
         try: conditions.append("Ends "+datetime.fromisoformat(str(o["expiry"]).replace("Z","+00:00")).strftime("%b %-d, %Y"))
         except Exception: conditions.append("Ends "+str(o["expiry"]))
     if d.get("official_source"):conditions.append("✓ Official source")
     codebox=f'<div class="code"><span><small>CODE</small><strong>{code}</strong></span></div>' if code else ''
-    cond=f'<div class="offer-conditions">{"".join(f"<span>{esc(x)}</span>" for x in conditions)}</div>' if conditions else ''
+    cond=f'<div class="offer-conditions">{"".join("<span>"+esc(x)+"</span>" for x in conditions)}</div>' if conditions else ''
     cta=f'<a class="cta" href="{url}" target="_blank" rel="nofollow noopener sponsored">{"GET CODE" if code else "GET DEAL"} ↗</a>' if url!="#" else ''
-    return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{f"<img class=\"brandlogo-img\" src=\"{esc(logo(b))}\" alt=\"{esc(b)} logo\" loading=\"lazy\">" if logo(b) else ""}</div><div class="brandinfo"><a class="brandname" href="/brand/{slug(b)}/">{esc(b)}</a><span class="tag">{esc(o["type"])} · {esc(CATEGORIES.get(o["category"],"Deals"))}</span></div></div><div class="offer-benefit">{esc(o["benefit"])}</div><h3>{esc(o["title"])}</h3><p>{esc(o["description"] or "Official merchant offer.")}</p>{codebox}{cond}<div class="meta">{cta}</div></article>'
+    return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{logo_html}</div><div class="brandinfo"><a class="brandname" href="/brand/{slug(b)}/">{esc(b)}</a><span class="tag">{esc(o["type"])} · {esc(CATEGORIES.get(o["category"],"Deals"))}</span></div></div><div class="offer-benefit">{esc(o["benefit"])}</div><h3>{esc(o["title"])}</h3><p>{esc(o["description"] or "Official merchant offer.")}</p>{codebox}{cond}<div class="meta">{cta}</div></article>'
 def write(p,c):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(c,encoding="utf-8")
 def main():
     deals=[d for d in load() if active(d)]; grouped=defaultdict(list)
