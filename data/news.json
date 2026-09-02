@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02T05:04:30.657395+00:00",
+  "updated_at": "2026-09-02T05:16:10.768600+00:00",
   "items": [
     {
       "id": "f5402c37a5b3cb62",
@@ -11,10 +11,27 @@
       "published_at": "2026-09-02T04:35:56+00:00",
       "content": "",
       "summary_type": "source_excerpt",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Cong_bao_Chinh_phu_865_866_nam_2023.pdf/page1-960px-Cong_bao_Chinh_phu_865_866_nam_2023.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "image_source": "Wikimedia Commons",
-      "image_license": "Public domain",
-      "image_title": "Cong bao Chinh phu 865 866 nam 2023.pdf"
+      "images": [],
+      "image": "",
+      "image_source": "",
+      "image_license": "",
+      "image_title": ""
+    },
+    {
+      "id": "f5402c37a5b3cb62",
+      "title": "'Quý tử vượt giàu': Giả nghèo dạy con",
+      "url": "https://vnexpress.net/giai-tri/phim/thu-vien-phim/quy-tu-vuot-giau-917",
+      "summary": "Phim \"Quý tử vượt giàu\" gây cười nhờ câu chuyện vợ chồng đại gia (Thu Trang, Tiến Luật đóng) dàn dựng cuộc sống nghèo khó để dạy con.",
+      "category": "Giải trí",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T04:35:56+00:00",
+      "content": "",
+      "summary_type": "source_excerpt",
+      "images": [],
+      "image": "",
+      "image_source": "",
+      "image_license": "",
+      "image_title": ""
     },
     {
       "id": "8c06c024d3e90256",
@@ -26,10 +43,11 @@
       "published_at": "2026-09-02T04:00:00+00:00",
       "content": "",
       "summary_type": "source_excerpt",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Cty_Quan_ly_Kinh_Doanh_Nha_tphcm%2C49_Tran_quoc_Thao%2Cq3_hcmvn_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "image_source": "Wikimedia Commons",
-      "image_license": "CC BY 3.0",
-      "image_title": "Cty Quan ly Kinh Doanh Nha tphcm,49 Tran quoc Thao,q3 hcmvn - panoramio.jpg"
+      "images": [],
+      "image": "",
+      "image_source": "",
+      "image_license": "",
+      "image_title": ""
     },
     {
       "id": "c5820a9a238a4120",
@@ -41,10 +59,18 @@
       "published_at": "2026-09-02T03:38:29+00:00",
       "content": "",
       "summary_type": "source_excerpt",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/B%E1%BA%A3n_%C4%91%E1%BB%93_L%E1%BB%8Bch_s%E1%BB%AD_V%C4%83n_minh_Th%E1%BA%BF_gi%E1%BB%9Bi_4000_n%C4%83m.jpg/1280px-B%E1%BA%A3n_%C4%91%E1%BB%93_L%E1%BB%8Bch_s%E1%BB%AD_V%C4%83n_minh_Th%E1%BA%BF_gi%E1%BB%9Bi_4000_n%C4%83m.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "images": [
+        {
+          "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/A_letter_to_clergymen_on_the_preservation_of_health%2C_and_the_use_of_Peruvian_syrup%2C_or_protected_solution_of_protoxide_of_iron_combined%2C_as_a_medicinal_agent_%28IA_61710710R.nlm.nih.gov%29.pdf/page1-500px-thumbnail.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "image_source": "Wikimedia Commons",
+          "image_license": "Public domain",
+          "image_title": "A letter to clergymen on the preservation of health, and the use of Peruvian syrup, or protected solution of protoxide of iron combined, as a medicinal agent (IA 61710710R.nlm.nih.gov).pdf"
+        }
+      ],
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/A_letter_to_clergymen_on_the_preservation_of_health%2C_and_the_use_of_Peruvian_syrup%2C_or_protected_solution_of_protoxide_of_iron_combined%2C_as_a_medicinal_agent_%28IA_61710710R.nlm.nih.gov%29.pdf/page1-500px-thumbnail.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "image_source": "Wikimedia Commons",
-      "image_license": "CC BY-SA 4.0",
-      "image_title": "Bản đồ Lịch sử Văn minh Thế giới 4000 năm.jpg"
+      "image_license": "Public domain",
+      "image_title": "A letter to clergymen on the preservation of health, and the use of Peruvian syrup, or protected solution of protoxide of iron combined, as a medicinal agent (IA 61710710R.nlm.nih.gov).pdf"
     },
     {
       "id": "3c693a290e7ae251",
@@ -56,25 +82,18 @@
       "published_at": "2026-09-02T03:00:00+00:00",
       "content": "",
       "summary_type": "source_excerpt",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/B%E1%BB%99_l%E1%BB%8Dc_s%E1%BB%AD_d%E1%BB%A5ng_c%C3%B4ng_ngh%E1%BB%87_m%C3%A0ng_l%E1%BB%8Dc_s%E1%BB%A3i_r%E1%BB%97ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "image_source": "Wikimedia Commons",
-      "image_license": "CC BY-SA 4.0",
-      "image_title": "Bộ lọc sử dụng công nghệ màng lọc sợi rỗng.jpg"
-    },
-    {
-      "id": "36cc4ecedc105937",
-      "title": "Tam ca Áo trắng quây quần bên các con",
-      "url": "https://vnexpress.net/tam-ca-ao-trang-quay-quan-ben-cac-con-5115705.html",
-      "summary": "Tam ca Áo Trắng chụp bộ ảnh kỷ niệm bên các con, dịp họ từ Mỹ về nước thăm người thân.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:13:22+00:00",
-      "content": "",
-      "summary_type": "source_excerpt",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Tam_quoc_Nguyen_An_Cu_1928_-_06.pdf/page1-1280px-Tam_quoc_Nguyen_An_Cu_1928_-_06.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "images": [
+        {
+          "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Di%E1%BB%85n_v%C4%83n_c%E1%BB%A7a_%E1%BB%A6y_ban_nh%C3%A2n_d%C3%A2n_C%C3%A1ch_m%E1%BA%A1ng_Th%E1%BB%ABa_Thi%C3%AAn_v%E1%BB%81_vi%E1%BB%87c_thay_m%E1%BA%B7t_Ch%C3%ADnh_ph%E1%BB%A7_ch%E1%BA%A5p_nh%E1%BA%ADn_s%E1%BB%B1_tho%C3%A1i_v%E1%BB%8B_c%E1%BB%A7a_Vua_B%E1%BA%A3o_%C4%90%E1%BA%A1i_ng%C3%A0y_30-08-1945_do_%C4%91%E1%BB%93ng_ch%C3%AD_Tr%E1%BA%A7n_Huy_Li%E1%BB%87u_%C4%91%E1%BB%8Dc.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "image_source": "Wikimedia Commons",
+          "image_license": "Public domain",
+          "image_title": "Diễn văn của Ủy ban nhân dân Cách mạng Thừa Thiên về việc thay mặt Chính phủ chấp nhận sự thoái vị của Vua Bảo Đại ngày 30-08-1945 do đồng chí Trần Huy Liệu đọc.png"
+        }
+      ],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Di%E1%BB%85n_v%C4%83n_c%E1%BB%A7a_%E1%BB%A6y_ban_nh%C3%A2n_d%C3%A2n_C%C3%A1ch_m%E1%BA%A1ng_Th%E1%BB%ABa_Thi%C3%AAn_v%E1%BB%81_vi%E1%BB%87c_thay_m%E1%BA%B7t_Ch%C3%ADnh_ph%E1%BB%A7_ch%E1%BA%A5p_nh%E1%BA%ADn_s%E1%BB%B1_tho%C3%A1i_v%E1%BB%8B_c%E1%BB%A7a_Vua_B%E1%BA%A3o_%C4%90%E1%BA%A1i_ng%C3%A0y_30-08-1945_do_%C4%91%E1%BB%93ng_ch%C3%AD_Tr%E1%BA%A7n_Huy_Li%E1%BB%87u_%C4%91%E1%BB%8Dc.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "image_source": "Wikimedia Commons",
       "image_license": "Public domain",
-      "image_title": "Tam quoc Nguyen An Cu 1928 - 06.pdf"
+      "image_title": "Diễn văn của Ủy ban nhân dân Cách mạng Thừa Thiên về việc thay mặt Chính phủ chấp nhận sự thoái vị của Vua Bảo Đại ngày 30-08-1945 do đồng chí Trần Huy Liệu đọc.png"
     }
   ],
   "policy": {
@@ -84,9 +103,10 @@
     "source_attribution": true,
     "ai_mode": "original_detailed_article",
     "target_article_words": "900-1200",
+    "minimum_article_words": 750,
     "ai_provider": "Cerebras",
     "ai_model": "llama3.1-8b",
     "image_provider": "Wikimedia Commons",
-    "image_policy": "explicit open-license or public-domain metadata required"
+    "image_policy": "only relevant CC BY/CC BY-SA/CC0/public-domain files; otherwise no image"
   }
 }
