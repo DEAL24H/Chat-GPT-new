@@ -1,397 +1,190 @@
 import hashlib
 import json
-import os
 import re
 from datetime import datetime, timezone
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-import feedparser
 import requests
 from bs4 import BeautifulSoup
-from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "data" / "news.json"
-SOURCES = {
-    "Việt Nam": "https://vnexpress.net/rss/tin-moi-nhat.rss",
-    "Thế giới": "https://vnexpress.net/rss/the-gioi.rss",
-    "Kinh doanh": "https://vnexpress.net/rss/kinh-doanh.rss",
-    "Công nghệ": "https://vnexpress.net/rss/so-hoa.rss",
-    "Giải trí": "https://vnexpress.net/rss/giai-tri.rss",
-}
-MAX_POSTS = 5
-MAX_SOURCE_CHARS = 24000
-MODEL = "gpt-oss-120b"
-HEADERS = {"User-Agent": "DiemTin24H/1.2 (+GitHub Pages editorial bot)"}
-COMMONS_API = "https://commons.wikimedia.org/w/api.php"
-STOPWORDS = {
-    "và", "của", "với", "cho", "một", "các", "những", "được", "trong", "tháng", "năm", "tại",
-    "từ", "sẽ", "là", "bị", "đã", "the", "and", "with", "phim", "bài", "người", "việt", "nam",
-    "giảm", "tăng", "tiếp", "tục", "hoàn", "toàn", "gây", "nhờ", "câu", "chuyện", "dạy", "con",
-}
+DATA_DIR = ROOT / "data"
+OUT = DATA_DIR / "news.json"
+STATE = DATA_DIR / "deal_state.json"
+HEADERS = {"User-Agent": "Deal24H/1.0 (+GitHub Pages public coupon collector)"}
+MAX_DEALS = 1200
 
-# These are exact Commons files for people that frequently appear in Vietnamese entertainment news.
-# The bot still checks the live license metadata before using any file.
-PERSON_FILE_CANDIDATES = {
-    "thu trang": [
-        "File:THU TRANG - THE THIRD EYE.jpg",
-        "File:ThuTrang1984.jpg",
-        "File:THU TRANG 2020.jpg",
-    ],
-    "tiến luật": [
-        "File:Tien Luat ATVNCG24.png",
-        "File:Tien Luat.png",
-    ],
+# Public pages used as discovery sources. The bot only reads publicly visible offer data.
+# If a source has not changed since the previous run, it is not parsed again.
+SOURCES = [
+    {"name": "CouponScouter", "url": "https://couponscouter.com/", "category": "Thời trang"},
+    {"name": "Coupon Kent", "url": "https://couponkent.com/", "category": "Tổng hợp"},
+    {"name": "DealAtlas", "url": "https://dealatlas.org/", "category": "Tổng hợp"},
+    {"name": "SimplyCodes", "url": "https://simplycodes.com/", "category": "Tổng hợp"},
+]
+
+CATEGORIES = {
+    "Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo"],
+    "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique"],
+    "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"],
 }
 
+CODE_RE = re.compile(r"\b[A-Z][A-Z0-9_-]{3,24}\b")
+DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
+BAD_CODES = {"COPY", "CODE", "COUPON", "TODAY", "DEAL", "SALE", "NEW", "SHOP", "SAVE", "HTTPS", "WWW", "CLICK", "VERIFY"}
 
-def clean(text: str) -> str:
+
+def clean(text):
     return re.sub(r"\s+", " ", BeautifulSoup(text or "", "html.parser").get_text(" ")).strip()
 
 
-def date_of(entry):
-    for key in ("published", "updated"):
-        value = entry.get(key)
-        if value:
-            try:
-                return parsedate_to_datetime(value).astimezone(timezone.utc).isoformat()
-            except Exception:
-                pass
+def now():
     return datetime.now(timezone.utc).isoformat()
 
 
-def post_id(url: str) -> str:
-    return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
-
-
-def fetch_article_text(url: str) -> str:
-    response = requests.get(url, headers=HEADERS, timeout=25)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, "html.parser")
-    paragraphs = []
-    for selector in ["article.fck_detail p.Normal", ".fck_detail p.Normal", "p.Normal"]:
-        paragraphs = []
-        for p in soup.select(selector):
-            text = clean(p.get_text(" "))
-            if len(text) >= 35:
-                paragraphs.append(text)
-        if paragraphs:
-            break
-
-    if not paragraphs:
-        for script in soup.select('script[type="application/ld+json"]'):
-            try:
-                data = json.loads(script.string or script.get_text())
-                objects = data if isinstance(data, list) else [data]
-                for obj in objects:
-                    body = obj.get("articleBody") if isinstance(obj, dict) else None
-                    if body:
-                        text = clean(body)
-                        if len(text) >= 300:
-                            paragraphs = [text]
-                            break
-            except Exception:
-                continue
-            if paragraphs:
-                break
-    return "\n\n".join(paragraphs)[:MAX_SOURCE_CHARS]
-
-
-def _license_ok(meta):
-    license_name = clean(meta.get("LicenseShortName", {}).get("value", ""))
-    normalized = license_name.lower().replace("–", "-").strip()
-    if normalized == "cc0" or normalized.startswith("public domain") or normalized in {"pd", "pd-us", "pd-old"}:
-        return license_name
-    if normalized.startswith("cc by-sa") or normalized.startswith("cc by ") or normalized == "cc by":
-        if "nc" not in normalized and "nd" not in normalized:
-            return license_name
-    return ""
-
-
-def _commons_file_lookup(titles):
-    if not titles:
-        return []
-    params = {
-        "action": "query",
-        "format": "json",
-        "titles": "|".join(titles),
-        "prop": "imageinfo",
-        "iiprop": "url|extmetadata",
-        "iiurlwidth": 1200,
-    }
-    response = requests.get(COMMONS_API, params=params, headers=HEADERS, timeout=15)
-    response.raise_for_status()
-    pages = response.json().get("query", {}).get("pages", {})
-    results = []
-    for page in pages.values():
-        info = (page.get("imageinfo") or [{}])[0]
-        meta = info.get("extmetadata") or {}
-        license_name = _license_ok(meta)
-        image_url = info.get("thumburl") or info.get("url")
-        if not license_name or not image_url:
-            continue
-        title = clean(page.get("title", "")).replace("File:", "", 1).strip()
-        results.append({
-            "image": image_url,
-            "image_source": "Wikimedia Commons",
-            "image_license": license_name,
-            "image_title": title,
-            "image_page": "https://commons.wikimedia.org/wiki/" + page.get("title", "").replace(" ", "_") if page.get("title") else "",
-        })
-    return results
-
-
-def _commons_search(query: str, wanted_tokens=None, limit=20):
-    params = {
-        "action": "query",
-        "format": "json",
-        "generator": "search",
-        "gsrsearch": query,
-        "gsrnamespace": 6,
-        "gsrlimit": limit,
-        "prop": "imageinfo",
-        "iiprop": "url|extmetadata",
-        "iiurlwidth": 1200,
-    }
-    response = requests.get(COMMONS_API, params=params, headers=HEADERS, timeout=15)
-    response.raise_for_status()
-    pages = response.json().get("query", {}).get("pages", {})
-    results = []
-    wanted_tokens = set(wanted_tokens or [])
-    for page in pages.values():
-        info = (page.get("imageinfo") or [{}])[0]
-        meta = info.get("extmetadata") or {}
-        license_name = _license_ok(meta)
-        if not license_name:
-            continue
-        title = clean(page.get("title", "")).replace("File:", "", 1).strip()
-        haystack_words = set(x.lower() for x in _tokens(title))
-        score = sum(1 for token in wanted_tokens if token.lower() in haystack_words)
-        image_url = info.get("thumburl") or info.get("url")
-        if image_url:
-            results.append((score, {
-                "image": image_url,
-                "image_source": "Wikimedia Commons",
-                "image_license": license_name,
-                "image_title": title,
-                "image_page": "https://commons.wikimedia.org/wiki/" + page.get("title", "").replace(" ", "_") if page.get("title") else "",
-            }))
-    results.sort(key=lambda x: x[0], reverse=True)
-    return results
-
-
-def _tokens(text):
-    return [
-        x for x in re.findall(r"[\wÀ-ỹà-ỹ]+", text or "", flags=re.UNICODE)
-        if len(x) >= 3 and x.lower() not in STOPWORDS and not x.isdigit()
-    ]
-
-
-def find_openly_licensed_images(title: str, summary: str, category: str):
-    """Use only clearly relevant Commons images with explicit reusable licenses.
-
-    Important: one accidental substring match is never enough. If no relevant licensed
-    image is found, return no image rather than filling the card with a random picture.
-    """
-    selected = []
-    context = f"{title} {summary}".lower()
-
-    # 1) Exact, known people first. This prevents fuzzy search from choosing an unrelated file.
-    people = []
-    if "thu trang" in context:
-        people.append("thu trang")
-    if "tiến luật" in context or "tien luat" in context:
-        people.append("tiến luật")
-
-    for person in people:
-        try:
-            results = _commons_file_lookup(PERSON_FILE_CANDIDATES[person])
-            if results:
-                selected.append(results[0])
-        except Exception as exc:
-            print(f"Commons exact person lookup failed for {person!r}: {exc}")
-
-    # 2) Topic-specific query. Require real word matches in the file title.
-    if not selected:
-        tokens = _tokens(title)
-        if "2g" in context:
-            tokens.extend(["2g", "mobile", "phone"])
-        if "iran" in context:
-            tokens.extend(["iran", "flag"])
-        if "peru" in context:
-            tokens.extend(["peru", "flag"])
-        if "mixue" in context:
-            tokens.extend(["mixue", "ice", "cream"])
-        # preserve order and remove duplicates
-        tokens = list(dict.fromkeys(tokens))
-        query = " ".join(tokens[:8]) or category
-        try:
-            results = _commons_search(query, tokens[:8])
-            if results:
-                best_score, best_image = results[0]
-                # A unique brand/person token may be enough; generic 3-4 letter words are not.
-                strong_single = any(len(token) >= 5 and token.lower() in _tokens(best_image["image_title"]) for token in tokens)
-                if best_score >= 2 or strong_single:
-                    selected.append(best_image)
-        except Exception as exc:
-            print(f"Commons topical image search failed for {title!r}: {exc}")
-
-    dedup = []
-    seen = set()
-    for image in selected:
-        if image["image"] not in seen:
-            seen.add(image["image"])
-            dedup.append(image)
-    return dedup[:2]
-
-
-def word_count(text: str) -> int:
-    return len(re.findall(r"\b\w+[\wÀ-ỹà-ỹ'-]*\b", text or "", flags=re.UNICODE))
-
-
-def _parse_ai_json(raw: str, fallback_title: str):
-    raw = (raw or "").strip()
+def load_json(path, fallback):
+    if not path.exists():
+        return fallback
     try:
-        data = json.loads(raw)
-        return clean(data.get("title", fallback_title)) or fallback_title, str(data.get("content", "")).strip()
+        return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
-        match = re.search(r"\{.*\}", raw, flags=re.DOTALL)
-        if match:
-            try:
-                data = json.loads(match.group(0))
-                return clean(data.get("title", fallback_title)) or fallback_title, str(data.get("content", "")).strip()
-            except Exception:
-                pass
-        return fallback_title, raw
+        return fallback
 
 
-def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
-    api_key = os.environ.get("CEREBRAS_API_KEY")
-    if not api_key or len(source_text) < 500:
-        return "", title
+def save_json(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    client = OpenAI(base_url="https://api.cerebras.ai/v1", api_key=api_key)
-    prompt = (
-        "Bạn là biên tập viên của ĐIỂM TIN 24H. Dựa trên các dữ kiện trong tài liệu nguồn, "
-        "hãy viết một bài báo tiếng Việt DÀI, NGUYÊN BẢN và có chiều sâu. Mục tiêu 900-1200 từ, "
-        "tối thiểu 750 từ. Không được biến thành một đoạn tóm tắt ngắn. Khai thác đầy đủ diễn biến, "
-        "nhân vật, số liệu, bối cảnh, nguyên nhân, hệ quả hoặc tác động khi tài liệu thực sự cung cấp. "
-        "Chia bài thành nhiều đoạn, có mở bài, phần triển khai và kết bài tự nhiên. Không bịa thêm dữ kiện, "
-        "phát ngôn, con số hoặc sự kiện. Không chép nguyên câu, không tái tạo cấu trúc hay cách diễn đạt của "
-        "bài nguồn. Đây là bài biên tập độc lập dựa trên các sự kiện. Trả về JSON với title và content; "
-        "content là văn bản thuần, các đoạn cách nhau bằng một dòng trống.\n\n"
-        f"Chuyên mục: {category}\nTiêu đề tham khảo: {title}\n\n"
-        f"Tài liệu dữ kiện nguồn:\n{source_text}"
-    )
-    response = client.chat.completions.create(
-        model=MODEL,
-        temperature=0.3,
-        max_completion_tokens=5000,
-        response_format={"type": "json_object"},
-        messages=[
-            {"role": "system", "content": "Tạo bài báo nguyên bản, dài, chính xác theo dữ kiện; không sao chép văn bản nguồn."},
-            {"role": "user", "content": prompt},
-        ],
-    )
-    new_title, content = _parse_ai_json(response.choices[0].message.content or "", title)
 
-    if word_count(content) < 750:
-        expand_prompt = (
-            "Mở rộng bản thảo dưới đây thành bài báo tiếng Việt khoảng 900-1200 từ. Giữ nguyên mọi dữ kiện đã có; "
-            "phát triển bối cảnh, giải thích và mạch kể chỉ khi chúng đã được hỗ trợ bởi bản thảo; không bịa thêm, "
-            "không lặp ý và không sao chép nguồn. Trả về văn bản thuần với nhiều đoạn.\n\n"
-            f"Bản thảo cần mở rộng:\n{content}"
-        )
-        expanded = client.chat.completions.create(
-            model=MODEL,
-            temperature=0.3,
-            max_completion_tokens=5000,
-            messages=[
-                {"role": "system", "content": "Mở rộng bài báo nguyên bản, không thêm dữ kiện không được hỗ trợ."},
-                {"role": "user", "content": expand_prompt},
-            ],
-        )
-        expanded_text = (expanded.choices[0].message.content or "").strip()
-        if word_count(expanded_text) > word_count(content):
-            content = expanded_text
+def source_changed(html, previous):
+    digest = hashlib.sha256(html.encode("utf-8", errors="ignore")).hexdigest()
+    return digest, digest != previous.get("hash")
 
-    print(f"AI article: {title!r} -> {word_count(content)} words")
-    return content, new_title
+
+def category_for(text, fallback="Tổng hợp"):
+    value = text.lower()
+    for category, words in CATEGORIES.items():
+        if any(re.search(r"\b" + re.escape(word) + r"\b", value) for word in words):
+            return category
+    return fallback
+
+
+def merchant_from_context(context, source_name):
+    context = clean(context)
+    # Prefer a heading-like phrase before the offer text.
+    bits = re.split(r"\s+[|·•–—]\s+", context)
+    candidate = bits[0] if bits else context
+    candidate = re.sub(r"^(verified|new|hot deal|deal|coupon|promo|code)\s*", "", candidate, flags=re.I).strip()
+    candidate = candidate[:90]
+    if not candidate or candidate.lower() in {source_name.lower(), "today's top coupons", "popular coupons"}:
+        return ""
+    return candidate
+
+
+def extract_deals(html, source):
+    soup = BeautifulSoup(html, "html.parser")
+    blocks = []
+    # Small visible blocks reduce false matches and keep the parser cheap.
+    for tag in soup.find_all(["article", "li", "div", "section"]):
+        text = clean(tag.get_text(" ", strip=True))
+        if 25 <= len(text) <= 700 and re.search(r"\b(?:code|coupon|promo)\b", text, re.I):
+            blocks.append(text)
+    if not blocks:
+        blocks = [clean(x) for x in soup.stripped_strings]
+
+    deals = []
+    seen = set()
+    for block in blocks:
+        codes = []
+        for match in CODE_RE.findall(block.upper()):
+            if match in BAD_CODES or len(match) < 4:
+                continue
+            # Require a code-like cue near the token. This prevents random headings being published.
+            pos = block.upper().find(match)
+            window = block[max(0, pos - 45):pos + len(match) + 45].lower()
+            if "code" in window or "coupon" in window or "promo" in window:
+                codes.append(match)
+        if not codes:
+            continue
+        discount = DISCOUNT_RE.search(block)
+        merchant = merchant_from_context(block, source["name"])
+        if not merchant:
+            merchant = source["name"]
+        category = category_for(block + " " + merchant, source["category"])
+        for code in codes[:3]:
+            key = (merchant.lower(), code.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            deals.append({
+                "id": hashlib.sha256((source["name"] + "|" + merchant + "|" + code).encode()).hexdigest()[:16],
+                "title": f"{merchant} — {discount.group(0) if discount else 'Ưu đãi'}",
+                "content": block[:500],
+                "code": code,
+                "discount": discount.group(0) if discount else "",
+                "merchant": merchant,
+                "category": category,
+                "country": "Quốc tế",
+                "url": source["url"],
+                "source_url": source["url"],
+                "source_label": source["name"],
+                "detected_at": now(),
+                "last_checked": now(),
+                "status": "active",
+                "verified": False,
+                "images": [],
+                "image": "",
+                "summary_type": "public_coupon_discovery",
+            })
+    return deals
 
 
 def main():
-    # Keep one item per URL even when the same newest story appears in multiple RSS feeds.
-    by_url = {}
-    for category, feed_url in SOURCES.items():
-        feed = feedparser.parse(feed_url)
-        for entry in feed.entries:
-            title = clean(entry.get("title"))
-            url = entry.get("link", "")
-            if title and url and url not in by_url:
-                by_url[url] = {
-                    "id": post_id(url),
-                    "title": title,
-                    "url": url,
-                    "summary": clean(entry.get("summary", ""))[:500],
-                    "category": category,
-                    "source": "VnExpress",
-                    "published_at": date_of(entry),
-                }
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    state = load_json(STATE, {"sources": {}, "deals": {}})
+    existing = load_json(OUT, [])
+    if not isinstance(existing, list):
+        existing = []
 
-    candidates = list(by_url.values())
-    candidates.sort(key=lambda item: item["published_at"], reverse=True)
-    posts = []
-    for item in candidates[:MAX_POSTS]:
+    by_key = {(d.get("merchant", "").lower(), d.get("code", "").lower()): d for d in existing if d.get("code")}
+    changed_sources = 0
+    new_count = 0
+
+    for source in SOURCES:
+        previous = state["sources"].get(source["url"], {})
         try:
-            source_text = fetch_article_text(item["url"])
-            print(f"Source length for {item['title']!r}: {len(source_text)} chars")
-            if len(source_text) < 500:
-                # Do not ask the AI to invent a 750-word article from a tiny RSS summary.
-                item["content"] = ""
-                item["summary_type"] = "source_excerpt"
-            else:
-                content, new_title = ai_article(source_text, item["title"], item["category"])
-                if content:
-                    item["title"] = new_title
-                    item["content"] = content
-                    item["summary"] = content.split("\n\n", 1)[0][:360]
-                    item["summary_type"] = "cerebras_ai_original_article"
+            response = requests.get(source["url"], headers=HEADERS, timeout=20)
+            response.raise_for_status()
+            html = response.text
+            digest, changed = source_changed(html, previous)
+            state["sources"][source["url"]] = {"hash": digest, "last_checked": now(), "last_changed": previous.get("last_changed") or now()}
+            if not changed:
+                print(f"SKIP unchanged: {source['name']}")
+                continue
+            state["sources"][source["url"]]["last_changed"] = now()
+            changed_sources += 1
+            deals = extract_deals(html, source)
+            for deal in deals:
+                key = (deal["merchant"].lower(), deal["code"].lower())
+                old = by_key.get(key)
+                if old:
+                    old.update({"last_checked": now(), "status": "active", "source_url": deal["source_url"], "source_label": deal["source_label"]})
                 else:
-                    item["content"] = ""
-                    item["summary_type"] = "source_excerpt"
-            images = find_openly_licensed_images(item["title"], item["summary"], item["category"])
-            item["images"] = images
-            item.update(images[0] if images else {"image": "", "image_source": "", "image_license": "", "image_title": "", "image_page": ""})
+                    by_key[key] = deal
+                    new_count += 1
+            print(f"CHANGED {source['name']}: discovered {len(deals)} offers")
         except Exception as exc:
-            print(f"Article processing failed for {item['url']}: {exc}")
-            item["content"] = ""
-            item["summary_type"] = "source_excerpt"
-            images = find_openly_licensed_images(item["title"], item["summary"], item["category"])
-            item["images"] = images
-            item.update(images[0] if images else {"image": "", "image_source": "", "image_license": "", "image_title": "", "image_page": ""})
-        posts.append(item)
+            state["sources"][source["url"]] = {**previous, "last_checked": now(), "last_error": str(exc)[:240]}
+            print(f"SOURCE ERROR {source['name']}: {exc}")
 
-    payload = {
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-        "items": posts,
-        "policy": {
-            "max_posts_per_run": MAX_POSTS,
-            "full_source_text_stored": False,
-            "source_images_stored": False,
-            "source_attribution": True,
-            "ai_mode": "original_detailed_article",
-            "target_article_words": "900-1200",
-            "minimum_article_words": 750,
-            "ai_provider": "Cerebras",
-            "ai_model": MODEL,
-            "image_provider": "Wikimedia Commons",
-            "image_policy": "only clearly relevant CC BY/CC BY-SA/CC0/public-domain files; no random fallback image",
-        },
-    }
-    OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Prepared {len(posts)} posts")
+    # Newest first; keep a bounded database so Pages stays fast.
+    all_deals = list(by_key.values())
+    all_deals.sort(key=lambda d: d.get("last_checked", ""), reverse=True)
+    all_deals = all_deals[:MAX_DEALS]
+
+    save_json(OUT, all_deals)
+    save_json(STATE, state)
+    print(f"DONE: changed_sources={changed_sources}, new_deals={new_count}, total={len(all_deals)}")
 
 
 if __name__ == "__main__":
