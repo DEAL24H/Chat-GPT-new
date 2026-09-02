@@ -45,7 +45,10 @@ def active(deal):
     expiry = str(deal.get("expires_at", "")).strip()
     if expiry:
         try:
-            return datetime.fromisoformat(expiry.replace("Z", "+00:00")) > datetime.now(timezone.utc)
+            dt = datetime.fromisoformat(expiry.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt > datetime.now(timezone.utc)
         except ValueError:
             return False
     return True
@@ -57,28 +60,29 @@ def brand_logo(brand):
     domain = brand_domain(brand)
     return f"https://www.google.com/s2/favicons?domain={quote(domain)}&sz=128" if domain else ""
 
-def page(title, description, canonical, body):
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/Chat-GPT-new/assets/style.css"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/Chat-GPT-new/">DEAL <span>24H</span></a><a href="/Chat-GPT-new/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Public coupon and deal data with source attribution.</div></footer></body></html>'''
+def jsonld(data):
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + '</script>'
+
+def page(title, description, canonical, body, structured=None, robots="index,follow"):
+    schema = jsonld(structured) if structured else ""
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{schema}<link rel="stylesheet" href="/Chat-GPT-new/assets/style.css"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/Chat-GPT-new/">DEAL <span>24H</span></a><a href="/Chat-GPT-new/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Public coupon and deal data with source attribution.</div></footer></body></html>'''
 
 def deal_card(deal):
     brand = brand_name(deal)
-    logo = brand_logo(brand)
     code = esc(deal.get("code"))
     discount = esc(deal.get("discount") or "Coupon deal")
     source = esc(deal.get("source_label") or "Official merchant source")
     url = esc(deal.get("url") or deal.get("source_url") or "#")
     expires = esc(deal.get("expires_at") or "")
-    initials = esc("".join(x[0] for x in re.findall(r"[A-Za-z0-9]+", brand)[:2]).upper() or brand[:2].upper())
-    image = f'<img class="brandlogo-img" src="{esc(logo)}" alt="{esc(brand)} logo" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">' if logo else ""
-    expiry_html = f'<small>Expires: {expires}</small>' if expires else ""
-    return f'<article class="card"><div class="brandrow"><div class="brandlogo">{image}<span class="brandfallback" style="display:{"none" if logo else "grid"}">{initials}</span></div><div class="brandinfo"><strong>{esc(brand)}</strong><span class="tag">{esc(CATEGORIES.get(category_key(deal), "Deals"))} coupon</span></div></div><h3>{esc(brand)} Coupon Code</h3><p>{discount}</p><div class="code"><strong>{code}</strong></div><a href="{url}" rel="nofollow noopener">Get deal at {esc(brand)}</a><small>Source: {source} · Last checked: {esc(deal.get("last_checked", ""))}</small>{expiry_html}</article>'
+    return f'<article class="card"><div class="brandrow"><div class="brandinfo"><strong>{esc(brand)}</strong><span class="tag">{esc(CATEGORIES.get(category_key(deal), "Deals"))} coupon</span></div></div><h3>{esc(brand)} Coupon Code</h3><p>{discount}</p><div class="code"><strong>{code}</strong></div><a href="{url}" rel="nofollow noopener">Get deal at {esc(brand)}</a><small>Source: {source} · Last checked: {esc(deal.get("last_checked", ""))}</small>{f'<small>Expires: {expires}</small>' if expires else ''}</article>'
 
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
 
 def main():
-    deals = [d for d in load() if active(d)]
+    all_deals = load()
+    deals = [d for d in all_deals if active(d)]
     grouped = defaultdict(list)
     for d in deals:
         cat = category_key(d)
@@ -86,42 +90,68 @@ def main():
             grouped[cat].append(d)
             grouped[(cat, brand_name(d).lower())].append(d)
 
+    # Existing category SEO pages are retained; brand SEO v1 uses a clean /brand/<slug>/ layer.
     urls = {BASE + "/", BASE + "/fashion/", BASE + "/beauty/", BASE + "/gaming/", BASE + "/consumer/"}
+    active_brands = []
 
     for cat, label in CATEGORIES.items():
         items = grouped.get(cat, [])
         cards = "".join(deal_card(d) for d in items[:60]) or '<p>No active coupon codes are currently listed. Check back soon for new offers.</p>'
         links = []
         for brand in KNOWN_BRANDS[cat]:
-            bslug = slug(brand)
-            links.append(f'<li><a href="/Chat-GPT-new/{cat}/{bslug}-coupons/">{esc(brand)} coupons</a></li>')
-            urls.add(f"{BASE}/{cat}/{bslug}-coupons/")
-        body = f'<section class="hero"><div><p class="eyebrow">INTERNATIONAL COUPON CODES</p><h1>{label} Coupons & Promo Codes</h1><p class="lead">Fresh public coupon codes and deals for {label.lower()} stores. Codes are collected only from official merchant sources and shown with source attribution.</p></div></section><section><h2>Latest {label} coupon codes</h2><div class="grid">{cards}</div></section><section><h2>Popular {label} brands</h2><ul>{"".join(links)}</ul></section>'
+            brand_items = grouped.get((cat, brand.lower()), [])
+            if brand_items:
+                bslug = slug(brand)
+                links.append(f'<li><a href="/Chat-GPT-new/brand/{bslug}/">{esc(brand)} coupons</a></li>')
+        body = f'<section class="hero"><div><p class="eyebrow">INTERNATIONAL COUPON CODES</p><h1>{label} Coupons & Promo Codes</h1><p class="lead">Fresh public coupon codes and deals for {label.lower()} stores. Codes are collected only from official merchant sources and shown with source attribution.</p></div></section><section><h2>Latest {label} coupon codes</h2><div class="grid">{cards}</div></section><section><h2>Brands with active deals</h2><ul>{"".join(links) or "<li>No active brand deals currently listed.</li>"}</ul></section>'
         write(ROOT / cat / "index.html", page(f"{label} Coupons & Promo Codes | DEAL 24H", f"Find international {label.lower()} coupon codes, promo codes and deals updated by DEAL 24H.", f"{BASE}/{cat}/", body))
 
     for cat, label in CATEGORIES.items():
         for brand in KNOWN_BRANDS[cat]:
             items = grouped.get((cat, brand.lower()), [])
             bslug = slug(brand)
-            cards = "".join(deal_card(d) for d in items[:40]) or '<p>No active coupon codes are currently listed for this brand. The page will update automatically when an official merchant code is found.</p>'
-            logo = brand_logo(brand)
-            initials = esc("".join(x[0] for x in re.findall(r"[A-Za-z0-9]+", brand)[:2]).upper() or brand[:2].upper())
-            hero_img = f'<img class="brandhero-img" src="{esc(logo)}" alt="{esc(brand)} logo" loading="eager" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">' if logo else ""
-            hero = f'<div class="brandhero"><div class="brandhero-logo">{hero_img}<span class="brandfallback" style="display:{"none" if logo else "grid"}">{initials}</span></div><div><p class="eyebrow">{esc(label.upper())} · COUPON CODES</p><h1>{esc(brand)} Coupon Codes & Promo Codes</h1></div></div>'
-            regions = ", ".join(sorted({str(d.get("country", "")).strip() for d in items if d.get("country")})[:8]) or "International"
-            title = f"{brand} Coupon Codes & Promo Codes | DEAL 24H"
-            desc = f"Find active {brand} coupon codes, promo codes and deals. See discounts, source attribution and latest checks on DEAL 24H."
-            body = f'<section class="hero">{hero}<p class="lead">Find the latest public coupon codes and deals for {esc(brand)}. Availability can vary by country, account, product and checkout.</p></section><section><h2>Active {esc(brand)} coupon codes</h2><div class="grid">{cards}</div></section><section><h2>Availability</h2><p>Known listing region: {esc(regions)}. Always check the official merchant checkout for final terms and eligibility.</p></section><p><a href="/Chat-GPT-new/{cat}/">← More {esc(label)} coupons</a></p>'
-            write(ROOT / cat / f"{bslug}-coupons" / "index.html", page(title, desc, f"{BASE}/{cat}/{bslug}-coupons/", body))
+            brand_url = f"{BASE}/brand/{bslug}/"
+            brand_dir = ROOT / "brand" / bslug
+            # SEO safety: no thin/empty brand pages are indexable.
+            if not items:
+                write(brand_dir / "index.html", page(f"{brand} Coupons | DEAL 24H", f"No active {brand} coupon codes are currently available on DEAL 24H.", brand_url, None, robots="noindex,follow"))
+                continue
 
-    write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
+            active_brands.append((brand, cat, items, brand_url))
+            cards = "".join(deal_card(d) for d in items)
+            logo = brand_logo(brand)
+            logo_html = f'<img class="brandhero-img" src="{esc(logo)}" alt="{esc(brand)} logo" loading="eager">' if logo else ""
+            body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{logo_html}</div><div><p class="eyebrow">{esc(label.upper())} · COUPON CODES</p><h1>{esc(brand)} Coupon Codes & Promo Codes</h1></div></div><p class="lead">Find active public coupon codes and deals for {esc(brand)} from official merchant sources.</p></section><section><h2>Active {esc(brand)} coupon codes</h2><div class="grid">{cards}</div></section><p><a href="/Chat-GPT-new/{cat}/">← More {esc(label)} coupons</a></p>'
+            item_list = []
+            for pos, d in enumerate(items, 1):
+                item_list.append({"@type": "ListItem", "position": pos, "name": f"{brand} coupon code {d.get('code', '')}"})
+            schema = {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {"@type": "Organization", "name": brand, "url": f"https://{brand_domain(brand)}"},
+                    {"@type": "WebPage", "name": f"{brand} Coupon Codes & Promo Codes", "url": brand_url, "description": f"Active {brand} coupon codes and promo codes from official merchant sources."},
+                    {"@type": "ItemList", "name": f"Active {brand} coupon codes", "numberOfItems": len(items), "itemListElement": item_list}
+                ]
+            }
+            write(brand_dir / "index.html", page(f"{brand} Coupon Codes & Promo Codes | DEAL 24H", f"Find active {brand} coupon codes, promo codes and deals from official merchant sources on DEAL 24H.", brand_url, schema))
+            urls.add(brand_url)
+
+    # Dedicated brand sitemap: ONLY active brands are listed.
     today = datetime.now(timezone.utc).date().isoformat()
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for url in sorted(urls):
+    for _, _, _, url in sorted(active_brands, key=lambda x: x[0].lower()):
         sitemap.append(f'<url><loc>{esc(url)}</loc><lastmod>{today}</lastmod></url>')
     sitemap.append("</urlset>")
-    write(ROOT / "sitemap.xml", "\n".join(sitemap) + "\n")
-    print(f"SEO generated: {len(urls)} indexable URLs")
+    write(ROOT / "sitemap-brands.xml", "\n".join(sitemap) + "\n")
+
+    # Main sitemap keeps the category/home URLs and active brand URLs only.
+    sitemap_all = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for url in sorted(urls):
+        sitemap_all.append(f'<url><loc>{esc(url)}</loc><lastmod>{today}</lastmod></url>')
+    sitemap_all.append("</urlset>")
+    write(ROOT / "sitemap.xml", "\n".join(sitemap_all) + "\n")
+    write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap-brands.xml\n")
+    print(f"SEO v1 generated: {len(active_brands)} active brand URLs; {len(urls)} total indexable URLs")
 
 if __name__ == "__main__":
     main()
