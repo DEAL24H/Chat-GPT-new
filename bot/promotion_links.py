@@ -7,14 +7,14 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-from news_bot import SOURCES, HEADERS, clean, category_for, parse_expiry, is_official_source, EXPLICIT_CODE_PATTERNS, BAD_CODES
+from catalog_utils import canonicalize_item, category_for_brand
+from news_bot import SOURCES, HEADERS, clean, parse_expiry, is_official_source, EXPLICIT_CODE_PATTERNS, BAD_CODES
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "news.json"
 MAX_BLOCKS_PER_SOURCE = 8
 PROMO_WORDS = re.compile(r"\b(?:sale|promotion|promotions|offer|offers|deal|deals|discount|save|savings|special offer|limited time|clearance|member offer)\b", re.I)
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%\s?off|\d{1,3}%\s?discount|save\s+\$?\d+(?:\.\d+)?)", re.I)
-AGGREGATOR_HOSTS = re.compile(r"(?:couponkent|couponscouter|dealatlas|simplycodes)", re.I)
 
 
 def load():
@@ -71,17 +71,17 @@ def extract_links(html, source):
             break
 
     results = []
+    category = category_for_brand(source["merchant"]) or source["category"]
     for block in blocks:
         discount = DISCOUNT_RE.search(block)
-        title = f"{source['merchant']} — {discount.group(0) if discount else 'Official promotion'}"
         results.append({
             "id": hashlib.sha256((source["name"] + "|promotion|" + block[:300]).encode()).hexdigest()[:16],
-            "title": title,
+            "title": f"{source['merchant']} — {discount.group(0) if discount else 'Official promotion'}",
             "content": block[:500],
             "code": "",
             "discount": discount.group(0) if discount else "",
             "merchant": source["merchant"],
-            "category": category_for(block + " " + source["merchant"], source["category"]),
+            "category": category,
             "country": "International",
             "url": source["url"],
             "source_url": source["url"],
@@ -104,7 +104,7 @@ def extract_links(html, source):
 
 
 def main():
-    existing = [x for x in load() if not expired(x)]
+    existing = [canonicalize_item(x) for x in load() if not expired(x)]
     by_id = {str(x.get("id")): x for x in existing if x.get("id")}
     discovered = 0
     errors = 0
@@ -115,9 +115,10 @@ def main():
             response = requests.get(source["url"], headers=HEADERS, timeout=25)
             response.raise_for_status()
             for deal in extract_links(response.text, source):
+                deal = canonicalize_item(deal)
                 old = by_id.get(deal["id"])
                 if old:
-                    old.update({"content": deal["content"], "discount": deal["discount"], "last_checked": deal["last_checked"], "status": "active", "promotion_url": deal["promotion_url"]})
+                    old.update({"merchant": deal["merchant"], "category": deal["category"], "content": deal["content"], "discount": deal["discount"], "last_checked": deal["last_checked"], "status": "active", "promotion_url": deal["promotion_url"]})
                     if deal.get("expires_at"):
                         old["expires_at"] = deal["expires_at"]
                 else:
@@ -127,7 +128,7 @@ def main():
             errors += 1
             print(f"PROMOTION SOURCE ERROR {source['name']}: {exc}")
 
-    data = list(by_id.values())
+    data = [canonicalize_item(x) for x in by_id.values()]
     data.sort(key=lambda x: x.get("last_checked", ""), reverse=True)
     OUT.write_text(json.dumps(data[:1200], ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"PROMOTION LINKS DONE: discovered={discovered}, source_errors={errors}, total={len(data[:1200])}")
