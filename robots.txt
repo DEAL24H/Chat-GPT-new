@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://deal24h.github.io/Chat-GPT-new/sitemap.xml
-Sitemap: https://deal24h.github.io/Chat-GPT-new/sitemap-brands.xml
+Sitemap: https://deal24h.net/sitemap.xml
+Sitemap: https://deal24h.net/sitemap-brands.xml
