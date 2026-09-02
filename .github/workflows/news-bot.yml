@@ -15,11 +15,17 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     env:
-      CEREBRAS_API_KEY: ${{ vars.CEREBRAS_API_KEY }}
+      CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Check Cerebras secret
+        if: ${{ env.CEREBRAS_API_KEY == '' }}
+        run: |
+          echo 'CEREBRAS_API_KEY is not configured as a GitHub Actions secret.'
+          echo 'Create the repository secret CEREBRAS_API_KEY before running the News Bot.'
+          exit 1
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Python
@@ -28,14 +34,14 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
-      - name: Collect, fetch details and create attributed summaries
+      - name: Collect, fetch details and create original articles
         run: python bot/news_bot.py
       - name: Commit news data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/news.json
-          git diff --cached --quiet || git commit -m 'chore: update daily news summaries'
+          git diff --cached --quiet || git commit -m 'chore: update news data'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v5
