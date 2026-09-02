@@ -9,14 +9,15 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 BASE = "https://deal24h.github.io/Chat-GPT-new"
-CATEGORIES = {"fashion": "Fashion", "beauty": "Beauty", "gaming": "Gaming"}
-CATEGORY_ALIASES = {"Thời trang": "fashion", "Fashion": "fashion", "Mỹ phẩm": "beauty", "Beauty": "beauty", "Game": "gaming", "Gaming": "gaming"}
+CATEGORIES = {"fashion": "Fashion", "beauty": "Beauty", "gaming": "Gaming", "consumer": "Consumer"}
+CATEGORY_ALIASES = {"Thời trang": "fashion", "Fashion": "fashion", "Mỹ phẩm": "beauty", "Beauty": "beauty", "Game": "gaming", "Gaming": "gaming", "Hàng tiêu dùng": "consumer", "Consumer": "consumer"}
 KNOWN_BRANDS = {
-    "fashion": ["Nike", "Adidas", "PUMA", "SHEIN", "ASOS", "Zara", "H&M", "UNIQLO", "Mango", "Crocs", "Gap", "Converse", "Under Armour"],
+    "fashion": ["Nike", "Adidas", "PUMA", "SHEIN", "ASOS", "Zara", "H&M", "UNIQLO", "Mango", "Crocs", "Gap", "Converse", "Under Armour", "Reebok"],
     "beauty": ["Sephora", "Ulta", "NARS", "MAC", "CeraVe", "The Ordinary", "Glossier", "Clinique", "Paula's Choice", "Farmacy", "Bobbi Brown", "Kosas"],
     "gaming": ["Steam", "Epic Games", "PlayStation", "Xbox", "Nintendo", "Humble", "Fanatical", "Ubisoft", "EA"],
+    "consumer": ["Dell", "Lenovo", "HP", "Best Buy", "iHerb", "Amazon", "Walmart", "Target", "IKEA", "Wayfair"]
 }
-BRAND_DOMAINS = {"dell":"dell.com", "nike":"nike.com", "adidas":"adidas.com", "puma":"puma.com", "shein":"shein.com", "asos":"asos.com", "zara":"zara.com", "h&m":"hm.com", "uniqlo":"uniqlo.com", "mango":"shop.mango.com", "crocs":"crocs.com", "gap":"gap.com", "converse":"converse.com", "under armour":"underarmour.com", "sephora":"sephora.com", "ulta":"ulta.com", "nars":"narscosmetics.com", "mac":"maccosmetics.com", "cerave":"cerave.com", "the ordinary":"theordinary.com", "glossier":"glossier.com", "clinique":"clinique.com", "paula's choice":"paulaschoice.com", "farmacy":"farmacybeauty.com", "bobbi brown":"bobbibrowncosmetics.com", "kosas":"kosas.com", "steam":"store.steampowered.com", "epic games":"store.epicgames.com", "playstation":"playstation.com", "xbox":"xbox.com", "nintendo":"nintendo.com", "humble":"humblebundle.com", "fanatical":"fanatical.com", "ubisoft":"ubisoft.com", "ea":"ea.com", "reebok":"reebok.com", "iherb":"iherb.com", "lenovo":"lenovo.com", "hp":"hp.com", "best buy":"bestbuy.com"}
+BRAND_DOMAINS = {"dell":"dell.com", "lenovo":"lenovo.com", "hp":"hp.com", "best buy":"bestbuy.com", "amazon":"amazon.com", "walmart":"walmart.com", "target":"target.com", "ikea":"ikea.com", "wayfair":"wayfair.com", "nike":"nike.com", "adidas":"adidas.com", "puma":"puma.com", "shein":"shein.com", "asos":"asos.com", "zara":"zara.com", "h&m":"hm.com", "uniqlo":"uniqlo.com", "mango":"shop.mango.com", "crocs":"crocs.com", "gap":"gap.com", "converse":"converse.com", "under armour":"underarmour.com", "reebok":"reebok.com", "sephora":"sephora.com", "ulta":"ulta.com", "nars":"narscosmetics.com", "mac":"maccosmetics.com", "cerave":"cerave.com", "the ordinary":"theordinary.com", "glossier":"glossier.com", "clinique":"clinique.com", "paula's choice":"paulaschoice.com", "farmacy":"farmacybeauty.com", "bobbi brown":"bobbibrowncosmetics.com", "kosas":"kosas.com", "iherb":"iherb.com", "steam":"store.steampowered.com", "epic games":"store.epicgames.com", "playstation":"playstation.com", "xbox":"xbox.com", "nintendo":"nintendo.com", "humble":"humblebundle.com", "fanatical":"fanatical.com", "ubisoft":"ubisoft.com", "ea":"ea.com"}
 
 def slug(value):
     value = value.lower().replace("&", " and ").replace("'", "")
@@ -34,8 +35,7 @@ def brand_name(deal):
         if brand.lower() in low: return brand
     return merchant.split("—")[0].strip()[:70]
 def active(deal): return str(deal.get("status", "active")).lower() not in {"expired", "inactive"} and bool(deal.get("code"))
-def brand_domain(brand):
-    key = brand.lower(); return BRAND_DOMAINS.get(key, "")
+def brand_domain(brand): return BRAND_DOMAINS.get(brand.lower(), "")
 def brand_logo(brand):
     domain = brand_domain(brand)
     return f"https://www.google.com/s2/favicons?domain={quote(domain)}&sz=128" if domain else ""
@@ -52,7 +52,7 @@ def main():
     for d in deals:
         cat = category_key(d)
         if cat: grouped[cat].append(d); grouped[(cat, brand_name(d).lower())].append(d)
-    urls = {BASE + "/", BASE + "/fashion/", BASE + "/beauty/", BASE + "/gaming/"}
+    urls = {BASE + "/", BASE + "/fashion/", BASE + "/beauty/", BASE + "/gaming/", BASE + "/consumer/"}
     for cat, label in CATEGORIES.items():
         items = grouped.get(cat, []); cards = "".join(deal_card(d) for d in items[:60]) or '<p>No active coupon codes are currently listed. Check back soon for new offers.</p>'
         links = []
