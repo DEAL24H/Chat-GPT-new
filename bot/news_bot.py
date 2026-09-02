@@ -19,11 +19,7 @@ SOURCES = [
     {"name": "DealAtlas", "url": "https://dealatlas.org/", "category": "Tổng hợp"},
     {"name": "SimplyCodes", "url": "https://simplycodes.com/", "category": "Tổng hợp"},
 ]
-CATEGORIES = {
-    "Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo"],
-    "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique"],
-    "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"],
-}
+CATEGORIES = {"Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo"], "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique"], "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "humble", "fanatical"]}
 CODE_RE = re.compile(r"\b[A-Z0-9][A-Z0-9_-]{3,24}\b")
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
 BAD_CODES = {"COPY", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "SAVE", "HTTPS", "WWW", "CLICK", "VERIFY", "AUTHORITY", "EDITORS", "EDITOR", "HAND-TESTED", "TESTED", "POPULAR", "LATEST", "ACTIVE", "EXCLUSIVE", "PROMO", "PROMOS", "OFFER", "OFFERS"}
@@ -52,14 +48,16 @@ def merchant_from_context(context, source_name):
     bits = re.split(r"\s+[|·•–—:]\s+", context); candidate = bits[0] if bits else context
     candidate = re.sub(r"^(verified|new|hot deal|deal|coupon|promo|code|use)\s*", "", candidate, flags=re.I).strip()[:90]
     if not candidate or candidate.lower() in GENERIC_MERCHANTS or candidate.lower() == source_name.lower(): return ""
-    if re.fullmatch(r"[A-Z0-9_-]{4,30}", candidate) or re.search(r"\b(authority|editors|hand-tested|verified codes|not bots)\b", candidate, re.I): return ""
+    if re.fullmatch(r"[A-Z0-9_-]{4,30}", candidate) or re.search(r"\b(authority|editors|hand-tested|verified codes|not bots|affiliate disclosure|terms of service|privacy policy)\b", candidate, re.I): return ""
     return candidate
 def valid_record(deal):
     code = str(deal.get("code", "")).strip().upper(); merchant = str(deal.get("merchant", "")).strip()
     if not code or code in BAD_CODES or len(code) < 4 or not merchant: return False
+    if code.isdigit(): return False
     if re.fullmatch(r"[A-Z_-]{4,30}", code) and not any(ch.isdigit() for ch in code): return False
     if merchant.lower() in GENERIC_MERCHANTS: return False
-    if re.search(r"\b(authority|editors|hand-tested|not bots|popular coupons|latest coupons)\b", merchant, re.I): return False
+    if re.search(r"\b(authority|editors|hand-tested|not bots|popular coupons|latest coupons|affiliate disclosure|terms of service|privacy policy)\b", merchant, re.I): return False
+    if re.match(r"^©?\s*\d{4}\b", merchant) or merchant.startswith("©"): return False
     return True
 def extract_deals(html, source):
     soup = BeautifulSoup(html, "html.parser"); blocks = []
@@ -69,12 +67,12 @@ def extract_deals(html, source):
     if not blocks: blocks = [clean(x) for x in soup.stripped_strings]
     deals = []; seen = set()
     for block in blocks:
-        codes = [] ; upper = block.upper()
+        codes = []; upper = block.upper()
         for match in CODE_RE.findall(upper):
-            if match in BAD_CODES or len(match) < 4: continue
+            if match in BAD_CODES or len(match) < 4 or match.isdigit(): continue
             pos = upper.find(match); window = block[max(0, pos-55):pos+len(match)+55].lower()
             cue = bool(re.search(r"\b(?:coupon|promo)\s*(?:code|codes)?\b|\bcode\b|\buse\s+this\b", window))
-            if cue and (any(ch.isdigit() for ch in match) or len(match) >= 5): codes.append(match)
+            if cue and (any(ch.isdigit() for ch in match) or len(match) >= 6): codes.append(match)
         if not codes: continue
         merchant = merchant_from_context(block, source["name"])
         if not merchant: continue
@@ -87,7 +85,6 @@ def extract_deals(html, source):
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True); state = load_json(STATE, {"sources": {}, "deals": {}}); existing = load_json(OUT, [])
     if not isinstance(existing, list): existing = []
-    # Purge legacy false positives before merging fresh discoveries.
     existing = [d for d in existing if valid_record(d)]
     by_key = {(d.get("merchant", "").lower(), d.get("code", "").lower()): d for d in existing if d.get("code")}
     changed_sources = 0; new_count = 0
