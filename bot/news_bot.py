@@ -21,11 +21,12 @@ SOURCES = {
     "Giải trí": "https://vnexpress.net/rss/giai-tri.rss",
 }
 MAX_POSTS = 5
-MAX_SOURCE_CHARS = 18000
+MAX_SOURCE_CHARS = 24000
 MODEL = "llama3.1-8b"
-HEADERS = {"User-Agent": "DiemTin24H/1.0 (+GitHub Pages editorial bot)"}
+HEADERS = {"User-Agent": "DiemTin24H/1.1 (+GitHub Pages editorial bot)"}
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 ALLOWED_LICENSES = ("CC BY", "CC BY-SA", "CC0", "Public domain", "PD")
+STOPWORDS = {"và", "của", "với", "cho", "một", "các", "những", "được", "trong", "tháng", "năm", "tại", "từ", "sẽ", "là", "bị", "đã", "the", "and", "with"}
 
 
 def clean(text: str) -> str:
@@ -48,53 +49,132 @@ def post_id(url: str) -> str:
 
 
 def fetch_article_text(url: str) -> str:
-    response = requests.get(url, headers=HEADERS, timeout=20)
+    response = requests.get(url, headers=HEADERS, timeout=25)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, "html.parser")
     paragraphs = []
-    for p in soup.select("p.Normal"):
-        text = clean(p.get_text(" "))
-        if len(text) >= 35:
-            paragraphs.append(text)
+    selectors = ["article.fck_detail p.Normal", ".fck_detail p.Normal", "p.Normal"]
+    for selector in selectors:
+        paragraphs = []
+        for p in soup.select(selector):
+            text = clean(p.get_text(" "))
+            if len(text) >= 35:
+                paragraphs.append(text)
+        if paragraphs:
+            break
+
+    # Some VnExpress pages expose the article body in JSON-LD. Read it only transiently
+    # for factual grounding; never write the source article back to news.json.
+    if not paragraphs:
+        for script in soup.select('script[type="application/ld+json"]'):
+            try:
+                data = json.loads(script.string or script.get_text())
+                objects = data if isinstance(data, list) else [data]
+                for obj in objects:
+                    body = obj.get("articleBody") if isinstance(obj, dict) else None
+                    if body:
+                        text = clean(body)
+                        if len(text) >= 300:
+                            paragraphs = [text]
+                            break
+            except Exception:
+                continue
+            if paragraphs:
+                break
     return "\n\n".join(paragraphs)[:MAX_SOURCE_CHARS]
 
 
-def find_openly_licensed_image(title: str, category: str):
-    """Find a relevant Wikimedia Commons image whose metadata states an open/public-domain license."""
-    queries = [f"{title} {category}", category, title]
-    for query in queries:
+def _license_ok(meta):
+    license_name = clean(meta.get("LicenseShortName", {}).get("value", ""))
+    return license_name if license_name and any(x.lower() in license_name.lower() for x in ALLOWED_LICENSES) else ""
+
+
+def _commons_search(query: str, wanted_tokens=None, limit=15):
+    params = {
+        "action": "query",
+        "format": "json",
+        "generator": "search",
+        "gsrsearch": query,
+        "gsrnamespace": 6,
+        "gsrlimit": limit,
+        "prop": "imageinfo",
+        "iiprop": "url|extmetadata",
+        "iiurlwidth": 1200,
+    }
+    response = requests.get(COMMONS_API, params=params, headers=HEADERS, timeout=15)
+    response.raise_for_status()
+    pages = response.json().get("query", {}).get("pages", {})
+    results = []
+    wanted_tokens = set(wanted_tokens or [])
+    for page in pages.values():
+        info = (page.get("imageinfo") or [{}])[0]
+        meta = info.get("extmetadata") or {}
+        license_name = _license_ok(meta)
+        if not license_name:
+            continue
+        title = clean(page.get("title", "")).replace("File:", "", 1).strip()
+        haystack = title.lower()
+        score = sum(1 for token in wanted_tokens if token and token.lower() in haystack)
+        image_url = info.get("thumburl") or info.get("url")
+        if image_url:
+            results.append((score, {
+                "image": image_url,
+                "image_source": "Wikimedia Commons",
+                "image_license": license_name,
+                "image_title": title,
+            }))
+    results.sort(key=lambda x: x[0], reverse=True)
+    return results
+
+
+def _tokens(text):
+    return [x for x in re.findall(r"[\wÀ-ỹà-ỹ]+", text or "", flags=re.UNICODE) if len(x) >= 3 and x.lower() not in STOPWORDS]
+
+
+def find_openly_licensed_images(title: str, category: str):
+    """Return only topical Commons images with explicit open/public-domain metadata.
+    If no relevant licensed image is found, return none rather than an unrelated picture.
+    """
+    selected = []
+    lower_title = title.lower()
+
+    # For people/entertainment stories, search the named people directly. This is much safer
+    # than searching a broad category and accidentally getting a random document or object.
+    person_queries = []
+    if "thu trang" in lower_title:
+        person_queries.append(("Thu Trang", ["thu", "trang"]))
+    if "tiến luật" in lower_title or "tien luat" in lower_title:
+        person_queries.append(("Tiến Luật", ["tiến", "luật", "tien", "luat"]))
+
+    for query, tokens in person_queries:
         try:
-            params = {
-                "action": "query",
-                "format": "json",
-                "generator": "search",
-                "gsrsearch": query,
-                "gsrnamespace": 6,
-                "gsrlimit": 10,
-                "prop": "imageinfo",
-                "iiprop": "url|extmetadata",
-                "iiurlwidth": 1200,
-            }
-            response = requests.get(COMMONS_API, params=params, headers=HEADERS, timeout=15)
-            response.raise_for_status()
-            pages = response.json().get("query", {}).get("pages", {})
-            for page in pages.values():
-                info = (page.get("imageinfo") or [{}])[0]
-                meta = info.get("extmetadata") or {}
-                license_name = clean(meta.get("LicenseShortName", {}).get("value", ""))
-                if not license_name or not any(x.lower() in license_name.lower() for x in ALLOWED_LICENSES):
-                    continue
-                image_url = info.get("thumburl") or info.get("url")
-                if image_url:
-                    return {
-                        "image": image_url,
-                        "image_source": "Wikimedia Commons",
-                        "image_license": license_name,
-                        "image_title": clean(page.get("title", "")).replace("File:", "", 1).strip(),
-                    }
+            results = _commons_search(query, tokens)
+            if results:
+                selected.append(results[0][1])
         except Exception as exc:
-            print(f"Commons image search failed for {query!r}: {exc}")
-    return {"image": "", "image_source": "", "image_license": "", "image_title": ""}
+            print(f"Commons people image search failed for {query!r}: {exc}")
+
+    # For other topics, require visible overlap between the article title and Commons filename.
+    if not selected:
+        tokens = _tokens(title)
+        query = " ".join(tokens[:6]) or category
+        try:
+            results = _commons_search(query, tokens[:6])
+            for score, image in results:
+                if score >= 1:
+                    selected.append(image)
+                    break
+        except Exception as exc:
+            print(f"Commons topical image search failed for {title!r}: {exc}")
+
+    # Never publish a random category image merely to fill the slot.
+    dedup = []
+    seen = set()
+    for image in selected:
+        if image["image"] not in seen:
+            seen.add(image["image"])
+            dedup.append(image)
+    return dedup[:2]
 
 
 def word_count(text: str) -> int:
@@ -109,21 +189,20 @@ def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
     client = OpenAI(base_url="https://api.cerebras.ai/v1", api_key=api_key)
     prompt = (
         "Bạn là biên tập viên của ĐIỂM TIN 24H. Dựa trên các dữ kiện trong tài liệu nguồn, "
-        "hãy viết một bài báo tiếng Việt DÀI, NGUYÊN BẢN và có chiều sâu. Mục tiêu bắt buộc là "
-        "900-1200 từ, tối thiểu 750 từ nếu dữ kiện nguồn đủ. Không được cố tình rút gọn thành bản tóm tắt. "
-        "Hãy khai thác đầy đủ các dữ kiện đáng chú ý: diễn biến, bối cảnh, số liệu, nguyên nhân hoặc tác động "
-        "khi nguồn thực sự cung cấp; sắp xếp thành nhiều đoạn rõ ràng để người đọc hiểu câu chuyện từ đầu đến cuối. "
-        "Nếu nguồn có nhiều chi tiết liên quan, hãy giải thích chúng thay vì bỏ qua. Không bịa thêm dữ kiện, "
-        "phát ngôn, con số hoặc kết luận. Không chép nguyên câu, không tái tạo cấu trúc hay cách diễn đạt của bài nguồn. "
-        "Đây là bài biên tập độc lập dựa trên các sự kiện đã kiểm chứng. Trả về đúng JSON với hai trường title và content; "
-        "content là văn bản thuần, các đoạn cách nhau bằng một dòng trống.\n\n"
+        "hãy viết một bài báo tiếng Việt DÀI, NGUYÊN BẢN và có chiều sâu. Mục tiêu 900-1200 từ, "
+        "tối thiểu 750 từ nếu dữ kiện nguồn đủ. Không được biến thành một đoạn tóm tắt ngắn. "
+        "Hãy khai thác đầy đủ các dữ kiện đáng chú ý: diễn biến, nhân vật, số liệu, bối cảnh, nguyên nhân, "
+        "hệ quả hoặc tác động khi nguồn thực sự cung cấp. Chia bài thành nhiều đoạn, có mở bài, phần triển khai "
+        "và kết bài tự nhiên. Không bịa thêm dữ kiện, phát ngôn, con số hoặc sự kiện. Không chép nguyên câu, "
+        "không tái tạo cấu trúc hay cách diễn đạt của bài nguồn. Đây là bài biên tập độc lập dựa trên sự kiện. "
+        "Trả về đúng JSON với hai trường title và content; content là văn bản thuần, các đoạn cách nhau bằng một dòng trống.\n\n"
         f"Chuyên mục: {category}\nTiêu đề tham khảo: {title}\n\n"
         f"Tài liệu dữ kiện nguồn:\n{source_text}"
     )
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.3,
-        max_tokens=2200,
+        max_tokens=3200,
         messages=[
             {"role": "system", "content": "Tạo bài báo nguyên bản, dài, chính xác theo dữ kiện; không sao chép văn bản nguồn."},
             {"role": "user", "content": prompt},
@@ -138,21 +217,19 @@ def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
         new_title = title
         content = raw
 
-    # If the first generation is too short, ask the model once to expand it using only the
-    # already generated draft. This keeps the published article original and prevents short outputs.
     if word_count(content) < 750:
         expand_prompt = (
-            "Hãy mở rộng bản thảo dưới đây thành bài báo tiếng Việt khoảng 900-1200 từ. "
-            "Giữ nguyên mọi dữ kiện đã có, chỉ phát triển cách giải thích, bối cảnh và mạch kể khi chúng đã được hỗ trợ; "
-            "không bịa thêm thông tin, không sao chép nguồn và không lặp ý. Trả về văn bản thuần với nhiều đoạn.\n\n"
+            "Mở rộng bản thảo dưới đây thành bài báo tiếng Việt khoảng 900-1200 từ. Giữ nguyên mọi dữ kiện đã có; "
+            "phát triển bối cảnh, giải thích và mạch kể chỉ khi chúng đã được hỗ trợ bởi bản thảo; không bịa thêm, "
+            "không lặp ý và không sao chép nguồn. Trả về văn bản thuần với nhiều đoạn.\n\n"
             f"Bản thảo cần mở rộng:\n{content}"
         )
         expanded = client.chat.completions.create(
             model=MODEL,
             temperature=0.3,
-            max_tokens=2200,
+            max_tokens=3200,
             messages=[
-                {"role": "system", "content": "Mở rộng bài báo nguyên bản mà không thêm dữ kiện không có trong bản thảo."},
+                {"role": "system", "content": "Mở rộng bài báo nguyên bản, không thêm dữ kiện không được hỗ trợ."},
                 {"role": "user", "content": expand_prompt},
             ],
         )
@@ -186,6 +263,9 @@ def main():
     for item in candidates[:MAX_POSTS]:
         try:
             source_text = fetch_article_text(item["url"])
+            # RSS summary is only a fallback grounding signal when a page exposes no article body.
+            if len(source_text) < 500:
+                source_text = item["summary"]
             content, new_title = ai_article(source_text, item["title"], item["category"])
             if content:
                 item["title"] = new_title
@@ -195,12 +275,16 @@ def main():
             else:
                 item["content"] = ""
                 item["summary_type"] = "source_excerpt"
-            item.update(find_openly_licensed_image(item["title"], item["category"]))
+            images = find_openly_licensed_images(item["title"], item["category"])
+            item["images"] = images
+            item.update(images[0] if images else {"image": "", "image_source": "", "image_license": "", "image_title": ""})
         except Exception as exc:
             print(f"Article processing failed for {item['url']}: {exc}")
             item["content"] = ""
             item["summary_type"] = "source_excerpt"
-            item.update(find_openly_licensed_image(item["title"], item["category"]))
+            images = find_openly_licensed_images(item["title"], item["category"])
+            item["images"] = images
+            item.update(images[0] if images else {"image": "", "image_source": "", "image_license": "", "image_title": ""})
         posts.append(item)
 
     payload = {
@@ -213,10 +297,11 @@ def main():
             "source_attribution": True,
             "ai_mode": "original_detailed_article",
             "target_article_words": "900-1200",
+            "minimum_article_words": 750,
             "ai_provider": "Cerebras",
             "ai_model": MODEL,
             "image_provider": "Wikimedia Commons",
-            "image_policy": "explicit open-license or public-domain metadata required",
+            "image_policy": "only topically relevant files with explicit open-license or public-domain metadata; otherwise no image",
         },
     }
     OUT.parent.mkdir(exist_ok=True)
