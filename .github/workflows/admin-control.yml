@@ -1,0 +1,75 @@
+name: Admin Control
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Operation
+        required: true
+        type: choice
+        options: [run_bot, deploy, deal, brand]
+      target:
+        description: Deal or brand ID/slug/name
+        required: false
+        type: string
+      enabled:
+        description: Enabled
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true','false']
+permissions:
+  contents: write
+  actions: write
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate
+        if: inputs.operation == 'deal' || inputs.operation == 'brand'
+        run: test -n "${{ inputs.target }}"
+      - name: Change data
+        if: inputs.operation == 'deal' || inputs.operation == 'brand'
+        env:
+          OP: ${{ inputs.operation }}
+          TARGET: ${{ inputs.target }}
+          ENABLED: ${{ inputs.enabled }}
+        run: |
+          python - <<'PY'
+          import json,os
+          op,target,enabled=os.environ['OP'],os.environ['TARGET'].lower(),os.environ['ENABLED']=='true'
+          path='data/news.json' if op=='deal' else 'data/brand_catalog.json'
+          with open(path,encoding='utf-8') as f: data=json.load(f)
+          found=False
+          def walk(x):
+            global found
+            if found:return
+            if isinstance(x,list):
+              for v in x: walk(v)
+            elif isinstance(x,dict):
+              ident=' '.join(str(x.get(k,'')) for k in ('id','slug','name','title','brand','url')).lower()
+              if target in ident:
+                x['enabled']=enabled
+                if 'active' in x:x['active']=enabled
+                found=True;return
+              for v in x.values():walk(v)
+          walk(data)
+          if not found: raise SystemExit('Target not found: '+target)
+          with open(path,'w',encoding='utf-8') as f: json.dump(data,f,ensure_ascii=False,indent=2);f.write('\n')
+          PY
+      - name: Commit
+        if: inputs.operation == 'deal' || inputs.operation == 'brand'
+        run: |
+          git config user.name 'DEAL24H Admin Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/news.json data/brand_catalog.json
+          git diff --cached --quiet || git commit -m "admin: update ${{ inputs.operation }}"
+          git push
+      - name: Run bot
+        if: inputs.operation == 'run_bot'
+        run: gh workflow run news-bot.yml --ref main
+        env: { GH_TOKEN: '${{ github.token }}' }
+      - name: Deploy
+        if: inputs.operation == 'deploy'
+        run: gh workflow run pages-deploy.yml --ref main
+        env: { GH_TOKEN: '${{ github.token }}' }
