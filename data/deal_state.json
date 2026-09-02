@@ -28,6 +28,58 @@
     "https://www.adidas.com/us/promotions": {
       "last_checked": "2026-09-02T07:39:27.980408+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/promotions"
+    },
+    "https://www.nike.com/gb/promo-code": {
+      "hash": "244cdf31db45c42c26547e52aef460ce235b0c0e6749d28ae61d72a43e9ea95c",
+      "last_checked": "2026-09-02T07:49:54.505546+00:00",
+      "last_changed": "2026-09-02T07:49:54.505573+00:00",
+      "official_domain": "nike.com"
+    },
+    "https://www.adidas.com/us/regular-sale": {
+      "last_checked": "2026-09-02T07:49:54.853772+00:00",
+      "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/regular-sale"
+    },
+    "https://www.zara.com/vn/vi/": {
+      "hash": "1f14f23c3ade813862c361b991abf032b69a96082f39cb81ef3b2cc15c3569eb",
+      "last_checked": "2026-09-02T07:49:55.422221+00:00",
+      "last_changed": "2026-09-02T07:49:55.422245+00:00",
+      "official_domain": "zara.com"
+    },
+    "https://www2.hm.com/en_us/member/offers/bonus.html": {
+      "last_checked": "2026-09-02T07:49:55.512046+00:00",
+      "last_error": "403 Client Error: Forbidden for url: https://www2.hm.com/en_us/member/offers/bonus.html"
+    },
+    "https://www.uniqlo.com/vn/vi/": {
+      "last_checked": "2026-09-02T07:49:55.711504+00:00",
+      "last_error": "403 Client Error: Forbidden for url: https://www.uniqlo.com/vn/vi/"
+    },
+    "https://m.shein.com/us/coupon-a-368.html": {
+      "hash": "6fd44ce7888bb8ed7dfa7c06f4eec2a1c2c7f8443740ff265eca0e5e6f88eb3f",
+      "last_checked": "2026-09-02T07:49:56.266811+00:00",
+      "last_changed": "2026-09-02T07:49:56.266838+00:00",
+      "official_domain": "shein.com"
+    },
+    "https://www.asos.com/customer-care/payment-promos-gift-vouchers/how-do-your-promo-codes-work/": {
+      "hash": "046bcb231b3151291d98e5f4feadf2f7d06ebc0eca7702d9e0fe7b3d84305c7d",
+      "last_checked": "2026-09-02T07:49:57.072284+00:00",
+      "last_changed": "2026-09-02T07:49:57.072309+00:00",
+      "official_domain": "asos.com"
+    },
+    "https://help.levi.com/hc/en-us/articles/10872016647821-Levi-s-Promotional-Offers": {
+      "hash": "0f7b3391c4786c1f897797ff1c7fad276638b1a060ae8b265b7ba8f2cded58c9",
+      "last_checked": "2026-09-02T07:49:57.500447+00:00",
+      "last_changed": "2026-09-02T07:49:57.500469+00:00",
+      "official_domain": "levi.com"
+    },
+    "https://vn.puma.com/vn/en/promotions-and-sale.html": {
+      "hash": "b3a2db131c281d2757c8725e73be2d5489041e731fb018d86ff80afc540a85b9",
+      "last_checked": "2026-09-02T07:49:57.933646+00:00",
+      "last_changed": "2026-09-02T07:49:57.933672+00:00",
+      "official_domain": "puma.com"
+    },
+    "https://www.crocs.com/c/promotions": {
+      "last_checked": "2026-09-02T07:49:58.258792+00:00",
+      "last_error": "429 Client Error: Too Many Requests for url: https://www.crocs.com/c/promotions"
     }
   },
   "deals": {}
