@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 OUT = DATA_DIR / "news.json"
 STATE = DATA_DIR / "deal_state.json"
-HEADERS = {"User-Agent": "Deal24H/1.4 (+DEAL24H official-source coupon collector)"}
+HEADERS = {"User-Agent": "Deal24H/1.5 (+DEAL24H official-source coupon collector)"}
 MAX_DEALS = 1200
 
 SOURCES = [
@@ -37,11 +37,12 @@ CATEGORIES = {
 
 CODE_RE = r"[A-Z0-9][A-Z0-9_-]{3,24}"
 EXPLICIT_CODE_PATTERNS = [
-    re.compile(r"\b(?:use|enter)\s+(?:the\s+)?(?:promo(?:tion)?\s+)?code\s+[\"'“”]?(%s)[\"'“”]?\b" % CODE_RE, re.I),
-    re.compile(r"\b(?:promo(?:tion)?\s+code|coupon\s+code|voucher\s+code|code)\s*[:=]\s*[\"'“”]?(%s)[\"'“”]?\b" % CODE_RE, re.I),
+    re.compile(r"\b(?:use|enter)\s+(?:the\s+)?(?:promo(?:tion)?\s+)?code\s*(?:is\s*)?[:=]\s*[\"'“”]?((?:%s))[\"'“”]?\b" % CODE_RE, re.I),
+    re.compile(r"\b(?:use|enter)\s+(?:the\s+)?(?:promo(?:tion)?\s+)?code\s+[\"'“”]((?:%s))[\"'“”]" % CODE_RE, re.I),
+    re.compile(r"\b(?:promo(?:tion)?\s+code|coupon\s+code|voucher\s+code|code)\s*[:=]\s*[\"'“”]?((?:%s))[\"'“”]?\b" % CODE_RE, re.I),
 ]
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
-BAD_CODES = {"COPY","CODE","COUPON","COUPONS","TODAY","DEAL","DEALS","SALE","NEW","SHOP","HTTPS","WWW","CLICK","VERIFY","AUTHORITY","EDITORS","EDITOR","HAND-TESTED","TESTED","POPULAR","LATEST","ACTIVE","EXCLUSIVE","PROMO","PROMOS","OFFER","OFFERS","WITH","ENTER","THIS","YOUR","FROM","ONLY","APPLY","HELP","PAGE","NEXT","SIGN","JOIN","REQUIRED"}
+BAD_CODES = {"COPY","CODE","COUPON","COUPONS","TODAY","DEAL","DEALS","SALE","NEW","SHOP","HTTPS","WWW","CLICK","VERIFY","AUTHORITY","EDITORS","EDITOR","HAND-TESTED","TESTED","POPULAR","LATEST","ACTIVE","EXCLUSIVE","PROMO","PROMOS","OFFER","OFFERS","WITH","ENTER","THIS","YOUR","FROM","ONLY","APPLY","HELP","PAGE","NEXT","SIGN","JOIN","REQUIRED","INTO"}
 
 
 def clean(text): return re.sub(r"\s+", " ", BeautifulSoup(text or "", "html.parser").get_text(" ")).strip()
