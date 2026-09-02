@@ -9,11 +9,16 @@ on:
       - 'data/news.json'
 permissions:
   contents: write
+  pages: write
+  id-token: write
 jobs:
   collect:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,3 +37,12 @@ jobs:
           git add data/news.json
           git diff --cached --quiet || git commit -m 'chore: update daily news summaries'
           git push
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy Pages with fresh news data
+        id: deployment
+        uses: actions/deploy-pages@v4
