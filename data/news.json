@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02T05:02:36.955626+00:00",
+  "updated_at": "2026-09-02T05:04:30.657395+00:00",
   "items": [
     {
       "id": "f5402c37a5b3cb62",
@@ -83,6 +83,7 @@
     "source_images_stored": false,
     "source_attribution": true,
     "ai_mode": "original_detailed_article",
+    "target_article_words": "900-1200",
     "ai_provider": "Cerebras",
     "ai_model": "llama3.1-8b",
     "image_provider": "Wikimedia Commons",
