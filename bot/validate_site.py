@@ -1,6 +1,7 @@
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offer, resolve_brand
 
@@ -18,10 +19,29 @@ def load_items():
         raise SystemExit(f"VALIDATION ERROR: cannot read news.json: {exc}")
 
 
+def official_destination(item):
+    destination = item.get("promotion_url") or item.get("source_url") or item.get("url") or ""
+    if not destination:
+        return False
+    source_domain = str(item.get("source_domain", "")).lower().removeprefix("www.")
+    host = urlparse(destination).netloc.lower().removeprefix("www.")
+    return bool(host and source_domain and (host == source_domain or host.endswith("." + source_domain)))
+
+
 def main():
     items = [canonicalize_item(x) for x in load_items() if isinstance(x, dict)]
     active = [x for x in items if is_active_offer(x)]
     errors = []
+
+    slug_owner = {}
+    for category, entries in CATALOG.items():
+        for entry in entries:
+            brand = entry["name"]
+            slug = brand_slug(brand)
+            owner = slug_owner.get(slug)
+            if owner and owner != brand:
+                errors.append(f"brand slug collision: {owner!r} and {brand!r} -> {slug}")
+            slug_owner[slug] = brand
 
     active_brands = set()
     for item in active:
@@ -33,6 +53,8 @@ def main():
             errors.append(f"category mismatch for {hit['name']}: {item.get('category')!r} != {hit['category']!r}")
         if not (item.get("promotion_url") or item.get("source_url") or item.get("url")):
             errors.append(f"active offer has no destination: {hit['name']}")
+        elif not official_destination(item):
+            errors.append(f"active offer destination is outside its official source domain: {hit['name']}")
         active_brands.add(hit["name"])
 
     for category in CATEGORIES:
