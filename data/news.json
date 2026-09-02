@@ -1,15 +1,20 @@
 {
-  "updated_at": "2026-09-02T04:43:03.735510+00:00",
+  "updated_at": "2026-09-02T04:53:57.032900+00:00",
   "items": [
     {
-      "id": "e814b713c2c3ef8d",
-      "title": "Lá lốt - loại rau quen thuộc tốt cho tiêu hóa và xương khớp",
-      "url": "https://vnexpress.net/la-lot-loai-rau-quen-thuoc-tot-cho-tieu-hoa-va-xuong-khop-5115755.html",
-      "summary": "Lá lốt giúp ấm bụng, giảm đau nhức xương khớp do hàn thấp, song cần dùng đúng thể bệnh và không thay thế thuốc điều trị y khoa.",
+      "id": "f19792b00ebd203a",
+      "title": "Nam du khách bị nước cuốn mất tích tại thác Khâu Làn",
+      "url": "https://vnexpress.net/nam-du-khach-bi-nuoc-cuon-mat-tich-tai-thac-khau-lan-5115752.html",
+      "summary": "Một nam du khách 28 tuổi ở TP HCM bị dòng nước cuốn mất tích khi xuống tắm tại thác Khâu Làn, xã Quản Bạ, tối 1/9.",
       "category": "Việt Nam",
       "source": "VnExpress",
-      "published_at": "2026-09-02T04:22:00+00:00",
-      "summary_type": "source_excerpt"
+      "published_at": "2026-09-02T04:07:19+00:00",
+      "content": "",
+      "summary_type": "source_excerpt",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Concept_of_the_Foreign_Policy_of_the_Russian_Federation_%28Official_Vietnamese_Translation%29.pdf/page1-1280px-Concept_of_the_Foreign_Policy_of_the_Russian_Federation_%28Official_Vietnamese_Translation%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "image_license": "Public domain",
+      "image_title": "Concept of the Foreign Policy of the Russian Federation (Official Vietnamese Translation).pdf"
     },
     {
       "id": "8c06c024d3e90256",
@@ -19,7 +24,12 @@
       "category": "Kinh doanh",
       "source": "VnExpress",
       "published_at": "2026-09-02T04:00:00+00:00",
-      "summary_type": "source_excerpt"
+      "content": "",
+      "summary_type": "source_excerpt",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Cty_Quan_ly_Kinh_Doanh_Nha_tphcm%2C49_Tran_quoc_Thao%2Cq3_hcmvn_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "image_source": "Wikimedia Commons",
+      "image_license": "CC BY 3.0",
+      "image_title": "Cty Quan ly Kinh Doanh Nha tphcm,49 Tran quoc Thao,q3 hcmvn - panoramio.jpg"
     },
     {
       "id": "c5820a9a238a4120",
@@ -29,7 +39,12 @@
       "category": "Thế giới",
       "source": "VnExpress",
       "published_at": "2026-09-02T03:38:29+00:00",
-      "summary_type": "source_excerpt"
+      "content": "",
+      "summary_type": "source_excerpt",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/B%E1%BA%A3n_%C4%91%E1%BB%93_L%E1%BB%8Bch_s%E1%BB%AD_V%C4%83n_minh_Th%E1%BA%BF_gi%E1%BB%9Bi_4000_n%C4%83m.jpg/1280px-B%E1%BA%A3n_%C4%91%E1%BB%93_L%E1%BB%8Bch_s%E1%BB%AD_V%C4%83n_minh_Th%E1%BA%BF_gi%E1%BB%9Bi_4000_n%C4%83m.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "image_license": "CC BY-SA 4.0",
+      "image_title": "Bản đồ Lịch sử Văn minh Thế giới 4000 năm.jpg"
     },
     {
       "id": "3c693a290e7ae251",
@@ -39,7 +54,12 @@
       "category": "Công nghệ",
       "source": "VnExpress",
       "published_at": "2026-09-02T03:00:00+00:00",
-      "summary_type": "source_excerpt"
+      "content": "",
+      "summary_type": "source_excerpt",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/B%E1%BB%99_l%E1%BB%8Dc_s%E1%BB%AD_d%E1%BB%A5ng_c%C3%B4ng_ngh%E1%BB%87_m%C3%A0ng_l%E1%BB%8Dc_s%E1%BB%A3i_r%E1%BB%97ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "image_source": "Wikimedia Commons",
+      "image_license": "CC BY-SA 4.0",
+      "image_title": "Bộ lọc sử dụng công nghệ màng lọc sợi rỗng.jpg"
     },
     {
       "id": "36cc4ecedc105937",
@@ -49,7 +69,12 @@
       "category": "Giải trí",
       "source": "VnExpress",
       "published_at": "2026-09-02T02:13:22+00:00",
-      "summary_type": "source_excerpt"
+      "content": "",
+      "summary_type": "source_excerpt",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Tam_quoc_Nguyen_An_Cu_1928_-_06.pdf/page1-1280px-Tam_quoc_Nguyen_An_Cu_1928_-_06.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "image_source": "Wikimedia Commons",
+      "image_license": "Public domain",
+      "image_title": "Tam quoc Nguyen An Cu 1928 - 06.pdf"
     }
   ],
   "policy": {
@@ -57,8 +82,10 @@
     "full_source_text_stored": false,
     "source_images_stored": false,
     "source_attribution": true,
-    "ai_mode": "detailed_original_summary",
+    "ai_mode": "original_detailed_article",
     "ai_provider": "Cerebras",
-    "ai_model": "llama3.1-8b"
+    "ai_model": "llama3.1-8b",
+    "image_provider": "Wikimedia Commons",
+    "image_policy": "explicit open-license or public-domain metadata required"
   }
 }
