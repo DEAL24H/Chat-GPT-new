@@ -2,7 +2,12 @@ const state = { items: [], category: 'All', query: '' };
 const $ = (s) => document.querySelector(s);
 const DATA_URLS = [new URL('data/news.json', document.baseURI).href, 'https://raw.githubusercontent.com/chayso2015-ctrl/Chat-GPT-new/main/data/news.json'];
 const CATEGORY_LABELS = { 'Thời trang':'Fashion', 'Mỹ phẩm':'Beauty', 'Game':'Gaming', 'Tổng hợp':'Deals' };
-
+const BRAND_DOMAINS = {
+  dell:'dell.com', nike:'nike.com', adidas:'adidas.com', shein:'shein.com', asos:'asos.com', mango:'shop.mango.com', hm:'hm.com', 'h&m':'hm.com', crocs:'crocs.com', gap:'gap.com', converse:'converse.com', 'under armour':'underarmour.com',
+  sephora:'sephora.com', ulta:'ulta.com', nars:'narscosmetics.com', farmacy:'farmacybeauty.com', 'bobbi brown':'bobbibrowncosmetics.com', kosas:'kosas.com', paulaschoice:'paulaschoice.com', 'paula\'s choice':'paulaschoice.com', glossier:'glossier.com',
+  steam:'store.steampowered.com', epic:'store.epicgames.com', playstation:'playstation.com', xbox:'xbox.com', nintendo:'nintendo.com', humble:'humblebundle.com', fanatical:'fanatical.com', ubisoft:'ubisoft.com', ea:'ea.com',
+  reebok:'reebok.com', iherb:'iherb.com'
+};
 function esc(value) { return String(value ?? '').replace(/[&<>\"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c])); }
 function copyCode(code) {
   if (!code) return;
@@ -18,6 +23,28 @@ function age(iso) {
   return `${Math.floor(h / 24)}d ago`;
 }
 function label(category) { return CATEGORY_LABELS[category] || category || 'Deal'; }
+function brandName(item) {
+  const text = `${item.merchant || ''} ${item.title || ''} ${item.content || ''}`.toLowerCase();
+  const hit = Object.keys(BRAND_DOMAINS).find(k => new RegExp(`(^|[^a-z0-9])${k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}([^a-z0-9]|$)`, 'i').test(text));
+  if (!hit) return item.merchant || item.title || 'Deal';
+  return hit === 'hm' ? 'H&M' : hit.replace(/(^|\s)\S/g, s => s.toUpperCase());
+}
+function brandDomain(item) {
+  const text = `${item.merchant || ''} ${item.title || ''} ${item.content || ''}`.toLowerCase();
+  const hit = Object.keys(BRAND_DOMAINS).find(k => text.includes(k));
+  return hit ? BRAND_DOMAINS[hit] : '';
+}
+function brandLogo(item) {
+  const domain = item.merchant_domain || brandDomain(item);
+  if (!domain) return '';
+  return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
+}
+function brandSlug(name) { return String(name || '').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function brandHref(item) {
+  const brand = brandSlug(brandName(item));
+  const cat = label(item.category).toLowerCase();
+  return brand && cat !== 'deals' ? `${cat}/${brand}-coupons/` : '#';
+}
 function renderFilters() {
   const cats = ['All', ...new Set(state.items.map(x => label(x.category)).filter(Boolean))];
   $('#filters').innerHTML = cats.map(c => `<button class="filter ${state.category === c ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
@@ -28,15 +55,20 @@ function render() {
   const q = state.query.toLowerCase().trim();
   const items = state.items.filter(x => (state.category === 'All' || label(x.category) === state.category) && (!q || [x.merchant,x.code,x.title,x.content,label(x.category)].join(' ').toLowerCase().includes(q)));
   $('#empty').classList.toggle('hidden', items.length !== 0);
-  $('#news').innerHTML = items.map(item => `
-    <article class="card">
-      <div class="cardtop"><span class="tag">${esc(label(item.category))}</span><span class="time">${esc(age(item.last_checked || item.detected_at))}</span></div>
-      <h2>${esc(item.merchant || item.title || 'Deal')}</h2>
-      <p class="discount">${esc(item.discount || 'Special offer')}</p>
-      <p>${esc(item.content || '')}</p>
+  $('#news').innerHTML = items.map(item => {
+    const brand = brandName(item), logo = brandLogo(item), href = brandHref(item);
+    return `<article class="card">
+      <div class="brandrow">
+        <div class="brandlogo">${logo ? `<img src="${esc(logo)}" alt="${esc(brand)} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">` : ''}<span class="brandfallback" style="${logo ? 'display:none' : ''}">${esc(String(brand).slice(0,2).toUpperCase())}</span></div>
+        <div class="brandinfo"><a class="brandname" href="${esc(href)}">${esc(brand)}</a><span class="tag">${esc(label(item.category))} coupons</span></div>
+        <span class="time">${esc(age(item.last_checked || item.detected_at))}</span>
+      </div>
+      <h2>${esc(brand)} Coupon Code${item.discount ? ` — ${esc(item.discount)}` : ''}</h2>
+      <p>${esc(item.content || 'Fresh public coupon or promotional offer.')}</p>
       ${item.code ? `<div class="code"><strong>${esc(item.code)}</strong><button onclick="copyCode('${esc(item.code)}')">Copy code</button></div>` : ''}
       <div class="meta"><span>${item.verified ? '🟢 Verified' : '🔎 Public source'}</span><a href="${esc(item.source_url || item.url || '#')}" target="_blank" rel="noopener noreferrer">Source ↗</a></div>
-    </article>`).join('');
+    </article>`;
+  }).join('');
 }
 async function load() {
   for (const url of DATA_URLS) {
