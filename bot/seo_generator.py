@@ -5,12 +5,10 @@ from pathlib import Path
 from urllib.parse import quote
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/"data"/"news.json"; CATALOG=ROOT/"data"/"brand_catalog.json"; BASE="https://deal24h.net"
 CATEGORIES={"fashion":"Fashion","beauty":"Beauty","gaming":"Gaming","consumer":"Consumer"}; ALIASES={"Thời trang":"fashion","Fashion":"fashion","Mỹ phẩm":"beauty","Beauty":"beauty","Game":"gaming","Gaming":"gaming","Hàng tiêu dùng":"consumer","Consumer":"consumer"}
-
 def load_catalog():
     try:return json.loads(CATALOG.read_text(encoding="utf-8")).get("categories",{})
     except Exception:return {}
 BRANDS=load_catalog(); KNOWN={k.lower():[x["name"] for x in v] for k,v in BRANDS.items()}; DOMAINS={x["name"].lower():x["domain"] for v in BRANDS.values() for x in v}
-
 def slug(v): return re.sub(r"[^a-z0-9]+","-",v.lower().replace("&"," and ").replace("'","")).strip("-")
 def esc(v): return html.escape(str(v or ""),quote=True)
 def load():
@@ -26,7 +24,7 @@ def brand_name(d):
     return m.split("—")[0].strip()[:70]
 def active(d):
     if str(d.get("status","active")).lower() in {"expired","inactive"}:return False
-    if not(d.get("code") or d.get("promotion_url") or d.get("source_url") or d.get("url")):return False
+    if not(d.get("code") or d.get("promotion_url")):return False
     e=str(d.get("expires_at","")).strip()
     if not e:return True
     try:
