@@ -1,485 +1,61 @@
 {
-  "updated_at": "2026-09-02T03:02:07.188162+00:00",
+  "updated_at": "2026-09-02T03:09:21.319316+00:00",
   "items": [
     {
-      "title": "Messi từng suýt bỏ lỡ thập niên vàng như thế nào",
-      "url": "https://vnexpress.net/messi-tung-suyt-bo-lo-thap-nien-vang-nhu-the-nao-5115528.html",
-      "summary": "Nếu giữ nguyên quyết định chia tay đội tuyển Argentina cách đây 10 năm, Lionel Messi có thể đã không thể xác lập vị trí một huyền thoại bóng đá như ngày nay.",
-      "category": "Thể thao",
+      "id": "3c693a290e7ae251",
+      "title": "Mạng 2G sẽ được tắt hoàn toàn trong tháng 9",
+      "url": "https://vnexpress.net/mang-2g-se-duoc-tat-hoan-toan-trong-thang-9-5115657.html",
+      "summary": "Các nhà mạng sẽ dừng phát sóng 2G trên toàn quốc từ giữa tháng 9, sau gần hai năm duy trì để người dùng chuyển đổi thiết bị.",
+      "category": "Công nghệ",
       "source": "VnExpress",
-      "published_at": "2026-09-02T02:42:05+00:00"
+      "published_at": "2026-09-02T03:00:00+00:00",
+      "summary_type": "source_excerpt"
     },
     {
-      "title": "Cuộc chuyển mình trên thị trường chuyển nhượng của PSG",
-      "url": "https://vnexpress.net/cuoc-chuyen-minh-tren-thi-truong-chuyen-nhuong-cua-psg-5115699.html",
-      "summary": "PSG lập kỷ lục doanh thu từ bán cầu thủ trong kỳ chuyển nhượng hè 2026 với 433,7 triệu USD, cho thấy sự thay đổi rõ rệt trong chính sách tuyển mộ của đội bóng Pháp những năm gần đây.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:27:17+00:00"
-    },
-    {
-      "title": "Runner chạy hơn 1.000 km trong 7 ngày liền",
-      "url": "https://vnexpress.net/runner-chay-hon-1-000-km-trong-7-ngay-lien-5115721.html",
-      "summary": "VĐV Australia Phil Gore chạy hoàn thành 152 vòng liên tiếp trong suốt 168 tiếng, tương đương 1.019,92 km.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:21:48+00:00"
-    },
-    {
+      "id": "36cc4ecedc105937",
       "title": "Tam ca Áo trắng quây quần bên các con",
       "url": "https://vnexpress.net/tam-ca-ao-trang-quay-quan-ben-cac-con-5115705.html",
       "summary": "Tam ca Áo Trắng chụp bộ ảnh kỷ niệm bên các con, dịp họ từ Mỹ về nước thăm người thân.",
       "category": "Giải trí",
       "source": "VnExpress",
-      "published_at": "2026-09-02T02:13:22+00:00"
+      "published_at": "2026-09-02T02:13:22+00:00",
+      "summary_type": "source_excerpt"
     },
     {
+      "id": "d188b1f7e212a14b",
       "title": "Các nước chúc mừng Quốc khánh Việt Nam",
       "url": "https://vnexpress.net/cac-nuoc-chuc-mung-quoc-khanh-viet-nam-5115714.html",
       "summary": "Lãnh đạo các nước gửi thư, điện và thông điệp chúc mừng 81 năm Quốc khánh Việt Nam, bày tỏ mong muốn tăng cường quan hệ hợp tác.",
       "category": "Việt Nam",
       "source": "VnExpress",
-      "published_at": "2026-09-02T02:10:04+00:00"
+      "published_at": "2026-09-02T02:10:04+00:00",
+      "summary_type": "source_excerpt"
     },
     {
-      "title": "Sun PhuQuoc Airways mở đường bay thẳng Phú Quốc - Kuala Lumpur",
-      "url": "https://vnexpress.net/sun-phuquoc-airways-mo-duong-bay-thang-phu-quoc-kuala-lumpur-5115668.html",
-      "summary": "Sun PhuQuoc Airways khai trương đường bay thẳng Phú Quốc - Kuala Lumpur từ ngày 1/9, tần suất một chuyến khứ hồi mỗi ngày, mở thêm kết nối giữa đảo ngọc và Malaysia.",
-      "category": "Việt Nam",
+      "id": "d188b1f7e212a14b",
+      "title": "Các nước chúc mừng Quốc khánh Việt Nam",
+      "url": "https://vnexpress.net/cac-nuoc-chuc-mung-quoc-khanh-viet-nam-5115714.html",
+      "summary": "Lãnh đạo các nước gửi thư, điện và thông điệp chúc mừng 81 năm Quốc khánh Việt Nam, bày tỏ mong muốn tăng cường quan hệ hợp tác.",
+      "category": "Thế giới",
       "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
+      "published_at": "2026-09-02T02:10:04+00:00",
+      "summary_type": "source_excerpt"
     },
     {
-      "title": "Dàn runner hóa trang tạo sắc màu ở VnExpress Marathon Vũng Tàu Herbalife Cup",
-      "url": "https://vnexpress.net/dan-runner-hoa-trang-tao-sac-mau-o-vnexpress-marathon-vung-tau-herbalife-cup-5115313.html",
-      "summary": "Nhiều runner chọn trang phục hóa trang khi tranh tài tại VnExpress Marathon Vũng Tàu, mang màu sắc lạ lên cung đường ven biển rạng sáng 30/8.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
-    },
-    {
-      "title": "Nữ quân y địu con theo những cuộc hành quân",
-      "url": "https://vnexpress.net/nu-quan-y-diu-con-theo-nhung-cuoc-hanh-quan-5115202.html",
-      "summary": "Mang thai giữa chiến trường, bà Đặng Thị Xuân Phượng vẫn hành quân, cứu chữa thương binh, sau khi sinh thì địu con theo đơn vị đến ngày đất nước thống nhất.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
-    },
-    {
-      "title": "Những bệnh trẻ dễ mắc mùa tựu trường",
-      "url": "https://vnexpress.net/nhung-benh-tre-de-mac-mua-tuu-truong-5114950.html",
-      "summary": "Trẻ dễ mắc bệnh hô hấp, tiêu hóa, truyền nhiễm khi bước vào năm học mới do thay đổi thời tiết, môi trường tiếp xúc đông người.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
-    },
-    {
-      "title": "Hoạt chất magnesium alginate hỗ trợ kiểm soát trào ngược cho trẻ nhỏ",
-      "url": "https://vnexpress.net/hoat-chat-magnesium-alginate-ho-tro-kiem-soat-trao-nguoc-cho-tre-nho-5114876.html",
-      "summary": "Hoạt chất magnesium alginate được ứng dụng trong siro Gastrokids tạo lớp gel nổi trên bề mặt dịch dạ dày, hỗ trợ kiểm soát trào ngược bằng cơ chế cơ học tại chỗ, phù hợp với hệ tiêu hóa còn non nớt của trẻ nhỏ.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
-    },
-    {
-      "title": "Đồng hồ E-Kids giúp kết nối phụ huynh với con cái",
-      "url": "https://vnexpress.net/dong-ho-e-kids-giup-ket-noi-phu-huynh-voi-con-cai-5114684.html",
-      "summary": "FPT Shop hợp tác cùng Masscom phát triển E-Kids F1 và E-Kids F1 Pro tích hợp các tính năng liên lạc, định vị và quản lý từ xa.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:00:00+00:00"
-    },
-    {
-      "title": "Chèo SUP khi hồ Trị An cạn nước",
-      "url": "https://vnexpress.net/cheo-sup-khi-ho-tri-an-can-nuoc-5115678.html",
-      "summary": "Khác với mọi năm, dịp lễ 2/9 năm nay hồ Trị An cạn nước, để lộ những bãi bồi ven rừng Mã Đà - nơi nhiều du khách thích thú chèo SUP, tắm và cắm trại.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T01:40:15+00:00"
-    },
-    {
-      "title": "Ba ngày bị bắt cóc và nỗ lực cứu cả gia đình của thai phụ",
-      "url": "https://vnexpress.net/ba-ngay-bi-bat-coc-va-no-luc-cuu-ca-gia-dinh-cua-thai-phu-5115715.html",
-      "summary": "Marcela Borges, bà bầu 27 tuổi, mạo hiểm tìm cách thoát thân trước khi nhóm bắt cóc thủ tiêu gia đình cô, sau ba ngày bị chúng khống chế và hành hạ.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T01:20:46+00:00"
-    },
-    {
-      "title": "Thủ tướng Canada: Mỹ nên 'bớt ra vẻ cứng rắn'",
-      "url": "https://vnexpress.net/thu-tuong-canada-my-nen-bot-ra-ve-cung-ran-5115702.html",
-      "summary": "Thủ tướng Carney cho rằng chính quyền Tổng thống Trump cần nghiêm túc và \"bớt ra vẻ cứng rắn\" nếu muốn giải quyết tranh chấp thương mại.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T01:12:55+00:00"
-    },
-    {
-      "title": "Nữ giáo viên Mỹ gửi 25.000 tin nhắn tán tỉnh học sinh 15 tuổi",
-      "url": "https://vnexpress.net/nu-giao-vien-my-gui-25-000-tin-nhan-tan-tinh-hoc-sinh-15-tuoi-5115708.html",
-      "summary": "Allison Havemann-Niedrach, 45 tuổi, bị phạt 12 năm tù vì cố ý tiếp cận, tán tỉnh rồi tấn công tình dục một nam sinh 15 tuổi trong khoảng 6 tháng.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T01:12:03+00:00"
-    },
-    {
-      "title": "Đàn cá đua nhau nhảy lên thuyền ở Trung Quốc",
-      "url": "https://vnexpress.net/ca-lon-tu-len-thuyen-o-trung-quoc-ngu-dan-bat-ngo-nhan-mon-qua-tu-duoi-nuoc-5114433.html",
-      "summary": "Đang đánh bắt trên vùng nước ở Liêu Ninh, ngư dân bất ngờ chứng kiến đàn cá lớn đồng loạt nhảy vọt, thậm chí có con rơi thẳng lên thuyền.",
-      "category": "Việt Nam",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T01:00:00+00:00"
-    },
-    {
+      "id": "beff72e3cf0fb42f",
       "title": "Giá vàng thế giới xuống thấp nhất 2 tuần",
       "url": "https://vnexpress.net/gia-vang-the-gioi-xuong-thap-nhat-2-tuan-5115706.html",
       "summary": "Mỗi ounce vàng thế giới giảm hơn 100 USD chỉ trong một phiên, hiện về sát mốc 4.300 USD.",
       "category": "Kinh doanh",
       "source": "VnExpress",
-      "published_at": "2026-09-02T00:39:39+00:00"
-    },
-    {
-      "title": "Lắp điện mặt trời giúp người Anh tiết kiệm đến 800 USD mỗi năm",
-      "url": "https://vnexpress.net/lap-dien-mat-troi-giup-nguoi-anh-tiet-kiem-den-800-usd-moi-nam-5115647.html",
-      "summary": "Các hộ gia đình tại những nơi nhiều nắng ở Anh có thể tiết kiệm đến 618 bảng (836 USD) tiền điện mỗi năm nếu lắp pin mặt trời.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T00:39:23+00:00"
-    },
-    {
-      "title": "Mỹ tập kích Iran ngày thứ hai liên tiếp",
-      "url": "https://vnexpress.net/my-tap-kich-iran-ngay-thu-hai-lien-tiep-5115703.html",
-      "summary": "Mỹ mở đợt tập kích mới nhắm vào các mục tiêu tại Iran, tuyên bố hoạt động này nhằm ngăn chặn khả năng Tehran rải thủy lôi ở eo biển Hormuz.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T00:22:16+00:00"
-    },
-    {
-      "title": "Internet Việt Nam lần đầu vào top 10 thế giới cả di động và cố định",
-      "url": "https://vnexpress.net/internet-viet-nam-lan-dau-vao-top-10-the-gioi-ca-di-dong-va-co-dinh-5115655.html",
-      "summary": "Internet di động tại Việt Nam tăng 10 bậc, trong khi Internet cố định vươn lên vị trí thứ 7, đưa cả hai loại hình kết nối của Việt Nam lần đầu cùng lọt top 10 toàn cầu.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T00:00:00+00:00"
-    },
-    {
-      "title": "Duyên Quỳnh ra MV 'Việt Nam gấm vóc rạng ngời'",
-      "url": "https://vnexpress.net/duyen-quynh-ra-mv-viet-nam-gam-voc-rang-ngoi-5115685.html",
-      "summary": "Ca sĩ Duyên Quỳnh đưa cảnh đẹp vùng núi Tây Bắc, Tây Nguyên và miền Tây Nam Bộ vào MV \"Việt Nam gấm vóc rạng ngời\", ra mắt dịp Quốc khánh 2/9.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T23:26:34+00:00"
-    },
-    {
-      "title": "Rau quả Việt Nam đang ở đâu trên thị trường Trung Quốc?",
-      "url": "https://vnexpress.net/rau-qua-viet-nam-dang-o-dau-tren-thi-truong-trung-quoc-5112125.html",
-      "summary": "Việt Nam đang trở thành nguồn cung rau quả lớn thứ ba của Trung Quốc, với thị phần tăng nhanh và chỉ còn cách Chile chưa đến một điểm phần trăm.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T23:00:00+00:00"
-    },
-    {
-      "title": "Haaland - người hướng nội giữa ánh đèn sân khấu",
-      "url": "https://vnexpress.net/haaland-nguoi-huong-noi-giua-anh-den-san-khau-5114717.html",
-      "summary": "Erling Haaland là người hướng nội, nhưng không khép mình. Đằng sau những bàn thắng, chế độ tập luyện khắc nghiệt và vẻ ngoài tự tin là một cầu thủ có khả năng tự nhận thức cao, biết chấp nhận cả thành công lẫn thất bại.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:41:50+00:00"
-    },
-    {
-      "title": "Man City mua Enzo Fernandez, giá 169 triệu USD",
-      "url": "https://vnexpress.net/man-city-mua-enzo-fernandez-gia-169-trieu-usd-5115696.html",
-      "summary": "Man City đạt thỏa thuận với Chelsea để chiêu mộ tiền vệ Enzo Fernandez với giá 125 triệu bảng (169 triệu USD) trong ngày cuối kỳ chuyển nhượng mùa hè.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:39:32+00:00"
-    },
-    {
-      "title": "Messi chia tay Argentina ảnh hưởng thế nào đến tương lai của Scaloni?",
-      "url": "https://vnexpress.net/messi-chia-tay-argentina-anh-huong-the-nao-den-tuong-lai-cua-scaloni-5115614.html",
-      "summary": "Sau lời chia tay ĐTQG của Lionel Messi, một kỷ nguyên mới chính thức mở ra ở đội tuyển Argentina, và việc đi hay ở của HLV trưởng Lionel Scaloni được báo Argentina Olé xem là chủ đề “quốc gia đại sự”.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:36:43+00:00"
-    },
-    {
-      "title": "Lý do Nepal chật vật cứu nạn nhân kẹt trong hầm thủy điện",
-      "url": "https://vnexpress.net/ly-do-nepal-chat-vat-cuu-nan-nhan-ket-trong-ham-thuy-dien-5115659.html",
-      "summary": "Lũ quét phá hủy đường sá, vùi lấp cửa hầm và cuốn bùn đất vào sâu dưới lòng đất, cản trở nỗ lực tiếp cận hàng trăm công nhân mất tích tại Nepal.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:00:00+00:00"
-    },
-    {
-      "title": "Cơn sốt học bán dẫn để vào Samsung, SK Hynix",
-      "url": "https://vnexpress.net/con-sot-hoc-ban-dan-de-vao-samsung-sk-hynix-5112824.html",
-      "summary": "Lĩnh vực chip nhớ bùng nổ khiến nhiều học sinh, sinh viên tại Hàn Quốc chuyển hướng học nghề với mục tiêu làm việc tại Samsung, SK Hynix.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:00:00+00:00"
-    },
-    {
-      "title": "Ký ức tuổi thơ trong 'Em mơ gặp Bác Hồ'",
-      "url": "https://vnexpress.net/ky-uc-tuoi-tho-trong-em-mo-gap-bac-ho-5114467.html",
-      "summary": "Nhạc phẩm ''Em mơ gặp Bác Hồ'', ''Cùng nhau ta đi lên'' gắn liền tuổi thơ nhiều thế hệ, gửi gắm ý thức học tập, trách nhiệm lao động của người trẻ.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T22:00:00+00:00"
-    },
-    {
-      "title": "Iran kêu gọi người dân tiết kiệm xăng",
-      "url": "https://vnexpress.net/iran-keu-goi-nguoi-dan-tiet-kiem-xang-5115682.html",
-      "summary": "Chủ tịch Quốc hội Iran Ghalibaf kêu gọi người dân giảm tiêu thụ xăng, khi đất nước khó nhập khẩu đủ nhiên liệu do lệnh phong tỏa của Mỹ.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T17:34:48+00:00"
-    },
-    {
-      "title": "Nhiều lãnh đạo trong hệ sinh thái Vingroup thu nhập tiền tỷ mỗi tháng",
-      "url": "https://vnexpress.net/nhieu-lanh-dao-trong-he-sinh-thai-vingroup-thu-nhap-tien-ty-moi-thang-5115485.html",
-      "summary": "Tổng giám đốc Vingroup, Vinhomes, Vinpearl, Vincom Retail đều có thu nhập tiền tỷ trong nửa đầu năm.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T17:04:00+00:00"
-    },
-    {
-      "title": "Tại sao máy bay biến mất khỏi radar khi qua đại dương",
-      "url": "https://vnexpress.net/tai-sao-may-bay-bien-mat-khoi-radar-khi-qua-dai-duong-5114689.html",
-      "summary": "Máy bay lướt trên đại dương có thể biến mất khỏi màn hình radar do khoảng cách vượt quá phạm vi phủ sóng của trạm radar trên đất liền và độ cong của Trái Đất.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T17:00:00+00:00"
-    },
-    {
-      "title": "Sắc vóc Khả Ngân ở tuổi 29",
-      "url": "https://vnexpress.net/sac-voc-kha-ngan-o-tuoi-29-5115479.html",
-      "summary": "Diễn viên Khả Ngân chiếm cảm tình khán giả với nụ cười sáng, vẻ ngoài tươi tắn cùng vóc dáng săn chắc nhờ duy trì tập luyện thể thao.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T17:00:00+00:00"
-    },
-    {
-      "title": "Mỹ định lập vùng hạn chế bay quanh khu nghỉ dưỡng của ông Trump",
-      "url": "https://vnexpress.net/my-dinh-lap-vung-han-che-bay-quanh-khu-nghi-duong-cua-ong-trump-5115680.html",
-      "summary": "Cục Hàng không Liên bang Mỹ (FAA) đề xuất hạn chế các chuyến bay trong bán kính gần 2 km xung quanh dinh thự Mar-a-Lago của Tổng thống Trump.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T16:54:34+00:00"
-    },
-    {
-      "title": "Liên Hợp Quốc: Hiểm họa lũ sông băng đe dọa vùng Himalaya",
-      "url": "https://vnexpress.net/lien-hop-quoc-hiem-hoa-lu-song-bang-de-doa-vung-himalaya-5115664.html",
-      "summary": "Quan chức cấp cao Liên Hợp quốc cảnh báo khu vực Himalaya đang đối mặt nguy cơ nghiêm trọng từ các trận lũ do sông băng trong tương lai.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T15:47:01+00:00"
-    },
-    {
-      "title": "Tổng thống Mỹ Donald Trump chúc mừng Quốc khánh Việt Nam",
-      "url": "https://vnexpress.net/tong-thong-my-donald-trump-chuc-mung-quoc-khanh-viet-nam-5115663.html",
-      "summary": "Tổng thống Mỹ Donald Trump gửi thông điệp chúc mừng tới lãnh đạo và nhân dân Việt Nam nhân dịp kỷ niệm Quốc khánh lần thứ 81.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T13:50:48+00:00"
-    },
-    {
-      "title": "Nhà tù Pháp quá tải ở mức kỷ lục",
-      "url": "https://vnexpress.net/nha-tu-phap-qua-tai-o-muc-ky-luc-5115646.html",
-      "summary": "Số tù nhân trong các trại giam của Pháp đã tăng lên mức kỷ lục gần 90.000 người, với tình trạng lấp đầy là hơn 140%.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T13:40:27+00:00"
-    },
-    {
-      "title": "Cô dâu lội nước lũ tới ngang hông để vào lễ đường",
-      "url": "https://vnexpress.net/co-dau-loi-nuoc-lu-toi-ngang-hong-de-vao-le-duong-5115654.html",
-      "summary": "Cô dâu Galang mặc váy cưới, cầm bó hoa trắng, cẩn thận lội qua dòng nước lũ đục ngầu bên trong nhà thờ ở thị trấn Hagonoy.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T12:40:39+00:00"
-    },
-    {
-      "title": "Hai siêu tàu chở dầu bị tấn công ở eo biển Hormuz",
-      "url": "https://vnexpress.net/hai-sieu-tau-cho-dau-bi-tan-cong-o-eo-bien-hormuz-5115645.html",
-      "summary": "Hai siêu tàu chở dầu Arab Saudi bị vật thể chưa xác định tấn công cách nhau vài phút khi đang rời eo biển Hormuz.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T12:29:46+00:00"
-    },
-    {
-      "title": "Thịt gà 'thống trị' thế giới như thế nào",
-      "url": "https://vnexpress.net/thit-ga-thong-tri-the-gioi-nhu-the-nao-5115628.html",
-      "summary": "Từng là món ăn đắt đỏ, thịt gà nay đã vươn lên thành loại thịt được ưa chuộng nhất thế giới nhờ giá thành rẻ và không vấp phải các rào cản tôn giáo, văn hóa.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T12:14:15+00:00"
-    },
-    {
-      "title": "Bốn nhà máy Samsung Việt Nam lãi hơn 2 tỷ USD",
-      "url": "https://vnexpress.net/bon-nha-may-samsung-viet-nam-lai-hon-2-ty-usd-5115624.html",
-      "summary": "Bốn nhà máy Samsung ở Việt Nam báo lãi 2,31 tỷ USD trong nửa đầu năm, tăng 23,5% so với cùng kỳ năm ngoái.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T12:01:00+00:00"
-    },
-    {
-      "title": "Trái phiếu chính phủ toàn cầu bị bán tháo",
-      "url": "https://vnexpress.net/trai-phieu-chinh-phu-toan-cau-bi-ban-thao-5115627.html",
-      "summary": "Trái phiếu chính phủ nhiều nước bị bán tháo, đẩy lợi suất tăng vọt, do xung đột Trung Đông làm dấy lên lo ngại lạm phát và tăng lãi suất.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T10:54:27+00:00"
-    },
-    {
-      "title": "Hàn Quốc bổ nhiệm HLV vướng nhiều tai tiếng",
-      "url": "https://vnexpress.net/han-quoc-bo-nhiem-hlv-vuong-nhieu-tai-tieng-5115633.html",
-      "summary": "Hàn Quốc bổ nhiệm Robert Moreno, người từng vướng tai tiếng ở đội tuyển Tây Ban Nha và CLB Nga Sochi, làm HLV tạm quyền.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T10:36:38+00:00"
-    },
-    {
-      "title": "Djokovic: 'Tôi ghét từng khoảnh khắc mình thi đấu trên sân'",
-      "url": "https://vnexpress.net/djokovic-toi-ghet-tung-khoanh-khac-minh-thi-dau-tren-san-5115602.html",
-      "summary": "Novak Djokovic cảm thấy chua chát khi phải khép lại Mỹ Mở rộng 2026 sau trận thua kéo dài 4 giờ 36 phút ngay vòng một trước Mariano Navone, lần dừng bước sớm nhất của anh ở một giải Grand Slam sau 20 năm.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T10:03:40+00:00"
-    },
-    {
-      "title": "'Hậu tây du ký', phim dài AI đầu tiên lên truyền hình Trung Quốc",
-      "url": "https://vnexpress.net/hau-tay-du-ky-phim-dai-ai-dau-tien-len-truyen-hinh-trung-quoc-5115566.html",
-      "summary": "\"Hậu tây du ký\" mỗi tập 40 phút, lên sóng truyền hình Trung Quốc, đánh dấu kỷ nguyên của phim dài AI.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T07:58:11+00:00"
-    },
-    {
-      "title": "Thí sinh Miss World 2026 đấu giá vật phẩm làm từ thiện",
-      "url": "https://vnexpress.net/thi-sinh-miss-world-2026-dau-gia-vat-pham-lam-tu-thien-5115587.html",
-      "summary": "Các người đẹp Hoa hậu Thế giới 2026 mang vật phẩm tự chuẩn bị như đầm dạ hội, trang sức, quà lưu niệm đấu giá nhằm gây quỹ thiện nguyện.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T07:20:51+00:00"
-    },
-    {
-      "title": "Alcaraz thắng trận đầu sau bốn tháng",
-      "url": "https://vnexpress.net/alcaraz-thang-tran-dau-sau-bon-thang-5115561.html",
-      "summary": "Carlos Alcaraz đánh bại Roman Safiullin 6-4, 6-4, 6-4 ở vòng một Mỹ Mở rộng, trong trận đơn đầu tiên kể từ khi phải nghỉ bốn tháng vì chấn thương cổ tay.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T07:12:39+00:00"
-    },
-    {
-      "title": "8 điểm nhấn vòng 2 Ngoại hạng Anh",
-      "url": "https://vnexpress.net/8-diem-nhan-vong-2-ngoai-hang-anh-5115226.html",
-      "summary": "Arsenal thực dụng, Man Utd bùng nổ nhờ tuyến giữa,  Tottenham tiếp tục thảm bại và Chelsea cầm bóng ít kỷ lục thuộc danh sách những điểm nhấn ở vòng 2 giải Ngoại hạng Anh 2026-2027.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T06:53:39+00:00"
-    },
-    {
-      "title": "Xiếc 'Hào khí Việt Nam' khơi dậy tự hào",
-      "url": "https://vnexpress.net/xiec-hao-khi-viet-nam-khoi-day-tu-hao-5115238.html",
-      "summary": "Các nghệ sĩ dùng nghệ thuật xiếc để kể câu chuyện về thời dựng nước, vẻ đẹp con người ở chương trình ''Hào khí Việt Nam''.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T05:52:36+00:00"
-    },
-    {
-      "title": "Giới hạn của con người bộc lộ qua kỷ lục nước rút của robot",
-      "url": "https://vnexpress.net/gioi-han-cua-con-nguoi-boc-lo-qua-ky-luc-nuoc-rut-cua-robot-5114911.html",
-      "summary": "Kỷ lục chạy 100 m trong 8,64 giây của robot Trung Quốc được đánh giá là bước tiến đáng kể, cho thấy chúng có thể vượt qua nhiều hạn chế của con người.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T05:00:00+00:00"
-    },
-    {
-      "title": "Apple trình 'bằng chứng gây sốc' trong vụ kiện OpenAI",
-      "url": "https://vnexpress.net/apple-trinh-bang-chung-gay-soc-trong-vu-kien-openai-5115554.html",
-      "summary": "Apple trình lên tòa án chiếc MacBook của cựu nhân viên Chang Liu, bên trong được cho là chứa nhiều bằng chứng \"nội gián\".",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T04:47:40+00:00"
-    },
-    {
-      "title": "6 dấu mốc của Messi với đội tuyển Argentina",
-      "url": "https://vnexpress.net/6-dau-moc-cua-messi-voi-doi-tuyen-argentina-5115526.html",
-      "summary": "Từ việc nhận thẻ đỏ trong trận ra mắt đến đỉnh cao vô địch World Cup 2022, Lionel Messi trải qua hành trình hơn hai thập kỷ đầy vinh quang nhưng cũng không kém phần sóng gió với đội tuyển Argentina.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T04:46:48+00:00"
-    },
-    {
-      "title": "Toyota, Honda nguy cơ vạ lây vì thương chiến Mỹ - Canada",
-      "url": "https://vnexpress.net/toyota-honda-nguy-co-va-lay-vi-thuong-chien-my-canada-5115509.html",
-      "summary": "Tổng thống Mỹ Donald Trump muốn áp thuế 50% ôtô nhập khẩu từ Canada, nhưng Toyota và Honda có thể lại là những bên phải \"trả giá\".",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T04:00:00+00:00"
-    },
-    {
-      "title": "'Ngôi sao bán dẫn Trung Quốc' sản xuất bộ nhớ HBM tiên tiến",
-      "url": "https://vnexpress.net/ngoi-sao-ban-dan-trung-quoc-san-xuat-bo-nho-hbm-tien-tien-5115523.html",
-      "summary": "CXMT được cho là đã sản xuất thành công HBM3E, bộ nhớ băng thông cao tiên tiến được sử dụng trong hệ thống chip AI.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T03:52:44+00:00"
-    },
-    {
-      "title": "Sắc vóc Lý Nhược Đồng",
-      "url": "https://vnexpress.net/sac-voc-ly-nhuoc-dong-5115550.html",
-      "summary": "Diễn viên Hong Kong Lý Nhược Đồng được khán giả nhận xét nước da khỏe khoắn trong các bức ảnh mặt mộc.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T03:47:32+00:00"
-    },
-    {
-      "title": "Hậu trường võ thuật trong 'Hộ linh tráng sĩ'",
-      "url": "https://vnexpress.net/hau-truong-vo-thuat-trong-ho-linh-trang-si-5115492.html",
-      "summary": "Diễn viên Tuấn Trần bị đứt dây chằng, Hiền Ngô chấn thương cổ tay, khi tập luyện và quay các cảnh võ thuật trong phim \"Hộ linh tráng sĩ\".",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T03:20:33+00:00"
-    },
-    {
-      "title": "Thách thức bủa vây thỏa thuận dầu mỏ 25 năm Mỹ - Venezuela",
-      "url": "https://vnexpress.net/thach-thuc-bua-vay-thoa-thuan-dau-mo-25-nam-my-venezuela-5115402.html",
-      "summary": "Thỏa thuận dầu mỏ được kỳ vọng vực dậy Venezuela, tăng nguồn cung cho Mỹ, nhưng còn ẩn số về pháp lý, tính bền vững và thu hút đầu tư.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T03:00:00+00:00"
-    },
-    {
-      "title": "John Ternus chính thức trở thành CEO Apple",
-      "url": "https://vnexpress.net/john-ternus-chinh-thuc-tro-thanh-ceo-apple-5115493.html",
-      "summary": "John Ternus tiếp quản vị trí CEO Apple từ Tim Cook từ ngày 1/9 với nhiều thách thức đang chờ đợi.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T02:09:00+00:00"
-    },
-    {
-      "title": "Thế giới bóng đá tri ân Messi",
-      "url": "https://vnexpress.net/the-gioi-bong-da-tri-an-messi-5115502.html",
-      "summary": "Các đồng đội, người thân và các ngôi sao thể thao gửi lời tri ân đến Lionel Messi sau khi tiền đạo 39 tuổi thông báo giã từ đội tuyển Argentina.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T02:04:09+00:00"
-    },
-    {
-      "title": "Tình yêu kín tiếng của Nhan Phúc Vinh, Khả Ngân",
-      "url": "https://vnexpress.net/tinh-yeu-kin-tieng-cua-nhan-phuc-vinh-kha-ngan-5115483.html",
-      "summary": "Diễn viên Nhan Phúc Vinh, Khả Ngân thân thiết hơn hai năm qua, cùng dự nhiều sự kiện lẫn hoạt động đời thường trước khi công khai tình yêu vào tối 31/8.",
-      "category": "Giải trí",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T01:05:25+00:00"
-    },
-    {
-      "title": "Đặt hàng nghiên cứu, phát triển đội 40 robot di động tự hành",
-      "url": "https://vnexpress.net/dat-hang-nghien-cuu-phat-trien-doi-40-robot-di-dong-tu-hanh-5115453.html",
-      "summary": "Quỹ Phát triển khoa học và công nghệ quốc gia (Nafosted) thông báo tuyển chọn đơn vị nghiên cứu, phát triển đội robot tự hành ứng dụng trong vệ sinh môi trường đô thị.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T01:00:09+00:00"
+      "published_at": "2026-09-02T00:39:39+00:00",
+      "summary_type": "source_excerpt"
     }
-  ]
+  ],
+  "policy": {
+    "max_posts_per_day": 5,
+    "full_source_text_stored": false,
+    "source_attribution": true,
+    "ai_mode": "summary_only"
+  }
 }
