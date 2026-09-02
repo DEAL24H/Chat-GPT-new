@@ -12,11 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 OUT = DATA_DIR / "news.json"
 STATE = DATA_DIR / "deal_state.json"
-HEADERS = {"User-Agent": "Deal24H/1.3 (+DEAL24H official-source coupon collector)"}
+HEADERS = {"User-Agent": "Deal24H/1.4 (+DEAL24H official-source coupon collector)"}
 MAX_DEALS = 1200
 
-# SECURITY RULE: coupon codes may only be published when discovered on the
-# merchant's own domain. Third-party coupon aggregators are never published.
 SOURCES = [
     {"name":"Nike Official Promo Terms","url":"https://www.nike.com/gb/promo-terms-bts2026","domain":"nike.com","category":"Thời trang","merchant":"Nike"},
     {"name":"adidas Official Sale","url":"https://www.adidas.com/us/regular-sale","domain":"adidas.com","category":"Thời trang","merchant":"Adidas"},
@@ -31,17 +29,19 @@ SOURCES = [
 ]
 
 CATEGORIES = {
-    "Thời trang": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "shein", "asos", "zara", "h&m", "uniqlo", "levi", "crocs"],
-    "Mỹ phẩm": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "ulta", "nars", "mac", "cerave", "ordinary", "glossier", "clinique", "paula's choice", "farmacy", "bobbi brown", "kosas"],
-    "Game": ["gaming", "game", "steam", "epic", "playstation", "xbox", "nintendo", "ubisoft", "ea", "blizzard", "riot", "humble"],
-    "Hàng tiêu dùng": ["consumer", "electronics", "electronic", "laptop", "computer", "phone", "smartphone", "tablet", "tv", "television", "headphone", "monitor", "printer", "home", "household", "kitchen", "appliance", "furniture", "mattress", "pet", "baby", "grocery", "food", "office", "apple", "samsung", "sony", "dell", "lenovo", "hp", "logitech", "philips", "ikea", "dyson"]
+    "Thời trang": ["fashion","apparel","clothing","shoes","sneaker","dress","jeans","bag","accessories","nike","adidas","puma","shein","asos","zara","h&m","uniqlo","levi","crocs"],
+    "Mỹ phẩm": ["beauty","cosmetic","skincare","makeup","cosmetics","sephora","ulta","nars","mac","cerave","ordinary","glossier","clinique","paula's choice","farmacy","bobbi brown","kosas"],
+    "Game": ["gaming","game","steam","epic","playstation","xbox","nintendo","ubisoft","ea","blizzard","riot","humble"],
+    "Hàng tiêu dùng": ["consumer","electronics","electronic","laptop","computer","phone","smartphone","tablet","tv","television","headphone","monitor","printer","home","household","kitchen","appliance","furniture","mattress","pet","baby","grocery","food","office","apple","samsung","sony","dell","lenovo","hp","logitech","philips","ikea","dyson"]
 }
 
-CODE_RE = re.compile(r"\b[A-Z0-9][A-Z0-9_-]{3,24}\b")
-EXPLICIT_CODE_RE = re.compile(r"\b(?:promo(?:tion)?\s+code|coupon\s+code|voucher\s+code|use\s+code|enter\s+code|code)\s*(?:is|:|=)?\s*[\"'“”]?([A-Z0-9][A-Z0-9_-]{3,24})[\"'“”]?", re.I)
+CODE_RE = r"[A-Z0-9][A-Z0-9_-]{3,24}"
+EXPLICIT_CODE_PATTERNS = [
+    re.compile(r"\b(?:use|enter)\s+(?:the\s+)?(?:promo(?:tion)?\s+)?code\s+[\"'“”]?(%s)[\"'“”]?\b" % CODE_RE, re.I),
+    re.compile(r"\b(?:promo(?:tion)?\s+code|coupon\s+code|voucher\s+code|code)\s*[:=]\s*[\"'“”]?(%s)[\"'“”]?\b" % CODE_RE, re.I),
+]
 DISCOUNT_RE = re.compile(r"(?:\$\s?\d+(?:\.\d+)?|\d{1,3}%|\d{1,3}\s?%\s?off|\d{1,3}%\s?off)", re.I)
-BAD_CODES = {"COPY","CODE","COUPON","COUPONS","TODAY","DEAL","DEALS","SALE","NEW","SHOP","HTTPS","WWW","CLICK","VERIFY","AUTHORITY","EDITORS","EDITOR","HAND-TESTED","TESTED","POPULAR","LATEST","ACTIVE","EXCLUSIVE","PROMO","PROMOS","OFFER","OFFERS","WITH","ENTER","THIS","YOUR","FROM","ONLY","APPLY","HELP","PAGE","NEXT","SIGN","JOIN"}
-KNOWN_BRANDS = ["Nike","Adidas","Zara","H&M","UNIQLO","SHEIN","ASOS","Levi's","PUMA","Crocs","L’Oréal Paris","Maybelline","MAC Cosmetics","NYX Professional Makeup","e.l.f. Cosmetics","CeraVe","La Roche-Posay","Rare Beauty","Charlotte Tilbury","Sephora","Steam","PlayStation","Xbox","Nintendo","Epic Games","Ubisoft","EA","Blizzard","Riot Games","Humble","Apple","Samsung","Sony","Dell","Lenovo","HP","Logitech","Philips","IKEA","Dyson"]
+BAD_CODES = {"COPY","CODE","COUPON","COUPONS","TODAY","DEAL","DEALS","SALE","NEW","SHOP","HTTPS","WWW","CLICK","VERIFY","AUTHORITY","EDITORS","EDITOR","HAND-TESTED","TESTED","POPULAR","LATEST","ACTIVE","EXCLUSIVE","PROMO","PROMOS","OFFER","OFFERS","WITH","ENTER","THIS","YOUR","FROM","ONLY","APPLY","HELP","PAGE","NEXT","SIGN","JOIN","REQUIRED"}
 
 
 def clean(text): return re.sub(r"\s+", " ", BeautifulSoup(text or "", "html.parser").get_text(" ")).strip()
@@ -80,7 +80,7 @@ def is_official_source(source):
 def valid_record(deal):
     code=str(deal.get("code","")).strip().upper(); merchant=str(deal.get("merchant","")).strip(); source_url=str(deal.get("source_url","")).strip(); source_domain=str(deal.get("source_domain","")).strip().lower().removeprefix("www.")
     if not code or code in BAD_CODES or len(code)<4 or not merchant or not bool(deal.get("code_context")): return False
-    if code.isdigit() or not re.fullmatch(r"[A-Z0-9_-]{4,25}",code): return False
+    if code.isdigit() or not re.fullmatch(CODE_RE,code): return False
     if not bool(deal.get("official_source")) or not source_url or not source_domain: return False
     host=official_domain(source_url)
     if not (host == source_domain or host.endswith("."+source_domain)): return False
@@ -97,9 +97,10 @@ def extract_deals(html, source):
     deals=[]; seen=set()
     for block in blocks:
         explicit=[]
-        for match in EXPLICIT_CODE_RE.findall(block):
-            code=match.upper()
-            if code not in BAD_CODES and code not in explicit: explicit.append(code)
+        for pattern in EXPLICIT_CODE_PATTERNS:
+            for match in pattern.findall(block):
+                code=match.upper()
+                if code not in BAD_CODES and code not in explicit: explicit.append(code)
         if not explicit: continue
         merchant=source["merchant"]; discount=DISCOUNT_RE.search(block); category=category_for(block+" "+merchant,source["category"]); expires_at=parse_expiry(block)
         for code in explicit[:5]:
@@ -141,6 +142,6 @@ def main():
         except Exception as exc:
             state["sources"][source["url"]]={**previous,"last_checked":now(),"last_error":str(exc)[:240]}; print(f"OFFICIAL SOURCE ERROR {source['name']}: {exc}")
     all_deals=list(by_key.values()); all_deals.sort(key=lambda d:d.get("last_checked",""),reverse=True); save_json(OUT,all_deals[:MAX_DEALS]); save_json(STATE,state)
-    print(f"DONE: official_only=true, changed_sources={changed_sources}, new_deals={new_count}, expired_removed={removed_expired}, non_official_removed={rejected_non_official}, total={len(all_deals[:MAX_DEALS])}")
+    print(f"DONE: official_only=true, changed_sources={changed_sources}, new_deals={new_count}, expired_removed={removed_expired}, invalid_removed={rejected_non_official}, total={len(all_deals[:MAX_DEALS])}")
 
 if __name__ == "__main__": main()
