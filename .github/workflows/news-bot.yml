@@ -15,7 +15,7 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     env:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CEREBRAS_API_KEY: ${{ vars.CEREBRAS_API_KEY }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
