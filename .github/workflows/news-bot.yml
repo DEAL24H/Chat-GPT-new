@@ -34,8 +34,10 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
-      - name: Collect, fetch details and create original articles
+      - name: Collect and create original articles
         run: python bot/news_bot.py
+      - name: Validate article length and image relevance
+        run: python bot/finalize_news.py
       - name: Commit news data
         run: |
           git config user.name 'github-actions[bot]'
