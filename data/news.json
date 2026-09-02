@@ -1,14 +1,34 @@
 {
-  "updated_at": "2026-09-02T03:10:48.779874+00:00",
+  "updated_at": "2026-09-02T03:59:33.804410+00:00",
   "items": [
     {
-      "id": "ff4552cfc6604ee0",
-      "title": "Chọn 6 tờ tiền với 3 mệnh giá khác nhau để tổng đúng 100.000?",
-      "url": "https://vnexpress.net/cau-do-6-to-tien-viet-nam-3-menh-gia-khac-nhau-tong-dung-100-000-dong-tuong-don-gian-nhung-dieu-kien-dac-biet-khien-nhieu-nguoi-5113503.html",
-      "summary": "Yêu cầu lấy đúng 6 tờ tiền thuộc 3 mệnh giá khác nhau để tổng bằng 100.000, bạn có giải được phép tính này trong 10 giây? Thử ngay!",
+      "id": "c5820a9a238a4120",
+      "title": "Peru cắt quan hệ với Iran",
+      "url": "https://vnexpress.net/peru-cat-quan-he-voi-iran-5115727.html",
+      "summary": "Peru tuyên bố cắt đứt quan hệ ngoại giao với Iran, cáo buộc Tehran kích động leo thang xung đột tại Trung Đông và cản trở vận tải hàng hải qua Hormuz.",
+      "category": "Thế giới",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T03:38:29+00:00",
+      "summary_type": "source_excerpt"
+    },
+    {
+      "id": "2e56a1b93ce00a54",
+      "title": "Thông xe đoạn đường đầu tiên ven rạch Xuyên Tâm",
+      "url": "https://vnexpress.net/thong-xe-doan-duong-dau-tien-ven-rach-xuyen-tam-5115743.html",
+      "summary": "Khoảng 1,4 km đường ven rạch Xuyên Tâm được thông xe sáng 2/9, tạo diện mạo mới cho khu vực từng dày đặc nhà lụp xụp, ô nhiễm ở TP HCM.",
       "category": "Việt Nam",
       "source": "VnExpress",
-      "published_at": "2026-09-02T02:45:00+00:00",
+      "published_at": "2026-09-02T03:31:26+00:00",
+      "summary_type": "source_excerpt"
+    },
+    {
+      "id": "3c693a290e7ae251",
+      "title": "Mạng 2G sẽ được tắt hoàn toàn trong tháng 9",
+      "url": "https://vnexpress.net/mang-2g-se-duoc-tat-hoan-toan-trong-thang-9-5115657.html",
+      "summary": "Các nhà mạng sẽ dừng phát sóng 2G trên toàn quốc từ giữa tháng 9, sau gần hai năm duy trì để người dùng chuyển đổi thiết bị.",
+      "category": "Công nghệ",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T03:00:00+00:00",
       "summary_type": "source_excerpt"
     },
     {
@@ -22,40 +42,23 @@
       "summary_type": "source_excerpt"
     },
     {
-      "id": "d188b1f7e212a14b",
-      "title": "Các nước chúc mừng Quốc khánh Việt Nam",
-      "url": "https://vnexpress.net/cac-nuoc-chuc-mung-quoc-khanh-viet-nam-5115714.html",
-      "summary": "Lãnh đạo các nước gửi thư, điện và thông điệp chúc mừng 81 năm Quốc khánh Việt Nam, bày tỏ mong muốn tăng cường quan hệ hợp tác.",
-      "category": "Thế giới",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T02:10:04+00:00",
-      "summary_type": "source_excerpt"
-    },
-    {
-      "id": "beff72e3cf0fb42f",
-      "title": "Giá vàng thế giới xuống thấp nhất 2 tuần",
-      "url": "https://vnexpress.net/gia-vang-the-gioi-xuong-thap-nhat-2-tuan-5115706.html",
+      "id": "31f45bb57ea0780c",
+      "title": "Giá vàng thế giới xuống thấp nhất hai tuần",
+      "url": "https://vnexpress.net/gia-vang-the-gioi-xuong-thap-nhat-hai-tuan-5115706.html",
       "summary": "Mỗi ounce vàng thế giới giảm hơn 100 USD chỉ trong một phiên, hiện về sát mốc 4.300 USD.",
       "category": "Kinh doanh",
       "source": "VnExpress",
       "published_at": "2026-09-02T00:39:39+00:00",
-      "summary_type": "source_excerpt"
-    },
-    {
-      "id": "cf3f116ae27eb8cf",
-      "title": "Internet Việt Nam lần đầu vào top 10 thế giới cả di động và cố định",
-      "url": "https://vnexpress.net/internet-viet-nam-lan-dau-vao-top-10-the-gioi-ca-di-dong-va-co-dinh-5115655.html",
-      "summary": "Internet di động tại Việt Nam tăng 10 bậc, trong khi Internet cố định vươn lên vị trí thứ 7, đưa cả hai loại hình kết nối của Việt Nam lần đầu cùng lọt top 10 toàn cầu.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-02T00:00:00+00:00",
       "summary_type": "source_excerpt"
     }
   ],
   "policy": {
     "max_posts_per_day": 5,
     "full_source_text_stored": false,
+    "source_images_stored": false,
     "source_attribution": true,
-    "ai_mode": "summary_only"
+    "ai_mode": "factual_summary_only",
+    "ai_provider": "Cerebras",
+    "ai_model": "llama3.1-8b"
   }
 }
