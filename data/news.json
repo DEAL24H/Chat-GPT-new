@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-09-02T04:02:34.046395+00:00",
+  "updated_at": "2026-09-02T04:14:40.261641+00:00",
   "items": [
     {
-      "id": "aff4277d497ebb7f",
-      "title": "Những ngày cuối đời của Chủ tịch Hồ Chí Minh",
-      "url": "https://vnexpress.net/nhung-ngay-cuoi-doi-cua-chu-tich-ho-chi-minh-5115677.html",
-      "summary": "Trong những ngày bệnh nặng, Chủ tịch Hồ Chí Minh vẫn xử lý công việc, theo dõi chiến trường, lo lũ sông Hồng và mong được gặp đồng bào dịp Quốc khánh.",
+      "id": "f19792b00ebd203a",
+      "title": "Nam du khách bị nước cuốn mất tích tại thác Khâu Làn",
+      "url": "https://vnexpress.net/nam-du-khach-bi-nuoc-cuon-mat-tich-tai-thac-khau-lan-5115752.html",
+      "summary": "Một nam du khách 28 tuổi ở TP HCM bị dòng nước cuốn mất tích khi xuống tắm tại thác Khâu Làn, xã Quản Bạ, tối 1/9.",
       "category": "Việt Nam",
       "source": "VnExpress",
-      "published_at": "2026-09-02T03:54:50+00:00",
+      "published_at": "2026-09-02T04:07:19+00:00",
       "summary_type": "source_excerpt"
     },
     {
@@ -53,11 +53,11 @@
     }
   ],
   "policy": {
-    "max_posts_per_day": 5,
+    "max_posts_per_run": 5,
     "full_source_text_stored": false,
     "source_images_stored": false,
     "source_attribution": true,
-    "ai_mode": "factual_summary_only",
+    "ai_mode": "detailed_original_summary",
     "ai_provider": "Cerebras",
     "ai_model": "llama3.1-8b"
   }
