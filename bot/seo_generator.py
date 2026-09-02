@@ -8,7 +8,7 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
-BASE = "https://chayso2015-ctrl.github.io/Chat-GPT-new"
+BASE = "https://deal24h.github.io/Chat-GPT-new"
 CATEGORIES = {"fashion": "Fashion", "beauty": "Beauty", "gaming": "Gaming"}
 CATEGORY_ALIASES = {"Thời trang": "fashion", "Fashion": "fashion", "Mỹ phẩm": "beauty", "Beauty": "beauty", "Game": "gaming", "Gaming": "gaming"}
 KNOWN_BRANDS = {
