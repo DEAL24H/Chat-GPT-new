@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "id": "24d75b0c3c546417",
+    "title": "PUMA — 10%",
+    "content": "PROMOTIONS & SALE NATIONAL DAY SPECIAL Enjoy NATIONAL DAY SPECIAL with the following promotion: USE CODE \"EXTRA10\" FOR ADDITIONAL 10% OFF* Voucher code is required to activate this promotion. Exclusions apply, only selected items are eligible for promo discount. Promo-eligible items will have a red promo call-out message. Price shown is before promo discount. The final price is shown at checkout. Valid from 28 August - 06 September 2026. If you have any queries or concerns, please contact PUMA C",
+    "code": "EXTRA10",
+    "discount": "10%",
+    "merchant": "PUMA",
+    "category": "Thời trang",
+    "country": "International",
+    "url": "https://vn.puma.com/vn/en/promotions-and-sale.html",
+    "source_url": "https://vn.puma.com/vn/en/promotions-and-sale.html",
+    "source_label": "PUMA Official Promotions",
+    "source_domain": "puma.com",
+    "official_source": true,
+    "code_context": true,
+    "detected_at": "2026-09-02T07:54:17.132747+00:00",
+    "last_checked": "2026-09-02T07:54:17.132760+00:00",
+    "expires_at": "",
+    "status": "active",
+    "verified": false,
+    "verification_method": "official_merchant_page",
+    "images": [],
+    "image": "",
+    "summary_type": "official_merchant_discovery"
+  }
+]
