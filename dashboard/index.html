@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DEAL 24H — Dashboard</title>
+<link rel="stylesheet" href="style.css?v=20260903a">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="../">DEAL <span>24H</span></a>
+    <div class="admin-label">SITE DASHBOARD</div>
+    <nav>
+      <a class="nav active" href="#overview">⌂ <span>Tổng quan</span></a>
+      <a class="nav" href="#offers">▣ <span>Deals & Coupons</span></a>
+      <a class="nav" href="#brands">◇ <span>Brands</span></a>
+      <a class="nav" href="#bot">↻ <span>News Bot</span></a>
+      <a class="nav" href="#seo">⌁ <span>SEO & Pages</span></a>
+      <a class="nav" href="#system">⚙ <span>Hệ thống</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="site-link" href="../">↗ Mở website</a>
+      <span>Public dashboard · không chứa secret</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">CONTROL CENTER</div>
+        <h1>Dashboard</h1>
+        <p>Quản lý và theo dõi DEAL 24H từ một nơi.</p>
+      </div>
+      <div class="top-actions">
+        <span id="last-sync" class="muted">Đang kiểm tra…</span>
+        <a class="button primary" href="https://github.com/DEAL24H/Chat-GPT-new/actions/workflows/news-bot.yml" target="_blank" rel="noopener">Mở Actions ↗</a>
+      </div>
+    </header>
+
+    <section id="overview" class="section">
+      <div class="stats">
+        <article class="stat"><span>Active offers</span><strong id="stat-active">—</strong><small>đang hiển thị trên site</small></article>
+        <article class="stat"><span>Promo codes</span><strong id="stat-codes">—</strong><small>offer có mã giảm giá</small></article>
+        <article class="stat"><span>Brands</span><strong id="stat-brands">—</strong><small>trong catalog</small></article>
+        <article class="stat"><span>Categories</span><strong id="stat-categories">—</strong><small>Fashion · Beauty · Gaming · Consumer</small></article>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel health-panel">
+          <div class="panel-head"><div><div class="eyebrow">SITE HEALTH</div><h2>Trạng thái website</h2></div><span id="health-badge" class="badge pending">Checking</span></div>
+          <div class="health-list">
+            <div><span>Data feed</span><b id="health-data">—</b></div>
+            <div><span>Brand catalog</span><b id="health-catalog">—</b></div>
+            <div><span>Latest data update</span><b id="health-updated">—</b></div>
+            <div><span>GitHub Pages</span><b>Configured</b></div>
+          </div>
+        </article>
+        <article class="panel quick-panel">
+          <div class="panel-head"><div><div class="eyebrow">QUICK ACTIONS</div><h2>Thao tác nhanh</h2></div></div>
+          <div class="quick-grid">
+            <a href="https://github.com/DEAL24H/Chat-GPT-new/actions/workflows/news-bot.yml" target="_blank" rel="noopener"><b>↻</b><span>Chạy News Bot</span><small>GitHub Actions</small></a>
+            <a href="https://github.com/DEAL24H/Chat-GPT-new/edit/main/data/news.json" target="_blank" rel="noopener"><b>✎</b><span>Sửa offers</span><small>news.json</small></a>
+            <a href="https://github.com/DEAL24H/Chat-GPT-new/edit/main/data/brand_catalog.json" target="_blank" rel="noopener"><b>◇</b><span>Sửa brands</span><small>brand_catalog.json</small></a>
+            <a href="https://github.com/DEAL24H/Chat-GPT-new/commits/main" target="_blank" rel="noopener"><b>☷</b><span>Xem lịch sử</span><small>Git commits</small></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="offers" class="section">
+      <div class="section-title"><div><div class="eyebrow">CONTENT</div><h2>Deals & Coupons</h2><p>Đây là dữ liệu thực tế mà website đang đọc.</p></div><a class="button" href="https://github.com/DEAL24H/Chat-GPT-new/blob/main/data/news.json" target="_blank" rel="noopener">Xem news.json ↗</a></div>
+      <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Brand</th><th>Type</th><th>Benefit</th><th>Category</th><th>Checked</th></tr></thead><tbody id="offers-table"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></div>
+    </section>
+
+    <section id="brands" class="section">
+      <div class="section-title"><div><div class="eyebrow">CATALOG</div><h2>Brands</h2><p>Các brand được dùng để chuẩn hóa offer và tạo SEO pages.</p></div><a class="button" href="https://github.com/DEAL24H/Chat-GPT-new/blob/main/data/brand_catalog.json" target="_blank" rel="noopener">Mở catalog ↗</a></div>
+      <div class="brand-summary" id="brand-summary"></div>
+    </section>
+
+    <section id="bot" class="section">
+      <div class="section-title"><div><div class="eyebrow">AUTOMATION</div><h2>News Bot</h2><p>Bot thu thập, chuẩn hóa, validate và deploy dữ liệu theo workflow hiện tại.</p></div><a class="button primary" href="https://github.com/DEAL24H/Chat-GPT-new/actions/workflows/news-bot.yml" target="_blank" rel="noopener">Quản lý workflow ↗</a></div>
+      <div class="bot-grid">
+        <article class="panel"><span class="step">01</span><h3>Collect</h3><p>Thu thập nguồn coupon/deal.</p></article>
+        <article class="panel"><span class="step">02</span><h3>Normalize</h3><p>Chuẩn hóa brand, category và dữ liệu.</p></article>
+        <article class="panel"><span class="step">03</span><h3>Validate</h3><p>Kiểm tra offer active và SEO links.</p></article>
+        <article class="panel"><span class="step">04</span><h3>Deploy</h3><p>Commit data và deploy GitHub Pages.</p></article>
+      </div>
+      <div class="note">Workflow hiện chạy theo lịch và có thể chạy thủ công từ GitHub Actions. Dashboard này không chứa GitHub token.</div>
+    </section>
+
+    <section id="seo" class="section">
+      <div class="section-title"><div><div class="eyebrow">DISCOVERY</div><h2>SEO & Pages</h2><p>Các khu vực public được bot tạo và cập nhật.</p></div></div>
+      <div class="link-cards">
+        <a href="../fashion/" target="_blank"><b>Fashion</b><span>Category page ↗</span></a>
+        <a href="../beauty/" target="_blank"><b>Beauty</b><span>Category page ↗</span></a>
+        <a href="../gaming/" target="_blank"><b>Gaming</b><span>Category page ↗</span></a>
+        <a href="../consumer/" target="_blank"><b>Consumer</b><span>Category page ↗</span></a>
+        <a href="https://deal24h.net/sitemap.xml" target="_blank"><b>Sitemap</b><span>XML ↗</span></a>
+        <a href="https://deal24h.net/robots.txt" target="_blank"><b>Robots</b><span>TXT ↗</span></a>
+      </div>
+    </section>
+
+    <section id="system" class="section last-section">
+      <div class="section-title"><div><div class="eyebrow">SYSTEM</div><h2>Hệ thống</h2><p>Các file lõi và công cụ phát triển.</p></div></div>
+      <div class="system-links">
+        <a href="https://github.com/DEAL24H/Chat-GPT-new" target="_blank">Repository <span>↗</span></a>
+        <a href="https://github.com/DEAL24H/Chat-GPT-new/actions" target="_blank">All Actions <span>↗</span></a>
+        <a href="https://github.com/DEAL24H/Chat-GPT-new/commits/main" target="_blank">Commit history <span>↗</span></a>
+        <a href="https://github.com/DEAL24H/Chat-GPT-new/blob/main/.github/workflows/news-bot.yml" target="_blank">Workflow source <span>↗</span></a>
+      </div>
+    </section>
+    <footer>DEAL 24H Dashboard · Read-only control center · <span id="year"></span></footer>
+  </main>
+</div>
+<script src="app.js?v=20260903a"></script>
+</body>
+</html>
