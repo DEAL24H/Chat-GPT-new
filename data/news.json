@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-09-02T02:36:36.635729+00:00",
+  "updated_at": "2026-09-02T03:02:07.188162+00:00",
   "items": [
+    {
+      "title": "Messi từng suýt bỏ lỡ thập niên vàng như thế nào",
+      "url": "https://vnexpress.net/messi-tung-suyt-bo-lo-thap-nien-vang-nhu-the-nao-5115528.html",
+      "summary": "Nếu giữ nguyên quyết định chia tay đội tuyển Argentina cách đây 10 năm, Lionel Messi có thể đã không thể xác lập vị trí một huyền thoại bóng đá như ngày nay.",
+      "category": "Thể thao",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T02:42:05+00:00"
+    },
+    {
+      "title": "Cuộc chuyển mình trên thị trường chuyển nhượng của PSG",
+      "url": "https://vnexpress.net/cuoc-chuyen-minh-tren-thi-truong-chuyen-nhuong-cua-psg-5115699.html",
+      "summary": "PSG lập kỷ lục doanh thu từ bán cầu thủ trong kỳ chuyển nhượng hè 2026 với 433,7 triệu USD, cho thấy sự thay đổi rõ rệt trong chính sách tuyển mộ của đội bóng Pháp những năm gần đây.",
+      "category": "Thể thao",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T02:27:17+00:00"
+    },
+    {
+      "title": "Runner chạy hơn 1.000 km trong 7 ngày liền",
+      "url": "https://vnexpress.net/runner-chay-hon-1-000-km-trong-7-ngay-lien-5115721.html",
+      "summary": "VĐV Australia Phil Gore chạy hoàn thành 152 vòng liên tiếp trong suốt 168 tiếng, tương đương 1.019,92 km.",
+      "category": "Thể thao",
+      "source": "VnExpress",
+      "published_at": "2026-09-02T02:21:48+00:00"
+    },
     {
       "title": "Tam ca Áo trắng quây quần bên các con",
       "url": "https://vnexpress.net/tam-ca-ao-trang-quay-quan-ben-cac-con-5115705.html",
@@ -456,30 +480,6 @@
       "category": "Công nghệ",
       "source": "VnExpress",
       "published_at": "2026-09-01T01:00:09+00:00"
-    },
-    {
-      "title": "Con gái Jensen Huang - ngôi sao đang lên của Nvidia",
-      "url": "https://vnexpress.net/con-gai-jensen-huang-ngoi-sao-dang-len-cua-nvidia-5113116.html",
-      "summary": "Madison Huang, con gái của CEO Nvidia Jensen Huang, ngày càng hiện diện nhiều cùng cha, dấy lên tin đồn bà sẽ kế vị đế chế 5.000 tỷ USD.",
-      "category": "Công nghệ",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T00:20:53+00:00"
-    },
-    {
-      "title": "Tottenham chiêu mộ 2 cầu thủ Chelsea",
-      "url": "https://vnexpress.net/tottenham-chieu-mo-2-cau-thu-chelsea-5115499.html",
-      "summary": "Tottenham chuẩn bị hoàn tất hai thương vụ với Chelsea, gồm mượn tiền đạo Mykhailo Mudryk một mùa và mua đứt trung vệ Tosin Adarabioyo.",
-      "category": "Thể thao",
-      "source": "VnExpress",
-      "published_at": "2026-09-01T00:06:31+00:00"
-    },
-    {
-      "title": "Chủ chuỗi Haidilao thu hơn 8 tỷ đồng mỗi ngày ở Việt Nam",
-      "url": "https://vnexpress.net/chu-chuoi-haidilao-thu-hon-8-ty-dong-moi-ngay-o-viet-nam-5115484.html",
-      "summary": "Super Hi International, đơn vị điều hành thị trường quốc tế của chuỗi Haidilao, thu về hơn 1.500 tỷ đồng tại Việt Nam trong 6 tháng, tương đương 8,3 tỷ đồng mỗi ngày.",
-      "category": "Kinh doanh",
-      "source": "VnExpress",
-      "published_at": "2026-08-31T23:25:30+00:00"
     }
   ]
 }
