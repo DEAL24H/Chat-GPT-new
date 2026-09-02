@@ -1,0 +1,17 @@
+{
+  "configured": false,
+  "updated_at": null,
+  "period_days": 30,
+  "totals": {
+    "active_users": 0,
+    "sessions": 0,
+    "pageviews": 0,
+    "engagement_rate": 0,
+    "new_users": 0
+  },
+  "daily": [],
+  "top_pages": [],
+  "countries": [],
+  "devices": [],
+  "message": "Analytics chưa được cấu hình. Thêm GA4 secrets để bắt đầu thu thập số liệu."
+}
