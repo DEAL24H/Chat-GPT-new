@@ -1,31 +1,29 @@
-name: News Bot
+name: Deal Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 * * *'
+    - cron: '0 8 * * *'
+    - cron: '0 16 * * *'
   push:
     branches: [main]
     paths-ignore:
       - 'data/news.json'
+      - 'data/deal_state.json'
 permissions:
   contents: write
   pages: write
   id-token: write
+concurrency:
+  group: deal-bot-main
+  cancel-in-progress: true
 jobs:
   collect:
     runs-on: ubuntu-latest
-    env:
-      CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Check Cerebras secret
-        if: ${{ env.CEREBRAS_API_KEY == '' }}
-        run: |
-          echo 'CEREBRAS_API_KEY is not configured as a GitHub Actions secret.'
-          echo 'Create the repository secret CEREBRAS_API_KEY before running the News Bot.'
-          exit 1
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Python
@@ -34,16 +32,14 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
-      - name: Collect and create original articles
+      - name: Collect public coupon deals
         run: python bot/news_bot.py
-      - name: Validate article length and image relevance
-        run: python bot/finalize_news.py
-      - name: Commit news data
+      - name: Commit deal data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json
-          git diff --cached --quiet || git commit -m 'chore: update news data'
+          git add data/news.json data/deal_state.json
+          git diff --cached --quiet || git commit -m 'chore: update coupon deals'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -51,6 +47,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      - name: Deploy Pages with fresh news data
+      - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
