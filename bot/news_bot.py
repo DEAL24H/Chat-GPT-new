@@ -21,7 +21,7 @@ SOURCES = {
     "Giải trí": "https://vnexpress.net/rss/giai-tri.rss",
 }
 MAX_POSTS = 5
-MAX_SOURCE_CHARS = 12000
+MAX_SOURCE_CHARS = 18000
 MODEL = "llama3.1-8b"
 HEADERS = {"User-Agent": "DiemTin24H/1.0 (+GitHub Pages editorial bot)"}
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
@@ -97,6 +97,10 @@ def find_openly_licensed_image(title: str, category: str):
     return {"image": "", "image_source": "", "image_license": "", "image_title": ""}
 
 
+def word_count(text: str) -> int:
+    return len(re.findall(r"\b\w+[\wÀ-ỹà-ỹ'-]*\b", text or "", flags=re.UNICODE))
+
+
 def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
     api_key = os.environ.get("CEREBRAS_API_KEY")
     if not api_key or not source_text:
@@ -105,20 +109,23 @@ def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
     client = OpenAI(base_url="https://api.cerebras.ai/v1", api_key=api_key)
     prompt = (
         "Bạn là biên tập viên của ĐIỂM TIN 24H. Dựa trên các dữ kiện trong tài liệu nguồn, "
-        "hãy tạo một bài báo tiếng Việt DÀI và NGUYÊN BẢN, khoảng 600-900 từ nếu dữ kiện cho phép. "
-        "Bài phải có tiêu đề mới và nhiều đoạn, trình bày mạch lạc, có bối cảnh, diễn biến, số liệu "
-        "và ý nghĩa khi chúng thực sự có trong nguồn. Không chép nguyên câu hoặc tái tạo cấu trúc của "
-        "bài nguồn; không bịa thêm dữ kiện, phát ngôn hay kết luận. Đây là bài biên tập độc lập dựa trên "
-        "các sự kiện đã kiểm chứng. Trả về đúng JSON với hai trường title và content; content là văn bản "
-        "thuần, các đoạn cách nhau bằng một dòng trống.\n\n"
+        "hãy viết một bài báo tiếng Việt DÀI, NGUYÊN BẢN và có chiều sâu. Mục tiêu bắt buộc là "
+        "900-1200 từ, tối thiểu 750 từ nếu dữ kiện nguồn đủ. Không được cố tình rút gọn thành bản tóm tắt. "
+        "Hãy khai thác đầy đủ các dữ kiện đáng chú ý: diễn biến, bối cảnh, số liệu, nguyên nhân hoặc tác động "
+        "khi nguồn thực sự cung cấp; sắp xếp thành nhiều đoạn rõ ràng để người đọc hiểu câu chuyện từ đầu đến cuối. "
+        "Nếu nguồn có nhiều chi tiết liên quan, hãy giải thích chúng thay vì bỏ qua. Không bịa thêm dữ kiện, "
+        "phát ngôn, con số hoặc kết luận. Không chép nguyên câu, không tái tạo cấu trúc hay cách diễn đạt của bài nguồn. "
+        "Đây là bài biên tập độc lập dựa trên các sự kiện đã kiểm chứng. Trả về đúng JSON với hai trường title và content; "
+        "content là văn bản thuần, các đoạn cách nhau bằng một dòng trống.\n\n"
         f"Chuyên mục: {category}\nTiêu đề tham khảo: {title}\n\n"
         f"Tài liệu dữ kiện nguồn:\n{source_text}"
     )
     response = client.chat.completions.create(
         model=MODEL,
-        temperature=0.25,
+        temperature=0.3,
+        max_tokens=2200,
         messages=[
-            {"role": "system", "content": "Tạo bài báo nguyên bản, chính xác theo dữ kiện; không sao chép văn bản nguồn."},
+            {"role": "system", "content": "Tạo bài báo nguyên bản, dài, chính xác theo dữ kiện; không sao chép văn bản nguồn."},
             {"role": "user", "content": prompt},
         ],
     )
@@ -130,6 +137,28 @@ def ai_article(source_text: str, title: str, category: str) -> tuple[str, str]:
     except json.JSONDecodeError:
         new_title = title
         content = raw
+
+    # If the first generation is too short, ask the model once to expand it using only the
+    # already generated draft. This keeps the published article original and prevents short outputs.
+    if word_count(content) < 750:
+        expand_prompt = (
+            "Hãy mở rộng bản thảo dưới đây thành bài báo tiếng Việt khoảng 900-1200 từ. "
+            "Giữ nguyên mọi dữ kiện đã có, chỉ phát triển cách giải thích, bối cảnh và mạch kể khi chúng đã được hỗ trợ; "
+            "không bịa thêm thông tin, không sao chép nguồn và không lặp ý. Trả về văn bản thuần với nhiều đoạn.\n\n"
+            f"Bản thảo cần mở rộng:\n{content}"
+        )
+        expanded = client.chat.completions.create(
+            model=MODEL,
+            temperature=0.3,
+            max_tokens=2200,
+            messages=[
+                {"role": "system", "content": "Mở rộng bài báo nguyên bản mà không thêm dữ kiện không có trong bản thảo."},
+                {"role": "user", "content": expand_prompt},
+            ],
+        )
+        expanded_text = (expanded.choices[0].message.content or "").strip()
+        if word_count(expanded_text) > word_count(content):
+            content = expanded_text
     return content, new_title
 
 
@@ -183,6 +212,7 @@ def main():
             "source_images_stored": False,
             "source_attribution": True,
             "ai_mode": "original_detailed_article",
+            "target_article_words": "900-1200",
             "ai_provider": "Cerebras",
             "ai_model": MODEL,
             "image_provider": "Wikimedia Commons",
