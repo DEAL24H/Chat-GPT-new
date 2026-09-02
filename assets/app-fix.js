@@ -1,6 +1,6 @@
 const state = { items: [], category: 'All', query: '' };
 const $ = (s) => document.querySelector(s);
-const DATA_URLS = [new URL('data/news.json', document.baseURI).href, 'https://raw.githubusercontent.com/chayso2015-ctrl/Chat-GPT-new/main/data/news.json'];
+const DATA_URLS = [new URL('data/news.json', document.baseURI).href, 'https://raw.githubusercontent.com/DEAL24H/Chat-GPT-new/main/data/news.json'];
 const CATEGORY_LABELS = { 'Thời trang':'Fashion', 'Mỹ phẩm':'Beauty', 'Game':'Gaming', 'Tổng hợp':'Deals' };
 const BRAND_DOMAINS = {
   dell:'dell.com', nike:'nike.com', adidas:'adidas.com', puma:'puma.com', shein:'shein.com', asos:'asos.com', mango:'shop.mango.com', hm:'hm.com', 'h&m':'hm.com', uniqlo:'uniqlo.com', zara:'zara.com', crocs:'crocs.com', gap:'gap.com', converse:'converse.com', 'under armour':'underarmour.com',
