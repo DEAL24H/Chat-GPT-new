@@ -46,6 +46,28 @@ def category_for(text, fallback="Tổng hợp"):
     for category, words in CATEGORIES.items():
         if any(re.search(r"\b" + re.escape(word) + r"\b", value) for word in words): return category
     return "Hàng tiêu dùng" if fallback == "Tổng hợp" else fallback
+
+def parse_expiry(text):
+    text = clean(text)
+    patterns = [
+        r"(?:expires?|expiry|expiration|ends?|valid until|valid through|good through|offer ends?)\s*[:\-]?\s*(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})",
+        r"(?:expires?|expiry|expiration|ends?|valid until|valid through|good through|offer ends?)\s*[:\-]?\s*([A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?)",
+        r"(?:expires?|expiry|expiration|ends?|valid until|valid through|good through|offer ends?)\s*[:\-]?\s*(\d{1,2}\s+[A-Za-z]{3,9}(?:\s+\d{4})?)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, re.I)
+        if not match: continue
+        raw = re.sub(r"(\d)(st|nd|rd|th)\b", r"\1", match.group(1), flags=re.I).replace("/", "-")
+        formats = ["%m-%d-%Y", "%m-%d-%y", "%b %d, %Y", "%B %d, %Y", "%b %d %Y", "%B %d %Y", "%d %b %Y", "%d %B %Y"]
+        for fmt in formats:
+            try: return datetime.strptime(raw, fmt).replace(tzinfo=timezone.utc).isoformat()
+            except ValueError: pass
+        if re.search(r"[A-Za-z]", raw) and not re.search(r"\d{4}", raw):
+            for fmt in ["%b %d", "%B %d", "%d %b", "%d %B"]:
+                try: return datetime.strptime(raw, fmt).replace(year=datetime.now(timezone.utc).year, tzinfo=timezone.utc).isoformat()
+                except ValueError: pass
+    return ""
+
 def merchant_from_context(context, source_name):
     context = clean(context); low = context.lower()
     for brand in KNOWN_BRANDS:
@@ -55,6 +77,7 @@ def merchant_from_context(context, source_name):
     if not candidate or candidate.lower() in GENERIC_MERCHANTS or candidate.lower() == source_name.lower(): return ""
     if re.fullmatch(r"[A-Z0-9_-]{4,30}", candidate) or re.search(r"\b(authority|editors|hand-tested|verified codes|not bots|affiliate disclosure|terms of service|privacy policy)\b", candidate, re.I): return ""
     return candidate
+
 def valid_record(deal):
     code = str(deal.get("code", "")).strip().upper(); merchant = str(deal.get("merchant", "")).strip()
     if not code or code in BAD_CODES or len(code) < 4 or not merchant: return False
@@ -64,6 +87,7 @@ def valid_record(deal):
     if re.search(r"\b(authority|editors|hand-tested|not bots|popular coupons|latest coupons|affiliate disclosure|terms of service|privacy policy)\b", merchant, re.I): return False
     if re.match(r"^©?\s*\d{4}\b", merchant) or merchant.startswith("©"): return False
     return True
+
 def extract_deals(html, source):
     soup = BeautifulSoup(html, "html.parser"); blocks = []
     for tag in soup.find_all(["article", "li", "div", "section"]):
@@ -81,16 +105,30 @@ def extract_deals(html, source):
         if not codes: continue
         merchant = merchant_from_context(block, source["name"])
         if not merchant: continue
-        discount = DISCOUNT_RE.search(block); category = category_for(block + " " + merchant, source["category"])
+        discount = DISCOUNT_RE.search(block); category = category_for(block + " " + merchant, source["category"]); expires_at = parse_expiry(block)
         for code in codes[:3]:
-            deal = {"id": hashlib.sha256((source["name"] + "|" + merchant + "|" + code).encode()).hexdigest()[:16], "title": f"{merchant} — {discount.group(0) if discount else 'Coupon code'}", "content": block[:500], "code": code, "discount": discount.group(0) if discount else "", "merchant": merchant, "category": category, "country": "International", "url": source["url"], "source_url": source["url"], "source_label": source["name"], "detected_at": now(), "last_checked": now(), "status": "active", "verified": False, "images": [], "image": "", "summary_type": "public_coupon_discovery"}
+            deal = {"id": hashlib.sha256((source["name"] + "|" + merchant + "|" + code).encode()).hexdigest()[:16], "title": f"{merchant} — {discount.group(0) if discount else 'Coupon code'}", "content": block[:500], "code": code, "discount": discount.group(0) if discount else "", "merchant": merchant, "category": category, "country": "International", "url": source["url"], "source_url": source["url"], "source_label": source["name"], "detected_at": now(), "last_checked": now(), "expires_at": expires_at, "status": "active", "verified": False, "images": [], "image": "", "summary_type": "public_coupon_discovery"}
             if valid_record(deal) and (merchant.lower(), code.lower()) not in seen:
                 seen.add((merchant.lower(), code.lower())); deals.append(deal)
     return deals
+
+def purge_expired(existing):
+    current = datetime.now(timezone.utc); kept = []; removed = 0
+    for deal in existing:
+        if not valid_record(deal): continue
+        expiry = str(deal.get("expires_at", "")).strip()
+        if expiry:
+            try:
+                if datetime.fromisoformat(expiry.replace("Z", "+00:00")) <= current:
+                    removed += 1; continue
+            except ValueError: pass
+        kept.append(deal)
+    return kept, removed
+
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True); state = load_json(STATE, {"sources": {}, "deals": {}}); existing = load_json(OUT, [])
     if not isinstance(existing, list): existing = []
-    existing = [d for d in existing if valid_record(d)]
+    existing, removed_expired = purge_expired(existing)
     by_key = {(d.get("merchant", "").lower(), d.get("code", "").lower()): d for d in existing if d.get("code")}
     changed_sources = 0; new_count = 0
     for source in SOURCES:
@@ -102,11 +140,14 @@ def main():
             state["sources"][source["url"]]["last_changed"] = now(); changed_sources += 1; deals = extract_deals(html, source)
             for deal in deals:
                 key = (deal["merchant"].lower(), deal["code"].lower()); old = by_key.get(key)
-                if old: old.update({"last_checked": now(), "status": "active", "source_url": deal["source_url"], "source_label": deal["source_label"], "category": deal["category"]})
+                if old:
+                    old.update({"last_checked": now(), "status": "active", "source_url": deal["source_url"], "source_label": deal["source_label"], "category": deal["category"]})
+                    if deal.get("expires_at"): old["expires_at"] = deal["expires_at"]
                 else: by_key[key] = deal; new_count += 1
             print(f"CHANGED {source['name']}: discovered {len(deals)} offers")
         except Exception as exc:
             state["sources"][source["url"]] = {**previous, "last_checked": now(), "last_error": str(exc)[:240]}; print(f"SOURCE ERROR {source['name']}: {exc}")
     all_deals = list(by_key.values()); all_deals.sort(key=lambda d: d.get("last_checked", ""), reverse=True); all_deals = all_deals[:MAX_DEALS]
-    save_json(OUT, all_deals); save_json(STATE, state); print(f"DONE: changed_sources={changed_sources}, new_deals={new_count}, total={len(all_deals)}")
+    save_json(OUT, all_deals); save_json(STATE, state); print(f"DONE: changed_sources={changed_sources}, new_deals={new_count}, expired_removed={removed_expired}, total={len(all_deals)}")
+
 if __name__ == "__main__": main()
