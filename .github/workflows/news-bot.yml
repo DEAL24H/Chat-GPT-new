@@ -10,6 +10,11 @@ on:
     paths-ignore:
       - 'data/news.json'
       - 'data/deal_state.json'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'fashion/**'
+      - 'beauty/**'
+      - 'gaming/**'
 permissions:
   contents: write
   pages: write
@@ -34,12 +39,14 @@ jobs:
         run: pip install -r bot/requirements.txt
       - name: Collect public coupon deals
         run: python bot/news_bot.py
-      - name: Commit deal data
+      - name: Generate international SEO pages
+        run: python bot/seo_generator.py
+      - name: Commit deal data and SEO pages
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/news.json data/deal_state.json
-          git diff --cached --quiet || git commit -m 'chore: update coupon deals'
+          git add data/news.json data/deal_state.json sitemap.xml robots.txt fashion beauty gaming
+          git diff --cached --quiet || git commit -m 'chore: update coupon data and SEO pages'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v5
