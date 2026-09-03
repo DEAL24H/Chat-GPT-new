@@ -1,11 +1,11 @@
 {
   "configured": true,
-  "updated_at": "2026-09-03T22:24:09.020953+00:00",
+  "updated_at": "2026-09-03T23:21:49.859093+00:00",
   "period_days": 30,
   "totals": {
     "active_users": 5,
     "sessions": 11,
-    "pageviews": 56,
+    "pageviews": 57,
     "engagement_rate": 0.0,
     "new_users": 5
   },
@@ -14,7 +14,7 @@
       "date": "20260903",
       "active_users": 5,
       "sessions": 11,
-      "pageviews": 56
+      "pageviews": 57
     }
   ],
   "top_pages": [
@@ -31,14 +31,14 @@
       "active_users": 1
     },
     {
-      "title": "DEAL 24H — Mã giảm giá, mã khuyến mãi và ưu đãi quốc tế",
-      "path": "/",
-      "pageviews": 1,
+      "title": "PUMA Coupons, Promo Codes & Deals | DEAL 24H",
+      "path": "/brand/puma/",
+      "pageviews": 2,
       "active_users": 1
     },
     {
-      "title": "PUMA Coupons, Promo Codes & Deals | DEAL 24H",
-      "path": "/brand/puma/",
+      "title": "DEAL 24H — Mã giảm giá, mã khuyến mãi và ưu đãi quốc tế",
+      "path": "/",
       "pageviews": 1,
       "active_users": 1
     },
