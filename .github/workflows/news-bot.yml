@@ -54,6 +54,8 @@ jobs:
         run: python bot/normalize_data.py
       - name: Generate international SEO pages
         run: python bot/seo_generator.py
+      - name: Verify GA4 on public pages
+        run: python scripts/verify_ga4.py
       - name: Validate active offers and SEO links
         run: python bot/validate_site.py
       - name: Commit deal data and SEO pages
