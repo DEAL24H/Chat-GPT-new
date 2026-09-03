@@ -7,6 +7,7 @@ on:
       - 'scripts/ensure_catalog_999.py'
       - 'scripts/validate_catalog_999.py'
       - 'scripts/ensure_six_category_seo.py'
+      - 'scripts/seed_priority_brands.py'
   workflow_dispatch:
 
 concurrency:
@@ -24,41 +25,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-
+      - name: Seed final priority brands
+        run: python scripts/seed_priority_brands.py
       - name: Build 6 x 89 catalog
         run: python scripts/ensure_catalog_999.py
-
-      - name: Validate 534 real brands
+      - name: Validate 534 brands
         run: python scripts/validate_catalog_999.py
-
       - name: Remove retired category pages and placeholder brands
         run: |
           rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories books-education-media
           find brand -maxdepth 1 -type d -name 'catalog-brand-*' -prune -exec rm -rf {} + || true
-
       - name: Build SEO pages
         run: |
           python bot/seo_generator_999.py || true
           python scripts/ensure_six_category_seo.py
+          python scripts/ensure_six_brand_sitemap.py
           python scripts/seo_sitemap_cleanup_999.py
           python scripts/seo_legacy_guard.py
-
       - name: Validate site
         run: python bot/validate_site.py
-
       - name: Commit SEO migration
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if git diff --cached --quiet; then
-            echo 'No changes to commit'
-          else
-            git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'
-            git push
-          fi
+          if git diff --cached --quiet; then echo 'No changes to commit'; else git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'; git push; fi
