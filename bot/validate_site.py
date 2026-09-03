@@ -67,7 +67,7 @@ def main():
             errors.append(f"missing category page: {path}")
 
     sitemap_text = SITEMAP_BRANDS.read_text(encoding="utf-8") if SITEMAP_BRANDS.exists() else ""
-    sitemap_urls = set(re.findall(r"<loc>https://deal24h\\.net/brand/([^<]+)/</loc>", sitemap_text))
+    sitemap_urls = set(re.findall(r"<loc>https://deal24h\.net/brand/([^<]+)/</loc>", sitemap_text))
     expected_urls = {brand_slug(entry["name"]) for entries in CATALOG.values() for entry in entries}
     if sitemap_urls != expected_urls:
         missing = sorted(expected_urls - sitemap_urls)
@@ -85,8 +85,8 @@ def main():
                 errors.append(f"missing brand page: {brand}")
                 continue
             text = page.read_text(encoding="utf-8")
-            robots_match = re.search(r'<meta name="robots" content="([^"]+)"', text)
-            if not robots_match or robots_match.group(1) != "index,follow":
+            robots_match = re.search(r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']+)["\']', text, flags=re.I)
+            if not robots_match or robots_match.group(1).strip().lower() != "index,follow":
                 errors.append(f"catalog brand is not indexable: {brand}")
 
     html_files = list((ROOT / "brand").glob("*/index.html")) + [ROOT / slug / "index.html" for slug in CATEGORY_SLUGS.values()]
