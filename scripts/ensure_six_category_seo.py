@@ -1,13 +1,15 @@
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
 from html import escape
 from datetime import date
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 from bot.catalog_utils import brand_slug
 
-ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "data" / "brand_catalog.json"
 PUBLIC = ROOT
 CATEGORY_SLUGS = {
@@ -80,9 +82,7 @@ def ensure_brand_page(category, brand):
         text = re.sub(canonical_tag, canonical_html, text, count=1, flags=re.I)
     else:
         text = text.replace("</head>", canonical_html + "\n</head>", 1)
-    canonical_text = f"/brand/{canonical}/"
-    if canonical_text not in text:
-        text = text.replace(f"/brand/{old}/", canonical_text)
+    text = text.replace(f"/brand/{old}/", f"/brand/{canonical}/")
     canonical_path.write_text(text, encoding="utf-8")
 
 
@@ -108,7 +108,7 @@ def main():
         ensure_category_page(category, brands)
         for brand in brands:
             ensure_brand_page(category, brand)
-    print("SEO READY: 6 category hubs + 534 indexable brand pages; canonical slugs aligned with catalog_utils")
+    print("SEO READY: 6 category hubs + 534 indexable brand pages; canonical slugs aligned")
 
 
 if __name__ == "__main__":
