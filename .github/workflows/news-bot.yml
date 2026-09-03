@@ -52,6 +52,8 @@ jobs:
         run: python bot/promotion_links.py
       - name: Generate international SEO pages
         run: python bot/seo_generator.py
+      - name: Inject GA4 into legacy public SEO pages
+        run: python scripts/inject_ga4.py
       - name: Verify GA4 on public pages
         run: python scripts/verify_ga4.py
       - name: Validate active offers and SEO links
