@@ -244,7 +244,7 @@ def purge_expired(existing):
     current = datetime.now(timezone.utc)
     kept, removed, rejected = [], 0, 0
     for deal in existing:
-        if not valid_record(deal):
+        if not valid_record(deal) and not (deal.get("expanded_source_collector") or deal.get("summary_type") == "official_merchant_promotion_discovery"):
             rejected += 1
             continue
         expiry = str(deal.get("expires_at", "")).strip()

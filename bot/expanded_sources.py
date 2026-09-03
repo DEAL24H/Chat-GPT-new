@@ -95,7 +95,6 @@ def main():
     data = load_json(OUT, [])
     data = data if isinstance(data, list) else []
     domains = {source[1] for source in S}
-    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]
     added = 0
     failures = 0
     for source in S:
@@ -113,6 +112,7 @@ def main():
                 local.append(rec(source, context, code))
             if not found_codes:
                 local.extend(rec(source, block) for block in blocks[:3])
+            data = [x for x in data if not (x.get("source_domain") == source[1] and x.get("expanded_source_collector"))]
             data.extend(local)
             added += len(local)
         except Exception:
