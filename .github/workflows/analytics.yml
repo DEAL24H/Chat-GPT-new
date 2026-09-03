@@ -8,6 +8,7 @@ on:
       - 'scripts/fetch_analytics.py'
       - '.github/workflows/analytics.yml'
 permissions:
+  id-token: write
   contents: write
   actions: write
 concurrency:
@@ -18,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud with Workload Identity Federation
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/24340690831/locations/global/workloadIdentityPools/deal24h-github/providers/github'
+          service_account: 'deal24h-analytics@deal24h-analytics-507501.iam.gserviceaccount.com'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -25,8 +31,7 @@ jobs:
         run: pip install google-analytics-data google-auth
       - name: Collect GA4 data
         env:
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: '525658187'
         run: python scripts/fetch_analytics.py
       - name: Commit analytics snapshot
         run: |
