@@ -48,7 +48,6 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-
           expanded = Path('bot/expanded_sources.py')
           s = expanded.read_text(encoding='utf-8')
           old = '''    domains = {source[1] for source in S}\n    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]\n'''
@@ -64,7 +63,6 @@ jobs:
               print('Expanded source retention hardened.')
           else:
               print('Expanded source retention already hardened.')
-
           news = Path('bot/news_bot.py')
           s = news.read_text(encoding='utf-8')
           old = '        if not valid_record(deal):\n'
@@ -72,7 +70,7 @@ jobs:
           if old in s:
               s = s.replace(old, new, 1)
               news.write_text(s, encoding='utf-8')
-              print('News Bot now preserves expanded official promotion records.')
+              print('News Bot promotion retention hardened.')
           else:
               print('News Bot promotion retention already hardened.')
           PY
@@ -83,6 +81,8 @@ jobs:
         run: python bot/expanded_sources.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
+      - name: Normalize promotion destinations and duplicates
+        run: python scripts/normalize_promotions.py
       - name: Generate international SEO pages
         run: python bot/seo_generator.py
       - name: Clean SEO sitemap
