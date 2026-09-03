@@ -1,11 +1,11 @@
 {
   "configured": true,
-  "updated_at": "2026-09-03T18:29:22.265280+00:00",
+  "updated_at": "2026-09-03T19:21:53.436115+00:00",
   "period_days": 30,
   "totals": {
     "active_users": 5,
     "sessions": 11,
-    "pageviews": 50,
+    "pageviews": 55,
     "engagement_rate": 0.0,
     "new_users": 5
   },
@@ -14,20 +14,26 @@
       "date": "20260903",
       "active_users": 5,
       "sessions": 11,
-      "pageviews": 50
+      "pageviews": 55
     }
   ],
   "top_pages": [
     {
       "title": "DEAL 24H — International Coupons, Promo Codes & Deals",
       "path": "/",
-      "pageviews": 46,
+      "pageviews": 49,
       "active_users": 5
     },
     {
       "title": "Nike Coupons, Promo Codes & Deals | DEAL 24H",
       "path": "/brand/nike/",
-      "pageviews": 3,
+      "pageviews": 4,
+      "active_users": 1
+    },
+    {
+      "title": "DEAL 24H — Mã giảm giá, mã khuyến mãi và ưu đãi quốc tế",
+      "path": "/",
+      "pageviews": 1,
       "active_users": 1
     },
     {
@@ -37,14 +43,14 @@
       "active_users": 1
     },
     {
-      "title": "DEAL 24H — Mã giảm giá, mã khuyến mãi và ưu đãi quốc tế",
-      "path": "/",
+      "title": "Mã giảm giá, khuyến mãi và ưu đãi của Nike | DEAL 24H",
+      "path": "/brand/nike/",
       "pageviews": 0,
       "active_users": 1
     },
     {
-      "title": "Mã giảm giá, khuyến mãi và ưu đãi của Nike | DEAL 24H",
-      "path": "/brand/nike/",
+      "title": "Mã giảm giá, khuyến mãi và ưu đãi của PUMA | DEAL 24H",
+      "path": "/brand/puma/",
       "pageviews": 0,
       "active_users": 1
     }
