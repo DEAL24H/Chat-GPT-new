@@ -31,31 +31,43 @@ def report(client, dimensions, metrics, start="30daysAgo", end="yesterday", limi
 
 
 def diagnose_access(credentials):
-    """Print the GA4 properties visible to the authenticated principal."""
+    """Show exactly which GA4 properties the authenticated service account can see."""
     try:
         if not credentials.valid:
             credentials.refresh(Request())
-        response = requests.get(
-            "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
-            headers={"Authorization": f"Bearer {credentials.token}"},
-            params={"pageSize": 200},
-            timeout=30,
-        )
-        print(f"GA4 Admin API diagnostic HTTP {response.status_code}")
-        if not response.ok:
-            print(response.text[:2000])
-            return
-        data = response.json()
+        headers = {"Authorization": f"Bearer {credentials.token}"}
         found = []
-        for account in data.get("accountSummaries", []):
-            for prop in account.get("propertySummaries", []):
-                prop_id = str(prop.get("property", "")).replace("properties/", "")
-                found.append((prop_id, prop.get("displayName", ""), account.get("displayName", "")))
-        print(f"GA4 properties visible to service account: {len(found)}")
+        page_token = ""
+        while True:
+            params = {"pageSize": 200}
+            if page_token:
+                params["pageToken"] = page_token
+            response = requests.get(
+                "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
+                headers=headers,
+                params=params,
+                timeout=30,
+            )
+            print(f"GA4 Admin API diagnostic HTTP {response.status_code}")
+            if not response.ok:
+                print(response.text[:3000])
+                return
+            data = response.json()
+            for account in data.get("accountSummaries", []):
+                for prop in account.get("propertySummaries", []):
+                    prop_id = str(prop.get("property", "")).replace("properties/", "")
+                    found.append((prop_id, prop.get("displayName", ""), account.get("displayName", "")))
+            page_token = data.get("nextPageToken", "")
+            if not page_token:
+                break
+
+        print(f"GA4 properties visible to authenticated service account: {len(found)}")
         for prop_id, name, account_name in found:
             print(f"  - property={prop_id} name={name!r} account={account_name!r}")
         if PROPERTY_ID and not any(p[0] == PROPERTY_ID for p in found):
             print(f"TARGET PROPERTY {PROPERTY_ID} IS NOT VISIBLE TO THIS SERVICE ACCOUNT.")
+        else:
+            print(f"TARGET PROPERTY {PROPERTY_ID} IS VISIBLE TO THIS SERVICE ACCOUNT.")
     except Exception as exc:
         print(f"GA4 Admin API diagnostic failed: {type(exc).__name__}: {exc}")
 
@@ -65,8 +77,6 @@ def main():
         print("GA4_PROPERTY_ID chưa được cấu hình; giữ analytics.json ở trạng thái chưa cấu hình.")
         return
 
-    # GitHub Actions authenticates through Workload Identity Federation (OIDC).
-    # No long-lived service-account JSON key is used or stored in the repository.
     credentials, _ = google.auth.default(
         scopes=["https://www.googleapis.com/auth/analytics.readonly"]
     )
