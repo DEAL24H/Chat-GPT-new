@@ -108,6 +108,11 @@ jobs:
         run: python scripts/prune_nonpriority_offers.py
       - name: Build browser data shards and lightweight search index
         run: python scripts/build_data_shards.py
+      - name: Sync canonical deals to Supabase (optional)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/sync_supabase.py
       - name: Generate SEO pages for six priority categories
         run: |
           python bot/seo_generator_999.py
