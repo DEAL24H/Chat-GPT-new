@@ -28,6 +28,17 @@ def normalize(text):
     return re.sub(r"\s+", " ", str(text or "")).strip().lower()
 
 
+def tokens(text):
+    return {x for x in re.findall(r"[a-z0-9%]+", normalize(text)) if len(x) > 2}
+
+
+def similar(a, b):
+    left, right = tokens(a), tokens(b)
+    if not left or not right:
+        return False
+    return len(left & right) / max(1, len(left | right)) >= 0.82
+
+
 def explicit_code(item):
     code = str(item.get("code") or "").strip().upper()
     if code:
@@ -89,8 +100,6 @@ def main():
         elif not item.get("promotion_url"):
             item["promotion_url"] = item.get("source_url") or item.get("url") or ""
 
-    # One SEO-visible offer per merchant + explicit promo code. If the code only
-    # appears in the description, it still identifies the same real promotion.
     chosen = {}
     no_code = []
     for item in data:
@@ -105,13 +114,17 @@ def main():
             no_code.append(item)
 
     deduped = list(chosen.values())
-    seen_no_code = set()
+    buckets = {}
     for item in no_code:
-        key = (normalize(item.get("merchant")), normalize(item.get("discount")), normalize(item.get("content")))
-        if key in seen_no_code:
-            continue
-        seen_no_code.add(key)
-        deduped.append(item)
+        key = (normalize(item.get("merchant")), normalize(item.get("discount")))
+        duplicate = False
+        for previous in buckets.setdefault(key, []):
+            if similar(item.get("content"), previous.get("content")):
+                duplicate = True
+                break
+        if not duplicate:
+            buckets[key].append(item)
+            deduped.append(item)
 
     for item in deduped:
         item["id"] = hashlib.sha256(json.dumps({"merchant": item.get("merchant"), "code": explicit_code(item), "content": item.get("content"), "promotion_url": item.get("promotion_url")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
