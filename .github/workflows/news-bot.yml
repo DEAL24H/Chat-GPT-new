@@ -1,10 +1,24 @@
 name: Deal Bot
 on:
   workflow_dispatch:
+    inputs:
+      batch_index:
+        description: 'Optional batch 0-3 for manual run'
+        required: false
+        default: ''
   schedule:
+    - cron: '0 23 * * *'
+    - cron: '30 23 * * *'
     - cron: '0 0 * * *'
+    - cron: '30 0 * * *'
+    - cron: '0 7 * * *'
+    - cron: '30 7 * * *'
     - cron: '0 8 * * *'
+    - cron: '30 8 * * *'
+    - cron: '0 15 * * *'
+    - cron: '30 15 * * *'
     - cron: '0 16 * * *'
+    - cron: '30 16 * * *'
   push:
     branches: [main]
     paths-ignore:
@@ -18,13 +32,21 @@ on:
       - 'gaming/**'
       - 'consumer/**'
       - 'brand/**'
+      - 'home-living/**'
+      - 'sports-outdoor/**'
+      - 'food-grocery/**'
+      - 'travel-hotels/**'
+      - 'software-digital-services/**'
+      - 'baby-kids-family/**'
+      - 'automotive-accessories/**'
+      - 'books-education-media/**'
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
   group: deal-bot-main
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -44,49 +66,43 @@ jobs:
         run: |
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-fix.js
+          node --check assets/app-999.js
+      - name: Install exact 999-brand catalog
+        run: python scripts/ensure_catalog_999.py
+      - name: Set scheduled batch
+        env:
+          MANUAL_BATCH: ${{ inputs.batch_index }}
+        run: |
+          if [ -n "$MANUAL_BATCH" ]; then echo "DEAL_BATCH_INDEX=$MANUAL_BATCH" >> "$GITHUB_ENV"; fi
       - name: Harden source retention
         run: |
           python - <<'PY'
           from pathlib import Path
-          expanded = Path('bot/expanded_sources.py')
-          s = expanded.read_text(encoding='utf-8')
-          old = '''    domains = {source[1] for source in S}\n    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]\n'''
-          new = '''    domains = {source[1] for source in S}\n'''
+          expanded=Path('bot/expanded_sources.py'); s=expanded.read_text(encoding='utf-8')
+          old='''    domains = {source[1] for source in S}\n    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]\n'''
           if old in s:
-              s = s.replace(old, new, 1)
-              marker = '''            data.extend(local)\n            added += len(local)\n'''
-              replacement = '''            data = [x for x in data if not (x.get("source_domain") == source[1] and x.get("expanded_source_collector"))]\n            data.extend(local)\n            added += len(local)\n'''
-              if marker not in s:
-                  raise SystemExit('expanded_sources.py retention marker not found')
-              s = s.replace(marker, replacement, 1)
-              expanded.write_text(s, encoding='utf-8')
-              print('Expanded source retention hardened.')
-          else:
-              print('Expanded source retention already hardened.')
-          news = Path('bot/news_bot.py')
-          s = news.read_text(encoding='utf-8')
-          old = '        if not valid_record(deal):\n'
-          new = '        if not valid_record(deal) and not (deal.get("expanded_source_collector") or deal.get("summary_type") == "official_merchant_promotion_discovery"):\n'
-          if old in s:
-              s = s.replace(old, new, 1)
-              news.write_text(s, encoding='utf-8')
-              print('News Bot promotion retention hardened.')
-          else:
-              print('News Bot promotion retention already hardened.')
+              s=s.replace(old,'    domains = {source[1] for source in S}\n',1)
+              marker='''            data.extend(local)\n            added += len(local)\n'''
+              replacement='''            data = [x for x in data if not (x.get("source_domain") == source[1] and x.get("expanded_source_collector"))]\n            data.extend(local)\n            added += len(local)\n'''
+              if marker not in s: raise SystemExit('expanded source retention marker missing')
+              expanded.write_text(s.replace(marker,replacement,1),encoding='utf-8')
+          news=Path('bot/news_bot.py'); s=news.read_text(encoding='utf-8')
+          old='        if not valid_record(deal):\n'; new='        if not valid_record(deal) and not (deal.get("expanded_source_collector") or deal.get("summary_type") == "official_merchant_promotion_discovery"):\n'
+          if old in s: news.write_text(s.replace(old,new,1),encoding='utf-8')
           PY
           python -m py_compile bot/news_bot.py bot/expanded_sources.py
       - name: Collect public coupon deals
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
         run: python bot/expanded_sources.py
-      - name: Collect scalable catalog brands (capacity 1000)
+      - name: Collect scalable catalog brands (999 capacity, 250 per batch)
         run: python bot/scalable_brand_collector.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
         run: python scripts/normalize_promotions.py
-      - name: Generate international SEO pages
-        run: python bot/seo_generator.py
+      - name: Generate international SEO pages for 999 brands
+        run: python bot/seo_generator_999.py
       - name: Clean SEO sitemap
         run: python scripts/seo_sitemap_cleanup.py
       - name: Guard legacy SEO pages
@@ -100,14 +116,14 @@ jobs:
       - name: Clean generated Python bytecode
         run: |
           printf '%s\n' '__pycache__/' '*.py[cod]' > .gitignore
-          find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find . -type d -name '__pycache__' -prune -exec rm -rf {} + || true
           git rm -r --cached --ignore-unmatch bot/__pycache__ scripts/__pycache__ || true
       - name: Commit deal data and SEO pages
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .gitignore CNAME data/news.json data/deal_state.json sitemap.xml sitemap-brands.xml robots.txt fashion beauty gaming consumer brand admin/index.html admin/admin.html post.html bot scripts
-          git diff --cached --quiet || git commit -m 'chore: update coupon data, promotion links and SEO pages'
+          git add .gitignore CNAME data/brand_catalog.json data/news.json data/deal_state.json sitemap.xml sitemap-brands.xml robots.txt fashion beauty gaming consumer home-living sports-outdoor food-grocery travel-hotels software-digital-services baby-kids-family automotive-accessories books-education-media brand admin/index.html admin/admin.html post.html bot scripts assets/app-999.js
+          git diff --cached --quiet || git commit -m 'chore: update 999-brand coupon data, batch SEO and pages'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v6
