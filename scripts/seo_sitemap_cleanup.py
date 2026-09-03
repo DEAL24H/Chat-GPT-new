@@ -13,7 +13,7 @@ def main():
     brands = ROOT / "sitemap-brands.xml"
     if brands.exists():
         text = brands.read_text(encoding="utf-8")
-        urls.extend(re.findall(r"<loc>(https://deal24h\\.net/brand/[^<]+/)</loc>", text))
+        urls.extend(re.findall(r"<loc>(https://deal24h\.net/brand/[^<]+/)</loc>", text))
 
     # Keep the main sitemap free of duplicate brand URLs while still exposing
     # the homepage and the four crawlable category hubs.
