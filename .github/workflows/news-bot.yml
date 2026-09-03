@@ -62,6 +62,8 @@ jobs:
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-fix.js
           node --check assets/app-999.js
+      - name: Seed final priority brands
+        run: python scripts/seed_priority_brands.py
       - name: Build focused 6-category catalog
         run: python scripts/ensure_catalog_999.py
       - name: Validate 6 categories x 89 brands
