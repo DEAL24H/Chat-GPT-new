@@ -8,7 +8,7 @@ from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offe
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 SITEMAP_BRANDS = ROOT / "sitemap-brands.xml"
-CATEGORY_SLUGS = {"Fashion":"fashion","Beauty":"beauty","Gaming":"gaming","Consumer":"consumer","Home & Living":"home-living","Sports & Outdoor":"sports-outdoor","Food & Grocery":"food-grocery","Travel & Hotels":"travel-hotels","Software & Digital Services":"software-digital-services","Baby, Kids & Family":"baby-kids-family","Automotive & Accessories":"automotive-accessories","Books, Education & Media":"books-education-media"}
+CATEGORY_SLUGS = {"Fashion":"fashion","Beauty":"beauty","Consumer":"consumer","Home & Living":"home-living","Food & Grocery":"food-grocery","Travel & Hotels":"travel-hotels"}
 
 
 def load_items():
@@ -35,6 +35,10 @@ def main():
 
     slug_owner = {}
     for category, entries in CATALOG.items():
+        if category not in CATEGORY_SLUGS:
+            errors.append(f"unexpected catalog category: {category}")
+        if len(entries) != 89:
+            errors.append(f"category {category} must contain 89 brands, got {len(entries)}")
         for entry in entries:
             brand = entry["name"]
             slug = brand_slug(brand)
@@ -63,15 +67,15 @@ def main():
             errors.append(f"missing category page: {path}")
 
     sitemap_text = SITEMAP_BRANDS.read_text(encoding="utf-8") if SITEMAP_BRANDS.exists() else ""
-    sitemap_urls = set(re.findall(r"<loc>https://deal24h\.net/brand/([^<]+)/</loc>", sitemap_text))
-    expected_urls = {brand_slug(b) for b in active_brands}
+    sitemap_urls = set(re.findall(r"<loc>https://deal24h\\.net/brand/([^<]+)/</loc>", sitemap_text))
+    expected_urls = {brand_slug(entry["name"]) for entries in CATALOG.values() for entry in entries}
     if sitemap_urls != expected_urls:
         missing = sorted(expected_urls - sitemap_urls)
         extra = sorted(sitemap_urls - expected_urls)
         if missing:
-            errors.append("active brand missing from sitemap-brands: " + ", ".join(missing))
+            errors.append("catalog brand missing from sitemap-brands: " + ", ".join(missing[:20]))
         if extra:
-            errors.append("inactive/nonexistent brand present in sitemap-brands: " + ", ".join(extra))
+            errors.append("non-catalog brand present in sitemap-brands: " + ", ".join(extra[:20]))
 
     for category, entries in CATALOG.items():
         for entry in entries:
@@ -82,11 +86,8 @@ def main():
                 continue
             text = page.read_text(encoding="utf-8")
             robots_match = re.search(r'<meta name="robots" content="([^"]+)"', text)
-            indexed = brand in active_brands
-            if indexed and (not robots_match or robots_match.group(1) != "index,follow"):
-                errors.append(f"active brand is not indexable: {brand}")
-            if not indexed and (not robots_match or robots_match.group(1) != "noindex,follow"):
-                errors.append(f"inactive brand is indexable: {brand}")
+            if not robots_match or robots_match.group(1) != "index,follow":
+                errors.append(f"catalog brand is not indexable: {brand}")
 
     html_files = list((ROOT / "brand").glob("*/index.html")) + [ROOT / slug / "index.html" for slug in CATEGORY_SLUGS.values()]
     for path in html_files:
@@ -104,7 +105,7 @@ def main():
             print("-", error)
         raise SystemExit(1)
 
-    print(f"SITE VALIDATION PASSED: {len(active)} active offers, {len(active_brands)} active brands, {len(sitemap_urls)} indexed brand URLs")
+    print(f"SITE VALIDATION PASSED: 6 categories x 89 brands = {len(expected_urls)} indexable brand URLs; {len(active)} active offers")
 
 
 if __name__ == "__main__":
