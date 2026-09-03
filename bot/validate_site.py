@@ -8,7 +8,7 @@ from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offe
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 SITEMAP_BRANDS = ROOT / "sitemap-brands.xml"
-CATEGORIES = ["fashion", "beauty", "gaming", "consumer"]
+CATEGORY_SLUGS = {"Fashion":"fashion","Beauty":"beauty","Gaming":"gaming","Consumer":"consumer","Home & Living":"home-living","Sports & Outdoor":"sports-outdoor","Food & Grocery":"food-grocery","Travel & Hotels":"travel-hotels","Software & Digital Services":"software-digital-services","Baby, Kids & Family":"baby-kids-family","Automotive & Accessories":"automotive-accessories","Books, Education & Media":"books-education-media"}
 
 
 def load_items():
@@ -50,15 +50,15 @@ def main():
             errors.append(f"active offer has unknown brand: {item.get('merchant')!r}")
             continue
         if item.get("category") != hit["category"]:
-            errors.append(f"category mismatch for {hit['name']}: {item.get('category')!r} != {hit['category']!r}")
+            errors.append(f"category mismatch for {hit['name']}: {item.get('category')!r} != {hit['category']}")
         if not (item.get("promotion_url") or item.get("source_url") or item.get("url")):
             errors.append(f"active offer has no destination: {hit['name']}")
         elif not official_destination(item):
             errors.append(f"active offer destination is outside its official source domain: {hit['name']}")
         active_brands.add(hit["name"])
 
-    for category in CATEGORIES:
-        path = ROOT / category / "index.html"
+    for category, slug in CATEGORY_SLUGS.items():
+        path = ROOT / slug / "index.html"
         if not path.exists():
             errors.append(f"missing category page: {path}")
 
@@ -88,7 +88,7 @@ def main():
             if not indexed and (not robots_match or robots_match.group(1) != "noindex,follow"):
                 errors.append(f"inactive brand is indexable: {brand}")
 
-    html_files = list((ROOT / "brand").glob("*/index.html")) + [ROOT / c / "index.html" for c in CATEGORIES]
+    html_files = list((ROOT / "brand").glob("*/index.html")) + [ROOT / slug / "index.html" for slug in CATEGORY_SLUGS.values()]
     for path in html_files:
         if not path.exists():
             continue
