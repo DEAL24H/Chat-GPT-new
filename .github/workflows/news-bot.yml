@@ -25,6 +25,9 @@ on:
       - 'data/news.json'
       - 'data/deal_state.json'
       - 'data/brand_catalog.json'
+      - 'data/shards/**'
+      - 'data/search-index.json'
+      - 'data/data-manifest.json'
       - 'sitemap.xml'
       - 'sitemap-brands.xml'
       - 'robots.txt'
@@ -62,6 +65,7 @@ jobs:
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-fix.js
           node --check assets/app-999.js
+          node --check assets/app-home.js
       - name: Seed final priority brands
         run: python scripts/seed_priority_brands.py
       - name: Build focused 6-category catalog
@@ -102,6 +106,8 @@ jobs:
         run: python scripts/normalize_promotions.py
       - name: Keep only six-category offers
         run: python scripts/prune_nonpriority_offers.py
+      - name: Build browser data shards and lightweight search index
+        run: python scripts/build_data_shards.py
       - name: Generate SEO pages for six priority categories
         run: |
           python bot/seo_generator_999.py
@@ -132,7 +138,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git diff --cached --quiet || git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'
+          git diff --cached --quiet || git commit -m 'perf: shard browser data and search index'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v6
