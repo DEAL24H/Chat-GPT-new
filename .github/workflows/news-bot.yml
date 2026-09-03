@@ -50,8 +50,6 @@ jobs:
         run: python bot/expanded_sources.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
-      - name: Normalize brand and category data
-        run: python bot/normalize_data.py
       - name: Generate international SEO pages
         run: python bot/seo_generator.py
       - name: Verify GA4 on public pages
