@@ -1,8 +1,18 @@
 name: Admin Pages Deploy
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'post.html'
+      - 'assets/**'
+      - 'admin/**'
+      - 'dashboard/**'
+      - 'data/analytics.json'
+      - 'CNAME'
   workflow_run:
-    workflows: [Admin Control, Analytics Snapshot]
+    workflows: [Admin Control, Analytics Snapshot, Deal Bot]
     types: [completed]
     branches: [main]
 permissions:
@@ -14,7 +24,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
