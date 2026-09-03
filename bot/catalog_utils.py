@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "data" / "brand_catalog.json"
+CATALOG_PATH = ROOT / "data" / "brand_catalog.json"
 CATEGORY_LABELS = {"Fashion": "Fashion", "Beauty": "Beauty", "Gaming": "Gaming", "Consumer": "Consumer"}
 
 
@@ -14,7 +14,7 @@ def normalize_brand(value):
 
 def load_catalog():
     try:
-        data = json.loads(CATALOG.read_text(encoding="utf-8"))
+        data = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
         return data.get("categories", {}) if isinstance(data, dict) else {}
     except Exception:
         return {}
