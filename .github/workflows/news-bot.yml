@@ -70,6 +70,8 @@ jobs:
           node --check assets/app-999.js
       - name: Build deterministic 999-brand catalog
         run: python scripts/ensure_catalog_999.py
+      - name: Validate 999-brand catalog
+        run: python scripts/validate_catalog_999.py
       - name: Set scheduled batch
         env:
           MANUAL_BATCH: ${{ inputs.batch_index }}
