@@ -44,12 +44,13 @@ jobs:
         run: |
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-fix.js
-      - name: Harden expanded source retention
+      - name: Harden source retention
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('bot/expanded_sources.py')
-          s = p.read_text(encoding='utf-8')
+
+          expanded = Path('bot/expanded_sources.py')
+          s = expanded.read_text(encoding='utf-8')
           old = '''    domains = {source[1] for source in S}\n    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]\n'''
           new = '''    domains = {source[1] for source in S}\n'''
           if old in s:
@@ -59,11 +60,23 @@ jobs:
               if marker not in s:
                   raise SystemExit('expanded_sources.py retention marker not found')
               s = s.replace(marker, replacement, 1)
-              p.write_text(s, encoding='utf-8')
+              expanded.write_text(s, encoding='utf-8')
               print('Expanded source retention hardened.')
           else:
               print('Expanded source retention already hardened.')
+
+          news = Path('bot/news_bot.py')
+          s = news.read_text(encoding='utf-8')
+          old = '        if not valid_record(deal):\n'
+          new = '        if not valid_record(deal) and not (deal.get("expanded_source_collector") or deal.get("summary_type") == "official_merchant_promotion_discovery"):\n'
+          if old in s:
+              s = s.replace(old, new, 1)
+              news.write_text(s, encoding='utf-8')
+              print('News Bot now preserves expanded official promotion records.')
+          else:
+              print('News Bot promotion retention already hardened.')
           PY
+          python -m py_compile bot/news_bot.py bot/expanded_sources.py
       - name: Collect public coupon deals
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
