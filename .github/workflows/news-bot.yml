@@ -79,6 +79,8 @@ jobs:
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
         run: python bot/expanded_sources.py
+      - name: Collect scalable catalog brands (capacity 1000)
+        run: python bot/scalable_brand_collector.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
