@@ -1,6 +1,6 @@
 {
-  "configured": false,
-  "updated_at": null,
+  "configured": true,
+  "updated_at": "2026-09-03T05:31:04.389054+00:00",
   "period_days": 30,
   "totals": {
     "active_users": 0,
@@ -13,5 +13,5 @@
   "top_pages": [],
   "countries": [],
   "devices": [],
-  "message": "Analytics chưa được cấu hình. Thêm GA4 secrets để bắt đầu thu thập số liệu."
+  "message": ""
 }
