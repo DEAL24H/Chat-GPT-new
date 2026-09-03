@@ -52,6 +52,8 @@ jobs:
         run: python bot/promotion_links.py
       - name: Generate international SEO pages
         run: python bot/seo_generator.py
+      - name: Clean SEO sitemap
+        run: python scripts/seo_sitemap_cleanup.py
       - name: Guard legacy SEO pages
         run: python scripts/seo_legacy_guard.py
       - name: Inject GA4 into legacy public SEO pages
