@@ -2,7 +2,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LEGACY_ROOTS = ("fashion", "beauty", "gaming", "consumer")
+# Only retired category hubs are legacy now. The six priority hubs remain indexable.
+LEGACY_ROOTS = ("gaming", "sports-outdoor", "software-digital-services", "baby-kids-family", "automotive-accessories", "books-education-media")
 
 
 def ensure_noindex(path: Path) -> bool:
@@ -36,7 +37,7 @@ def main():
         if path.exists() and ensure_noindex(path):
             changed += 1
 
-    print(f"SEO LEGACY GUARD: checked {legacy_pages} legacy pages; updated {changed} files to noindex,follow")
+    print(f"SEO LEGACY GUARD: checked {legacy_pages} retired pages; updated {changed} files to noindex,follow")
 
 
 if __name__ == "__main__":
