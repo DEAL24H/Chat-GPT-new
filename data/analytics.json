@@ -1,17 +1,76 @@
 {
   "configured": true,
-  "updated_at": "2026-09-03T16:26:49.110351+00:00",
+  "updated_at": "2026-09-03T17:24:58.635253+00:00",
   "period_days": 30,
   "totals": {
-    "active_users": 0,
-    "sessions": 0,
-    "pageviews": 0,
-    "engagement_rate": 0,
-    "new_users": 0
+    "active_users": 5,
+    "sessions": 11,
+    "pageviews": 43,
+    "engagement_rate": 0.0,
+    "new_users": 4
   },
-  "daily": [],
-  "top_pages": [],
-  "countries": [],
-  "devices": [],
+  "daily": [
+    {
+      "date": "20260903",
+      "active_users": 5,
+      "sessions": 11,
+      "pageviews": 43
+    }
+  ],
+  "top_pages": [
+    {
+      "title": "DEAL 24H — International Coupons, Promo Codes & Deals",
+      "path": "/",
+      "pageviews": 41,
+      "active_users": 5
+    },
+    {
+      "title": "Nike Coupons, Promo Codes & Deals | DEAL 24H",
+      "path": "/brand/nike/",
+      "pageviews": 2,
+      "active_users": 1
+    },
+    {
+      "title": "DEAL 24H — Mã giảm giá, mã khuyến mãi và ưu đãi quốc tế",
+      "path": "/",
+      "pageviews": 0,
+      "active_users": 1
+    },
+    {
+      "title": "PUMA Coupons, Promo Codes & Deals | DEAL 24H",
+      "path": "/brand/puma/",
+      "pageviews": 0,
+      "active_users": 1
+    }
+  ],
+  "countries": [
+    {
+      "country": "United States",
+      "active_users": 3,
+      "sessions": 3
+    },
+    {
+      "country": "Russia",
+      "active_users": 1,
+      "sessions": 1
+    },
+    {
+      "country": "Vietnam",
+      "active_users": 1,
+      "sessions": 7
+    }
+  ],
+  "devices": [
+    {
+      "device": "desktop",
+      "active_users": 4,
+      "sessions": 4
+    },
+    {
+      "device": "mobile",
+      "active_users": 2,
+      "sessions": 8
+    }
+  ],
   "message": ""
 }
