@@ -12,8 +12,8 @@ from catalog_utils import load_catalog
 from news_bot import BAD_CODES, EXPLICIT_CODE_PATTERNS, clean, parse_expiry
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'data'/'news.json'
-MAX_BRANDS=999
-BATCH_SIZE=250
+MAX_BRANDS=534
+BATCH_SIZE=134
 WORKERS=12
 TIMEOUT=15
 MAX_PAGES_PER_BRAND=3
@@ -100,7 +100,9 @@ def main():
     for cat,vals in catalog.items():
         for v in vals if isinstance(vals,list) else []:
             x=dict(v); x['category']=cat; entries.append(x)
-    entries=[x for x in entries[:MAX_BRANDS] if x.get('enabled',True) and not x.get('placeholder') and str(x.get('domain','')).strip()]
+    total_catalog=len(entries)
+    entries=[x for x in entries if x.get('enabled',True) and not x.get('placeholder') and str(x.get('domain','')).strip()]
+    entries=entries[:MAX_BRANDS]
     b=batch_index(); batch=entries[b*BATCH_SIZE:(b+1)*BATCH_SIZE]; names={str(x.get('name','')).strip().lower() for x in batch}; existing=load_items()
     retained=[x for x in existing if not (x.get('scalable_collector') and str(x.get('merchant','')).strip().lower() in names)]
     ok=fail=added=0
@@ -116,5 +118,5 @@ def main():
         k=(str(x.get('merchant','')).strip().lower(),str(x.get('code','')).strip().upper(),re.sub(r'\s+',' ',str(x.get('content','')).strip().lower()))
         if k[0]: dedup[k]=x
     out=list(dedup.values())[-6000:]; OUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/4, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog=999, enabled_scannable={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
+    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/4, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog={total_catalog}, enabled_scannable={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
 if __name__=='__main__': main()
