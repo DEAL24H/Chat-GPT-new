@@ -100,7 +100,8 @@ def main():
     for cat,vals in catalog.items():
         for v in vals if isinstance(vals,list) else []:
             x=dict(v); x['category']=cat; entries.append(x)
-    entries=entries[:MAX_BRANDS]; b=batch_index(); batch=entries[b*BATCH_SIZE:(b+1)*BATCH_SIZE]; names={str(x.get('name','')).strip().lower() for x in batch}; existing=load_items()
+    entries=[x for x in entries[:MAX_BRANDS] if x.get('enabled',True) and not x.get('placeholder') and str(x.get('domain','')).strip()]
+    b=batch_index(); batch=entries[b*BATCH_SIZE:(b+1)*BATCH_SIZE]; names={str(x.get('name','')).strip().lower() for x in batch}; existing=load_items()
     retained=[x for x in existing if not (x.get('scalable_collector') and str(x.get('merchant','')).strip().lower() in names)]
     ok=fail=added=0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -115,5 +116,5 @@ def main():
         k=(str(x.get('merchant','')).strip().lower(),str(x.get('code','')).strip().upper(),re.sub(r'\s+',' ',str(x.get('content','')).strip().lower()))
         if k[0]: dedup[k]=x
     out=list(dedup.values())[-6000:]; OUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/4, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
+    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/4, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog=999, enabled_scannable={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
 if __name__=='__main__': main()
