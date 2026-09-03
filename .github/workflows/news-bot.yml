@@ -100,14 +100,17 @@ jobs:
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
         run: python scripts/normalize_promotions.py
+      - name: Keep only six-category offers
+        run: python scripts/prune_nonpriority_offers.py
       - name: Generate SEO pages for six priority categories
         run: |
-          python bot/seo_generator_999.py || true
+          python bot/seo_generator_999.py
           python scripts/ensure_six_category_seo.py
           python scripts/ensure_six_brand_sitemap.py
       - name: Remove retired categories and placeholder pages
         run: |
-          rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories books-education-media
+          rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories-books-education-media
+          rm -rf automotive-accessories books-education-media
           find brand -maxdepth 1 -type d -name 'catalog-brand-*' -prune -exec rm -rf {} + || true
       - name: Clean six-category SEO sitemap
         run: python scripts/seo_sitemap_cleanup_999.py
