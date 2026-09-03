@@ -3,7 +3,10 @@ import os
 from datetime import datetime, timezone
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, RunReportRequest
+from google.api_core.exceptions import PermissionDenied
 import google.auth
+from google.auth.transport.requests import Request
+import requests
 
 OUT = "data/analytics.json"
 PROPERTY_ID = os.environ.get("GA4_PROPERTY_ID", "").strip()
@@ -27,6 +30,36 @@ def report(client, dimensions, metrics, start="30daysAgo", end="yesterday", limi
     return client.run_report(req)
 
 
+def diagnose_access(credentials):
+    """Print the GA4 properties visible to the authenticated principal."""
+    try:
+        if not credentials.valid:
+            credentials.refresh(Request())
+        response = requests.get(
+            "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
+            headers={"Authorization": f"Bearer {credentials.token}"},
+            params={"pageSize": 200},
+            timeout=30,
+        )
+        print(f"GA4 Admin API diagnostic HTTP {response.status_code}")
+        if not response.ok:
+            print(response.text[:2000])
+            return
+        data = response.json()
+        found = []
+        for account in data.get("accountSummaries", []):
+            for prop in account.get("propertySummaries", []):
+                prop_id = str(prop.get("property", "")).replace("properties/", "")
+                found.append((prop_id, prop.get("displayName", ""), account.get("displayName", "")))
+        print(f"GA4 properties visible to service account: {len(found)}")
+        for prop_id, name, account_name in found:
+            print(f"  - property={prop_id} name={name!r} account={account_name!r}")
+        if PROPERTY_ID and not any(p[0] == PROPERTY_ID for p in found):
+            print(f"TARGET PROPERTY {PROPERTY_ID} IS NOT VISIBLE TO THIS SERVICE ACCOUNT.")
+    except Exception as exc:
+        print(f"GA4 Admin API diagnostic failed: {type(exc).__name__}: {exc}")
+
+
 def main():
     if not PROPERTY_ID:
         print("GA4_PROPERTY_ID chưa được cấu hình; giữ analytics.json ở trạng thái chưa cấu hình.")
@@ -39,7 +72,13 @@ def main():
     )
     client = BetaAnalyticsDataClient(credentials=credentials)
 
-    totals = report(client, [], ["activeUsers", "sessions", "screenPageViews", "engagementRate", "newUsers"], limit=1)
+    try:
+        totals = report(client, [], ["activeUsers", "sessions", "screenPageViews", "engagementRate", "newUsers"], limit=1)
+    except PermissionDenied:
+        print(f"GA4 Data API denied access to property {PROPERTY_ID}; running access diagnostic...")
+        diagnose_access(credentials)
+        raise
+
     t = totals.rows[0] if totals.rows else None
     result = {
         "configured": True,
