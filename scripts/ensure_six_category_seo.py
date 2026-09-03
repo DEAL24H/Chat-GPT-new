@@ -30,6 +30,7 @@ def base_brand_page(category, brand):
     today = date.today().isoformat()
     title = f"{name} Coupons & Promo Codes | DEAL24H"
     description = f"Find active {name} coupons, promo codes and deals. Check offers from the official {name} website on DEAL24H."
+    official = f'<p><a href="https://{escape(domain)}" rel="nofollow">Visit official {escape(name)} website</a></p>' if domain else '<p>Official website verification is being completed for this priority brand.</p>'
     return f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -43,7 +44,7 @@ def base_brand_page(category, brand):
 <main><p><a href="/">DEAL24H</a> · <a href="/{CATEGORY_SLUGS[category]}/">{escape(category)}</a></p>
 <h1>{escape(name)} Coupons & Promo Codes</h1>
 <p>Official-domain offers and verified deal updates for {escape(name)}. This page is maintained for ongoing SEO and offer discovery.</p>
-<p><a href="https://{escape(domain)}" rel="nofollow">Visit official {escape(name)} website</a></p>
+{official}
 <p>Last catalog update: {today}</p>
 </main></body></html>'''
 
@@ -54,9 +55,12 @@ def ensure_brand_page(category, brand):
         path.write_text(base_brand_page(category, brand), encoding="utf-8")
         return
     text = path.read_text(encoding="utf-8")
-    text = re.sub(r'<meta\s+name=["\']robots["\']\s+content=["\']noindex,[^"\']*["\']\s*/?>', '<meta name="robots" content="index,follow">', text, flags=re.I)
-    if 'name="robots"' not in text.lower():
-        text = text.replace("</head>", '<meta name="robots" content="index,follow">\n</head>', 1)
+    robots = r'<meta\s+name=["\']robots["\'][^>]*>'
+    replacement = '<meta name="robots" content="index,follow">'
+    if re.search(robots, text, flags=re.I):
+        text = re.sub(robots, replacement, text, count=1, flags=re.I)
+    else:
+        text = text.replace("</head>", replacement + "\n</head>", 1)
     path.write_text(text, encoding="utf-8")
 
 def ensure_category_page(category, brands):
