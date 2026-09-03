@@ -1,13 +1,12 @@
 import json
 import os
-from datetime import date, timedelta, datetime, timezone
+from datetime import datetime, timezone
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, RunReportRequest
-from google.oauth2 import service_account
+import google.auth
 
 OUT = "data/analytics.json"
 PROPERTY_ID = os.environ.get("GA4_PROPERTY_ID", "").strip()
-SERVICE_JSON = os.environ.get("GA4_SERVICE_ACCOUNT_JSON", "").strip()
 
 
 def number(row, index=0):
@@ -29,13 +28,14 @@ def report(client, dimensions, metrics, start="30daysAgo", end="yesterday", limi
 
 
 def main():
-    if not PROPERTY_ID or not SERVICE_JSON:
-        print("GA4 chưa được cấu hình; giữ analytics.json ở trạng thái chưa cấu hình.")
+    if not PROPERTY_ID:
+        print("GA4_PROPERTY_ID chưa được cấu hình; giữ analytics.json ở trạng thái chưa cấu hình.")
         return
 
-    credentials = service_account.Credentials.from_service_account_info(
-        json.loads(SERVICE_JSON),
-        scopes=["https://www.googleapis.com/auth/analytics.readonly"],
+    # GitHub Actions authenticates through Workload Identity Federation (OIDC).
+    # No long-lived service-account JSON key is used or stored in the repository.
+    credentials, _ = google.auth.default(
+        scopes=["https://www.googleapis.com/auth/analytics.readonly"]
     )
     client = BetaAnalyticsDataClient(credentials=credentials)
 
