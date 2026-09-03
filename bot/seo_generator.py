@@ -11,6 +11,7 @@ from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offe
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 BASE = "https://deal24h.net"
+GA4_ID = "G-R7E164DCZL"
 CATEGORIES = {"Fashion": "Fashion", "Beauty": "Beauty", "Gaming": "Gaming", "Consumer": "Consumer"}
 
 
@@ -131,7 +132,8 @@ def jsonld(value):
 
 
 def page(title, desc, canonical, body, schema=None, robots="index,follow"):
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(desc)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{jsonld(schema) if schema else ""}<link rel="stylesheet" href="/assets/style.css?v=20260902i"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL <span>24H</span></a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
+    ga = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4_ID}',{{anonymize_ip:true}});</script>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(desc)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{jsonld(schema) if schema else ""}<link rel="stylesheet" href="/assets/style.css?v=20260902i">{ga}</head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL <span>24H</span></a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
 
 
 def card(item):
