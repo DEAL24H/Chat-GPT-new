@@ -10,7 +10,6 @@ on:
 permissions:
   id-token: write
   contents: write
-  actions: write
 concurrency:
   group: analytics-main
   cancel-in-progress: true
@@ -32,7 +31,18 @@ jobs:
       - name: Collect GA4 data
         env:
           GA4_PROPERTY_ID: '525658187'
-        run: python scripts/fetch_analytics.py
+        run: |
+          for attempt in 1 2 3; do
+            echo "GA4 collection attempt ${attempt}/3"
+            if python scripts/fetch_analytics.py; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "GA4 access may still be propagating; retrying in 30 seconds..."
+              sleep 30
+            fi
+          done
+          exit 1
       - name: Commit analytics snapshot
         run: |
           git config user.name 'github-actions[bot]'
