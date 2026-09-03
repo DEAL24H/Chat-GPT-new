@@ -19,10 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Refresh generated SEO pages and GA4 tags
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run news-bot.yml --ref main
       - name: Authenticate to Google Cloud with Workload Identity Federation
         uses: google-github-actions/auth@v2
         with:
@@ -32,19 +28,19 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install analytics client
-        run: pip install google-analytics-data google-auth
+        run: pip install google-analytics-data google-auth requests
       - name: Collect GA4 data
         env:
           GA4_PROPERTY_ID: '525658187'
         run: |
-          for attempt in 1 2 3; do
-            echo "GA4 collection attempt ${attempt}/3"
+          for attempt in 1 2 3 4 5; do
+            echo "GA4 collection attempt ${attempt}/5"
             if python scripts/fetch_analytics.py; then
               exit 0
             fi
-            if [ "$attempt" -lt 3 ]; then
-              echo "GA4 access may still be propagating; retrying in 30 seconds..."
-              sleep 30
+            if [ "$attempt" -lt 5 ]; then
+              echo "GA4 access may still be propagating; retrying in 60 seconds..."
+              sleep 60
             fi
           done
           exit 1
