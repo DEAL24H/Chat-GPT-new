@@ -30,17 +30,11 @@ on:
       - 'robots.txt'
       - 'fashion/**'
       - 'beauty/**'
-      - 'gaming/**'
       - 'consumer/**'
       - 'brand/**'
       - 'home-living/**'
-      - 'sports-outdoor/**'
       - 'food-grocery/**'
       - 'travel-hotels/**'
-      - 'software-digital-services/**'
-      - 'baby-kids-family/**'
-      - 'automotive-accessories/**'
-      - 'books-education-media/**'
 permissions:
   contents: write
   pages: write
@@ -68,9 +62,9 @@ jobs:
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-fix.js
           node --check assets/app-999.js
-      - name: Build deterministic 999-brand catalog
+      - name: Build focused 6-category catalog
         run: python scripts/ensure_catalog_999.py
-      - name: Validate 999-brand catalog
+      - name: Validate 6 categories x 89 brands
         run: python scripts/validate_catalog_999.py
       - name: Set scheduled batch
         env:
@@ -98,15 +92,22 @@ jobs:
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
         run: python bot/expanded_sources.py
-      - name: Collect scalable catalog brands (999 capacity, 250 per batch)
+      - name: Collect focused catalog brands
         run: python bot/scalable_brand_collector.py
       - name: Collect official promotion links
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
         run: python scripts/normalize_promotions.py
-      - name: Generate international SEO pages for 999 brands
-        run: python bot/seo_generator_999.py
-      - name: Clean SEO sitemap for all categories
+      - name: Generate SEO pages for six priority categories
+        run: |
+          python bot/seo_generator_999.py || true
+          python scripts/ensure_six_category_seo.py
+          python scripts/ensure_six_brand_sitemap.py
+      - name: Remove retired categories and placeholder pages
+        run: |
+          rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories books-education-media
+          find brand -maxdepth 1 -type d -name 'catalog-brand-*' -prune -exec rm -rf {} + || true
+      - name: Clean six-category SEO sitemap
         run: python scripts/seo_sitemap_cleanup_999.py
       - name: Guard legacy SEO pages
         run: python scripts/seo_legacy_guard.py
@@ -114,7 +115,7 @@ jobs:
         run: python scripts/inject_ga4.py
       - name: Verify GA4 on public pages
         run: python scripts/verify_ga4.py
-      - name: Validate active offers and SEO links
+      - name: Validate active offers and six-category SEO links
         run: python bot/validate_site.py
       - name: Clean generated Python bytecode
         run: |
@@ -125,8 +126,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add .gitignore CNAME data/brand_catalog.json data/news.json data/deal_state.json sitemap.xml sitemap-brands.xml robots.txt fashion beauty gaming consumer brand home-living sports-outdoor food-grocery travel-hotels software-digital-services baby-kids-family automotive-accessories books-education-media admin/index.html admin/admin.html post.html bot scripts assets/app-999.js
-          git diff --cached --quiet || git commit -m 'chore: update 999-brand coupon data, batch SEO and pages'
+          git add -A
+          git diff --cached --quiet || git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v6
