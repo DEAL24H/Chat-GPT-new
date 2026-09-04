@@ -14,7 +14,6 @@ if str(ROOT) not in sys.path:
 from bot.catalog_utils import canonicalize_item, is_active_offer, resolve_brand
 
 DATA = ROOT / "data" / "news.json"
-REGIONS = ROOT / "data" / "merchant_regions.json"
 MANIFEST = ROOT / "data" / "merchant-routes.json"
 SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/|/store(?:/|$)", re.I)
 BAD_PATH_RE = re.compile(r"terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice", re.I)
@@ -50,17 +49,12 @@ def normalize(value):
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 
 
-def build_route(item, overrides):
+def build_route(item):
     brand = str(item.get("merchant", "")).strip()
-    default = str(item.get("final_purchase_url") or "").strip()
-    override = (overrides.get("brands", {}) if isinstance(overrides, dict) else {}).get(normalize(brand), {})
-    if isinstance(override, dict) and is_purchase_url(override.get("default")):
-        default = str(override["default"])
-    regions = override.get("regions", {}) if isinstance(override, dict) else {}
-    regions = {str(k).upper(): str(v) for k, v in regions.items() if is_purchase_url(v)}
-    if not is_purchase_url(default):
+    destination = str(item.get("final_purchase_url") or "").strip()
+    if not is_purchase_url(destination):
         return None
-    return {"id": route_id(item), "brand": brand, "default": default, "regions": regions}
+    return {"id": route_id(item), "brand": brand, "default": destination, "regions": {}}
 
 
 def redirect_html(route):
@@ -75,9 +69,6 @@ def replace_cta_links(routes):
     article_re = re.compile(r'(<article\s+class="card offer-card">.*?</article>)', re.S)
     cta_re = re.compile(r'(<a\s+class="cta"\s+href=")([^"]+)(")')
     brand_re = re.compile(r'<a\s+class="brandname"\s+href="[^"]+">(.*?)</a>', re.S)
-    by_key = {}
-    for route in routes.values():
-        by_key[(normalize(route["brand"]), route["id"])] = route["id"]
     for path in html_files:
         if not path.exists():
             continue
@@ -105,14 +96,13 @@ def main():
             else:
                 child.unlink()
     raw = load_json(DATA, [])
-    overrides = load_json(REGIONS, {"version": 1, "brands": {}})
     items = [canonicalize_item(x) for x in raw if isinstance(x, dict) and is_active_offer(x)]
     routes = {}
     skipped = 0
     for item in items:
         if not resolve_brand(item.get("merchant")):
             continue
-        route = build_route(item, overrides)
+        route = build_route(item)
         if not route:
             skipped += 1
             continue
@@ -121,8 +111,8 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(redirect_html(route), encoding="utf-8")
     replace_cta_links(routes)
-    MANIFEST.write_text(json.dumps({"version": 2, "generated_at": datetime.now(timezone.utc).isoformat(), "routes": routes}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"FINAL PURCHASE ROUTES BUILT: routes={len(routes)}, skipped_non_purchase={skipped}")
+    MANIFEST.write_text(json.dumps({"version": 3, "generated_at": datetime.now(timezone.utc).isoformat(), "routes": routes}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"OFFER-SPECIFIC PURCHASE ROUTES BUILT: routes={len(routes)}, skipped_invalid_destination={skipped}")
 
 
 if __name__ == "__main__":
