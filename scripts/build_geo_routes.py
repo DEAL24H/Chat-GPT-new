@@ -64,24 +64,41 @@ def redirect_html(route):
 
 
 def replace_cta_links(routes):
+    by_key = {}
     by_url = {}
     for route in routes.values():
-        if route["default"]:
-            by_url.setdefault(route["default"], []).append(route["id"])
+        if not route["default"]:
+            continue
+        key = (normalize(route["brand"]), route["default"])
+        by_key.setdefault(key, []).append(route["id"])
+        by_url.setdefault(route["default"], []).append(route["id"])
+
     html_files = list((ROOT / "brand").glob("*/index.html"))
     html_files += [ROOT / name / "index.html" for name in ("fashion", "beauty", "consumer", "home-living", "food-grocery", "travel-hotels")]
-    pattern = re.compile(r'(<a\s+class="cta"\s+href=")([^"]+)(")')
+    article_re = re.compile(r'(<article\s+class="card offer-card">.*?</article>)', re.S)
+    cta_re = re.compile(r'(<a\s+class="cta"\s+href=")([^"]+)(")')
+    brand_re = re.compile(r'<a\s+class="brandname"\s+href="[^"]+">(.*?)</a>', re.S)
+
     for path in html_files:
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")
-        def repl(match):
-            url = html.unescape(match.group(2))
-            candidates = by_url.get(url, [])
-            if not candidates:
-                return match.group(0)
-            return f'{match.group(1)}/go/{candidates[0]}/{match.group(3)}'
-        updated = pattern.sub(repl, text)
+
+        def replace_article(article_match):
+            article = article_match.group(1)
+            brand_match = brand_re.search(article)
+            brand = html.unescape(brand_match.group(1)).strip() if brand_match else ""
+
+            def replace_cta(match):
+                url = html.unescape(match.group(2))
+                candidates = by_key.get((normalize(brand), url), []) or by_url.get(url, [])
+                if not candidates:
+                    return match.group(0)
+                return f'{match.group(1)}/go/{candidates[0]}/{match.group(3)}'
+
+            return cta_re.sub(replace_cta, article)
+
+        updated = article_re.sub(replace_article, text)
         if updated != text:
             path.write_text(updated, encoding="utf-8")
 
