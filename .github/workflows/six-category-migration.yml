@@ -10,9 +10,11 @@ on:
       - 'scripts/ensure_six_brand_sitemap.py'
       - 'scripts/seed_priority_brands.py'
       - 'scripts/build_data_shards.py'
+      - 'scripts/build_geo_routes.py'
       - 'scripts/prune_nonpriority_offers.py'
       - 'scripts/seo_sitemap_cleanup_999.py'
       - 'scripts/seo_legacy_guard.py'
+      - 'data/merchant_regions.json'
   workflow_dispatch:
 
 concurrency:
@@ -55,6 +57,8 @@ jobs:
           python scripts/ensure_six_brand_sitemap.py
           python scripts/seo_sitemap_cleanup_999.py
           python scripts/seo_legacy_guard.py
+      - name: Build centralized GET DEAL routes
+        run: python scripts/build_geo_routes.py
       - name: Validate site
         run: python bot/validate_site.py
       - name: Commit SEO migration
