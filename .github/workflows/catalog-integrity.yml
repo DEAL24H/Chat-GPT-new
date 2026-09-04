@@ -9,7 +9,7 @@ on:
       - 'scripts/strict_catalog_integrity.py'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: deal24h-catalog-integrity
@@ -27,3 +27,14 @@ jobs:
           python-version: '3.x'
       - name: Strict 534-brand audit
         run: python scripts/strict_catalog_integrity.py
+      - name: Persist safe catalog corrections
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --quiet -- data/brand_catalog.json; then
+            git add data/brand_catalog.json
+            git commit -m 'data: persist strict catalog corrections'
+            git push
+          else
+            echo 'Catalog already clean.'
+          fi
