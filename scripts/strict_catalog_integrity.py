@@ -5,7 +5,14 @@ from pathlib import Path
 CATALOG = Path('data/brand_catalog.json')
 EXPECTED = {'Fashion':89,'Beauty':89,'Consumer':89,'Home & Living':89,'Food & Grocery':89,'Travel & Hotels':89}
 FORBIDDEN = {'w3.org','google.com','google.co.uk','bing.com','duckduckgo.com','wikipedia.org','facebook.com','instagram.com','youtube.com','tiktok.com','x.com','twitter.com','reddit.com','pinterest.com','linkedin.com','yelp.com','trustpilot.com','rakuten.com','retailmenot.com','groupon.com','slickdeals.net','coupons.com'}
-OVERRIDES = {'ASOS':'asos.com','Fendi':'fendi.com','Gucci':'gucci.com','H&M':'hm.com','Lululemon':'lululemon.com','Prada':'prada.com','UNIQLO':'uniqlo.com'}
+OVERRIDES = {
+ 'ASOS':'asos.com','Fendi':'fendi.com','Gucci':'gucci.com','H&M':'hm.com','Lululemon':'lululemon.com','Prada':'prada.com','UNIQLO':'uniqlo.com',
+ 'Acer':'acer.com','AMD':'amd.com','Chromecast':'store.google.com','Costco':'costco.com','Fitbit':'fitbit.com','Google Store':'store.google.com','JBL':'jbl.com','JCPenney':'jcp.com','Office Depot':'officedepot.com','Staples':'staples.com',
+ 'Burke Decor':'burkedecor.com','Costco Home':'costco.com','KitchenAid':'kitchenaid.com','Mercury Row':'wayfair.com','Care/of':'careof.com','Costa Coffee':'costa.co.uk','FreshDirect':'freshdirect.com','KFC':'kfc.com','Kroger':'kroger.com','McDonald\'s':'mcdonalds.com','Pizza Hut':'pizzahut.com','Starbucks':'starbucks.com','Waitrose':'waitrose.com',
+ 'Air France':'airfrance.com','ANA':'ana.co.jp','Cathay Pacific':'cathaypacific.com','Choice Hotels':'choicehotels.com','Comfort Inn':'choicehotels.com','Emirates':'emirates.com','Etihad Airways':'etihad.com','Hotels.com':'hotels.com','Japan Airlines':'jal.com','KLM':'klm.com','Motel 6':'motel6.com','Premier Inn':'premierinn.com','Qantas':'qantas.com','Turkish Airlines':'turkishairlines.com','United Airlines':'united.com'
+}
+# Brands that are no longer suitable as active standalone deal destinations are replaced one-for-one.
+REPLACEMENTS = {'Drizly': ('Uber Eats','Consumer','ubereats.com')}
 
 def host(v):
     v=(v or '').lower().strip().replace('https://','').replace('http://','').split('/')[0].split(':')[0]
@@ -15,14 +22,25 @@ def main():
     data=json.loads(CATALOG.read_text(encoding='utf-8'))
     cats=data.get('categories',{})
     errors=[]; changed=[]; seen=set(); total=0
+    # Apply explicit one-for-one replacement before validating counts.
+    for category, entries in list(cats.items()):
+        for e in entries:
+            name=str(e.get('name','')).strip()
+            if name in REPLACEMENTS:
+                new_name, new_cat, new_domain = REPLACEMENTS[name]
+                if category != new_cat:
+                    continue
+                e['name']=new_name; e['domain']=new_domain; e['catalog_status']='verified_first_party'
+                changed.append(f'{name} -> {new_name} ({new_domain})')
     if set(cats) != set(EXPECTED): errors.append(f'categories mismatch: {sorted(cats)}')
     for category, expected in EXPECTED.items():
         entries=cats.get(category,[])
         if len(entries)!=expected: errors.append(f'{category}: expected {expected}, got {len(entries)}')
         for e in entries:
             total+=1; name=str(e.get('name','')).strip(); d=host(e.get('domain'))
-            if name.casefold() in seen: errors.append(f'duplicate brand: {name}')
-            seen.add(name.casefold())
+            key=name.casefold()
+            if key in seen: errors.append(f'duplicate brand: {name}')
+            seen.add(key)
             if not name: errors.append(f'{category}: blank brand name')
             if name in OVERRIDES and d != OVERRIDES[name]:
                 e['domain']=OVERRIDES[name]; e['catalog_status']='verified_first_party'; changed.append(f'{name}: {d} -> {OVERRIDES[name]}')
@@ -32,7 +50,6 @@ def main():
             if e.get('catalog_status')=='verified_first_party_search': errors.append(f'{name}: untrusted search-derived verification')
             e['enabled']=True; e.pop('placeholder',None)
     if total!=534: errors.append(f'total expected 534, got {total}')
-    # This is an integrity gate, not a discovery engine: uncertain sources fail closed.
     CATALOG.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     if errors:
         print('STRICT CATALOG AUDIT: FAILED')
@@ -43,5 +60,6 @@ def main():
     print('Total brands:',total)
     print('Categories:', ', '.join(f'{k}={len(cats[k])}' for k in EXPECTED))
     print('Corrections:',len(changed))
+    for x in changed: print('CHANGE:',x)
 
 if __name__=='__main__': main()
