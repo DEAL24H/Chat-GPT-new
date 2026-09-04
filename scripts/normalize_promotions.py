@@ -14,7 +14,8 @@ TIMEOUT = 20
 CODE_RE = re.compile(r"\b(?:code|promo code|coupon code|use code|enter (?:the )?(?:promo )?code)\s*[:\-]?\s*([A-Z0-9][A-Z0-9_-]{3,})\b", re.I)
 CODE_TOKEN_RE = re.compile(r"\b[A-Z]{2,}\d[A-Z0-9_-]{2,}\b")
 SHOP_RE = re.compile(r"\b(?:shop|shop now|buy|product|products|collection|collections|sale|deal|deals|eligible|men|women|kids|shoes|clothing|checkout)\b", re.I)
-BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms)\b", re.I)
+BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice|promo-code)\b", re.I)
+BAD_CODES = {"WILL", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "HTTPS", "WWW", "CLICK", "VERIFY", "ACTIVE", "PROMO", "PROMOS", "OFFER", "OFFERS", "WITH", "ENTER", "THIS", "YOUR", "FROM", "ONLY", "APPLY", "HELP", "PAGE", "NEXT", "SIGN", "JOIN", "REQUIRED", "INTO"}
 
 
 def load():
@@ -42,14 +43,20 @@ def similar(a, b, threshold=0.68):
 
 def explicit_code(item):
     code = str(item.get("code") or "").strip().upper()
-    if code:
+    if code and code not in BAD_CODES:
         return code
     content = str(item.get("content") or "")
     match = CODE_RE.search(content)
     if match:
-        return match.group(1).upper()
+        candidate = match.group(1).upper()
+        if candidate not in BAD_CODES:
+            return candidate
     candidates = CODE_TOKEN_RE.findall(content)
-    return candidates[0].upper() if candidates else ""
+    for candidate in candidates:
+        candidate = candidate.upper()
+        if candidate not in BAD_CODES:
+            return candidate
+    return ""
 
 
 def url_is_shopping(url):
@@ -57,11 +64,11 @@ def url_is_shopping(url):
         return False
     parsed = urlparse(str(url))
     path = f"{parsed.path} {parsed.query}".lower()
-    if BAD_RE.search(path) and not SHOP_RE.search(path):
+    if BAD_RE.search(path) and not re.search(r"/shop(?:/|$)|/sale(?:/|$)|/deals?(?:/|$)|/collections?/|/products?/|/p/|/w/|/t/", path, re.I):
         return False
     return bool(
         SHOP_RE.search(path)
-        or re.search(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)", path, re.I)
+        or re.search(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/", path, re.I)
     )
 
 
@@ -98,7 +105,6 @@ def landing_from_source(item, required_code=""):
     domain = str(item.get("source_domain") or base_host).lower().removeprefix("www.")
     candidates = []
 
-    # First prefer a purchase/shop link inside the same block that contains the code.
     for tag in soup.find_all(["article", "li", "div", "section"]):
         text = normalize(tag.get_text(" ", strip=True))
         if required_code and required_code.lower() not in text:
@@ -118,8 +124,6 @@ def landing_from_source(item, required_code=""):
             if score > 0:
                 candidates.append((score + 60, -len(href), href))
 
-    # If the code block has no usable purchase link, use the strongest shopping link
-    # on the official source page. Never return a terms/help/privacy URL as a purchase destination.
     if not candidates:
         for anchor in soup.find_all("a", href=True):
             href = urljoin(source_url, anchor.get("href", "").strip())
@@ -145,17 +149,13 @@ def resolve_destination(item, cache):
     source_url = str(item.get("source_url") or "").strip()
 
     if code:
-        # A coupon code must point to a shopping/purchase destination, not a promo-terms,
-        # help, privacy, or generic information page. Preserve an already-good destination.
-        if url_is_shopping(existing) and not (BAD_RE.search(urlparse(existing).path.lower()) and not SHOP_RE.search(existing)):
+        if url_is_shopping(existing):
             return existing
         cache_key = (source_url, code)
         if cache_key not in cache:
             cache[cache_key] = landing_from_source(item, code) if source_url else ""
         return cache[cache_key]
 
-    # Code-less official promotions are intentionally allowed to link to the exact SEO/program
-    # landing page discovered by the collector. Do not replace that page with a generic shop URL.
     if existing.startswith(("https://", "http://")):
         return existing
     if source_url.startswith(("https://", "http://")):
@@ -224,6 +224,9 @@ def main():
         if code:
             item["code"] = code
             item["code_context"] = True
+        else:
+            item["code"] = ""
+            item["code_context"] = False
         usable.append(item)
 
     deduped = []
