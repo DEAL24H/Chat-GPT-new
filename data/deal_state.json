@@ -26,7 +26,7 @@
       "official_domain": "nike.com"
     },
     "https://www.adidas.com/us/promotions": {
-      "last_checked": "2026-09-04T06:14:54.287531+00:00",
+      "last_checked": "2026-09-04T06:33:04.407406+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/promotions",
       "parser_version": 2
     },
@@ -41,9 +41,9 @@
       "last_error": "403 Client Error: Forbidden for url: https://www.adidas.com/us/regular-sale"
     },
     "https://www.zara.com/vn/vi/": {
-      "hash": "62be157ef75b84b0e5ba76951e7f51894e620f85872be1652f2fc7720f8908be",
-      "last_checked": "2026-09-04T06:14:55.035664+00:00",
-      "last_changed": "2026-09-04T06:14:55.035683+00:00",
+      "hash": "8e51c0c75fd946b05bac5225ee337d38c24b6ae52dbd0d8be8172bfc76bc9f47",
+      "last_checked": "2026-09-04T06:33:06.395470+00:00",
+      "last_changed": "2026-09-04T06:33:06.395490+00:00",
       "official_domain": "zara.com",
       "parser_version": 2
     },
@@ -52,242 +52,242 @@
       "last_error": "403 Client Error: Forbidden for url: https://www2.hm.com/en_us/member/offers/bonus.html"
     },
     "https://www.uniqlo.com/vn/vi/": {
-      "last_checked": "2026-09-04T06:14:55.505848+00:00",
+      "last_checked": "2026-09-04T06:33:06.530428+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.uniqlo.com/vn/vi/",
       "parser_version": 2
     },
     "https://m.shein.com/us/coupon-a-368.html": {
-      "hash": "71afcf267eb9011dcac1171808a6b8c8d79a95b51bf23439a5b9ab9be04d6f62",
-      "last_checked": "2026-09-04T06:14:55.993143+00:00",
-      "last_changed": "2026-09-04T06:14:55.993162+00:00",
+      "hash": "8349bbee436a78d8fd4365f31a6000c584d916c07d2b784d64edf3a914f8d873",
+      "last_checked": "2026-09-04T06:33:07.103698+00:00",
+      "last_changed": "2026-09-04T06:33:07.103723+00:00",
       "official_domain": "shein.com",
       "parser_version": 2
     },
     "https://www.asos.com/customer-care/payment-promos-gift-vouchers/how-do-your-promo-codes-work/": {
-      "hash": "519b9c601e4558beabafb5802b961a07c00d379c9717a7d32d22271254f7d5bc",
-      "last_checked": "2026-09-04T06:14:56.434463+00:00",
-      "last_changed": "2026-09-04T06:14:56.434479+00:00",
+      "hash": "8149543fdd7c2a517062bf36880d35b98a9773e6aee5789799b552a4d63421ee",
+      "last_checked": "2026-09-04T06:33:07.985418+00:00",
+      "last_changed": "2026-09-04T06:33:07.985438+00:00",
       "official_domain": "asos.com",
       "parser_version": 2
     },
     "https://help.levi.com/hc/en-us/articles/10872016647821-Levi-s-Promotional-Offers": {
-      "hash": "6f6e18a95b62045d8924f18a391c0698741d322fd6b20b0d8086b41435c85d81",
-      "last_checked": "2026-09-04T06:14:56.900150+00:00",
-      "last_changed": "2026-09-04T06:14:56.900165+00:00",
+      "hash": "7dc8d66389beebbba34c4b9fc5a827b94f5ec1a52d4f6c2f8609602749efdcdf",
+      "last_checked": "2026-09-04T06:33:08.369537+00:00",
+      "last_changed": "2026-09-04T06:33:08.369555+00:00",
       "official_domain": "levi.com",
       "parser_version": 2
     },
     "https://vn.puma.com/vn/en/promotions-and-sale.html": {
-      "hash": "e1bdc3c840025a931f3b7185c91609b38a0605e5d2b997bcfce4b30c4544e284",
-      "last_checked": "2026-09-04T06:14:57.385558+00:00",
-      "last_changed": "2026-09-04T06:14:57.385576+00:00",
+      "hash": "21bef2697fe2acac49020e223cb5af436b3144466b348e8217dea257401dc9ea",
+      "last_checked": "2026-09-04T06:33:09.466939+00:00",
+      "last_changed": "2026-09-04T06:33:09.466960+00:00",
       "official_domain": "puma.com",
       "parser_version": 2
     },
     "https://www.crocs.com/c/promotions": {
-      "last_checked": "2026-09-04T06:14:57.915075+00:00",
+      "last_checked": "2026-09-04T06:33:09.908662+00:00",
       "last_error": "429 Client Error: Too Many Requests for url: https://www.crocs.com/c/promotions",
       "parser_version": 2
     },
     "https://www.nike.com/gb/promo-terms-bts2026": {
-      "hash": "27f95bbfeeea233682ffb15dc8c708d188366119f983319fef499fa13ebfd49e",
-      "last_checked": "2026-09-04T06:14:53.596967+00:00",
-      "last_changed": "2026-09-04T06:14:53.596984+00:00",
+      "hash": "f3465a389f7425090e087a6eb77d8a9ae1cd0509561c29ea812f499d64f9a45b",
+      "last_checked": "2026-09-04T06:33:04.173598+00:00",
+      "last_changed": "2026-09-04T06:33:04.173618+00:00",
       "official_domain": "nike.com",
       "parser_version": 2
     },
     "https://www2.hm.com/en_us/index.html": {
-      "last_checked": "2026-09-04T06:14:55.335884+00:00",
+      "last_checked": "2026-09-04T06:33:06.463369+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www2.hm.com/en_us/index.html",
       "parser_version": 2
     },
     "https://www.lorealparisusa.com/": {
-      "hash": "f5735c846e3ec78845163bed1f262972fa0b7930def21494825d2cf175c82c74",
-      "last_checked": "2026-09-04T06:14:58.244685+00:00",
-      "last_changed": "2026-09-04T06:14:58.244702+00:00",
+      "hash": "0b3d260f876dfd5b3219aa748864af2a7129331c09e0e160214807d2c35b2a55",
+      "last_checked": "2026-09-04T06:33:10.152485+00:00",
+      "last_changed": "2026-09-04T06:33:10.152504+00:00",
       "official_domain": "lorealparisusa.com",
       "parser_version": 2
     },
     "https://www.maybelline.com/": {
-      "hash": "59a21cf7e8f7a382edfc568e43f29644119985de1c6c833b467b50e8e968059e",
-      "last_checked": "2026-09-04T06:14:58.704218+00:00",
-      "last_changed": "2026-09-04T06:14:58.704235+00:00",
+      "hash": "e394512a7123a69df5b1e68e6b902a30eb97167bf28c3884c78ec2b5fd71a16e",
+      "last_checked": "2026-09-04T06:33:10.505864+00:00",
+      "last_changed": "2026-09-04T06:33:10.505883+00:00",
       "official_domain": "maybelline.com",
       "parser_version": 2
     },
     "https://www.maccosmetics.com/pages/offer-details": {
-      "hash": "5a1a009729e28e57b2eee4026f7770b12b2fc3fb77a88de69e7d2b51f468c6aa",
-      "last_checked": "2026-09-04T06:14:59.458469+00:00",
-      "last_changed": "2026-09-04T06:14:59.458486+00:00",
+      "hash": "f5372c8c20681980b7e13237528522a4fe9c2b3eccf11b3abdb82c5c27542e2f",
+      "last_checked": "2026-09-04T06:33:11.266203+00:00",
+      "last_changed": "2026-09-04T06:33:11.266223+00:00",
       "official_domain": "maccosmetics.com",
       "parser_version": 2
     },
     "https://www.nyxcosmetics.com/promotions.html": {
-      "last_checked": "2026-09-04T06:14:59.788686+00:00",
+      "last_checked": "2026-09-04T06:33:11.548080+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.nyxcosmetics.com/promotions.html",
       "parser_version": 2
     },
     "https://www.elfcosmetics.com/": {
-      "hash": "6d77d9cf0dcb06030ae00f15a201861fbe9c627e6d2924adeb0621b54142ee63",
-      "last_checked": "2026-09-04T06:15:01.081501+00:00",
-      "last_changed": "2026-09-04T06:15:01.081519+00:00",
+      "hash": "5505522fc5bb532cfb47dba6059178b6e53e76c6d5af64c4f84061a4022ab20f",
+      "last_checked": "2026-09-04T06:33:12.225640+00:00",
+      "last_changed": "2026-09-04T06:33:12.225660+00:00",
       "official_domain": "elfcosmetics.com",
       "parser_version": 2
     },
     "https://www.cerave.com/sb-coupon-offer": {
-      "hash": "4227ee2e12db8e303c70df1438f38157688576f8f82fd2a271a497cfda34e3db",
-      "last_checked": "2026-09-04T06:15:01.759007+00:00",
-      "last_changed": "2026-09-04T06:15:01.759024+00:00",
+      "hash": "df45693c2932b62553debc04bb25773fc7151c0a8e3bc894ae8ca55049e43040",
+      "last_checked": "2026-09-04T06:33:12.783912+00:00",
+      "last_changed": "2026-09-04T06:33:12.783933+00:00",
       "official_domain": "cerave.com",
       "parser_version": 2
     },
     "https://www.laroche-posay.us/": {
-      "last_checked": "2026-09-04T06:15:01.910770+00:00",
+      "last_checked": "2026-09-04T06:33:12.883006+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.laroche-posay.us/",
       "parser_version": 2
     },
     "https://www.rarebeauty.com/pages/salesandpromotions": {
-      "hash": "a7ff553204131e3d4c7bbd2586c9a9a2b24af5c7b98dc2afbffb8171b7c0f979",
-      "last_checked": "2026-09-04T06:15:02.345461+00:00",
-      "last_changed": "2026-09-04T06:15:02.345477+00:00",
+      "hash": "93ac00e93773b8649b02f4ec07b887fc1226ebce528a2f823dc0565311ad0147",
+      "last_checked": "2026-09-04T06:33:13.271260+00:00",
+      "last_changed": "2026-09-04T06:33:13.271279+00:00",
       "official_domain": "rarebeauty.com",
       "parser_version": 2
     },
     "https://www.charlottetilbury.com/us/": {
-      "hash": "ea087a7c88793bb8867548e08bf8d6184920c35478a4f7b05e4b3e608d5d2373",
-      "last_checked": "2026-09-04T06:15:03.971508+00:00",
-      "last_changed": "2026-09-04T06:15:03.971526+00:00",
+      "hash": "b6d437c29da9115d4b0b35009a8a4be9b4e8b482de985e993745d6409c94ec16",
+      "last_checked": "2026-09-04T06:33:14.708886+00:00",
+      "last_changed": "2026-09-04T06:33:14.708908+00:00",
       "official_domain": "charlottetilbury.com",
       "parser_version": 2
     },
     "https://www.sephora.com/beauty/beauty-offers": {
-      "last_checked": "2026-09-04T06:15:04.345833+00:00",
+      "last_checked": "2026-09-04T06:33:15.032875+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.sephora.com/beauty/beauty-offers",
       "parser_version": 2
     },
     "https://store.steampowered.com/": {
-      "hash": "b24c88d3bf48c418b0cd45e0d17226b51035cc964833d693e841bea73edc9fb1",
-      "last_checked": "2026-09-04T06:15:04.777110+00:00",
-      "last_changed": "2026-09-04T06:15:04.777126+00:00",
+      "hash": "5797dc524d0d4bb3031a6aab924102924e7d66d3ca86a3cf940d2f18433de683",
+      "last_checked": "2026-09-04T06:33:15.270362+00:00",
+      "last_changed": "2026-09-04T06:33:15.270382+00:00",
       "official_domain": "steampowered.com",
       "parser_version": 2
     },
     "https://www.playstation.com/en-us/deals/": {
-      "last_checked": "2026-09-04T06:15:05.506153+00:00",
+      "last_checked": "2026-09-04T06:33:15.864462+00:00",
       "last_error": "404 Client Error: Not Found for url: https://www.playstation.com/en-us/deals/",
       "parser_version": 2
     },
     "https://www.xbox.com/en-US/promotions/sales/sales-and-specials": {
-      "hash": "8bf2fd9ca217248c58ecb182dd42d2a684165b3c59b1c3700150db990a93d611",
-      "last_checked": "2026-09-04T06:15:05.816371+00:00",
-      "last_changed": "2026-09-04T06:15:05.816388+00:00",
+      "hash": "2448314b7af8c91ce3f1dbb2e43582001bbfa535680815aa38d5ef5a7e6496cb",
+      "last_checked": "2026-09-04T06:33:16.501459+00:00",
+      "last_changed": "2026-09-04T06:33:16.501479+00:00",
       "official_domain": "xbox.com",
       "parser_version": 2
     },
     "https://www.nintendo.com/us/store/": {
-      "hash": "521c4c79cdca544add4270c0726b7d86df442ef33f5c802a7445e217662f71fb",
-      "last_checked": "2026-09-04T06:15:05.983761+00:00",
-      "last_changed": "2026-09-04T06:15:05.983775+00:00",
+      "hash": "2388eac38f836ed8984047eba4d000bd23146bebde12fff22671540b00a7574d",
+      "last_checked": "2026-09-04T06:33:16.611293+00:00",
+      "last_changed": "2026-09-04T06:33:16.611312+00:00",
       "official_domain": "nintendo.com",
       "parser_version": 2
     },
     "https://store.epicgames.com/en-US/": {
-      "last_checked": "2026-09-04T06:15:06.221343+00:00",
+      "last_checked": "2026-09-04T06:33:16.787030+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://store.epicgames.com/en-US/",
       "parser_version": 2
     },
     "https://store.ubisoft.com/": {
-      "hash": "612902d014c8f44b99c18aa5b0d8b99cd1b9148be6b6a4760ab7e3e60975605e",
-      "last_checked": "2026-09-04T06:15:07.610373+00:00",
-      "last_changed": "2026-09-04T06:15:07.610390+00:00",
+      "hash": "43f39a7810c50591f633764348bf8d7eb015410eea66348b81c5f3f458f6ac57",
+      "last_checked": "2026-09-04T06:33:17.982864+00:00",
+      "last_changed": "2026-09-04T06:33:17.982884+00:00",
       "official_domain": "ubisoft.com",
       "parser_version": 2
     },
     "https://www.ea.com/games": {
       "hash": "5119201c7bd5d08c595b808cb7fdd47afa2a7c0e0494b7669d7b82c9fb1c1a35",
-      "last_checked": "2026-09-04T06:15:07.913317+00:00",
+      "last_checked": "2026-09-04T06:33:18.194415+00:00",
       "last_changed": "2026-09-04T06:15:07.913330+00:00",
       "official_domain": "ea.com",
       "parser_version": 2
     },
     "https://www.blizzard.com/en-us/shop/": {
-      "last_checked": "2026-09-04T06:15:08.260778+00:00",
+      "last_checked": "2026-09-04T06:33:18.442845+00:00",
       "last_error": "404 Client Error: Not Found for url: https://www.blizzard.com/en-us/shop/",
       "parser_version": 2
     },
     "https://www.riotgames.com/en": {
       "hash": "8f235761509a7554054235ec0ef4cec62e7d209fbca06a67a3ca5f1553b68fde",
-      "last_checked": "2026-09-04T06:15:08.522825+00:00",
+      "last_checked": "2026-09-04T06:33:18.609901+00:00",
       "last_changed": "2026-09-03T22:40:17.003264+00:00",
       "official_domain": "riotgames.com",
       "parser_version": 2
     },
     "https://www.humblebundle.com/store": {
-      "hash": "3b250b4cc1f2688b08c8b0e1605af6bed4346e4fd1b9461d7ee67838d0aa40d8",
-      "last_checked": "2026-09-04T06:15:09.200138+00:00",
-      "last_changed": "2026-09-04T06:15:09.200156+00:00",
+      "hash": "5fc8db5267d356822377849d335e9c9b7bb3fe2d8dc8f480eec3636aaa8c2750",
+      "last_checked": "2026-09-04T06:33:19.203179+00:00",
+      "last_changed": "2026-09-04T06:33:19.203200+00:00",
       "official_domain": "humblebundle.com",
       "parser_version": 2
     },
     "https://www.apple.com/us-edu/shop/buy-mac": {
-      "hash": "3fe45266a252072b38d8d0e88b28ed1f00381d811a43373a0e2114fd74daba2b",
-      "last_checked": "2026-09-04T06:15:09.379128+00:00",
-      "last_changed": "2026-09-04T06:15:09.379143+00:00",
+      "hash": "06d296fd4ff766b2dcc4710cafb23d1f73f656d3ed70aa40a705f9a45ed431ef",
+      "last_checked": "2026-09-04T06:33:19.428844+00:00",
+      "last_changed": "2026-09-04T06:33:19.428865+00:00",
       "official_domain": "apple.com",
       "parser_version": 2
     },
     "https://www.samsung.com/us/promotions/": {
-      "hash": "dd3c8fdbe8ff9a3d4af3a4411b7692bc2304e42a0b6c95fb83047ba5c0f39ef2",
-      "last_checked": "2026-09-04T06:15:09.992493+00:00",
-      "last_changed": "2026-09-04T06:15:09.992510+00:00",
+      "hash": "ae7bc5c4635adecdb48a6649d7178ce0b50f5905f4e46bbf9f540831032a75c0",
+      "last_checked": "2026-09-04T06:33:19.740682+00:00",
+      "last_changed": "2026-09-04T06:33:19.740699+00:00",
       "official_domain": "samsung.com",
       "parser_version": 2
     },
     "https://electronics.sony.com/": {
-      "last_checked": "2026-09-04T06:15:10.445395+00:00",
+      "last_checked": "2026-09-04T06:33:20.140328+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://electronics.sony.com/",
       "parser_version": 2
     },
     "https://www.dell.com/en-us/shop/deals": {
-      "last_checked": "2026-09-04T06:15:10.550611+00:00",
+      "last_checked": "2026-09-04T06:33:20.208685+00:00",
       "last_error": "403 Client Error: Forbidden for url: https://www.dell.com/en-us/shop/deals",
       "parser_version": 2
     },
     "https://www.lenovo.com/us/en/d/deals/": {
-      "hash": "168e97b8fa1324ebe5d7bac1b7440e7e91bd6b6a662fc175c88626b08e984a9f",
-      "last_checked": "2026-09-04T06:15:10.880245+00:00",
-      "last_changed": "2026-09-04T06:15:10.880261+00:00",
+      "hash": "855b26eb4bc988698658d281e232ddf92ecfe9e38c2c3ca68e6d473120d7d208",
+      "last_checked": "2026-09-04T06:33:20.389265+00:00",
+      "last_changed": "2026-09-04T06:33:20.389286+00:00",
       "official_domain": "lenovo.com",
       "parser_version": 2
     },
     "https://www.hp.com/us-en/shop/cv/coupons-promo": {
-      "last_checked": "2026-09-04T06:15:36.092790+00:00",
+      "last_checked": "2026-09-04T06:33:45.581761+00:00",
       "last_error": "HTTPSConnectionPool(host='www.hp.com', port=443): Read timed out. (read timeout=25)",
       "parser_version": 2
     },
     "https://www.logitech.com/en-us/promotions": {
-      "hash": "560e3cb762baa3a3c8051c3f7bddfda5dd887615fa8fc31ca6fa1ebf3083efef",
-      "last_checked": "2026-09-04T06:15:36.499012+00:00",
-      "last_changed": "2026-09-04T06:15:36.499027+00:00",
+      "hash": "f57fc016d740a2d40bb39c2c5d84519a8047cbd1794e753dd7ff0b0ad51c467a",
+      "last_checked": "2026-09-04T06:33:45.798769+00:00",
+      "last_changed": "2026-09-04T06:33:45.798786+00:00",
       "official_domain": "logitech.com",
       "parser_version": 2
     },
     "https://www.usa.philips.com/c-m/consumer": {
-      "last_checked": "2026-09-04T06:15:37.434654+00:00",
+      "last_checked": "2026-09-04T06:33:46.367365+00:00",
       "last_error": "404 Client Error: Not Found for url: https://www.usa.philips.com/c-m/consumer",
       "parser_version": 2
     },
     "https://www.ikea.com/us/en/offers/": {
-      "hash": "bf4ecf0e780f27ffe1d693d6a582e424ac5c3370466a1e7193a2d3ba29d6a6ce",
-      "last_checked": "2026-09-04T06:15:38.613327+00:00",
-      "last_changed": "2026-09-04T06:15:38.613346+00:00",
+      "hash": "353eb0da2dbdb42053a1d4f11773d5b3653db952d6aa0b748808bfd84377e19b",
+      "last_checked": "2026-09-04T06:33:47.793212+00:00",
+      "last_changed": "2026-09-04T06:33:47.793239+00:00",
       "official_domain": "ikea.com",
       "parser_version": 2
     },
     "https://www.dyson.com/en": {
-      "hash": "e47520fdc45dbee57e6df6916a13772a600f4b05bb09bb28149eb7f4997cf1c0",
-      "last_checked": "2026-09-04T06:15:39.013285+00:00",
-      "last_changed": "2026-09-04T06:15:39.013302+00:00",
+      "hash": "c05a8c329623a4eb89c687053d76f7df7759fea37aeef99060e5a3130294b1b0",
+      "last_checked": "2026-09-04T06:33:48.153793+00:00",
+      "last_changed": "2026-09-04T06:33:48.153811+00:00",
       "official_domain": "dyson.com",
       "parser_version": 2
     }
