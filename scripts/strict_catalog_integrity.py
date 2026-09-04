@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# FINAL STRICT CATALOG GATE: no generic search result is accepted as a brand source.
 import json, sys
 from pathlib import Path
 
