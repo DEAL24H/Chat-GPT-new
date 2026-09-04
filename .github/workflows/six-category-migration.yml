@@ -17,9 +17,11 @@ on:
       - 'data/merchant_regions.json'
   workflow_dispatch:
 
+# All workflows that write generated site data share one writer lock.
+# This prevents Deal Bot and the six-category migration from racing on main.
 concurrency:
-  group: six-category-migration
-  cancel-in-progress: true
+  group: deal24h-main-writer
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -66,4 +68,4 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if git diff --cached --quiet; then echo 'No changes to commit'; else git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'; git push; fi
+          if git diff --cached --quiet; then echo 'No changes to commit'; else git commit -m 'chore: focus DEAL24H on 6 priority categories and 89 brands each'; git pull --rebase origin main; git push; fi
