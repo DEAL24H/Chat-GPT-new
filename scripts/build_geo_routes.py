@@ -3,12 +3,16 @@ import html
 import json
 import re
 import shutil
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from bot.catalog_utils import brand_slug, canonicalize_item, is_active_offer, resolve_brand
 
-ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 REGIONS = ROOT / "data" / "merchant_regions.json"
 MANIFEST = ROOT / "data" / "merchant-routes.json"
