@@ -12,7 +12,11 @@ COMMERCE_HOST_RE = re.compile(r"^(?:store|shop)\.", re.I)
 
 
 def host(value):
-    return (urlparse(str(value or "")).hostname or "").lower().removeprefix("www.")
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    parsed = urlparse(raw if "://" in raw else "https://" + raw)
+    return (parsed.hostname or "").lower().removeprefix("www.")
 
 
 def is_purchase_url(value):
