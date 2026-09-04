@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generated_at": "2026-09-04T09:51:30.922983+00:00",
+  "generated_at": "2026-09-04T10:29:18.836082+00:00",
   "routes": {
     "1aa877f5121a2269": {
       "id": "1aa877f5121a2269",
@@ -152,14 +152,26 @@
       "default": "https://www.apple.com/shop/goto/store",
       "regions": {}
     },
-    "d79445a103229d06": {
-      "id": "d79445a103229d06",
+    "5b51b3d2e63506a4": {
+      "id": "5b51b3d2e63506a4",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "49370a6b4d0df0f1": {
-      "id": "49370a6b4d0df0f1",
+    "ca8a1b6e30f0293c": {
+      "id": "ca8a1b6e30f0293c",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "e8e8432e51c7165c": {
+      "id": "e8e8432e51c7165c",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "adf2bcec66084515": {
+      "id": "adf2bcec66084515",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
@@ -170,26 +182,14 @@
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "9eb7b2d7d507242a": {
-      "id": "9eb7b2d7d507242a",
+    "5b2ae7b524528b54": {
+      "id": "5b2ae7b524528b54",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "3c660e5d43f320ba": {
-      "id": "3c660e5d43f320ba",
-      "brand": "Steam",
-      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
-      "regions": {}
-    },
-    "4a8c465a5d05efeb": {
-      "id": "4a8c465a5d05efeb",
-      "brand": "Steam",
-      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
-      "regions": {}
-    },
-    "9d0d64295df814c9": {
-      "id": "9d0d64295df814c9",
+    "2380542bdbf00767": {
+      "id": "2380542bdbf00767",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
@@ -332,12 +332,6 @@
       "default": "https://www.logitech.com/en-us/shop/deals",
       "regions": {}
     },
-    "2ddbe3d4d7ad0913": {
-      "id": "2ddbe3d4d7ad0913",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
     "6c0939f3acb330ce": {
       "id": "6c0939f3acb330ce",
       "brand": "Lenovo",
@@ -374,54 +368,6 @@
       "default": "https://www.usa.philips.com/c-e/shop/checkout",
       "regions": {}
     },
-    "746a2470a0489fb0": {
-      "id": "746a2470a0489fb0",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
-    "feff7d1ad0d01aa4": {
-      "id": "feff7d1ad0d01aa4",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
-    "a2400206621d9d13": {
-      "id": "a2400206621d9d13",
-      "brand": "Samsung",
-      "default": "https://www.samsung.com/us/shop/",
-      "regions": {}
-    },
-    "ad0a1e8c0f8f71c3": {
-      "id": "ad0a1e8c0f8f71c3",
-      "brand": "Tarte",
-      "default": "https://tartecosmetics.com/collections/lip",
-      "regions": {}
-    },
-    "74cbb71e7c94b887": {
-      "id": "74cbb71e7c94b887",
-      "brand": "Tarte",
-      "default": "https://tartecosmetics.com/collections/lip",
-      "regions": {}
-    },
-    "6fb9050c3ec31649": {
-      "id": "6fb9050c3ec31649",
-      "brand": "Olay",
-      "default": "https://www.olay.com/collections/hydration",
-      "regions": {}
-    },
-    "0c8b6661e9f03299": {
-      "id": "0c8b6661e9f03299",
-      "brand": "Olay",
-      "default": "https://www.olay.com/collections/hydration",
-      "regions": {}
-    },
-    "58c6b0e50e0234de": {
-      "id": "58c6b0e50e0234de",
-      "brand": "Olay",
-      "default": "https://www.olay.com/collections/hydration",
-      "regions": {}
-    },
     "b3fb0d11811b13f6": {
       "id": "b3fb0d11811b13f6",
       "brand": "Fenty Beauty",
@@ -446,10 +392,64 @@
       "default": "https://fentybeauty.com/collections/all",
       "regions": {}
     },
+    "ad0a1e8c0f8f71c3": {
+      "id": "ad0a1e8c0f8f71c3",
+      "brand": "Tarte",
+      "default": "https://tartecosmetics.com/collections/lip",
+      "regions": {}
+    },
+    "74cbb71e7c94b887": {
+      "id": "74cbb71e7c94b887",
+      "brand": "Tarte",
+      "default": "https://tartecosmetics.com/collections/lip",
+      "regions": {}
+    },
+    "2ddbe3d4d7ad0913": {
+      "id": "2ddbe3d4d7ad0913",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
+      "regions": {}
+    },
+    "a2400206621d9d13": {
+      "id": "a2400206621d9d13",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "12136b0886ca5d10": {
+      "id": "12136b0886ca5d10",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
+      "regions": {}
+    },
+    "81390649be03def0": {
+      "id": "81390649be03def0",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
+      "regions": {}
+    },
     "2ba2d91874ae2950": {
       "id": "2ba2d91874ae2950",
       "brand": "Apple",
       "default": "https://www.apple.com/shop/goto/store",
+      "regions": {}
+    },
+    "6fb9050c3ec31649": {
+      "id": "6fb9050c3ec31649",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "0c8b6661e9f03299": {
+      "id": "0c8b6661e9f03299",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "58c6b0e50e0234de": {
+      "id": "58c6b0e50e0234de",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
       "regions": {}
     },
     "3c16f672be73dc2f": {
@@ -602,18 +602,6 @@
       "default": "https://www.merrell.com/US/en/collections/",
       "regions": {}
     },
-    "b53f00f9fecac68c": {
-      "id": "b53f00f9fecac68c",
-      "brand": "Valentino",
-      "default": "https://www.valentino.com/en-us/collections/men",
-      "regions": {}
-    },
-    "e85f756389345342": {
-      "id": "e85f756389345342",
-      "brand": "Valentino",
-      "default": "https://www.valentino.com/en-us/collections/men",
-      "regions": {}
-    },
     "b427fab873d5c6c1": {
       "id": "b427fab873d5c6c1",
       "brand": "DKNY",
@@ -638,6 +626,18 @@
       "default": "https://www.dkny.com/collections/bags",
       "regions": {}
     },
+    "b53f00f9fecac68c": {
+      "id": "b53f00f9fecac68c",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/collections/men",
+      "regions": {}
+    },
+    "e85f756389345342": {
+      "id": "e85f756389345342",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/collections/men",
+      "regions": {}
+    },
     "3fa9e4c649b121de": {
       "id": "3fa9e4c649b121de",
       "brand": "Steve Madden",
@@ -654,30 +654,6 @@
       "id": "23f50f4d11153413",
       "brand": "Steve Madden",
       "default": "https://www.stevemadden.com/collections/womens-all-products",
-      "regions": {}
-    },
-    "5862e4d4e2dcf0fd": {
-      "id": "5862e4d4e2dcf0fd",
-      "brand": "Reformation",
-      "default": "https://www.thereformation.com/sale/sale-shoes",
-      "regions": {}
-    },
-    "75b7dd8f0e6a7653": {
-      "id": "75b7dd8f0e6a7653",
-      "brand": "Reformation",
-      "default": "https://www.thereformation.com/sale/sale-shoes",
-      "regions": {}
-    },
-    "cd9dae45331b0172": {
-      "id": "cd9dae45331b0172",
-      "brand": "Reformation",
-      "default": "https://www.thereformation.com/sale/sale-shoes",
-      "regions": {}
-    },
-    "8f433ca26d701ffa": {
-      "id": "8f433ca26d701ffa",
-      "brand": "Reformation",
-      "default": "https://www.thereformation.com/sale/sale-shoes",
       "regions": {}
     },
     "0851546c6777a93c": {
@@ -704,12 +680,6 @@
       "default": "https://www.everlane.com/collections/mens-sale",
       "regions": {}
     },
-    "68561a05f2da7382": {
-      "id": "68561a05f2da7382",
-      "brand": "Reformation",
-      "default": "https://www.thereformation.com/sale/best-of-sale",
-      "regions": {}
-    },
     "e4afe13618145cc8": {
       "id": "e4afe13618145cc8",
       "brand": "Allbirds",
@@ -726,6 +696,42 @@
       "id": "70680322c27f7b79",
       "brand": "Allbirds",
       "default": "https://allbirds.com/collections/mens",
+      "regions": {}
+    },
+    "5862e4d4e2dcf0fd": {
+      "id": "5862e4d4e2dcf0fd",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale/sale-shoes",
+      "regions": {}
+    },
+    "75b7dd8f0e6a7653": {
+      "id": "75b7dd8f0e6a7653",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale/sale-shoes",
+      "regions": {}
+    },
+    "cd9dae45331b0172": {
+      "id": "cd9dae45331b0172",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale/sale-shoes",
+      "regions": {}
+    },
+    "8f433ca26d701ffa": {
+      "id": "8f433ca26d701ffa",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale/sale-shoes",
+      "regions": {}
+    },
+    "a0867779f2deefe1": {
+      "id": "a0867779f2deefe1",
+      "brand": "Allbirds",
+      "default": "https://www.allbirds.com/collections/all",
+      "regions": {}
+    },
+    "68561a05f2da7382": {
+      "id": "68561a05f2da7382",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale/best-of-sale",
       "regions": {}
     },
     "874d2968c5f409d3": {
@@ -752,10 +758,22 @@
       "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
       "regions": {}
     },
-    "a0867779f2deefe1": {
-      "id": "a0867779f2deefe1",
-      "brand": "Allbirds",
-      "default": "https://www.allbirds.com/collections/all",
+    "8210adb58f2c3b26": {
+      "id": "8210adb58f2c3b26",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
+      "regions": {}
+    },
+    "b6e68e37eda0c03f": {
+      "id": "b6e68e37eda0c03f",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
+      "regions": {}
+    },
+    "7b251bc135374da2": {
+      "id": "7b251bc135374da2",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
     "8195115dc809895d": {
@@ -774,42 +792,6 @@
       "id": "a5f28d5dbe8a11a3",
       "brand": "Victoria's Secret",
       "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
-      "regions": {}
-    },
-    "f49bc1a0ac4bd852": {
-      "id": "f49bc1a0ac4bd852",
-      "brand": "Victoria's Secret PINK",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
-      "regions": {}
-    },
-    "292515098741083d": {
-      "id": "292515098741083d",
-      "brand": "Victoria's Secret PINK",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
-      "regions": {}
-    },
-    "7b251bc135374da2": {
-      "id": "7b251bc135374da2",
-      "brand": "Victoria's Secret PINK",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
-      "regions": {}
-    },
-    "49f6d587b66f6140": {
-      "id": "49f6d587b66f6140",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
-      "regions": {}
-    },
-    "fcf80a58be3a92a8": {
-      "id": "fcf80a58be3a92a8",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
-      "regions": {}
-    },
-    "dc0f81b22a3faf54": {
-      "id": "dc0f81b22a3faf54",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
       "regions": {}
     },
     "821343355fd7b02b": {
@@ -834,6 +816,60 @@
       "id": "2cd253b9f5be389c",
       "brand": "Hollister",
       "default": "https://www.hollisterco.com/shop/us/sale",
+      "regions": {}
+    },
+    "49f6d587b66f6140": {
+      "id": "49f6d587b66f6140",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
+      "regions": {}
+    },
+    "fcf80a58be3a92a8": {
+      "id": "fcf80a58be3a92a8",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
+      "regions": {}
+    },
+    "dc0f81b22a3faf54": {
+      "id": "dc0f81b22a3faf54",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
+      "regions": {}
+    },
+    "202ab4b8307b0a8e": {
+      "id": "202ab4b8307b0a8e",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "edb9fec6daa6722e": {
+      "id": "edb9fec6daa6722e",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "eb6b3582c421d63a": {
+      "id": "eb6b3582c421d63a",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "091f2b7aacfa2ef2": {
+      "id": "091f2b7aacfa2ef2",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
+      "regions": {}
+    },
+    "3a8988c59479fa09": {
+      "id": "3a8988c59479fa09",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
+      "regions": {}
+    },
+    "bbea98f34f778bc8": {
+      "id": "bbea98f34f778bc8",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
       "regions": {}
     },
     "4a76f5bad1cab2ff": {
@@ -864,42 +900,6 @@
       "id": "6340d55e11b71e47",
       "brand": "Forever 21",
       "default": "https://www.forever21.com/collections/all",
-      "regions": {}
-    },
-    "091f2b7aacfa2ef2": {
-      "id": "091f2b7aacfa2ef2",
-      "brand": "Abercrombie & Fitch",
-      "default": "https://www.abercrombie.com/shop/us/nfl",
-      "regions": {}
-    },
-    "3a8988c59479fa09": {
-      "id": "3a8988c59479fa09",
-      "brand": "Abercrombie & Fitch",
-      "default": "https://www.abercrombie.com/shop/us/nfl",
-      "regions": {}
-    },
-    "bbea98f34f778bc8": {
-      "id": "bbea98f34f778bc8",
-      "brand": "Abercrombie & Fitch",
-      "default": "https://www.abercrombie.com/shop/us/nfl",
-      "regions": {}
-    },
-    "202ab4b8307b0a8e": {
-      "id": "202ab4b8307b0a8e",
-      "brand": "Skechers",
-      "default": "https://www.skechers.com/sale/",
-      "regions": {}
-    },
-    "edb9fec6daa6722e": {
-      "id": "edb9fec6daa6722e",
-      "brand": "Skechers",
-      "default": "https://www.skechers.com/sale/",
-      "regions": {}
-    },
-    "eb6b3582c421d63a": {
-      "id": "eb6b3582c421d63a",
-      "brand": "Skechers",
-      "default": "https://www.skechers.com/sale/",
       "regions": {}
     },
     "faca125daa74e529": {
@@ -980,8 +980,8 @@
       "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
       "regions": {}
     },
-    "a11adfbadce4687b": {
-      "id": "a11adfbadce4687b",
+    "80edcd9a474e860d": {
+      "id": "80edcd9a474e860d",
       "brand": "Amazon",
       "default": "https://www.amazon.com/dp/product/B084KP3NG6?plattr=SCFOOT&ref_=footer_ACB",
       "regions": {}
