@@ -9,7 +9,7 @@ on:
       - 'scripts/strict_catalog_integrity.py'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: deal24h-catalog-integrity
@@ -21,31 +21,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
       - name: Strict 534-brand audit
-        id: audit
-        continue-on-error: true
         run: python scripts/strict_catalog_integrity.py
-
-      - name: Commit safe corrections
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if ! git diff --quiet -- data/brand_catalog.json; then
-            git add data/brand_catalog.json
-            git commit -m 'Fix catalog domains rejected by strict integrity audit'
-            git push
-          else
-            echo 'No catalog corrections to commit.'
-          fi
-
-      - name: Fail if audit did not pass
-        if: steps.audit.outcome != 'success'
-        run: |
-          echo 'Catalog integrity gate FAILED. No unverified or search-derived brand source is allowed.'
-          exit 1
