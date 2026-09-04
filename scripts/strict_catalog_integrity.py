@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # FINAL STRICT CATALOG GATE: no generic search result is accepted as a brand source.
+# Corrections are persisted by the Catalog Integrity workflow after this gate passes.
 import json, sys
 from pathlib import Path
 
