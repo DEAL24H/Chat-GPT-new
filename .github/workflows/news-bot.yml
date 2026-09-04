@@ -3,32 +3,15 @@ on:
   workflow_dispatch:
     inputs:
       batch_index:
-        description: 'Optional batch 0-3; leave blank to run a complete 4-batch catalog cycle'
+        description: 'Optional category group: 0 = Fashion/Beauty/Consumer, 1 = Home & Living/Food & Grocery/Travel & Hotels; blank = full cycle'
         required: false
         default: ''
-  push:
-    branches: [main]
-    paths:
-      - 'data/brand_catalog.json'
-      - 'scripts/strict_catalog_integrity.py'
-      - 'scripts/prune_nonpriority_offers.py'
-      - 'scripts/validate_offer_links.py'
-      - '.github/workflows/news-bot.yml'
   schedule:
-    - cron: '0 23 * * *'
-    - cron: '30 23 * * *'
-    - cron: '0 0 * * *'
-    - cron: '30 0 * * *'
-    - cron: '0 7 * * *'
-    - cron: '30 7 * * *'
-    - cron: '0 8 * * *'
-    - cron: '30 8 * * *'
-    - cron: '0 15 * * *'
-    - cron: '30 15 * * *'
-    - cron: '0 16 * * *'
-    - cron: '30 16 * * *'
-# Push-triggering is restricted to catalog/collector workflow changes so generated
-# deal data commits do not recursively launch competing writer runs.
+    - cron: '0 22 * * *' # 05:00 Vietnam time
+    - cron: '0 6 * * *'  # 13:00 Vietnam time
+    - cron: '0 14 * * *' # 21:00 Vietnam time
+# Deal Bot is schedule/manual only. Code/data commits must not recursively launch
+# competing full catalog writer runs; generated data is deployed separately.
 permissions:
   contents: write
   pages: write
@@ -63,22 +46,20 @@ jobs:
         run: python scripts/ensure_catalog_999.py
       - name: Validate 6 categories x 89 brands
         run: python scripts/validate_catalog_999.py
-      - name: Set scheduled batch
+      - name: Select category scan mode
         env:
           MANUAL_BATCH: ${{ inputs.batch_index }}
         run: |
           if [ -n "$MANUAL_BATCH" ]; then
-            echo "DEAL_BATCH_INDEX=$MANUAL_BATCH" >> "$GITHUB_ENV"
-          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            echo "DEAL_BATCH_INDEX=$(python - <<'PY'
-          from datetime import datetime, timezone
-          slots={(23,0):0,(23,30):1,(0,0):2,(0,30):3,(7,0):0,(7,30):1,(8,0):2,(8,30):3,(15,0):0,(15,30):1,(16,0):2,(16,30):3}
-          now=datetime.now(timezone.utc)
-          print(slots.get((now.hour,now.minute),0))
-          PY
-          )" >> "$GITHUB_ENV"
+            if [ "$MANUAL_BATCH" != "0" ] && [ "$MANUAL_BATCH" != "1" ]; then
+              echo "batch_index must be 0 or 1" >&2
+              exit 1
+            fi
+            echo "DEAL_SCAN_MODE=manual" >> "$GITHUB_ENV"
+            echo "DEAL_MANUAL_BATCH=$MANUAL_BATCH" >> "$GITHUB_ENV"
           else
-            echo "DEAL_BATCH_INDEX=0" >> "$GITHUB_ENV"
+            echo "DEAL_SCAN_MODE=full" >> "$GITHUB_ENV"
+            echo "DEAL_MANUAL_BATCH=" >> "$GITHUB_ENV"
           fi
       - name: Harden source retention
         run: |
@@ -101,18 +82,23 @@ jobs:
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
         run: python bot/expanded_sources.py
-      - name: Collect focused catalog brands
+      - name: Scan first three categories
+        if: env.DEAL_SCAN_MODE == 'full' || env.DEAL_MANUAL_BATCH == '0'
         run: |
-          if { [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "${{ inputs.batch_index }}" ]; } || [ "$GITHUB_EVENT_NAME" = "push" ]; then
-            for batch in 0 1 2 3; do
-              echo "=== FULL CATALOG CYCLE: batch $batch/3 ==="
-              DEAL_BATCH_INDEX="$batch" python bot/scalable_brand_collector.py
-            done
-          else
-            python bot/scalable_brand_collector.py
-          fi
-      - name: Collect official promotion links
-        run: python bot/promotion_links.py
+          echo '=== CATEGORY GROUP 1/2: Fashion + Beauty + Consumer ==='
+          DEAL_BATCH_INDEX=0 python bot/scalable_brand_collector.py
+      - name: Wait 30 minutes after first category group completes
+        if: env.DEAL_SCAN_MODE == 'full'
+        run: |
+          echo 'First three-category scan completed at:'
+          date -u
+          echo 'Waiting exactly 30 minutes before scanning the remaining three categories.'
+          sleep 1800
+      - name: Scan remaining three categories
+        if: env.DEAL_SCAN_MODE == 'full' || env.DEAL_MANUAL_BATCH == '1'
+        run: |
+          echo '=== CATEGORY GROUP 2/2: Home & Living + Food & Grocery + Travel & Hotels ==='
+          DEAL_BATCH_INDEX=1 python bot/scalable_brand_collector.py
       - name: Normalize promotion destinations and duplicates
         run: python scripts/normalize_promotions.py
       - name: Validate code and SEO offer destinations
