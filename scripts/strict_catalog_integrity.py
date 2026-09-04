@@ -11,8 +11,7 @@ OVERRIDES = {
  'Burke Decor':'burkedecor.com','Costco Home':'costco.com','KitchenAid':'kitchenaid.com','Mercury Row':'wayfair.com','Care/of':'careof.com','Costa Coffee':'costa.co.uk','FreshDirect':'freshdirect.com','KFC':'kfc.com','Kroger':'kroger.com','McDonald\'s':'mcdonalds.com','Pizza Hut':'pizzahut.com','Starbucks':'starbucks.com','Waitrose':'waitrose.com',
  'Air France':'airfrance.com','ANA':'ana.co.jp','Cathay Pacific':'cathaypacific.com','Choice Hotels':'choicehotels.com','Comfort Inn':'choicehotels.com','Emirates':'emirates.com','Etihad Airways':'etihad.com','Hotels.com':'hotels.com','Japan Airlines':'jal.com','KLM':'klm.com','Motel 6':'motel6.com','Premier Inn':'premierinn.com','Qantas':'qantas.com','Turkish Airlines':'turkishairlines.com','United Airlines':'united.com'
 }
-# Brands that are no longer suitable as active standalone deal destinations are replaced one-for-one.
-REPLACEMENTS = {'Drizly': ('Uber Eats','Consumer','ubereats.com')}
+REPLACEMENTS = {'Drizly': ('Uber Eats','ubereats.com')}
 
 def host(v):
     v=(v or '').lower().strip().replace('https://','').replace('http://','').split('/')[0].split(':')[0]
@@ -22,14 +21,11 @@ def main():
     data=json.loads(CATALOG.read_text(encoding='utf-8'))
     cats=data.get('categories',{})
     errors=[]; changed=[]; seen=set(); total=0
-    # Apply explicit one-for-one replacement before validating counts.
     for category, entries in list(cats.items()):
         for e in entries:
             name=str(e.get('name','')).strip()
             if name in REPLACEMENTS:
-                new_name, new_cat, new_domain = REPLACEMENTS[name]
-                if category != new_cat:
-                    continue
+                new_name, new_domain = REPLACEMENTS[name]
                 e['name']=new_name; e['domain']=new_domain; e['catalog_status']='verified_first_party'
                 changed.append(f'{name} -> {new_name} ({new_domain})')
     if set(cats) != set(EXPECTED): errors.append(f'categories mismatch: {sorted(cats)}')
