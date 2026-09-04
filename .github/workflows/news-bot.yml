@@ -19,34 +19,17 @@ on:
     - cron: '30 15 * * *'
     - cron: '0 16 * * *'
     - cron: '30 16 * * *'
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'data/news.json'
-      - 'data/deal_state.json'
-      - 'data/brand_catalog.json'
-      - 'data/shards/**'
-      - 'data/search-index.json'
-      - 'data/data-manifest.json'
-      - 'sitemap.xml'
-      - 'sitemap-brands.xml'
-      - 'robots.txt'
-      - 'fashion/**'
-      - 'beauty/**'
-      - 'consumer/**'
-      - 'brand/**'
-      - 'home-living/**'
-      - 'food-grocery/**'
-      - 'travel-hotels/**'
-      - 'go/**'
-      - 'data/merchant-routes.json'
+# Deal Bot is intentionally NOT push-triggered.
+# SEO/code migrations can also write generated site data; automatic push
+# triggering caused competing writer runs. Manual/scheduled runs use the
+# shared writer lock below and wait instead of cancelling each other.
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
   # Shared writer lock with Six Category SEO Migration.
-  # Do not cancel a writer that is already updating main.
+  # Never cancel an active writer; queued runs wait for the lock.
   group: deal24h-main-writer
   cancel-in-progress: false
 jobs:
