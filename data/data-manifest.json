@@ -1,1 +1,1 @@
-{"version":1,"shards":{"beauty":{"path":"shards/beauty.json","count":62},"consumer":{"path":"shards/consumer.json","count":65},"fashion":{"path":"shards/fashion.json","count":94}},"search":"search-index.json"}
+{"version":1,"categories":["Fashion","Beauty","Consumer","Home & Living","Food & Grocery","Travel & Hotels"],"shards":{"beauty":{"path":"shards/beauty.json","count":62},"consumer":{"path":"shards/consumer.json","count":65},"fashion":{"path":"shards/fashion.json","count":94}},"search":"search-index.json"}
