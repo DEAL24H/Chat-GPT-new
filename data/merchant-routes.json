@@ -1,0 +1,1332 @@
+{
+  "version": 1,
+  "generated_at": "2026-09-04T05:59:09.082741+00:00",
+  "routes": {
+    "01b6005bba731ac0": {
+      "id": "01b6005bba731ac0",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/deals",
+      "regions": {}
+    },
+    "342e1dbe93cac320": {
+      "id": "342e1dbe93cac320",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/deals",
+      "regions": {}
+    },
+    "231869fdd6b41f6a": {
+      "id": "231869fdd6b41f6a",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/deals",
+      "regions": {}
+    },
+    "450483446d956601": {
+      "id": "450483446d956601",
+      "brand": "IKEA",
+      "default": "https://www.ikea.com/us/en/new/new-products/",
+      "regions": {}
+    },
+    "bed97e1f960dd007": {
+      "id": "bed97e1f960dd007",
+      "brand": "IKEA",
+      "default": "https://www.ikea.com/us/en/new/new-products/",
+      "regions": {}
+    },
+    "06812e4817173542": {
+      "id": "06812e4817173542",
+      "brand": "IKEA",
+      "default": "https://www.ikea.com/us/en/new/new-products/",
+      "regions": {}
+    },
+    "f3ed53d056b2df14": {
+      "id": "f3ed53d056b2df14",
+      "brand": "IKEA",
+      "default": "https://www.ikea.com/us/en/new/new-products/",
+      "regions": {}
+    },
+    "7e163e3f04dfd59e": {
+      "id": "7e163e3f04dfd59e",
+      "brand": "IKEA",
+      "default": "https://www.ikea.com/us/en/new/new-products/",
+      "regions": {}
+    },
+    "3db3e68f1c2a45a4": {
+      "id": "3db3e68f1c2a45a4",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "6d459600005f590f": {
+      "id": "6d459600005f590f",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "2224462016f78f3b": {
+      "id": "2224462016f78f3b",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "188063b96d434e5c": {
+      "id": "188063b96d434e5c",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "4602cdb2b5349c89": {
+      "id": "4602cdb2b5349c89",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "a8684ee5769d7678": {
+      "id": "a8684ee5769d7678",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/d/deals/laptops/",
+      "regions": {}
+    },
+    "5f6a53b5759f4b20": {
+      "id": "5f6a53b5759f4b20",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "d2425abcfc887dc3": {
+      "id": "d2425abcfc887dc3",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "17fbb91aedf46404": {
+      "id": "17fbb91aedf46404",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "f41f83cb49c9acb0": {
+      "id": "f41f83cb49c9acb0",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "9b08c996f1b75be8": {
+      "id": "9b08c996f1b75be8",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "0f27949f2ed0f057": {
+      "id": "0f27949f2ed0f057",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "c23284b67662fca4": {
+      "id": "c23284b67662fca4",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "88ff9af4881b18c9": {
+      "id": "88ff9af4881b18c9",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "a402f669fc9b7b8a": {
+      "id": "a402f669fc9b7b8a",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "280a04f16353c692": {
+      "id": "280a04f16353c692",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "35897a0be8a8ae6f": {
+      "id": "35897a0be8a8ae6f",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "d9469c6c6729f7d0": {
+      "id": "d9469c6c6729f7d0",
+      "brand": "Apple",
+      "default": "https://www.apple.com/us-edu/shop/buy-mac/imac",
+      "regions": {}
+    },
+    "7d37630514964285": {
+      "id": "7d37630514964285",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "c342adea3604f12d": {
+      "id": "c342adea3604f12d",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "4cf0be902af5be6e": {
+      "id": "4cf0be902af5be6e",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "1bbc91a203ab6fdd": {
+      "id": "1bbc91a203ab6fdd",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "bd24d2d0d345bbbc": {
+      "id": "bd24d2d0d345bbbc",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "f701b0e5a157936f": {
+      "id": "f701b0e5a157936f",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "545dc3abc54c3585": {
+      "id": "545dc3abc54c3585",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "3aadc58604c5b3e5": {
+      "id": "3aadc58604c5b3e5",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "939ab431a6f790f2": {
+      "id": "939ab431a6f790f2",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "b21c62b736736081": {
+      "id": "b21c62b736736081",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "3859ec6984790cc5": {
+      "id": "3859ec6984790cc5",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "8d39a7eccbeae1ac": {
+      "id": "8d39a7eccbeae1ac",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "dad836622b7f395c": {
+      "id": "dad836622b7f395c",
+      "brand": "Charlotte Tilbury",
+      "default": "https://www.charlottetilbury.com/us/products/new",
+      "regions": {}
+    },
+    "d1345c28d98bf13b": {
+      "id": "d1345c28d98bf13b",
+      "brand": "Rare Beauty",
+      "default": "https://www.rarebeauty.com/collections/shop-all",
+      "regions": {}
+    },
+    "9ddc2409104f3910": {
+      "id": "9ddc2409104f3910",
+      "brand": "CeraVe",
+      "default": "https://www.cerave.com/skincare/new-products",
+      "regions": {}
+    },
+    "a05bc8a408416be7": {
+      "id": "a05bc8a408416be7",
+      "brand": "CeraVe",
+      "default": "https://www.cerave.com/skincare/new-products",
+      "regions": {}
+    },
+    "e776a10a299c7052": {
+      "id": "e776a10a299c7052",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/hair",
+      "regions": {}
+    },
+    "f9ea2d01587501ad": {
+      "id": "f9ea2d01587501ad",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/hair",
+      "regions": {}
+    },
+    "ba66c714494baf68": {
+      "id": "ba66c714494baf68",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/hair",
+      "regions": {}
+    },
+    "78bf07f52a821090": {
+      "id": "78bf07f52a821090",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/hair",
+      "regions": {}
+    },
+    "bb73f9ed458aeace": {
+      "id": "bb73f9ed458aeace",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "cd8c00b4f81a40cb": {
+      "id": "cd8c00b4f81a40cb",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "f907461d0d27fa41": {
+      "id": "f907461d0d27fa41",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "519f224400d84686": {
+      "id": "519f224400d84686",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "d286a8d6fadf11ab": {
+      "id": "d286a8d6fadf11ab",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "0f9f2c1c2fa17e7f": {
+      "id": "0f9f2c1c2fa17e7f",
+      "brand": "L'Oréal Paris",
+      "default": "https://www.lorealparisusa.com/new-beauty-products",
+      "regions": {}
+    },
+    "b12ee37a50c9fd2f": {
+      "id": "b12ee37a50c9fd2f",
+      "brand": "L'Oréal Paris",
+      "default": "https://www.lorealparisusa.com/new-beauty-products",
+      "regions": {}
+    },
+    "155c62b40f09a3ec": {
+      "id": "155c62b40f09a3ec",
+      "brand": "PUMA",
+      "default": "https://vn.puma.com/vn/en/sale-1",
+      "regions": {}
+    },
+    "0b81a9f3803b06af": {
+      "id": "0b81a9f3803b06af",
+      "brand": "PUMA",
+      "default": "https://vn.puma.com/vn/en/sale-1",
+      "regions": {}
+    },
+    "5683fe8312ee91fc": {
+      "id": "5683fe8312ee91fc",
+      "brand": "PUMA",
+      "default": "https://vn.puma.com/vn/en/sale-1",
+      "regions": {}
+    },
+    "39e768d4c139e97c": {
+      "id": "39e768d4c139e97c",
+      "brand": "Levi's",
+      "default": "https://help.levi.com/hc/en-us/articles/15465378030989-Final-sale-items",
+      "regions": {}
+    },
+    "50481366e6c86391": {
+      "id": "50481366e6c86391",
+      "brand": "Nike",
+      "default": "https://www.nike.com/gb/product-advice",
+      "regions": {}
+    },
+    "1e4c8c44ef661d3e": {
+      "id": "1e4c8c44ef661d3e",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/oral-care/shop-all",
+      "regions": {}
+    },
+    "3840923193b85006": {
+      "id": "3840923193b85006",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/oral-care/shop-all",
+      "regions": {}
+    },
+    "ef1a0989cff72695": {
+      "id": "ef1a0989cff72695",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/oral-care/shop-all",
+      "regions": {}
+    },
+    "4496c3bd49739459": {
+      "id": "4496c3bd49739459",
+      "brand": "Dyson",
+      "default": "https://www.dyson.com/oral-care/shop-all",
+      "regions": {}
+    },
+    "fab11cc9b89b368a": {
+      "id": "fab11cc9b89b368a",
+      "brand": "Logitech",
+      "default": "https://www.logitech.com/en-us/shop",
+      "regions": {}
+    },
+    "bb465287374ecaf7": {
+      "id": "bb465287374ecaf7",
+      "brand": "Philips",
+      "default": "https://www.usa.philips.com/myphilips/register-your-product",
+      "regions": {}
+    },
+    "32ac86330a54e33f": {
+      "id": "32ac86330a54e33f",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/d/deals/",
+      "regions": {}
+    },
+    "b2bccdff70d367f3": {
+      "id": "b2bccdff70d367f3",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/deals/memorial-day-sale/",
+      "regions": {}
+    },
+    "91bb1a3184b45fc3": {
+      "id": "91bb1a3184b45fc3",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/deals/memorial-day-sale/",
+      "regions": {}
+    },
+    "49e9555dd70f1141": {
+      "id": "49e9555dd70f1141",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/deals/memorial-day-sale/",
+      "regions": {}
+    },
+    "cb0041c6dc03b397": {
+      "id": "cb0041c6dc03b397",
+      "brand": "Lenovo",
+      "default": "https://www.lenovo.com/us/en/deals/memorial-day-sale/",
+      "regions": {}
+    },
+    "58012f2b887d1813": {
+      "id": "58012f2b887d1813",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/men",
+      "regions": {}
+    },
+    "96f14cfa9287b0c3": {
+      "id": "96f14cfa9287b0c3",
+      "brand": "Tarte",
+      "default": "https://tartecosmetics.com/collections/lip",
+      "regions": {}
+    },
+    "8421b5d9eddea2bb": {
+      "id": "8421b5d9eddea2bb",
+      "brand": "Tarte",
+      "default": "https://tartecosmetics.com/collections/lip",
+      "regions": {}
+    },
+    "714205e27df4d5de": {
+      "id": "714205e27df4d5de",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/collections/sale",
+      "regions": {}
+    },
+    "43cc9ed81bf5f45e": {
+      "id": "43cc9ed81bf5f45e",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/collections/sale",
+      "regions": {}
+    },
+    "ff40045ee69d6846": {
+      "id": "ff40045ee69d6846",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/collections/sale",
+      "regions": {}
+    },
+    "42cdd38b4a9c45d3": {
+      "id": "42cdd38b4a9c45d3",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/collections/sale",
+      "regions": {}
+    },
+    "031540e9b856811f": {
+      "id": "031540e9b856811f",
+      "brand": "Morphe",
+      "default": "https://www.morphe.com/collections/face",
+      "regions": {}
+    },
+    "d60aa4e5799e8e48": {
+      "id": "d60aa4e5799e8e48",
+      "brand": "Morphe",
+      "default": "https://www.morphe.com/collections/face",
+      "regions": {}
+    },
+    "8d7779ae046dd808": {
+      "id": "8d7779ae046dd808",
+      "brand": "Morphe",
+      "default": "https://www.morphe.com/collections/face",
+      "regions": {}
+    },
+    "c096a2c877db40b4": {
+      "id": "c096a2c877db40b4",
+      "brand": "Morphe",
+      "default": "https://www.morphe.com/collections/face",
+      "regions": {}
+    },
+    "82c457615ae558dd": {
+      "id": "82c457615ae558dd",
+      "brand": "Morphe",
+      "default": "https://www.morphe.com/collections/face",
+      "regions": {}
+    },
+    "9949be496acfb4f4": {
+      "id": "9949be496acfb4f4",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
+    "f549f61c99d9e2f8": {
+      "id": "f549f61c99d9e2f8",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/men",
+      "regions": {}
+    },
+    "0a4b552f64411e94": {
+      "id": "0a4b552f64411e94",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/men",
+      "regions": {}
+    },
+    "1f1caf94274b2944": {
+      "id": "1f1caf94274b2944",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "c01389248c4931a2": {
+      "id": "c01389248c4931a2",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "86b166a9c3f9eee6": {
+      "id": "86b166a9c3f9eee6",
+      "brand": "Olay",
+      "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "e50f20795d7f598c": {
+      "id": "e50f20795d7f598c",
+      "brand": "Apple",
+      "default": "https://www.apple.com/shop/buy-iphone/carrier-offers",
+      "regions": {}
+    },
+    "37b4537ce2b3c71b": {
+      "id": "37b4537ce2b3c71b",
+      "brand": "Apple",
+      "default": "https://www.apple.com/shop/browse/home/veterans_military",
+      "regions": {}
+    },
+    "09ed2e0bdea83b3f": {
+      "id": "09ed2e0bdea83b3f",
+      "brand": "Apple",
+      "default": "https://www.apple.com/shop/browse/home/veterans_military",
+      "regions": {}
+    },
+    "92ca3a8672603adc": {
+      "id": "92ca3a8672603adc",
+      "brand": "Drunk Elephant",
+      "default": "https://www.drunkelephant.com/products-allproducts/",
+      "regions": {}
+    },
+    "34f63636748f9512": {
+      "id": "34f63636748f9512",
+      "brand": "Drunk Elephant",
+      "default": "https://www.drunkelephant.com/products-allproducts/",
+      "regions": {}
+    },
+    "dab74bf4e7ca6d3b": {
+      "id": "dab74bf4e7ca6d3b",
+      "brand": "Drunk Elephant",
+      "default": "https://www.drunkelephant.com/products-allproducts/",
+      "regions": {}
+    },
+    "89bfd11d05564c6c": {
+      "id": "89bfd11d05564c6c",
+      "brand": "Glossier",
+      "default": "https://www.glossier.com/collections/all",
+      "regions": {}
+    },
+    "49172b64eab3729c": {
+      "id": "49172b64eab3729c",
+      "brand": "The Ordinary",
+      "default": "https://theordinary.com/en-us/category/skincare/skincare-sets",
+      "regions": {}
+    },
+    "a92d3924ad65aaf6": {
+      "id": "a92d3924ad65aaf6",
+      "brand": "The Ordinary",
+      "default": "https://theordinary.com/en-us/category/skincare/skincare-sets",
+      "regions": {}
+    },
+    "1185cfb84ee5eef6": {
+      "id": "1185cfb84ee5eef6",
+      "brand": "The Ordinary",
+      "default": "https://theordinary.com/en-us/category/skincare/skincare-sets",
+      "regions": {}
+    },
+    "5eec959b4530eb16": {
+      "id": "5eec959b4530eb16",
+      "brand": "The Ordinary",
+      "default": "https://theordinary.com/en-us/category/skincare/skincare-sets",
+      "regions": {}
+    },
+    "506e670a6c2771c8": {
+      "id": "506e670a6c2771c8",
+      "brand": "The Ordinary",
+      "default": "https://theordinary.com/en-us/category/skincare/skincare-sets",
+      "regions": {}
+    },
+    "8be25c4405d4f1aa": {
+      "id": "8be25c4405d4f1aa",
+      "brand": "Benefit Cosmetics",
+      "default": "https://www.benefitcosmetics.com/en-us/sale",
+      "regions": {}
+    },
+    "d7a519ffc298aa64": {
+      "id": "d7a519ffc298aa64",
+      "brand": "Benefit Cosmetics",
+      "default": "https://www.benefitcosmetics.com/en-us/sale",
+      "regions": {}
+    },
+    "b0645484304261b1": {
+      "id": "b0645484304261b1",
+      "brand": "Benefit Cosmetics",
+      "default": "https://www.benefitcosmetics.com/en-us/sale",
+      "regions": {}
+    },
+    "c1b4c336018959ca": {
+      "id": "c1b4c336018959ca",
+      "brand": "Benefit Cosmetics",
+      "default": "https://www.benefitcosmetics.com/en-us/sale",
+      "regions": {}
+    },
+    "2c1d3d764b597a11": {
+      "id": "2c1d3d764b597a11",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "db105cd977f96413": {
+      "id": "db105cd977f96413",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "025ed05d835a96ef": {
+      "id": "025ed05d835a96ef",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/whats-new",
+      "regions": {}
+    },
+    "d2f779c0c1cd9e50": {
+      "id": "d2f779c0c1cd9e50",
+      "brand": "e.l.f. Cosmetics",
+      "default": "https://www.elfcosmetics.com/collections/whats-new",
+      "regions": {}
+    },
+    "bc049bcea448d93a": {
+      "id": "bc049bcea448d93a",
+      "brand": "Columbia Sportswear",
+      "default": "https://www.columbia.com/c/sale/",
+      "regions": {}
+    },
+    "8fdcfb83901da3ca": {
+      "id": "8fdcfb83901da3ca",
+      "brand": "Columbia Sportswear",
+      "default": "https://www.columbia.com/c/sale/",
+      "regions": {}
+    },
+    "8f974b3f90a80b6a": {
+      "id": "8f974b3f90a80b6a",
+      "brand": "Columbia Sportswear",
+      "default": "https://www.columbia.com/c/sale/",
+      "regions": {}
+    },
+    "ff84b8f658653138": {
+      "id": "ff84b8f658653138",
+      "brand": "Merrell",
+      "default": "https://www.merrell.com/US/en/clothing/",
+      "regions": {}
+    },
+    "3559fd00e79ab368": {
+      "id": "3559fd00e79ab368",
+      "brand": "Merrell",
+      "default": "https://www.merrell.com/US/en/clothing/",
+      "regions": {}
+    },
+    "93c6e0ba102b3da0": {
+      "id": "93c6e0ba102b3da0",
+      "brand": "Merrell",
+      "default": "https://www.merrell.com/US/en/clothing/",
+      "regions": {}
+    },
+    "7463d77f1b704508": {
+      "id": "7463d77f1b704508",
+      "brand": "DKNY",
+      "default": "https://www.dkny.com/collections/sale",
+      "regions": {}
+    },
+    "dc618941cd662ed6": {
+      "id": "dc618941cd662ed6",
+      "brand": "DKNY",
+      "default": "https://www.dkny.com/collections/sale",
+      "regions": {}
+    },
+    "44e33d16ac740258": {
+      "id": "44e33d16ac740258",
+      "brand": "DKNY",
+      "default": "https://www.dkny.com/collections/sale",
+      "regions": {}
+    },
+    "5195a0e3a6ffd191": {
+      "id": "5195a0e3a6ffd191",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/men/shoes",
+      "regions": {}
+    },
+    "9ec6756ae05a36be": {
+      "id": "9ec6756ae05a36be",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/men/shoes",
+      "regions": {}
+    },
+    "746f44b376ad3a28": {
+      "id": "746f44b376ad3a28",
+      "brand": "Steve Madden",
+      "default": "https://www.stevemadden.com/pages/deals",
+      "regions": {}
+    },
+    "48efcfb020a9e201": {
+      "id": "48efcfb020a9e201",
+      "brand": "Steve Madden",
+      "default": "https://www.stevemadden.com/pages/deals",
+      "regions": {}
+    },
+    "1242a7b80aa1f5b0": {
+      "id": "1242a7b80aa1f5b0",
+      "brand": "Steve Madden",
+      "default": "https://www.stevemadden.com/pages/deals",
+      "regions": {}
+    },
+    "ca2778b49ea7ded3": {
+      "id": "ca2778b49ea7ded3",
+      "brand": "Emporio Armani",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "becdbf01268a5a7f": {
+      "id": "becdbf01268a5a7f",
+      "brand": "Hugo Boss",
+      "default": "https://www.hugoboss.com/us/sale-men/",
+      "regions": {}
+    },
+    "9129eae0adcb3530": {
+      "id": "9129eae0adcb3530",
+      "brand": "Hugo Boss",
+      "default": "https://www.hugoboss.com/us/sale-men/",
+      "regions": {}
+    },
+    "e87581285d85d9e8": {
+      "id": "e87581285d85d9e8",
+      "brand": "Hugo Boss",
+      "default": "https://www.hugoboss.com/us/sale-men/",
+      "regions": {}
+    },
+    "a4d74e7dcab94555": {
+      "id": "a4d74e7dcab94555",
+      "brand": "Hugo Boss",
+      "default": "https://www.hugoboss.com/us/sale-men/",
+      "regions": {}
+    },
+    "2560b2f4b983fe4a": {
+      "id": "2560b2f4b983fe4a",
+      "brand": "Hugo Boss",
+      "default": "https://www.hugoboss.com/us/sale-men/",
+      "regions": {}
+    },
+    "e4ac2a43db416841": {
+      "id": "e4ac2a43db416841",
+      "brand": "Emporio Armani",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "f3abefbcb2733bde": {
+      "id": "f3abefbcb2733bde",
+      "brand": "Emporio Armani",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "ee19b7277f049406": {
+      "id": "ee19b7277f049406",
+      "brand": "Armani Exchange",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "4bbe60c554543b04": {
+      "id": "4bbe60c554543b04",
+      "brand": "Tory Burch",
+      "default": "https://www.toryburch.com/en-us/shoes/",
+      "regions": {}
+    },
+    "b2140b7eedd3e558": {
+      "id": "b2140b7eedd3e558",
+      "brand": "Armani Exchange",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "3d4af97a0d79f0c3": {
+      "id": "3d4af97a0d79f0c3",
+      "brand": "Armani Exchange",
+      "default": "https://www.armani.com/en-us/armani-exchange/public-sale/",
+      "regions": {}
+    },
+    "351a41874cfb4ff1": {
+      "id": "351a41874cfb4ff1",
+      "brand": "Everlane",
+      "default": "https://www.everlane.com/collections/mens-sale",
+      "regions": {}
+    },
+    "128e63a3989f5f8e": {
+      "id": "128e63a3989f5f8e",
+      "brand": "Everlane",
+      "default": "https://www.everlane.com/collections/mens-sale",
+      "regions": {}
+    },
+    "dce1834ecbdabf04": {
+      "id": "dce1834ecbdabf04",
+      "brand": "Everlane",
+      "default": "https://www.everlane.com/collections/mens-sale",
+      "regions": {}
+    },
+    "561144eb0a48c08b": {
+      "id": "561144eb0a48c08b",
+      "brand": "Everlane",
+      "default": "https://www.everlane.com/collections/mens-sale",
+      "regions": {}
+    },
+    "1e448dd8fabef8fc": {
+      "id": "1e448dd8fabef8fc",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale",
+      "regions": {}
+    },
+    "3f994e2bdbf42cde": {
+      "id": "3f994e2bdbf42cde",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale",
+      "regions": {}
+    },
+    "0e6e3e855e1fa3d7": {
+      "id": "0e6e3e855e1fa3d7",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale",
+      "regions": {}
+    },
+    "a44b003c8a56a2c9": {
+      "id": "a44b003c8a56a2c9",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/sale",
+      "regions": {}
+    },
+    "bce8b6d9be19d1db": {
+      "id": "bce8b6d9be19d1db",
+      "brand": "Reformation",
+      "default": "https://www.thereformation.com/shoes",
+      "regions": {}
+    },
+    "5700dc3539aef4c7": {
+      "id": "5700dc3539aef4c7",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "8cc0a98882a8b9a3": {
+      "id": "8cc0a98882a8b9a3",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "10b631d7d612978a": {
+      "id": "10b631d7d612978a",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "cb29997561798e2a": {
+      "id": "cb29997561798e2a",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "670b3f8060d6ea74": {
+      "id": "670b3f8060d6ea74",
+      "brand": "Allbirds",
+      "default": "https://allbirds.com/collections/mens",
+      "regions": {}
+    },
+    "277b9f62af130cf9": {
+      "id": "277b9f62af130cf9",
+      "brand": "Allbirds",
+      "default": "https://allbirds.com/collections/mens",
+      "regions": {}
+    },
+    "4069e2a680d5632f": {
+      "id": "4069e2a680d5632f",
+      "brand": "Allbirds",
+      "default": "https://allbirds.com/collections/mens",
+      "regions": {}
+    },
+    "252639d39ab7b23f": {
+      "id": "252639d39ab7b23f",
+      "brand": "Allbirds",
+      "default": "https://www.allbirds.com/collections/all",
+      "regions": {}
+    },
+    "b9998b2bc53f487f": {
+      "id": "b9998b2bc53f487f",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "1848e2b242ed6378": {
+      "id": "1848e2b242ed6378",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "e274f53f5370b915": {
+      "id": "e274f53f5370b915",
+      "brand": "Victoria's Secret PINK",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "7d162c528a64bb7c": {
+      "id": "7d162c528a64bb7c",
+      "brand": "Hollister",
+      "default": "https://www.hollisterco.com/shop/us/sale",
+      "regions": {}
+    },
+    "6a1cefbb12764919": {
+      "id": "6a1cefbb12764919",
+      "brand": "Hollister",
+      "default": "https://www.hollisterco.com/shop/us/sale",
+      "regions": {}
+    },
+    "a2bb4729b54f4a8e": {
+      "id": "a2bb4729b54f4a8e",
+      "brand": "Hollister",
+      "default": "https://www.hollisterco.com/shop/us/sale",
+      "regions": {}
+    },
+    "2e01d34bfd6b2ec0": {
+      "id": "2e01d34bfd6b2ec0",
+      "brand": "Hollister",
+      "default": "https://www.hollisterco.com/shop/us/sale",
+      "regions": {}
+    },
+    "9bf912bfe9e05f6f": {
+      "id": "9bf912bfe9e05f6f",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "92192ca3e05d2739": {
+      "id": "92192ca3e05d2739",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "94ed214de1e9e6c6": {
+      "id": "94ed214de1e9e6c6",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/collections",
+      "regions": {}
+    },
+    "6ef41a70b1fbbc5e": {
+      "id": "6ef41a70b1fbbc5e",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/men",
+      "regions": {}
+    },
+    "4b366506c7694812": {
+      "id": "4b366506c7694812",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/men",
+      "regions": {}
+    },
+    "8f8e6e04907e352d": {
+      "id": "8f8e6e04907e352d",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/men",
+      "regions": {}
+    },
+    "3c8a21bb765c311c": {
+      "id": "3c8a21bb765c311c",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "a3877222364e8b21": {
+      "id": "a3877222364e8b21",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "7e34a806a2b60655": {
+      "id": "7e34a806a2b60655",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/sale/",
+      "regions": {}
+    },
+    "c06d464c3a1a9ef9": {
+      "id": "c06d464c3a1a9ef9",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/men/shoes/",
+      "regions": {}
+    },
+    "5521da573cd350c3": {
+      "id": "5521da573cd350c3",
+      "brand": "Old Navy",
+      "default": "https://oldnavy.gap.com/browse/baby/sale?cid=3043099&nav=meganav%3ABaby%3ADeals%3ALabor%20Day%20Sale",
+      "regions": {}
+    },
+    "f23a6171ca90c867": {
+      "id": "f23a6171ca90c867",
+      "brand": "Old Navy",
+      "default": "https://oldnavy.gap.com/browse/baby/sale?cid=3043099&nav=meganav%3ABaby%3ADeals%3ALabor%20Day%20Sale",
+      "regions": {}
+    },
+    "999fbdba005bfcb8": {
+      "id": "999fbdba005bfcb8",
+      "brand": "Old Navy",
+      "default": "https://oldnavy.gap.com/browse/baby/sale?cid=3043099&nav=meganav%3ABaby%3ADeals%3ALabor%20Day%20Sale",
+      "regions": {}
+    },
+    "896bff1df1808219": {
+      "id": "896bff1df1808219",
+      "brand": "Banana Republic",
+      "default": "https://bananarepublic.gap.com/browse/men/shoes?cid=1032801&cl=true",
+      "regions": {}
+    },
+    "117cbea1dfd6d517": {
+      "id": "117cbea1dfd6d517",
+      "brand": "Banana Republic",
+      "default": "https://bananarepublic.gap.com/browse/men/shoes?cid=1032801&cl=true",
+      "regions": {}
+    },
+    "f0b27927368d2411": {
+      "id": "f0b27927368d2411",
+      "brand": "Gap",
+      "default": "https://www.gap.com/browse/boys/back-to-school-shop?cid=1161642&cl=true",
+      "regions": {}
+    },
+    "d4baea4907a9bffa": {
+      "id": "d4baea4907a9bffa",
+      "brand": "Gap",
+      "default": "https://www.gap.com/browse/boys/back-to-school-shop?cid=1161642&cl=true",
+      "regions": {}
+    },
+    "172d15130a94bf93": {
+      "id": "172d15130a94bf93",
+      "brand": "Gap",
+      "default": "https://www.gap.com/browse/boys/back-to-school-shop?cid=1161642&cl=true",
+      "regions": {}
+    },
+    "4335f7c91a62aa8b": {
+      "id": "4335f7c91a62aa8b",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
+    "70eed2b60c9275dc": {
+      "id": "70eed2b60c9275dc",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
+    "bf20cff6690b5a2c": {
+      "id": "bf20cff6690b5a2c",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
+    "72d1def028d18ba0": {
+      "id": "72d1def028d18ba0",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
+      "regions": {}
+    },
+    "8ed2c0f4574356c0": {
+      "id": "8ed2c0f4574356c0",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
+      "regions": {}
+    },
+    "7635e83284b23aec": {
+      "id": "7635e83284b23aec",
+      "brand": "Abercrombie & Fitch",
+      "default": "https://www.abercrombie.com/shop/us/nfl",
+      "regions": {}
+    },
+    "4ba2bf76bfec1aba": {
+      "id": "4ba2bf76bfec1aba",
+      "brand": "Nike",
+      "default": "https://www.nike.com/product-advice",
+      "regions": {}
+    },
+    "0a9e086456159e9a": {
+      "id": "0a9e086456159e9a",
+      "brand": "Nike",
+      "default": "https://www.nike.com/product-advice",
+      "regions": {}
+    },
+    "89324ff9b062ef2a": {
+      "id": "89324ff9b062ef2a",
+      "brand": "Nike",
+      "default": "https://www.nike.com/w/sale-3yaep",
+      "regions": {}
+    },
+    "9b4664b336c72aa5": {
+      "id": "9b4664b336c72aa5",
+      "brand": "Forever 21",
+      "default": "https://www.forever21.com/collections/all",
+      "regions": {}
+    },
+    "7a9f7319305ae3d4": {
+      "id": "7a9f7319305ae3d4",
+      "brand": "Forever 21",
+      "default": "https://www.forever21.com/collections/all",
+      "regions": {}
+    },
+    "82730ac8c49d1b78": {
+      "id": "82730ac8c49d1b78",
+      "brand": "Forever 21",
+      "default": "https://www.forever21.com/collections/all",
+      "regions": {}
+    },
+    "6651a1cf7973f629": {
+      "id": "6651a1cf7973f629",
+      "brand": "Forever 21",
+      "default": "https://www.forever21.com/collections/all",
+      "regions": {}
+    },
+    "f00b4972a0e7ffdf": {
+      "id": "f00b4972a0e7ffdf",
+      "brand": "Forever 21",
+      "default": "https://www.forever21.com/collections/all",
+      "regions": {}
+    },
+    "19156d6446f8beb9": {
+      "id": "19156d6446f8beb9",
+      "brand": "Under Armour",
+      "default": "https://www.underarmour.com/en-us/c/shoes/",
+      "regions": {}
+    },
+    "5559e3723ff30e2b": {
+      "id": "5559e3723ff30e2b",
+      "brand": "Under Armour",
+      "default": "https://www.underarmour.com/en-us/c/shoes/",
+      "regions": {}
+    },
+    "42189287b69f9470": {
+      "id": "42189287b69f9470",
+      "brand": "Under Armour",
+      "default": "https://www.underarmour.com/en-us/c/shoes/",
+      "regions": {}
+    },
+    "15fe5ca75a07ee0e": {
+      "id": "15fe5ca75a07ee0e",
+      "brand": "Sam's Club",
+      "default": "https://www.samsclub.com/shop/savings",
+      "regions": {}
+    },
+    "dd76fd4ec6d2be64": {
+      "id": "dd76fd4ec6d2be64",
+      "brand": "Bed Bath & Beyond",
+      "default": "https://www.bedbathandbeyond.com/deals",
+      "regions": {}
+    },
+    "e3cdc0d7e1eca5df": {
+      "id": "e3cdc0d7e1eca5df",
+      "brand": "Bed Bath & Beyond",
+      "default": "https://www.bedbathandbeyond.com/deals",
+      "regions": {}
+    },
+    "450c56b85603be79": {
+      "id": "450c56b85603be79",
+      "brand": "Overstock",
+      "default": "https://www.overstock.com/Clothing-Shoes/Gucci-Mens-Ragazzo-Loafer/44300743/product.html",
+      "regions": {}
+    },
+    "f62cb87c6dd07fe4": {
+      "id": "f62cb87c6dd07fe4",
+      "brand": "Staples",
+      "default": "https://www.staples.com/gift-shop/cat_SC1699",
+      "regions": {}
+    },
+    "fdca4b113c7da9e5": {
+      "id": "fdca4b113c7da9e5",
+      "brand": "Staples",
+      "default": "https://www.staples.com/gift-shop/cat_SC1699",
+      "regions": {}
+    },
+    "f579f98a4e19223f": {
+      "id": "f579f98a4e19223f",
+      "brand": "Staples",
+      "default": "https://www.staples.com/gift-shop/cat_SC1699",
+      "regions": {}
+    },
+    "bec063f8afa85029": {
+      "id": "bec063f8afa85029",
+      "brand": "Wayfair",
+      "default": "https://www.wayfair.com/m/outdoor-pet-shop",
+      "regions": {}
+    },
+    "c6256cc6b9d46fa3": {
+      "id": "c6256cc6b9d46fa3",
+      "brand": "Wayfair",
+      "default": "https://www.wayfair.com/m/outdoor-pet-shop",
+      "regions": {}
+    },
+    "4af0d8e644655af5": {
+      "id": "4af0d8e644655af5",
+      "brand": "Wayfair",
+      "default": "https://www.wayfair.com/m/outdoor-pet-shop",
+      "regions": {}
+    },
+    "ca339be13a3b36c0": {
+      "id": "ca339be13a3b36c0",
+      "brand": "Target",
+      "default": "https://www.target.com/c/top-deals/-/N-4xw74?prehydrateClick=true",
+      "regions": {}
+    },
+    "0687eb19d5a37a78": {
+      "id": "0687eb19d5a37a78",
+      "brand": "Target",
+      "default": "https://www.target.com/c/top-deals/-/N-4xw74?prehydrateClick=true",
+      "regions": {}
+    },
+    "87108018e39de2c2": {
+      "id": "87108018e39de2c2",
+      "brand": "Target",
+      "default": "https://www.target.com/c/top-deals/-/N-4xw74?prehydrateClick=true",
+      "regions": {}
+    },
+    "a136d3d71f91b207": {
+      "id": "a136d3d71f91b207",
+      "brand": "Amazon",
+      "default": "https://www.amazon.com/deals?ref_=nav_cs_gb",
+      "regions": {}
+    },
+    "e8bdfb51e4134518": {
+      "id": "e8bdfb51e4134518",
+      "brand": "Amazon",
+      "default": "https://www.amazon.com/deals?ref_=nav_cs_gb",
+      "regions": {}
+    },
+    "06db9de192a39011": {
+      "id": "06db9de192a39011",
+      "brand": "Razer",
+      "default": "https://www.razer.com/collections",
+      "regions": {}
+    },
+    "1d964559427410bd": {
+      "id": "1d964559427410bd",
+      "brand": "Razer",
+      "default": "https://www.razer.com/collections",
+      "regions": {}
+    },
+    "f543e8a69e57efb4": {
+      "id": "f543e8a69e57efb4",
+      "brand": "Neutrogena",
+      "default": "https://www.neutrogena.com/sun/all-sun-products",
+      "regions": {}
+    },
+    "f82ab7fc2272b411": {
+      "id": "f82ab7fc2272b411",
+      "brand": "Neutrogena",
+      "default": "https://www.neutrogena.com/sun/all-sun-products",
+      "regions": {}
+    },
+    "5bfa4f89e9a7f417": {
+      "id": "5bfa4f89e9a7f417",
+      "brand": "Drunk Elephant",
+      "default": "https://www.drunkelephant.com/products-allproducts/",
+      "regions": {}
+    },
+    "592090be0ac0cf96": {
+      "id": "592090be0ac0cf96",
+      "brand": "Drunk Elephant",
+      "default": "https://www.drunkelephant.com/products-allproducts/",
+      "regions": {}
+    },
+    "c8654eeee6c6dbf9": {
+      "id": "c8654eeee6c6dbf9",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/pages/the-gloss-shop",
+      "regions": {}
+    },
+    "a74311da11af71cd": {
+      "id": "a74311da11af71cd",
+      "brand": "Fenty Beauty",
+      "default": "https://fentybeauty.com/pages/the-gloss-shop",
+      "regions": {}
+    },
+    "fce95620b2c76bf9": {
+      "id": "fce95620b2c76bf9",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/men",
+      "regions": {}
+    },
+    "d57bc4814bfeaf81": {
+      "id": "d57bc4814bfeaf81",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/men",
+      "regions": {}
+    },
+    "9dca0db320d5f220": {
+      "id": "9dca0db320d5f220",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/men/shoes/",
+      "regions": {}
+    },
+    "3c28edb50895eabd": {
+      "id": "3c28edb50895eabd",
+      "brand": "Skechers",
+      "default": "https://www.skechers.com/men/shoes/",
+      "regions": {}
+    },
+    "efc4c215608a9ee7": {
+      "id": "efc4c215608a9ee7",
+      "brand": "PUMA",
+      "default": "https://vn.puma.com/vn/en/sale-1",
+      "regions": {}
+    },
+    "c0e1b22b8669e2c3": {
+      "id": "c0e1b22b8669e2c3",
+      "brand": "Nike",
+      "default": "https://www.nike.com/gb/product-advice",
+      "regions": {}
+    }
+  }
+}
