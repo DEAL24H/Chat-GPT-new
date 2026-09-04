@@ -2914,8 +2914,8 @@
         "slug": "trader-joe-s"
       },
       {
-        "name": "Uber Eats",
-        "domain": "ubereats.com",
+        "name": "Dillard's",
+        "domain": "dillards.com",
         "enabled": true,
         "catalog_status": "verified_first_party",
         "slug": "uber-eats"
