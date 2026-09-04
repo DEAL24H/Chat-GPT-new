@@ -108,6 +108,8 @@ jobs:
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
         run: python scripts/normalize_promotions.py
+      - name: Validate code and SEO offer destinations
+        run: python scripts/validate_offer_links.py
       - name: Keep only six-category offers
         run: python scripts/prune_nonpriority_offers.py
       - name: Build browser data shards and lightweight search index
