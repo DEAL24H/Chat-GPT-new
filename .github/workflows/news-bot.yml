@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       batch_index:
-        description: 'Optional batch 0-3 for manual run'
+        description: 'Optional batch 0-3; leave blank to run a complete 4-batch catalog cycle'
         required: false
         default: ''
   schedule:
@@ -28,8 +28,6 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  # Shared writer lock with Six Category SEO Migration.
-  # Never cancel an active writer; queued runs wait for the lock.
   group: deal24h-main-writer
   cancel-in-progress: false
 jobs:
@@ -63,7 +61,19 @@ jobs:
         env:
           MANUAL_BATCH: ${{ inputs.batch_index }}
         run: |
-          if [ -n "$MANUAL_BATCH" ]; then echo "DEAL_BATCH_INDEX=$MANUAL_BATCH" >> "$GITHUB_ENV"; fi
+          if [ -n "$MANUAL_BATCH" ]; then
+            echo "DEAL_BATCH_INDEX=$MANUAL_BATCH" >> "$GITHUB_ENV"
+          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            echo "DEAL_BATCH_INDEX=$(python - <<'PY'
+          from datetime import datetime, timezone
+          slots={(23,0):0,(23,30):1,(0,0):2,(0,30):3,(7,0):0,(7,30):1,(8,0):2,(8,30):3,(15,0):0,(15,30):1,(16,0):2,(16,30):3}
+          now=datetime.now(timezone.utc)
+          print(slots.get((now.hour,now.minute),0))
+          PY
+          )" >> "$GITHUB_ENV"
+          else
+            echo "DEAL_BATCH_INDEX=0" >> "$GITHUB_ENV"
+          fi
       - name: Harden source retention
         run: |
           python - <<'PY'
@@ -86,7 +96,15 @@ jobs:
       - name: Collect expanded official brand and marketplace sources
         run: python bot/expanded_sources.py
       - name: Collect focused catalog brands
-        run: python bot/scalable_brand_collector.py
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "${{ inputs.batch_index }}" ]; then
+            for batch in 0 1 2 3; do
+              echo "=== FULL CATALOG CYCLE: batch $batch/3 ==="
+              DEAL_BATCH_INDEX="$batch" python bot/scalable_brand_collector.py
+            done
+          else
+            python bot/scalable_brand_collector.py
+          fi
       - name: Collect official promotion links
         run: python bot/promotion_links.py
       - name: Normalize promotion destinations and duplicates
@@ -109,7 +127,7 @@ jobs:
           python scripts/ensure_six_brand_sitemap.py
       - name: Remove retired categories and placeholder pages
         run: |
-          rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories-books-education-media
+          rm -rf gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories-books-education-media
           rm -rf automotive-accessories books-education-media
           find brand -maxdepth 1 -type d -name 'catalog-brand-*' -prune -exec rm -rf {} + || true
       - name: Clean six-category SEO sitemap
@@ -135,9 +153,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git diff --cached --quiet || git commit -m 'perf: shard browser data and search index'
-          # The shared concurrency lock prevents the known race with the
-          # six-category writer. Rebase once more as a defensive final check
-          # before pushing, without ever force-pushing main.
           git pull --rebase origin main
           git push
       - name: Configure Pages
