@@ -12,7 +12,11 @@ def norm(value):
 
 
 def host(value):
-    return (urlparse(str(value or '')).hostname or '').lower().removeprefix('www.')
+    raw = str(value or '').strip()
+    if not raw:
+        return ''
+    parsed = urlparse(raw if '://' in raw else 'https://' + raw)
+    return (parsed.hostname or '').lower().removeprefix('www.')
 
 
 def same_domain(source_domain, destination):
@@ -63,5 +67,4 @@ def main():
     print(f'PRIORITY OFFER PRUNE: allowed_brands={len(allowed)}, kept={len(kept)}, removed={removed}, removed_wrong_catalog_domain={removed_domain}')
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__': main()
