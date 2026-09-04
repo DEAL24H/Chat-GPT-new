@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "news.json"
-HEADERS = {"User-Agent": "Deal24H/2.3 (+official promotion destination resolver)"}
+HEADERS = {"User-Agent": "Deal24H/2.4 (+official promotion destination resolver)"}
 TIMEOUT = 20
 CODE_RE = re.compile(r"\b(?:code|promo code|coupon code|use code|enter (?:the )?(?:promo )?code)\s*[:\-]?\s*([A-Z0-9][A-Z0-9_-]{3,})\b", re.I)
 CODE_TOKEN_RE = re.compile(r"\b[A-Z]{2,}\d[A-Z0-9_-]{2,}\b")
-SHOP_RE = re.compile(r"\b(?:shop|shop now|buy|product|products|collection|collections|sale|deal|deals|eligible|men|women|kids|shoes|clothing)\b", re.I)
-BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support)\b", re.I)
+SHOP_RE = re.compile(r"\b(?:shop|shop now|buy|product|products|collection|collections|sale|deal|deals|eligible|men|women|kids|shoes|clothing|checkout)\b", re.I)
+BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms)\b", re.I)
 
 
 def load():
@@ -59,10 +59,31 @@ def url_is_shopping(url):
     path = f"{parsed.path} {parsed.query}".lower()
     if BAD_RE.search(path) and not SHOP_RE.search(path):
         return False
-    return bool(SHOP_RE.search(path) or re.search(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)", path, re.I))
+    return bool(
+        SHOP_RE.search(path)
+        or re.search(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)", path, re.I)
+    )
 
 
-def landing_from_source(item):
+def shopping_link_score(href, text, code=""):
+    parsed = urlparse(href)
+    path = f"{parsed.path} {parsed.query}".lower()
+    hay = normalize(f"{text} {path}")
+    score = 0
+    if code and code.lower() in hay:
+        score += 80
+    if SHOP_RE.search(text):
+        score += 35
+    if re.search(r"product|shop|collection|category|sale|deal|eligible|shoes|clothing|checkout", parsed.path, re.I):
+        score += 20
+    if url_is_shopping(href):
+        score += 25
+    if BAD_RE.search(hay) and not SHOP_RE.search(text):
+        score -= 45
+    return score
+
+
+def landing_from_source(item, required_code=""):
     source_url = str(item.get("source_url") or "").strip()
     if not source_url.startswith(("https://", "http://")):
         return ""
@@ -71,31 +92,47 @@ def landing_from_source(item):
         response.raise_for_status()
     except Exception:
         return ""
+
     soup = BeautifulSoup(response.text, "html.parser")
     base_host = (urlparse(source_url).hostname or "").lower().removeprefix("www.")
     domain = str(item.get("source_domain") or base_host).lower().removeprefix("www.")
     candidates = []
-    for anchor in soup.find_all("a", href=True):
-        href = urljoin(source_url, anchor.get("href", "").strip())
-        parsed = urlparse(href)
-        host = (parsed.hostname or "").lower().removeprefix("www.")
-        if host != base_host and not host.endswith("." + domain):
+
+    # First prefer a purchase/shop link inside the same block that contains the code.
+    for tag in soup.find_all(["article", "li", "div", "section"]):
+        text = normalize(tag.get_text(" ", strip=True))
+        if required_code and required_code.lower() not in text:
             continue
-        text = normalize(anchor.get_text(" ", strip=True))
-        hay = f"{text} {parsed.path} {parsed.query}"
-        score = 0
-        if SHOP_RE.search(text):
-            score += 18
-        if re.search(r"product|shop|collection|category|sale|deal|eligible|shoes|clothing", parsed.path, re.I):
-            score += 10
-        if BAD_RE.search(hay) and not SHOP_RE.search(text):
-            score -= 25
-        if href.rstrip("/") == source_url.rstrip("/"):
-            score -= 10
-        if url_is_shopping(href):
-            score += 8
-        if score > 0 and url_is_shopping(href):
-            candidates.append((score, -len(href), href))
+        if required_code and len(text) > 2500:
+            continue
+        for anchor in tag.find_all("a", href=True):
+            href = urljoin(source_url, anchor.get("href", "").strip())
+            parsed = urlparse(href)
+            host = (parsed.hostname or "").lower().removeprefix("www.")
+            if host != base_host and not host.endswith("." + domain):
+                continue
+            anchor_text = anchor.get_text(" ", strip=True)
+            if not url_is_shopping(href):
+                continue
+            score = shopping_link_score(href, anchor_text, required_code)
+            if score > 0:
+                candidates.append((score + 60, -len(href), href))
+
+    # If the code block has no usable purchase link, use the strongest shopping link
+    # on the official source page. Never return a terms/help/privacy URL as a purchase destination.
+    if not candidates:
+        for anchor in soup.find_all("a", href=True):
+            href = urljoin(source_url, anchor.get("href", "").strip())
+            parsed = urlparse(href)
+            host = (parsed.hostname or "").lower().removeprefix("www.")
+            if host != base_host and not host.endswith("." + domain):
+                continue
+            if not url_is_shopping(href):
+                continue
+            score = shopping_link_score(href, anchor.get_text(" ", strip=True), required_code)
+            if score > 0:
+                candidates.append((score, -len(href), href))
+
     if not candidates:
         return ""
     candidates.sort(reverse=True)
@@ -103,16 +140,25 @@ def landing_from_source(item):
 
 
 def resolve_destination(item, cache):
-    source_url = str(item.get("source_url") or "").strip()
-    if source_url not in cache:
-        cache[source_url] = landing_from_source(item) if source_url else ""
-    landing = cache[source_url]
-    if landing:
-        return landing
+    code = explicit_code(item)
     existing = str(item.get("promotion_url") or item.get("url") or "").strip()
-    if url_is_shopping(existing):
+    source_url = str(item.get("source_url") or "").strip()
+
+    if code:
+        # A coupon code must point to a shopping/purchase destination, not a promo-terms,
+        # help, privacy, or generic information page. Preserve an already-good destination.
+        if url_is_shopping(existing) and not (BAD_RE.search(urlparse(existing).path.lower()) and not SHOP_RE.search(existing)):
+            return existing
+        cache_key = (source_url, code)
+        if cache_key not in cache:
+            cache[cache_key] = landing_from_source(item, code) if source_url else ""
+        return cache[cache_key]
+
+    # Code-less official promotions are intentionally allowed to link to the exact SEO/program
+    # landing page discovered by the collector. Do not replace that page with a generic shop URL.
+    if existing.startswith(("https://", "http://")):
         return existing
-    if url_is_shopping(source_url):
+    if source_url.startswith(("https://", "http://")):
         return source_url
     return ""
 
@@ -124,8 +170,6 @@ def program_match(a, b):
     if ca and cb:
         return ca == cb
     if ca or cb:
-        # A code-bearing offer and a code-less representation can still be the
-        # same promotion when their merchant/discount/content clearly match.
         da = normalize(a.get("discount"))
         db = normalize(b.get("discount"))
         if da and db and da != db:
@@ -145,8 +189,11 @@ def quality(item):
         score += 40
         if str(item.get("code") or "").strip():
             score += 10
-    if url_is_shopping(item.get("promotion_url") or item.get("url")):
-        score += 30
+        if url_is_shopping(item.get("promotion_url") or item.get("url")):
+            score += 35
+    else:
+        if str(item.get("promotion_url") or item.get("url") or "").startswith(("https://", "http://")):
+            score += 30
     if item.get("official_source"):
         score += 10
     if item.get("verified"):
@@ -161,17 +208,21 @@ def main():
     cache = {}
     usable = []
     dropped_destination = 0
+    unresolved_codes = 0
 
     for item in data:
         item.setdefault("source_url", item.get("promotion_url") or item.get("url") or "")
+        code = explicit_code(item)
         destination = resolve_destination(item, cache)
         if not destination:
             dropped_destination += 1
+            if code:
+                unresolved_codes += 1
             continue
         item["promotion_url"] = destination
         item["url"] = destination
-        if explicit_code(item):
-            item["code"] = explicit_code(item)
+        if code:
+            item["code"] = code
             item["code_context"] = True
         usable.append(item)
 
@@ -181,7 +232,6 @@ def main():
         if duplicate_index is None:
             deduped.append(item)
             continue
-        # Keep the stronger representation: code + copyable code + shopping URL.
         if quality(item) > quality(deduped[duplicate_index]):
             deduped[duplicate_index] = item
 
@@ -195,7 +245,11 @@ def main():
 
     deduped.sort(key=lambda x: str(x.get("last_checked") or x.get("detected_at") or ""), reverse=True)
     OUT.write_text(json.dumps(deduped[:4000], ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"PROMOTION NORMALIZE DONE: before={len(data)}, after={len(deduped)}, removed={len(data)-len(deduped)}, no_shopping_destination={dropped_destination}")
+    print(
+        f"PROMOTION NORMALIZE DONE: before={len(data)}, after={len(deduped)}, "
+        f"removed={len(data)-len(deduped)}, no_destination={dropped_destination}, "
+        f"unresolved_code_destinations={unresolved_codes}"
+    )
 
 
 if __name__ == "__main__":
