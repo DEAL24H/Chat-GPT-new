@@ -1,0 +1,40 @@
+name: Catalog Health Refresh
+
+on:
+  push:
+    paths-ignore:
+      - 'data/brand_catalog.json'
+      - 'data/shards/**'
+      - 'data/news.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deal24h-catalog-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r bot/requirements.txt
+      - name: Verify and enrich all 534 brands
+        run: python scripts/refresh_catalog_domains_999.py
+      - name: Validate exact catalog size
+        run: python scripts/validate_catalog_999.py
+      - name: Commit catalog changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/brand_catalog.json
+          git diff --cached --quiet || git commit -m 'data: verify and enrich all 534 brand sources'
+          git push
