@@ -13,7 +13,7 @@ from news_bot import BAD_CODES, EXPLICIT_CODE_PATTERNS, clean, parse_expiry
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'data'/'news.json'
 MAX_BRANDS=534
-BATCH_SIZE=134
+BATCH_SIZE=267
 WORKERS=12
 TIMEOUT=15
 MAX_PAGES_PER_BRAND=3
@@ -93,8 +93,8 @@ def scan(entry):
     except Exception as e:return brand,[],f'error:{type(e).__name__}'
 def batch_index():
     f=os.getenv('DEAL_BATCH_INDEX','').strip()
-    if f.isdigit() and 0<=int(f)<4:return int(f)
-    now=datetime.now(timezone.utc); slots={(23,0):0,(23,30):1,(0,0):2,(0,30):3,(7,0):0,(7,30):1,(8,0):2,(8,30):3,(15,0):0,(15,30):1,(16,0):2,(16,30):3}; return slots.get((now.hour,now.minute),0)
+    if f.isdigit() and 0<=int(f)<2:return int(f)
+    return 0
 def main():
     catalog=load_catalog(); entries=[]
     for cat,vals in catalog.items():
@@ -118,5 +118,5 @@ def main():
         k=(str(x.get('merchant','')).strip().lower(),str(x.get('code','')).strip().upper(),re.sub(r'\s+',' ',str(x.get('content','')).strip().lower()))
         if k[0]: dedup[k]=x
     out=list(dedup.values())[-6000:]; OUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
-    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/4, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog={total_catalog}, enabled_scannable={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
+    print(f'SCALABLE BRAND BATCH: cycle=3/day, batch={b+1}/2, batch_size={len(batch)}, capacity={MAX_BRANDS}, catalog={total_catalog}, enabled_scannable={len(entries)}, success={ok}, failed={fail}, records_added={added}, total_records={len(out)}')
 if __name__=='__main__': main()
