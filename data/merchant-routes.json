@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generated_at": "2026-09-04T10:37:28.210183+00:00",
+  "generated_at": "2026-09-04T11:16:38.935291+00:00",
   "routes": {
     "1aa877f5121a2269": {
       "id": "1aa877f5121a2269",
@@ -152,8 +152,8 @@
       "default": "https://www.apple.com/shop/goto/store",
       "regions": {}
     },
-    "5b51b3d2e63506a4": {
-      "id": "5b51b3d2e63506a4",
+    "24d6649d1b7eda63": {
+      "id": "24d6649d1b7eda63",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
@@ -164,14 +164,8 @@
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "e8e8432e51c7165c": {
-      "id": "e8e8432e51c7165c",
-      "brand": "Steam",
-      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
-      "regions": {}
-    },
-    "adf2bcec66084515": {
-      "id": "adf2bcec66084515",
+    "82f949bfcd83ac27": {
+      "id": "82f949bfcd83ac27",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
@@ -182,14 +176,20 @@
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "5b2ae7b524528b54": {
-      "id": "5b2ae7b524528b54",
+    "9eb7b2d7d507242a": {
+      "id": "9eb7b2d7d507242a",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
     },
-    "2380542bdbf00767": {
-      "id": "2380542bdbf00767",
+    "22d7cb870f8ee5ff": {
+      "id": "22d7cb870f8ee5ff",
+      "brand": "Steam",
+      "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
+      "regions": {}
+    },
+    "0ab2b8eeb4b88947": {
+      "id": "0ab2b8eeb4b88947",
       "brand": "Steam",
       "default": "https://store.steampowered.com/points/shop/?snr=1_4_4__global-header",
       "regions": {}
@@ -302,6 +302,90 @@
       "default": "https://www.nike.com/gb/w/nikeskims-b2asd",
       "regions": {}
     },
+    "77114ebe6f6e6da6": {
+      "id": "77114ebe6f6e6da6",
+      "brand": "Office Depot",
+      "default": "https://www.officedepot.com/a/products/870284/Copies/?promo_name=cpdheader&promo_id=cpddocumentprinting&promo_creative=cpd_copies",
+      "regions": {}
+    },
+    "77806d1b93996889": {
+      "id": "77806d1b93996889",
+      "brand": "Office Depot",
+      "default": "https://www.officedepot.com/a/products/870284/Copies/?promo_name=cpdheader&promo_id=cpddocumentprinting&promo_creative=cpd_copies",
+      "regions": {}
+    },
+    "64da15e90018b388": {
+      "id": "64da15e90018b388",
+      "brand": "Office Depot",
+      "default": "https://www.officedepot.com/a/products/870284/Copies/?promo_name=cpdheader&promo_id=cpddocumentprinting&promo_creative=cpd_copies",
+      "regions": {}
+    },
+    "36cde310eb19fb1f": {
+      "id": "36cde310eb19fb1f",
+      "brand": "Sam's Club",
+      "default": "https://www.samsclub.com/shop/savings?mid=2026_plpnup_dynamic_shopall",
+      "regions": {}
+    },
+    "97b3765599744b4f": {
+      "id": "97b3765599744b4f",
+      "brand": "Sam's Club",
+      "default": "https://www.samsclub.com/shop/savings?mid=2026_plpnup_dynamic_shopall",
+      "regions": {}
+    },
+    "ddca94ffbebce275": {
+      "id": "ddca94ffbebce275",
+      "brand": "Sam's Club",
+      "default": "https://www.samsclub.com/shop/savings?mid=2026_plpnup_dynamic_shopall",
+      "regions": {}
+    },
+    "88d86796d5bf2fcd": {
+      "id": "88d86796d5bf2fcd",
+      "brand": "Sam's Club",
+      "default": "https://www.samsclub.com/shop/savings?mid=2026_plpnup_dynamic_shopall",
+      "regions": {}
+    },
+    "0a5bf0245e019e3b": {
+      "id": "0a5bf0245e019e3b",
+      "brand": "Staples",
+      "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
+      "regions": {}
+    },
+    "07eaad5897c8861a": {
+      "id": "07eaad5897c8861a",
+      "brand": "Staples",
+      "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
+      "regions": {}
+    },
+    "611c355fd2ef1050": {
+      "id": "611c355fd2ef1050",
+      "brand": "Staples",
+      "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
+      "regions": {}
+    },
+    "014949a29e81629a": {
+      "id": "014949a29e81629a",
+      "brand": "Staples",
+      "default": "https://www.staples.com/deals/electronics/BI1695392",
+      "regions": {}
+    },
+    "1ceedeb336433c2a": {
+      "id": "1ceedeb336433c2a",
+      "brand": "Newegg",
+      "default": "https://www.newegg.com/microsoft/p/N82E16832416738?Item=N82E16832416738",
+      "regions": {}
+    },
+    "bccc387e3eef91c9": {
+      "id": "bccc387e3eef91c9",
+      "brand": "Newegg",
+      "default": "https://www.newegg.com/asrock-challenger-rx9070xt-cl-16g-radeon-rx-9070-xt-16gb-graphics-card-triple-fans/p/N82E16814930145?Item=N82E16814930145",
+      "regions": {}
+    },
+    "ac090ace0b8f4104": {
+      "id": "ac090ace0b8f4104",
+      "brand": "Newegg",
+      "default": "https://www.newegg.com/skyesev-gaming-pc-gaming-desktop-pcs-radeon-vega-8-processor-graphics-amd-ryzen-3-3200g-16gb-ddr4-512g-nvme-ssd-mx320-black/p/3D5-008M-00002?Item=9SIC61PKUH4912#IsFeedbackTab",
+      "regions": {}
+    },
     "aa6f81f14469ef03": {
       "id": "aa6f81f14469ef03",
       "brand": "Dyson",
@@ -330,6 +414,12 @@
       "id": "fcd492d705772d53",
       "brand": "Logitech",
       "default": "https://www.logitech.com/en-us/shop/deals",
+      "regions": {}
+    },
+    "2ddbe3d4d7ad0913": {
+      "id": "2ddbe3d4d7ad0913",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
       "regions": {}
     },
     "6c0939f3acb330ce": {
@@ -368,6 +458,18 @@
       "default": "https://www.usa.philips.com/c-e/shop/checkout",
       "regions": {}
     },
+    "12136b0886ca5d10": {
+      "id": "12136b0886ca5d10",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
+      "regions": {}
+    },
+    "81390649be03def0": {
+      "id": "81390649be03def0",
+      "brand": "Ulta Beauty",
+      "default": "https://www.ulta.com/shop/hair/styling-products",
+      "regions": {}
+    },
     "b3fb0d11811b13f6": {
       "id": "b3fb0d11811b13f6",
       "brand": "Fenty Beauty",
@@ -392,6 +494,12 @@
       "default": "https://fentybeauty.com/collections/all",
       "regions": {}
     },
+    "a2400206621d9d13": {
+      "id": "a2400206621d9d13",
+      "brand": "Samsung",
+      "default": "https://www.samsung.com/us/shop/",
+      "regions": {}
+    },
     "ad0a1e8c0f8f71c3": {
       "id": "ad0a1e8c0f8f71c3",
       "brand": "Tarte",
@@ -402,36 +510,6 @@
       "id": "74cbb71e7c94b887",
       "brand": "Tarte",
       "default": "https://tartecosmetics.com/collections/lip",
-      "regions": {}
-    },
-    "2ddbe3d4d7ad0913": {
-      "id": "2ddbe3d4d7ad0913",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
-    "a2400206621d9d13": {
-      "id": "a2400206621d9d13",
-      "brand": "Samsung",
-      "default": "https://www.samsung.com/us/shop/",
-      "regions": {}
-    },
-    "12136b0886ca5d10": {
-      "id": "12136b0886ca5d10",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
-    "81390649be03def0": {
-      "id": "81390649be03def0",
-      "brand": "Ulta Beauty",
-      "default": "https://www.ulta.com/shop/hair/styling-products",
-      "regions": {}
-    },
-    "2ba2d91874ae2950": {
-      "id": "2ba2d91874ae2950",
-      "brand": "Apple",
-      "default": "https://www.apple.com/shop/goto/store",
       "regions": {}
     },
     "6fb9050c3ec31649": {
@@ -450,6 +528,12 @@
       "id": "58c6b0e50e0234de",
       "brand": "Olay",
       "default": "https://www.olay.com/collections/hydration",
+      "regions": {}
+    },
+    "2ba2d91874ae2950": {
+      "id": "2ba2d91874ae2950",
+      "brand": "Apple",
+      "default": "https://www.apple.com/shop/goto/store",
       "regions": {}
     },
     "3c16f672be73dc2f": {
@@ -542,18 +626,6 @@
       "default": "https://www.benefitcosmetics.com/en-us/product/the-porefessional-concealer-FM487.html",
       "regions": {}
     },
-    "8a52d549696d1661": {
-      "id": "8a52d549696d1661",
-      "brand": "MAC Cosmetics",
-      "default": "https://www.maccosmetics.com/collections/new",
-      "regions": {}
-    },
-    "5024750836fd062f": {
-      "id": "5024750836fd062f",
-      "brand": "MAC Cosmetics",
-      "default": "https://www.maccosmetics.com/collections/new",
-      "regions": {}
-    },
     "ca64e8795ec3ab53": {
       "id": "ca64e8795ec3ab53",
       "brand": "Columbia Sportswear",
@@ -570,6 +642,18 @@
       "id": "1429d60afdb05418",
       "brand": "Columbia Sportswear",
       "default": "https://www.columbia.com/t/tech/",
+      "regions": {}
+    },
+    "8a52d549696d1661": {
+      "id": "8a52d549696d1661",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
+      "regions": {}
+    },
+    "5024750836fd062f": {
+      "id": "5024750836fd062f",
+      "brand": "MAC Cosmetics",
+      "default": "https://www.maccosmetics.com/collections/new",
       "regions": {}
     },
     "5477fde63ba4201a": {
@@ -602,6 +686,18 @@
       "default": "https://www.merrell.com/US/en/collections/",
       "regions": {}
     },
+    "b53f00f9fecac68c": {
+      "id": "b53f00f9fecac68c",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/collections/men",
+      "regions": {}
+    },
+    "e85f756389345342": {
+      "id": "e85f756389345342",
+      "brand": "Valentino",
+      "default": "https://www.valentino.com/en-us/collections/men",
+      "regions": {}
+    },
     "b427fab873d5c6c1": {
       "id": "b427fab873d5c6c1",
       "brand": "DKNY",
@@ -626,16 +722,28 @@
       "default": "https://www.dkny.com/collections/bags",
       "regions": {}
     },
-    "b53f00f9fecac68c": {
-      "id": "b53f00f9fecac68c",
-      "brand": "Valentino",
-      "default": "https://www.valentino.com/en-us/collections/men",
+    "874d2968c5f409d3": {
+      "id": "874d2968c5f409d3",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
       "regions": {}
     },
-    "e85f756389345342": {
-      "id": "e85f756389345342",
-      "brand": "Valentino",
-      "default": "https://www.valentino.com/en-us/collections/men",
+    "ecc870aa19e945ac": {
+      "id": "ecc870aa19e945ac",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "735768f6bd366563": {
+      "id": "735768f6bd366563",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+      "regions": {}
+    },
+    "2decd9bb6c0b9d5a": {
+      "id": "2decd9bb6c0b9d5a",
+      "brand": "Athleta",
+      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
       "regions": {}
     },
     "3fa9e4c649b121de": {
@@ -734,38 +842,32 @@
       "default": "https://www.thereformation.com/sale/best-of-sale",
       "regions": {}
     },
-    "874d2968c5f409d3": {
-      "id": "874d2968c5f409d3",
-      "brand": "Athleta",
-      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+    "92d60bce41de3ad2": {
+      "id": "92d60bce41de3ad2",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
-    "ecc870aa19e945ac": {
-      "id": "ecc870aa19e945ac",
-      "brand": "Athleta",
-      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+    "d990fa4debe5c391": {
+      "id": "d990fa4debe5c391",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
-    "735768f6bd366563": {
-      "id": "735768f6bd366563",
-      "brand": "Athleta",
-      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
+    "a5f28d5dbe8a11a3": {
+      "id": "a5f28d5dbe8a11a3",
+      "brand": "Victoria's Secret",
+      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
-    "2decd9bb6c0b9d5a": {
-      "id": "2decd9bb6c0b9d5a",
-      "brand": "Athleta",
-      "default": "https://athleta.gap.com/browse/sale/sale-tops?cid=49982&cl=true",
-      "regions": {}
-    },
-    "8210adb58f2c3b26": {
-      "id": "8210adb58f2c3b26",
+    "147b2573690c9334": {
+      "id": "147b2573690c9334",
       "brand": "Victoria's Secret PINK",
       "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
-    "b6e68e37eda0c03f": {
-      "id": "b6e68e37eda0c03f",
+    "f3c0ba72f9a8b1ef": {
+      "id": "f3c0ba72f9a8b1ef",
       "brand": "Victoria's Secret PINK",
       "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
@@ -776,22 +878,22 @@
       "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
       "regions": {}
     },
-    "8195115dc809895d": {
-      "id": "8195115dc809895d",
-      "brand": "Victoria's Secret",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
+    "49f6d587b66f6140": {
+      "id": "49f6d587b66f6140",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
       "regions": {}
     },
-    "5d939d1867bf85c1": {
-      "id": "5d939d1867bf85c1",
-      "brand": "Victoria's Secret",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
+    "fcf80a58be3a92a8": {
+      "id": "fcf80a58be3a92a8",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
       "regions": {}
     },
-    "a5f28d5dbe8a11a3": {
-      "id": "a5f28d5dbe8a11a3",
-      "brand": "Victoria's Secret",
-      "default": "https://www.victoriassecret.com/us/vs/sale/clearance-bras",
+    "dc0f81b22a3faf54": {
+      "id": "dc0f81b22a3faf54",
+      "brand": "Reebok",
+      "default": "https://www.reebok.com/collections/sale",
       "regions": {}
     },
     "821343355fd7b02b": {
@@ -816,24 +918,6 @@
       "id": "2cd253b9f5be389c",
       "brand": "Hollister",
       "default": "https://www.hollisterco.com/shop/us/sale",
-      "regions": {}
-    },
-    "49f6d587b66f6140": {
-      "id": "49f6d587b66f6140",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
-      "regions": {}
-    },
-    "fcf80a58be3a92a8": {
-      "id": "fcf80a58be3a92a8",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
-      "regions": {}
-    },
-    "dc0f81b22a3faf54": {
-      "id": "dc0f81b22a3faf54",
-      "brand": "Reebok",
-      "default": "https://www.reebok.com/collections/sale",
       "regions": {}
     },
     "202ab4b8307b0a8e": {
@@ -884,6 +968,18 @@
       "default": "https://www.forever21.com/collections/labor-day-sale-extra-50-off",
       "regions": {}
     },
+    "faca125daa74e529": {
+      "id": "faca125daa74e529",
+      "brand": "Nike",
+      "default": "https://www.nike.com/w/nikeskims-b2asd",
+      "regions": {}
+    },
+    "c535bc07a0b5764e": {
+      "id": "c535bc07a0b5764e",
+      "brand": "Nike",
+      "default": "https://www.nike.com/w/nikeskims-b2asd",
+      "regions": {}
+    },
     "c62f73c4a94b57d7": {
       "id": "c62f73c4a94b57d7",
       "brand": "Forever 21",
@@ -902,40 +998,10 @@
       "default": "https://www.forever21.com/collections/all",
       "regions": {}
     },
-    "faca125daa74e529": {
-      "id": "faca125daa74e529",
-      "brand": "Nike",
-      "default": "https://www.nike.com/w/nikeskims-b2asd",
-      "regions": {}
-    },
-    "c535bc07a0b5764e": {
-      "id": "c535bc07a0b5764e",
-      "brand": "Nike",
-      "default": "https://www.nike.com/w/nikeskims-b2asd",
-      "regions": {}
-    },
     "0c596a72cce6aac5": {
       "id": "0c596a72cce6aac5",
       "brand": "Nike",
       "default": "https://www.nike.com/w/mens-nik1",
-      "regions": {}
-    },
-    "3b6386823b999390": {
-      "id": "3b6386823b999390",
-      "brand": "PUMA",
-      "default": "https://us.puma.com/us/en/sale/tees",
-      "regions": {}
-    },
-    "6b165b04cd0d8546": {
-      "id": "6b165b04cd0d8546",
-      "brand": "PUMA",
-      "default": "https://us.puma.com/us/en/sale/tees",
-      "regions": {}
-    },
-    "96b1cc98759f09b4": {
-      "id": "96b1cc98759f09b4",
-      "brand": "PUMA",
-      "default": "https://us.puma.com/us/en/sale/tees",
       "regions": {}
     },
     "fd78b95f94295bc6": {
@@ -956,6 +1022,24 @@
       "default": "https://www.underarmour.com/en-us/t/corporate-sales.html",
       "regions": {}
     },
+    "3b6386823b999390": {
+      "id": "3b6386823b999390",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
+    "6b165b04cd0d8546": {
+      "id": "6b165b04cd0d8546",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
+    "96b1cc98759f09b4": {
+      "id": "96b1cc98759f09b4",
+      "brand": "PUMA",
+      "default": "https://us.puma.com/us/en/sale/tees",
+      "regions": {}
+    },
     "fb6fd9df48fa1a11": {
       "id": "fb6fd9df48fa1a11",
       "brand": "Sam's Club",
@@ -970,12 +1054,6 @@
     },
     "f4bdb2a21ea09dde": {
       "id": "f4bdb2a21ea09dde",
-      "brand": "Staples",
-      "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
-      "regions": {}
-    },
-    "d8553030d9774305": {
-      "id": "d8553030d9774305",
       "brand": "Staples",
       "default": "https://www.staples.com/deals/shop-by-brand/BI3000852",
       "regions": {}
