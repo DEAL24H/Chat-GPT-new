@@ -14,9 +14,6 @@ on:
     - cron: '0 22 * * *' # 05:00 Vietnam time
     - cron: '0 6 * * *'  # 13:00 Vietnam time
     - cron: '0 14 * * *' # 21:00 Vietnam time
-# Deal Bot is schedule/manual only for normal operation. The workflow file itself
-# may trigger one verification run when its scheduling/logic changes. Generated
-# data commits and bot code changes do not recursively launch competing scans.
 permissions:
   contents: write
   pages: write
@@ -45,11 +42,7 @@ jobs:
           node --check assets/app-fix.js
           node --check assets/app-999.js
           node --check assets/app-home.js
-      - name: Seed final priority brands
-        run: python scripts/seed_priority_brands.py
-      - name: Build focused 6-category catalog
-        run: python scripts/ensure_catalog_999.py
-      - name: Validate 6 categories x 89 brands
+      - name: Validate locked 6-category catalog
         run: python scripts/validate_catalog_999.py
       - name: Select category scan mode
         env:
@@ -66,23 +59,6 @@ jobs:
             echo "DEAL_SCAN_MODE=full" >> "$GITHUB_ENV"
             echo "DEAL_MANUAL_BATCH=" >> "$GITHUB_ENV"
           fi
-      - name: Harden source retention
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          expanded=Path('bot/expanded_sources.py'); s=expanded.read_text(encoding='utf-8')
-          old='''    domains = {source[1] for source in S}\n    data = [x for x in data if x.get("source_domain") not in domains or not x.get("expanded_source_collector")]\n'''
-          if old in s:
-              s=s.replace(old,'    domains = {source[1] for source in S}\n',1)
-              marker='''            data.extend(local)\n            added += len(local)\n'''
-              replacement='''            data = [x for x in data if not (x.get("source_domain") == source[1] and x.get("expanded_source_collector"))]\n            data.extend(local)\n            added += len(local)\n'''
-              if marker not in s: raise SystemExit('expanded source retention marker missing')
-              expanded.write_text(s.replace(marker,replacement,1),encoding='utf-8')
-          news=Path('bot/news_bot.py'); s=news.read_text(encoding='utf-8')
-          old='        if not valid_record(deal):\n'; new='        if not valid_record(deal) and not (deal.get("expanded_source_collector") or deal.get("summary_type") == "official_merchant_promotion_discovery"):\n'
-          if old in s: news.write_text(s.replace(old,new,1),encoding='utf-8')
-          PY
-          python -m py_compile bot/news_bot.py bot/expanded_sources.py
       - name: Collect public coupon deals
         run: python bot/news_bot.py
       - name: Collect expanded official brand and marketplace sources
@@ -147,7 +123,7 @@ jobs:
         run: |
           git config user.name 'DEAL24H Bot'
           git config user.email 'actions@github.com'
-          git add data/news.json data/*.json brand category fashion beauty consumer home-and-living food-and-grocery travel-and-hotels sitemap*.xml robots.txt go 2>/dev/null || true
+          git add data/news.json data/brand_scan_status.json data/*.json brand category fashion beauty consumer home-and-living food-and-grocery travel-and-hotels sitemap*.xml robots.txt go 2>/dev/null || true
           git diff --cached --quiet || git commit -m 'chore: refresh deals and SEO pages'
           git push
       - name: Configure Pages
