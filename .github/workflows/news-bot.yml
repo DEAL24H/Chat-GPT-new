@@ -6,12 +6,17 @@ on:
         description: 'Optional category group: 0 = Fashion/Beauty/Consumer, 1 = Home & Living/Food & Grocery/Travel & Hotels; blank = full cycle'
         required: false
         default: ''
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/news-bot.yml'
   schedule:
     - cron: '0 22 * * *' # 05:00 Vietnam time
     - cron: '0 6 * * *'  # 13:00 Vietnam time
     - cron: '0 14 * * *' # 21:00 Vietnam time
-# Deal Bot is schedule/manual only. Code/data commits must not recursively launch
-# competing full catalog writer runs; generated data is deployed separately.
+# Deal Bot is schedule/manual only for normal operation. The workflow file itself
+# may trigger one verification run when its scheduling/logic changes. Generated
+# data commits and bot code changes do not recursively launch competing scans.
 permissions:
   contents: write
   pages: write
