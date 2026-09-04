@@ -10,6 +10,7 @@ on:
       - 'scripts/ensure_six_brand_sitemap.py'
       - 'scripts/seed_priority_brands.py'
       - 'scripts/build_data_shards.py'
+      - 'scripts/prune_nonpriority_offers.py'
       - 'scripts/seo_sitemap_cleanup_999.py'
       - 'scripts/seo_legacy_guard.py'
   workflow_dispatch:
@@ -39,6 +40,8 @@ jobs:
         run: python scripts/ensure_catalog_999.py
       - name: Validate 534 brands
         run: python scripts/validate_catalog_999.py
+      - name: Prune offers outside the six-category catalog
+        run: python scripts/prune_nonpriority_offers.py
       - name: Build six-category browser data shards
         run: python scripts/build_data_shards.py
       - name: Remove retired category pages and placeholder brands
