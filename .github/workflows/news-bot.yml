@@ -6,6 +6,12 @@ on:
         description: 'Optional batch 0-3; leave blank to run a complete 4-batch catalog cycle'
         required: false
         default: ''
+  push:
+    branches: [main]
+    paths:
+      - 'data/brand_catalog.json'
+      - 'scripts/strict_catalog_integrity.py'
+      - '.github/workflows/news-bot.yml'
   schedule:
     - cron: '0 23 * * *'
     - cron: '30 23 * * *'
@@ -19,10 +25,8 @@ on:
     - cron: '30 15 * * *'
     - cron: '0 16 * * *'
     - cron: '30 16 * * *'
-# Deal Bot is intentionally NOT push-triggered.
-# SEO/code migrations can also write generated site data; automatic push
-# triggering caused competing writer runs. Manual/scheduled runs use the
-# shared writer lock below and wait instead of cancelling each other.
+# Push-triggering is restricted to catalog/collector workflow changes so generated
+# deal data commits do not recursively launch competing writer runs.
 permissions:
   contents: write
   pages: write
@@ -97,7 +101,7 @@ jobs:
         run: python bot/expanded_sources.py
       - name: Collect focused catalog brands
         run: |
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "${{ inputs.batch_index }}" ]; then
+          if { [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -z "${{ inputs.batch_index }}" ]; } || [ "$GITHUB_EVENT_NAME" = "push" ]; then
             for batch in 0 1 2 3; do
               echo "=== FULL CATALOG CYCLE: batch $batch/3 ==="
               DEAL_BATCH_INDEX="$batch" python bot/scalable_brand_collector.py
@@ -127,7 +131,7 @@ jobs:
           python scripts/ensure_six_brand_sitemap.py
       - name: Remove retired categories and placeholder pages
         run: |
-          rm -rf gaming sports-outdoor software-digital-services baby-kids-family automotive-accessories-books-education-media
+          rm -rf gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories-books-education-media
           rm -rf automotive-accessories books-education-media
           find brand -maxdepth 1 -type d -name 'catalog-brand-*' -prune -exec rm -rf {} + || true
       - name: Clean six-category SEO sitemap
