@@ -2,3843 +2,3604 @@
   "categories": {
     "Fashion": [
       {
-        "name": "Nike",
-        "domain": "nike.com",
-        "enabled": true
+        "name": "Abercrombie & Fitch",
+        "domain": "abercrombie.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Adidas",
         "domain": "adidas.com",
-        "enabled": true
-      },
-      {
-        "name": "Zara",
-        "domain": "zara.com",
-        "enabled": true
-      },
-      {
-        "name": "H&M",
-        "domain": "hm.com",
-        "enabled": true
-      },
-      {
-        "name": "UNIQLO",
-        "domain": "uniqlo.com",
-        "enabled": true
-      },
-      {
-        "name": "SHEIN",
-        "domain": "shein.com",
-        "enabled": true
-      },
-      {
-        "name": "ASOS",
-        "domain": "asos.com",
-        "enabled": true
-      },
-      {
-        "name": "Levi's",
-        "domain": "levi.com",
-        "enabled": true
-      },
-      {
-        "name": "PUMA",
-        "domain": "puma.com",
-        "enabled": true
-      },
-      {
-        "name": "Crocs",
-        "domain": "crocs.com",
-        "enabled": true
-      },
-      {
-        "name": "New Balance",
-        "domain": "newbalance.com",
-        "enabled": true
-      },
-      {
-        "name": "Converse",
-        "domain": "converse.com",
-        "enabled": true
-      },
-      {
-        "name": "Foot Locker",
-        "domain": "footlocker.com",
-        "enabled": true
-      },
-      {
-        "name": "Finish Line",
-        "domain": "finishline.com",
-        "enabled": true
-      },
-      {
-        "name": "Gap",
-        "domain": "gap.com",
-        "enabled": true
-      },
-      {
-        "name": "Old Navy",
-        "domain": "oldnavy.gap.com",
-        "enabled": true
-      },
-      {
-        "name": "Banana Republic",
-        "domain": "bananarepublic.gap.com",
-        "enabled": true
-      },
-      {
-        "name": "Calvin Klein",
-        "domain": "calvinklein.us",
-        "enabled": true
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "domain": "tommy.com",
-        "enabled": true
-      },
-      {
-        "name": "Ralph Lauren",
-        "domain": "ralphlauren.com",
-        "enabled": true
-      },
-      {
-        "name": "Under Armour",
-        "domain": "underarmour.com",
-        "enabled": true
-      },
-      {
-        "name": "ASICS",
-        "domain": "asics.com",
-        "enabled": true
-      },
-      {
-        "name": "Reebok",
-        "domain": "reebok.com",
-        "enabled": true
-      },
-      {
-        "name": "Skechers",
-        "domain": "skechers.com",
-        "enabled": true
-      },
-      {
-        "name": "JD Sports",
-        "domain": "jdsports.com",
-        "enabled": true
-      },
-      {
-        "name": "Forever 21",
-        "domain": "forever21.com",
-        "enabled": true
-      },
-      {
-        "name": "Urban Outfitters",
-        "domain": "urbanoutfitters.com",
-        "enabled": true
-      },
-      {
-        "name": "Nordstrom",
-        "domain": "nordstrom.com",
-        "enabled": true
-      },
-      {
-        "name": "Macy's",
-        "domain": "macys.com",
-        "enabled": true
-      },
-      {
-        "name": "Abercrombie & Fitch",
-        "domain": "abercrombie.com",
-        "enabled": true
-      },
-      {
-        "name": "American Eagle",
-        "domain": "ae.com",
-        "enabled": true
-      },
-      {
-        "name": "Hollister",
-        "domain": "hollisterco.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Aerie",
         "domain": "ae.com",
-        "enabled": true
-      },
-      {
-        "name": "J.Crew",
-        "domain": "jcrew.com",
-        "enabled": true
-      },
-      {
-        "name": "Madewell",
-        "domain": "madewell.com",
-        "enabled": true
-      },
-      {
-        "name": "Anthropologie",
-        "domain": "anthropologie.com",
-        "enabled": true
-      },
-      {
-        "name": "Free People",
-        "domain": "freepeople.com",
-        "enabled": true
-      },
-      {
-        "name": "Victoria's Secret",
-        "domain": "victoriassecret.com",
-        "enabled": true
-      },
-      {
-        "name": "Victoria's Secret PINK",
-        "domain": "victoriassecret.com",
-        "enabled": true
-      },
-      {
-        "name": "Lululemon",
-        "domain": "lululemon.com",
-        "enabled": true
-      },
-      {
-        "name": "Athleta",
-        "domain": "athleta.gap.com",
-        "enabled": true
-      },
-      {
-        "name": "Fabletics",
-        "domain": "fabletics.com",
-        "enabled": true
-      },
-      {
-        "name": "Gymshark",
-        "domain": "gymshark.com",
-        "enabled": true
-      },
-      {
-        "name": "Alo Yoga",
-        "domain": "aloyoga.com",
-        "enabled": true
-      },
-      {
-        "name": "Vuori",
-        "domain": "vuoriclothing.com",
-        "enabled": true
-      },
-      {
-        "name": "Everlane",
-        "domain": "everlane.com",
-        "enabled": true
-      },
-      {
-        "name": "Reformation",
-        "domain": "thereformation.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Allbirds",
         "domain": "allbirds.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Veja",
-        "domain": "veja-store.com",
-        "enabled": true
+        "name": "Alo Yoga",
+        "domain": "aloyoga.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Vans",
-        "domain": "vans.com",
-        "enabled": true
+        "name": "American Eagle",
+        "domain": "ae.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Timberland",
-        "domain": "timberland.com",
-        "enabled": true
-      },
-      {
-        "name": "Dr. Martens",
-        "domain": "drmartens.com",
-        "enabled": true
-      },
-      {
-        "name": "UGG",
-        "domain": "ugg.com",
-        "enabled": true
-      },
-      {
-        "name": "Birkenstock",
-        "domain": "birkenstock.com",
-        "enabled": true
-      },
-      {
-        "name": "Steve Madden",
-        "domain": "stevemadden.com",
-        "enabled": true
-      },
-      {
-        "name": "Sam Edelman",
-        "domain": "samedelman.com",
-        "enabled": true
-      },
-      {
-        "name": "Michael Kors",
-        "domain": "michaelkors.com",
-        "enabled": true
-      },
-      {
-        "name": "Coach",
-        "domain": "coach.com",
-        "enabled": true
-      },
-      {
-        "name": "Kate Spade",
-        "domain": "katespade.com",
-        "enabled": true
-      },
-      {
-        "name": "Tory Burch",
-        "domain": "toryburch.com",
-        "enabled": true
-      },
-      {
-        "name": "Marc Jacobs",
-        "domain": "marcjacobs.com",
-        "enabled": true
-      },
-      {
-        "name": "DKNY",
-        "domain": "dkny.com",
-        "enabled": true
-      },
-      {
-        "name": "Diesel",
-        "domain": "diesel.com",
-        "enabled": true
-      },
-      {
-        "name": "Guess",
-        "domain": "guess.com",
-        "enabled": true
-      },
-      {
-        "name": "Lacoste",
-        "domain": "lacoste.com",
-        "enabled": true
-      },
-      {
-        "name": "Hugo Boss",
-        "domain": "hugoboss.com",
-        "enabled": true
-      },
-      {
-        "name": "Armani Exchange",
-        "domain": "armani.com",
-        "enabled": true
-      },
-      {
-        "name": "Emporio Armani",
-        "domain": "armani.com",
-        "enabled": true
-      },
-      {
-        "name": "Versace",
-        "domain": "versace.com",
-        "enabled": true
-      },
-      {
-        "name": "Prada",
-        "domain": "prada.com",
-        "enabled": true
-      },
-      {
-        "name": "Gucci",
-        "domain": "gucci.com",
-        "enabled": true
-      },
-      {
-        "name": "Burberry",
-        "domain": "burberry.com",
-        "enabled": true
-      },
-      {
-        "name": "Balenciaga",
-        "domain": "balenciaga.com",
-        "enabled": true
-      },
-      {
-        "name": "Fendi",
-        "domain": "fendi.com",
-        "enabled": true
-      },
-      {
-        "name": "Valentino",
-        "domain": "valentino.com",
-        "enabled": true
-      },
-      {
-        "name": "Dolce & Gabbana",
-        "domain": "dolcegabbana.com",
-        "enabled": true
-      },
-      {
-        "name": "Givenchy",
-        "domain": "givenchy.com",
-        "enabled": true
-      },
-      {
-        "name": "Saint Laurent",
-        "domain": "ysl.com",
-        "enabled": true
-      },
-      {
-        "name": "Moncler",
-        "domain": "moncler.com",
-        "enabled": true
-      },
-      {
-        "name": "The North Face",
-        "domain": "thenorthface.com",
-        "enabled": true
-      },
-      {
-        "name": "Patagonia",
-        "domain": "patagonia.com",
-        "enabled": true
-      },
-      {
-        "name": "Columbia Sportswear",
-        "domain": "columbia.com",
-        "enabled": true
+        "name": "Anthropologie",
+        "domain": "anthropologie.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Arc'teryx",
         "domain": "arcteryx.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Salomon",
-        "domain": "salomon.com",
-        "enabled": true
+        "name": "Armani Exchange",
+        "domain": "armani.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Merrell",
-        "domain": "merrell.com",
-        "enabled": true
+        "name": "ASICS",
+        "domain": "asics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Mizuno",
-        "domain": "mizunousa.com",
-        "enabled": true
+        "name": "ASOS",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Athleta",
+        "domain": "athleta.gap.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Balenciaga",
+        "domain": "balenciaga.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Banana Republic",
+        "domain": "bananarepublic.gap.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Birkenstock",
+        "domain": "birkenstock.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Brooks Running",
         "domain": "brooksrunning.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Burberry",
+        "domain": "burberry.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Calvin Klein",
+        "domain": "calvinklein.us",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Coach",
+        "domain": "coach.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Columbia Sportswear",
+        "domain": "columbia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Converse",
+        "domain": "converse.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Crocs",
+        "domain": "crocs.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Diesel",
+        "domain": "diesel.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "DKNY",
+        "domain": "dkny.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Dolce & Gabbana",
+        "domain": "dolcegabbana.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Dr. Martens",
+        "domain": "drmartens.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Emporio Armani",
+        "domain": "armani.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Everlane",
+        "domain": "everlane.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Fabletics",
+        "domain": "fabletics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Fendi",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Finish Line",
+        "domain": "finishline.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Foot Locker",
+        "domain": "footlocker.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Forever 21",
+        "domain": "forever21.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Free People",
+        "domain": "freepeople.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Gap",
+        "domain": "gap.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Givenchy",
+        "domain": "givenchy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Gucci",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Guess",
+        "domain": "guess.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Gymshark",
+        "domain": "gymshark.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "H&M",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
       },
       {
         "name": "HOKA",
         "domain": "hoka.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Hollister",
+        "domain": "hollisterco.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Hugo Boss",
+        "domain": "hugoboss.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "J.Crew",
+        "domain": "jcrew.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "JD Sports",
+        "domain": "jdsports.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Kate Spade",
+        "domain": "katespade.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Lacoste",
+        "domain": "lacoste.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Levi's",
+        "domain": "levi.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Lululemon",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Macy's",
+        "domain": "macys.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Madewell",
+        "domain": "madewell.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Marc Jacobs",
+        "domain": "marcjacobs.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Merrell",
+        "domain": "merrell.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Michael Kors",
+        "domain": "michaelkors.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Mizuno",
+        "domain": "mizunousa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Moncler",
+        "domain": "moncler.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "New Balance",
+        "domain": "newbalance.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Nike",
+        "domain": "nike.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Nordstrom",
+        "domain": "nordstrom.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Old Navy",
+        "domain": "oldnavy.gap.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "On",
         "domain": "on.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Patagonia",
+        "domain": "patagonia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Prada",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "PUMA",
+        "domain": "puma.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Ralph Lauren",
+        "domain": "ralphlauren.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Reebok",
+        "domain": "reebok.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Reformation",
+        "domain": "thereformation.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Saint Laurent",
+        "domain": "ysl.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Salomon",
+        "domain": "salomon.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Sam Edelman",
+        "domain": "samedelman.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "SHEIN",
+        "domain": "shein.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Skechers",
+        "domain": "skechers.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Steve Madden",
+        "domain": "stevemadden.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "The North Face",
+        "domain": "thenorthface.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Timberland",
+        "domain": "timberland.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "domain": "tommy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Tory Burch",
+        "domain": "toryburch.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "UGG",
+        "domain": "ugg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Under Armour",
+        "domain": "underarmour.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "UNIQLO",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Urban Outfitters",
+        "domain": "urbanoutfitters.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Valentino",
+        "domain": "valentino.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Vans",
+        "domain": "vans.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Veja",
+        "domain": "veja-store.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Versace",
+        "domain": "versace.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Victoria's Secret",
+        "domain": "victoriassecret.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Victoria's Secret PINK",
+        "domain": "victoriassecret.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Vuori",
+        "domain": "vuoriclothing.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Zara",
+        "domain": "zara.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       }
     ],
     "Beauty": [
       {
-        "name": "L'Oréal Paris",
-        "domain": "lorealparisusa.com",
-        "enabled": true
+        "name": "Amika",
+        "domain": "loveamika.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "amika"
       },
       {
-        "name": "Maybelline",
-        "domain": "maybelline.com",
-        "enabled": true
+        "name": "Anastasia Beverly Hills",
+        "domain": "anastasiabeverlyhills.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "anastasia-beverly-hills"
       },
       {
-        "name": "MAC Cosmetics",
-        "domain": "maccosmetics.com",
-        "enabled": true
+        "name": "Aveeno",
+        "domain": "aveeno.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "aveeno"
       },
       {
-        "name": "NYX Professional Makeup",
-        "domain": "nyxcosmetics.com",
-        "enabled": true
-      },
-      {
-        "name": "e.l.f. Cosmetics",
-        "domain": "elfcosmetics.com",
-        "enabled": true
-      },
-      {
-        "name": "CeraVe",
-        "domain": "cerave.com",
-        "enabled": true
-      },
-      {
-        "name": "La Roche-Posay",
-        "domain": "laroche-posay.us",
-        "enabled": true
-      },
-      {
-        "name": "Rare Beauty",
-        "domain": "rarebeauty.com",
-        "enabled": true
-      },
-      {
-        "name": "Charlotte Tilbury",
-        "domain": "charlottetilbury.com",
-        "enabled": true
-      },
-      {
-        "name": "Sephora",
-        "domain": "sephora.com",
-        "enabled": true
-      },
-      {
-        "name": "Ulta Beauty",
-        "domain": "ulta.com",
-        "enabled": true
-      },
-      {
-        "name": "Douglas",
-        "domain": "douglas.de",
-        "enabled": true
-      },
-      {
-        "name": "The Ordinary",
-        "domain": "theordinary.com",
-        "enabled": true
-      },
-      {
-        "name": "Estée Lauder",
-        "domain": "esteelauder.com",
-        "enabled": true
-      },
-      {
-        "name": "Clinique",
-        "domain": "clinique.com",
-        "enabled": true
-      },
-      {
-        "name": "Kiehl's",
-        "domain": "kiehls.com",
-        "enabled": true
-      },
-      {
-        "name": "Lancôme",
-        "domain": "lancome-usa.com",
-        "enabled": true
-      },
-      {
-        "name": "Fenty Beauty",
-        "domain": "fentybeauty.com",
-        "enabled": true
-      },
-      {
-        "name": "Glossier",
-        "domain": "glossier.com",
-        "enabled": true
-      },
-      {
-        "name": "Benefit Cosmetics",
-        "domain": "benefitcosmetics.com",
-        "enabled": true
-      },
-      {
-        "name": "Tarte",
-        "domain": "tartecosmetics.com",
-        "enabled": true
-      },
-      {
-        "name": "Too Faced",
-        "domain": "toofaced.com",
-        "enabled": true
-      },
-      {
-        "name": "Morphe",
-        "domain": "morphe.com",
-        "enabled": true
-      },
-      {
-        "name": "Paula's Choice",
-        "domain": "paulaschoice.com",
-        "enabled": true
-      },
-      {
-        "name": "Drunk Elephant",
-        "domain": "drunkelephant.com",
-        "enabled": true
-      },
-      {
-        "name": "Olay",
-        "domain": "olay.com",
-        "enabled": true
-      },
-      {
-        "name": "Neutrogena",
-        "domain": "neutrogena.com",
-        "enabled": true
-      },
-      {
-        "name": "Dove",
-        "domain": "dove.com",
-        "enabled": true
+        "name": "Avène",
+        "domain": "aveneusa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "av-ne"
       },
       {
         "name": "Bath & Body Works",
         "domain": "bathandbodyworks.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "L'Oréal",
-        "domain": "",
+        "name": "Benefit Cosmetics",
+        "domain": "benefitcosmetics.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "l-or-al"
-      },
-      {
-        "name": "COSRX",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "cosrx"
-      },
-      {
-        "name": "Laneige",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "laneige"
-      },
-      {
-        "name": "SK-II",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sk-ii"
-      },
-      {
-        "name": "Shiseido",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "shiseido"
-      },
-      {
-        "name": "Tatcha",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tatcha"
-      },
-      {
-        "name": "NARS",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nars"
-      },
-      {
-        "name": "Revlon",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "revlon"
-      },
-      {
-        "name": "Covergirl",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "covergirl"
-      },
-      {
-        "name": "Dove Beauty",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dove-beauty"
-      },
-      {
-        "name": "Aveeno",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "aveeno"
-      },
-      {
-        "name": "Cetaphil",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "cetaphil"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Bioderma",
-        "domain": "",
+        "domain": "bioderma.us",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "bioderma"
       },
       {
-        "name": "Vichy",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vichy"
-      },
-      {
-        "name": "Avène",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "av-ne"
-      },
-      {
-        "name": "Eucerin",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "eucerin"
-      },
-      {
-        "name": "The Body Shop",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-body-shop"
-      },
-      {
-        "name": "Lush",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lush"
-      },
-      {
-        "name": "Rituals",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "rituals"
-      },
-      {
-        "name": "ColourPop",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "colourpop"
-      },
-      {
-        "name": "Anastasia Beverly Hills",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "anastasia-beverly-hills"
-      },
-      {
-        "name": "Huda Beauty",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "huda-beauty"
-      },
-      {
-        "name": "Urban Decay",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "urban-decay"
-      },
-      {
         "name": "Bobbi Brown",
-        "domain": "",
+        "domain": "bobbibrowncosmetics.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "bobbi-brown"
       },
       {
-        "name": "Smashbox",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "smashbox"
-      },
-      {
-        "name": "Sunday Riley",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sunday-riley"
-      },
-      {
-        "name": "SkinCeuticals",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "skinceuticals"
-      },
-      {
-        "name": "Youth To The People",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "youth-to-the-people"
-      },
-      {
-        "name": "First Aid Beauty",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "first-aid-beauty"
-      },
-      {
-        "name": "Supergoop!",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "supergoop"
-      },
-      {
-        "name": "Olaplex",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "olaplex"
-      },
-      {
-        "name": "Dyson Beauty",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dyson-beauty"
-      },
-      {
-        "name": "GHD",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ghd"
-      },
-      {
-        "name": "T3 Micro",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "t3-micro"
-      },
-      {
-        "name": "Kérastase",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "k-rastase"
-      },
-      {
-        "name": "Redken",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "redken"
-      },
-      {
-        "name": "Moroccanoil",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "moroccanoil"
-      },
-      {
         "name": "Briogeo",
-        "domain": "",
+        "domain": "briogeohair.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "briogeo"
       },
       {
-        "name": "Amika",
-        "domain": "",
+        "name": "CeraVe",
+        "domain": "cerave.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "amika"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Living Proof",
-        "domain": "",
+        "name": "Cetaphil",
+        "domain": "cetaphil.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "living-proof"
+        "catalog_status": "verified_first_party",
+        "slug": "cetaphil"
       },
       {
-        "name": "Ouai",
-        "domain": "",
+        "name": "Charlotte Tilbury",
+        "domain": "charlottetilbury.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ouai"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "The Inkey List",
-        "domain": "",
+        "name": "Clinique",
+        "domain": "clinique.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-inkey-list"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Good Molecules",
-        "domain": "",
+        "name": "ColourPop",
+        "domain": "colourpop.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "good-molecules"
+        "catalog_status": "verified_first_party",
+        "slug": "colourpop"
       },
       {
-        "name": "Glow Recipe",
-        "domain": "",
+        "name": "COSRX",
+        "domain": "cosrx.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "glow-recipe"
+        "catalog_status": "verified_first_party",
+        "slug": "cosrx"
       },
       {
-        "name": "Hero Cosmetics",
-        "domain": "",
+        "name": "Covergirl",
+        "domain": "covergirl.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hero-cosmetics"
-      },
-      {
-        "name": "Farmacy",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "farmacy"
-      },
-      {
-        "name": "Peter Thomas Roth",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "peter-thomas-roth"
-      },
-      {
-        "name": "Origins",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "origins"
-      },
-      {
-        "name": "Fresh",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "fresh"
+        "catalog_status": "verified_first_party",
+        "slug": "covergirl"
       },
       {
         "name": "Dermalogica",
-        "domain": "",
+        "domain": "dermalogica.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "dermalogica"
       },
       {
-        "name": "Murad",
-        "domain": "",
+        "name": "Douglas",
+        "domain": "douglas.de",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "murad"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "StriVectin",
-        "domain": "",
+        "name": "Dove",
+        "domain": "dove.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "strivectin"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Milk Makeup",
-        "domain": "",
+        "name": "Dove Beauty",
+        "domain": "dove.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "milk-makeup"
+        "catalog_status": "verified_first_party",
+        "slug": "dove-beauty"
       },
       {
-        "name": "Kosas",
-        "domain": "",
+        "name": "Drunk Elephant",
+        "domain": "drunkelephant.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kosas"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Ilia",
-        "domain": "",
+        "name": "Dyson Beauty",
+        "domain": "dyson.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ilia"
+        "catalog_status": "verified_first_party",
+        "slug": "dyson-beauty"
       },
       {
-        "name": "Saie",
-        "domain": "",
+        "name": "e.l.f. Cosmetics",
+        "domain": "elfcosmetics.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "saie"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Tower 28",
-        "domain": "",
+        "name": "Estée Lauder",
+        "domain": "esteelauder.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tower-28"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Pat McGrath Labs",
-        "domain": "",
+        "name": "Eucerin",
+        "domain": "eucerinus.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "pat-mcgrath-labs"
+        "catalog_status": "verified_first_party",
+        "slug": "eucerin"
+      },
+      {
+        "name": "Farmacy",
+        "domain": "farmacybeauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "farmacy"
+      },
+      {
+        "name": "Fenty Beauty",
+        "domain": "fentybeauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "First Aid Beauty",
+        "domain": "firstaidbeauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "first-aid-beauty"
+      },
+      {
+        "name": "Fresh",
+        "domain": "fresh.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "fresh"
+      },
+      {
+        "name": "GHD",
+        "domain": "ghdhair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ghd"
+      },
+      {
+        "name": "Glossier",
+        "domain": "glossier.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Glow Recipe",
+        "domain": "glowrecipe.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "glow-recipe"
+      },
+      {
+        "name": "Good Molecules",
+        "domain": "goodmolecules.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "good-molecules"
+      },
+      {
+        "name": "Hero Cosmetics",
+        "domain": "herocosmetics.us",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hero-cosmetics"
       },
       {
         "name": "Hourglass",
-        "domain": "",
+        "domain": "hourglasscosmetics.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "hourglass"
       },
       {
-        "name": "Vaseline",
-        "domain": "",
+        "name": "Huda Beauty",
+        "domain": "hudabeauty.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "huda-beauty"
+      },
+      {
+        "name": "Ilia",
+        "domain": "iliabeauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ilia"
+      },
+      {
+        "name": "Kiehl's",
+        "domain": "kiehls.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Kosas",
+        "domain": "kosas.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "kosas"
+      },
+      {
+        "name": "Kérastase",
+        "domain": "kerastase-usa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "k-rastase"
+      },
+      {
+        "name": "L'Oréal",
+        "domain": "loreal.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "l-or-al"
+      },
+      {
+        "name": "L'Oréal Paris",
+        "domain": "lorealparisusa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "La Roche-Posay",
+        "domain": "laroche-posay.us",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Lancôme",
+        "domain": "lancome-usa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Laneige",
+        "domain": "us.laneige.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "laneige"
+      },
+      {
+        "name": "Living Proof",
+        "domain": "livingproof.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "living-proof"
+      },
+      {
+        "name": "Lush",
+        "domain": "lush.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lush"
+      },
+      {
+        "name": "MAC Cosmetics",
+        "domain": "maccosmetics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Maybelline",
+        "domain": "maybelline.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Milk Makeup",
+        "domain": "milkmakeup.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "milk-makeup"
+      },
+      {
+        "name": "Moroccanoil",
+        "domain": "moroccanoil.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "moroccanoil"
+      },
+      {
+        "name": "Morphe",
+        "domain": "morphe.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Murad",
+        "domain": "murad.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "murad"
+      },
+      {
+        "name": "NARS",
+        "domain": "narscosmetics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nars"
+      },
+      {
+        "name": "Neutrogena",
+        "domain": "neutrogena.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "NYX Professional Makeup",
+        "domain": "nyxcosmetics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Olaplex",
+        "domain": "olaplex.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "olaplex"
+      },
+      {
+        "name": "Olay",
+        "domain": "olay.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Origins",
+        "domain": "origins.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "origins"
+      },
+      {
+        "name": "Ouai",
+        "domain": "theouai.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ouai"
+      },
+      {
+        "name": "Pat McGrath Labs",
+        "domain": "patmcgrath.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "pat-mcgrath-labs"
+      },
+      {
+        "name": "Paula's Choice",
+        "domain": "paulaschoice.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Peter Thomas Roth",
+        "domain": "drbrandtskincare.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "peter-thomas-roth"
+      },
+      {
+        "name": "Rare Beauty",
+        "domain": "rarebeauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Redken",
+        "domain": "redken.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "redken"
+      },
+      {
+        "name": "Revlon",
+        "domain": "revlon.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "revlon"
+      },
+      {
+        "name": "Rituals",
+        "domain": "rituals.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "rituals"
+      },
+      {
+        "name": "Saie",
+        "domain": "saiehello.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "saie"
+      },
+      {
+        "name": "Sephora",
+        "domain": "sephora.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Shiseido",
+        "domain": "shiseido.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "shiseido"
+      },
+      {
+        "name": "SK-II",
+        "domain": "sk-ii.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sk-ii"
+      },
+      {
+        "name": "SkinCeuticals",
+        "domain": "skinceuticals.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "skinceuticals"
+      },
+      {
+        "name": "Smashbox",
+        "domain": "smashbox.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "smashbox"
+      },
+      {
+        "name": "StriVectin",
+        "domain": "strivectin.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "strivectin"
+      },
+      {
+        "name": "Sunday Riley",
+        "domain": "sundayriley.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sunday-riley"
+      },
+      {
+        "name": "Supergoop!",
+        "domain": "supergoop.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "supergoop"
+      },
+      {
+        "name": "T3 Micro",
+        "domain": "t3micro.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "t3-micro"
+      },
+      {
+        "name": "Tarte",
+        "domain": "tartecosmetics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Tatcha",
+        "domain": "tatcha.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tatcha"
+      },
+      {
+        "name": "The Body Shop",
+        "domain": "thebodyshop.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-body-shop"
+      },
+      {
+        "name": "The Inkey List",
+        "domain": "theinkeylist.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-inkey-list"
+      },
+      {
+        "name": "The Ordinary",
+        "domain": "theordinary.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Too Faced",
+        "domain": "toofaced.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Tower 28",
+        "domain": "tower28beauty.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tower-28"
+      },
+      {
+        "name": "Ulta Beauty",
+        "domain": "ulta.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Urban Decay",
+        "domain": "urbandecay.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "urban-decay"
+      },
+      {
+        "name": "Vaseline",
+        "domain": "vaseline.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "vaseline"
+      },
+      {
+        "name": "Vichy",
+        "domain": "vichyusa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vichy"
+      },
+      {
+        "name": "Youth To The People",
+        "domain": "youthtothepeople.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "youth-to-the-people"
       }
     ],
     "Consumer": [
       {
-        "name": "Apple",
-        "domain": "apple.com",
-        "enabled": true
+        "name": "Acer",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "acer"
       },
       {
-        "name": "Samsung",
-        "domain": "samsung.com",
-        "enabled": true
+        "name": "Adorama",
+        "domain": "adorama.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "adorama"
       },
       {
-        "name": "Sony",
-        "domain": "sony.com",
-        "enabled": true
-      },
-      {
-        "name": "Dell",
-        "domain": "dell.com",
-        "enabled": true
-      },
-      {
-        "name": "Lenovo",
-        "domain": "lenovo.com",
-        "enabled": true
-      },
-      {
-        "name": "HP",
-        "domain": "hp.com",
-        "enabled": true
-      },
-      {
-        "name": "Logitech",
-        "domain": "logitech.com",
-        "enabled": true
-      },
-      {
-        "name": "Philips",
-        "domain": "philips.com",
-        "enabled": true
-      },
-      {
-        "name": "IKEA",
-        "domain": "ikea.com",
-        "enabled": true
-      },
-      {
-        "name": "Dyson",
-        "domain": "dyson.com",
-        "enabled": true
+        "name": "AliExpress",
+        "domain": "aliexpress.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "aliexpress"
       },
       {
         "name": "Amazon",
         "domain": "amazon.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Walmart",
-        "domain": "walmart.com",
-        "enabled": true
+        "name": "Amazon Fire TV",
+        "domain": "amazon.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "amazon-fire-tv"
       },
       {
-        "name": "eBay",
-        "domain": "ebay.com",
-        "enabled": true
+        "name": "AMD",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "amd"
       },
       {
-        "name": "Best Buy",
-        "domain": "bestbuy.com",
-        "enabled": true
+        "name": "Anker",
+        "domain": "anker.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "anker"
       },
       {
-        "name": "Target",
-        "domain": "target.com",
-        "enabled": true
+        "name": "Apple",
+        "domain": "apple.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Costco",
-        "domain": "costco.com",
-        "enabled": true
+        "name": "Arlo",
+        "domain": "arlo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "arlo"
       },
       {
-        "name": "Home Depot",
-        "domain": "homedepot.com",
-        "enabled": true
+        "name": "ASRock",
+        "domain": "asrock.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "asrock"
       },
       {
-        "name": "Lowe's",
-        "domain": "lowes.com",
-        "enabled": true
-      },
-      {
-        "name": "Wayfair",
-        "domain": "wayfair.com",
-        "enabled": true
-      },
-      {
-        "name": "Newegg",
-        "domain": "newegg.com",
-        "enabled": true
+        "name": "ASUS",
+        "domain": "asus.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "asus"
       },
       {
         "name": "B&H Photo",
         "domain": "bhphotovideo.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Micro Center",
-        "domain": "microcenter.com",
-        "enabled": true
+        "name": "B&H Photo Video",
+        "domain": "bhphotovideo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "b-h-photo-video"
       },
       {
-        "name": "Office Depot",
-        "domain": "officedepot.com",
-        "enabled": true
+        "name": "Back Market",
+        "domain": "backmarket.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "back-market"
       },
       {
-        "name": "Staples",
-        "domain": "staples.com",
-        "enabled": true
-      },
-      {
-        "name": "Kohl's",
-        "domain": "kohls.com",
-        "enabled": true
-      },
-      {
-        "name": "HomeGoods",
-        "domain": "homegoods.com",
-        "enabled": true
-      },
-      {
-        "name": "Overstock",
-        "domain": "overstock.com",
-        "enabled": true
+        "name": "Beats",
+        "domain": "beatsbydre.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "beats"
       },
       {
         "name": "Bed Bath & Beyond",
         "domain": "bedbathandbeyond.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Belkin",
+        "domain": "belkin.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "belkin"
+      },
+      {
+        "name": "Best Buy",
+        "domain": "bestbuy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Blink",
+        "domain": "blinkforhome.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "blink"
+      },
+      {
+        "name": "Bose",
+        "domain": "bose.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "bose"
+      },
+      {
+        "name": "Canon",
+        "domain": "usa.canon.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "canon"
+      },
+      {
+        "name": "Chromecast",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "chromecast"
+      },
+      {
+        "name": "Corsair",
+        "domain": "corsair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "corsair"
+      },
+      {
+        "name": "Costco",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "Crutchfield",
+        "domain": "crutchfield.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "crutchfield"
+      },
+      {
+        "name": "Dell",
+        "domain": "dell.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "DJI",
+        "domain": "dji.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "dji"
+      },
+      {
+        "name": "Dyson",
+        "domain": "dyson.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "eBay",
+        "domain": "ebay.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Epic Games Store",
+        "domain": "epicgames.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "epic-games-store"
+      },
+      {
+        "name": "Epson",
+        "domain": "epson.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "epson"
+      },
+      {
+        "name": "Etsy",
+        "domain": "etsy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "etsy"
+      },
+      {
+        "name": "Fitbit",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "fitbit"
+      },
+      {
+        "name": "Framework",
+        "domain": "frame.work",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "framework"
+      },
+      {
+        "name": "GameStop",
+        "domain": "gamestop.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "gamestop"
+      },
+      {
+        "name": "Garmin",
+        "domain": "garmin.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "garmin"
+      },
+      {
+        "name": "Gigabyte",
+        "domain": "gigabyte.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "gigabyte"
+      },
+      {
+        "name": "Google Store",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "google-store"
+      },
+      {
+        "name": "GoPro",
+        "domain": "gopro.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "gopro"
+      },
+      {
+        "name": "Harbor Freight",
+        "domain": "harborfreight.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "harbor-freight"
+      },
+      {
+        "name": "Home Depot",
+        "domain": "homedepot.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "HomeGoods",
+        "domain": "homegoods.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "HP",
+        "domain": "hp.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "iFixit",
+        "domain": "ifixit.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ifixit"
+      },
+      {
+        "name": "IKEA",
+        "domain": "ikea.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Intel",
+        "domain": "intel.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "intel"
+      },
+      {
+        "name": "JBL",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "jbl"
+      },
+      {
+        "name": "JCPenney",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "jcpenney"
+      },
+      {
+        "name": "Kohl's",
+        "domain": "kohls.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Lenovo",
+        "domain": "lenovo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "LG",
+        "domain": "lg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lg"
+      },
+      {
+        "name": "Logitech",
+        "domain": "logitech.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Lowe's",
+        "domain": "lowes.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Meta Quest",
+        "domain": "meta.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "meta-quest"
+      },
+      {
+        "name": "Micro Center",
+        "domain": "microcenter.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Microsoft",
+        "domain": "microsoft.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "microsoft"
+      },
+      {
+        "name": "Motorola",
+        "domain": "motorola.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "motorola"
+      },
+      {
+        "name": "MSI",
+        "domain": "msi.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "msi"
+      },
+      {
+        "name": "Newegg",
+        "domain": "newegg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Nikon",
+        "domain": "nikonusa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nikon"
+      },
+      {
+        "name": "Nintendo",
+        "domain": "nintendo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nintendo"
+      },
+      {
+        "name": "Nothing",
+        "domain": "nothing.tech",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nothing"
+      },
+      {
+        "name": "NVIDIA",
+        "domain": "nvidia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nvidia"
+      },
+      {
+        "name": "Office Depot",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search"
+      },
+      {
+        "name": "OnePlus",
+        "domain": "oneplus.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "oneplus"
+      },
+      {
+        "name": "Overstock",
+        "domain": "overstock.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Philips",
+        "domain": "philips.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "PlayStation",
+        "domain": "playstation.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "playstation"
+      },
+      {
+        "name": "QVC",
+        "domain": "qvc.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "qvc"
+      },
+      {
+        "name": "Razer",
+        "domain": "razer.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "razer"
+      },
+      {
+        "name": "Ring",
+        "domain": "ring.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ring"
+      },
+      {
+        "name": "Roku",
+        "domain": "roku.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "roku"
       },
       {
         "name": "Sam's Club",
         "domain": "samsclub.com",
-        "enabled": true
+        "enabled": true,
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "LG",
-        "domain": "",
+        "name": "Samsung",
+        "domain": "samsung.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lg"
-      },
-      {
-        "name": "ASUS",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "asus"
-      },
-      {
-        "name": "Acer",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "acer"
-      },
-      {
-        "name": "Microsoft",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "microsoft"
-      },
-      {
-        "name": "Xbox",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "xbox"
-      },
-      {
-        "name": "PlayStation",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "playstation"
-      },
-      {
-        "name": "Nintendo",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nintendo"
-      },
-      {
-        "name": "B&H Photo Video",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "b-h-photo-video"
-      },
-      {
-        "name": "Adorama",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "adorama"
-      },
-      {
-        "name": "GameStop",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "gamestop"
-      },
-      {
-        "name": "AliExpress",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "aliexpress"
-      },
-      {
-        "name": "QVC",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "qvc"
-      },
-      {
-        "name": "JCPenney",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "jcpenney"
-      },
-      {
-        "name": "Harbor Freight",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "harbor-freight"
-      },
-      {
-        "name": "Epson",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "epson"
-      },
-      {
-        "name": "Canon",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "canon"
-      },
-      {
-        "name": "Nikon",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nikon"
-      },
-      {
-        "name": "GoPro",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "gopro"
-      },
-      {
-        "name": "DJI",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dji"
-      },
-      {
-        "name": "Bose",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "bose"
-      },
-      {
-        "name": "JBL",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "jbl"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Sennheiser",
-        "domain": "",
+        "domain": "sennheiser.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "sennheiser"
       },
       {
         "name": "Sonos",
-        "domain": "",
+        "domain": "sonos.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "sonos"
       },
       {
-        "name": "Beats",
-        "domain": "",
+        "name": "Sony",
+        "domain": "sony.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "beats"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Anker",
-        "domain": "",
+        "name": "Staples",
+        "domain": "w3.org",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "anker"
-      },
-      {
-        "name": "Belkin",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "belkin"
-      },
-      {
-        "name": "Razer",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "razer"
-      },
-      {
-        "name": "Corsair",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "corsair"
-      },
-      {
-        "name": "SteelSeries",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "steelseries"
-      },
-      {
-        "name": "ASRock",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "asrock"
-      },
-      {
-        "name": "MSI",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "msi"
-      },
-      {
-        "name": "Gigabyte",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "gigabyte"
-      },
-      {
-        "name": "Intel",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "intel"
-      },
-      {
-        "name": "AMD",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "amd"
-      },
-      {
-        "name": "NVIDIA",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nvidia"
-      },
-      {
-        "name": "Google Store",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "google-store"
-      },
-      {
-        "name": "OnePlus",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "oneplus"
-      },
-      {
-        "name": "Motorola",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "motorola"
-      },
-      {
-        "name": "Nothing",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nothing"
-      },
-      {
-        "name": "Garmin",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "garmin"
-      },
-      {
-        "name": "Fitbit",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "fitbit"
-      },
-      {
-        "name": "Ring",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ring"
-      },
-      {
-        "name": "Blink",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "blink"
-      },
-      {
-        "name": "Arlo",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "arlo"
-      },
-      {
-        "name": "Roku",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "roku"
-      },
-      {
-        "name": "Chromecast",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "chromecast"
-      },
-      {
-        "name": "Amazon Fire TV",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "amazon-fire-tv"
-      },
-      {
-        "name": "Meta Quest",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "meta-quest"
-      },
-      {
-        "name": "Valve",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "valve"
+        "catalog_status": "verified_first_party_search"
       },
       {
         "name": "Steam",
-        "domain": "",
+        "domain": "steampowered.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "steam"
       },
       {
-        "name": "Epic Games Store",
-        "domain": "",
+        "name": "SteelSeries",
+        "domain": "steelseries.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "epic-games-store"
-      },
-      {
-        "name": "Etsy",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "etsy"
-      },
-      {
-        "name": "Temu",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "temu"
-      },
-      {
-        "name": "Back Market",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "back-market"
+        "catalog_status": "verified_first_party",
+        "slug": "steelseries"
       },
       {
         "name": "Swappa",
-        "domain": "",
+        "domain": "swappa.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "swappa"
       },
       {
-        "name": "Framework",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "framework"
-      },
-      {
-        "name": "iFixit",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ifixit"
-      },
-      {
-        "name": "Crutchfield",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "crutchfield"
-      },
-      {
         "name": "T-Mobile",
-        "domain": "",
+        "domain": "t-mobile.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "t-mobile"
       },
       {
-        "name": "Verizon",
-        "domain": "",
+        "name": "Target",
+        "domain": "target.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Temu",
+        "domain": "temu.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "temu"
+      },
+      {
+        "name": "Valve",
+        "domain": "valvesoftware.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "valve"
+      },
+      {
+        "name": "Verizon",
+        "domain": "verizon.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "verizon"
+      },
+      {
+        "name": "Walmart",
+        "domain": "walmart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Wayfair",
+        "domain": "wayfair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party"
+      },
+      {
+        "name": "Xbox",
+        "domain": "xbox.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "xbox"
       }
     ],
     "Home & Living": [
       {
-        "name": "Pottery Barn",
-        "domain": "",
+        "name": "1stDibs",
+        "domain": "1stdibs.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "pottery-barn"
+        "catalog_status": "verified_first_party",
+        "slug": "1stdibs"
       },
       {
-        "name": "West Elm",
-        "domain": "",
+        "name": "AllModern",
+        "domain": "allmodern.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "west-elm"
-      },
-      {
-        "name": "Williams Sonoma",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "williams-sonoma"
-      },
-      {
-        "name": "Crate & Barrel",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "crate-barrel"
-      },
-      {
-        "name": "CB2",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "cb2"
-      },
-      {
-        "name": "RH",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "rh"
-      },
-      {
-        "name": "Restoration Hardware",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "restoration-hardware"
-      },
-      {
-        "name": "Ashley",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ashley"
-      },
-      {
-        "name": "Rooms To Go",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "rooms-to-go"
-      },
-      {
-        "name": "La-Z-Boy",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "la-z-boy"
-      },
-      {
-        "name": "Article",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "article"
-      },
-      {
-        "name": "Houzz",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "houzz"
-      },
-      {
-        "name": "Kirkland's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kirkland-s"
-      },
-      {
-        "name": "At Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "at-home"
-      },
-      {
-        "name": "World Market",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "world-market"
-      },
-      {
-        "name": "The Container Store",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-container-store"
-      },
-      {
-        "name": "Lamps Plus",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lamps-plus"
-      },
-      {
-        "name": "Lulu and Georgia",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lulu-and-georgia"
-      },
-      {
-        "name": "Ruggable",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ruggable"
-      },
-      {
-        "name": "Brooklinen",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "brooklinen"
-      },
-      {
-        "name": "Parachute",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "parachute"
-      },
-      {
-        "name": "Purple",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "purple"
-      },
-      {
-        "name": "Casper",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "casper"
-      },
-      {
-        "name": "Saatva",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "saatva"
-      },
-      {
-        "name": "Tuft & Needle",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tuft-needle"
-      },
-      {
-        "name": "Nectar",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nectar"
-      },
-      {
-        "name": "Sleep Number",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sleep-number"
-      },
-      {
-        "name": "Tempur-Pedic",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tempur-pedic"
-      },
-      {
-        "name": "Beautyrest",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "beautyrest"
-      },
-      {
-        "name": "Serta",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "serta"
-      },
-      {
-        "name": "Sealy",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sealy"
-      },
-      {
-        "name": "Leesa",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "leesa"
-      },
-      {
-        "name": "Avocado",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "avocado"
+        "catalog_status": "verified_first_party",
+        "slug": "allmodern"
       },
       {
         "name": "Allswell",
-        "domain": "",
+        "domain": "walmart.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "allswell"
       },
       {
-        "name": "Boll & Branch",
-        "domain": "",
+        "name": "Amazon Home",
+        "domain": "amazon.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "amazon-home"
+      },
+      {
+        "name": "Article",
+        "domain": "article.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "article"
+      },
+      {
+        "name": "Article Home",
+        "domain": "article.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "article-home"
+      },
+      {
+        "name": "Ashley",
+        "domain": "ashleyfurniture.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ashley"
+      },
+      {
+        "name": "At Home",
+        "domain": "athome.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "at-home"
+      },
+      {
+        "name": "Avocado",
+        "domain": "avocadogreenbrands.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "avocado"
+      },
+      {
+        "name": "Ballard Designs",
+        "domain": "ballarddesigns.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ballard-designs"
+      },
+      {
+        "name": "Beautyrest",
+        "domain": "beautyrest.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "beautyrest"
+      },
+      {
+        "name": "BHG",
+        "domain": "bhg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "bhg"
+      },
+      {
+        "name": "Birch Lane",
+        "domain": "birchlane.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "birch-lane"
+      },
+      {
+        "name": "Boll & Branch",
+        "domain": "bollandbranch.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "boll-branch"
       },
       {
-        "name": "Coyuchi",
-        "domain": "",
+        "name": "Breville",
+        "domain": "breville.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "breville"
+      },
+      {
+        "name": "Brooklinen",
+        "domain": "brooklinen.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "brooklinen"
+      },
+      {
+        "name": "Burke Decor",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "burke-decor"
+      },
+      {
+        "name": "Burrow",
+        "domain": "burrow.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "burrow"
+      },
+      {
+        "name": "Casper",
+        "domain": "casper.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "casper"
+      },
+      {
+        "name": "Castlery",
+        "domain": "castlery.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "castlery"
+      },
+      {
+        "name": "CB2",
+        "domain": "cb2.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "cb2"
+      },
+      {
+        "name": "Chairish",
+        "domain": "chairish.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "chairish"
+      },
+      {
+        "name": "Costco Home",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "costco-home"
+      },
+      {
+        "name": "Coyuchi",
+        "domain": "coyuchi.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "coyuchi"
       },
       {
-        "name": "The Company Store",
-        "domain": "",
+        "name": "Crate & Barrel",
+        "domain": "crateandbarrel.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-company-store"
+        "catalog_status": "verified_first_party",
+        "slug": "crate-barrel"
+      },
+      {
+        "name": "Cuisinart",
+        "domain": "cuisinart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "cuisinart"
+      },
+      {
+        "name": "Design Within Reach",
+        "domain": "dwr.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "design-within-reach"
+      },
+      {
+        "name": "Dyson Home",
+        "domain": "dyson.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "dyson-home"
+      },
+      {
+        "name": "Etsy Home",
+        "domain": "etsy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "etsy-home"
+      },
+      {
+        "name": "Floyd",
+        "domain": "floydhome.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "floyd"
       },
       {
         "name": "Frontgate",
-        "domain": "",
+        "domain": "frontgate.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "frontgate"
       },
       {
         "name": "Grandin Road",
-        "domain": "",
+        "domain": "grandinroad.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "grandin-road"
       },
       {
-        "name": "Ballard Designs",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ballard-designs"
-      },
-      {
-        "name": "Joss & Main",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "joss-main"
-      },
-      {
-        "name": "Birch Lane",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "birch-lane"
-      },
-      {
-        "name": "Mercury Row",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "mercury-row"
-      },
-      {
-        "name": "AllModern",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "allmodern"
-      },
-      {
-        "name": "Walmart Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "walmart-home"
-      },
-      {
-        "name": "Target Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "target-home"
-      },
-      {
-        "name": "Costco Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "costco-home"
-      },
-      {
-        "name": "Amazon Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "amazon-home"
-      },
-      {
-        "name": "QVC Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "qvc-home"
-      },
-      {
-        "name": "Macy's Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "macy-s-home"
-      },
-      {
-        "name": "Nordstrom Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nordstrom-home"
-      },
-      {
-        "name": "Kohl's Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kohl-s-home"
-      },
-      {
-        "name": "Martha Stewart",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "martha-stewart"
-      },
-      {
-        "name": "BHG",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "bhg"
-      },
-      {
-        "name": "Lands' End Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lands-end-home"
-      },
-      {
-        "name": "The Citizenry",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-citizenry"
-      },
-      {
-        "name": "Serena & Lily",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "serena-lily"
-      },
-      {
-        "name": "Parachute Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "parachute-home"
-      },
-      {
-        "name": "Schoolhouse",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "schoolhouse"
-      },
-      {
-        "name": "Article Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "article-home"
-      },
-      {
-        "name": "Floyd",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "floyd"
-      },
-      {
-        "name": "Burrow",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "burrow"
-      },
-      {
-        "name": "Joybird",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "joybird"
-      },
-      {
-        "name": "Castlery",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "castlery"
-      },
-      {
-        "name": "Poly & Bark",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "poly-bark"
-      },
-      {
-        "name": "Inside Weather",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "inside-weather"
-      },
-      {
-        "name": "Burke Decor",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "burke-decor"
-      },
-      {
-        "name": "Chairish",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "chairish"
-      },
-      {
-        "name": "1stDibs",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "1stdibs"
-      },
-      {
-        "name": "Etsy Home",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "etsy-home"
-      },
-      {
         "name": "HAY",
-        "domain": "",
+        "domain": "hay.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "hay"
       },
       {
-        "name": "Design Within Reach",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "design-within-reach"
-      },
-      {
         "name": "Herman Miller",
-        "domain": "",
+        "domain": "hermanmiller.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "herman-miller"
       },
       {
-        "name": "Steelcase",
-        "domain": "",
+        "name": "Houzz",
+        "domain": "houzz.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "steelcase"
-      },
-      {
-        "name": "Knoll",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "knoll"
-      },
-      {
-        "name": "Vitra",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vitra"
-      },
-      {
-        "name": "Yeti",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "yeti"
+        "catalog_status": "verified_first_party",
+        "slug": "houzz"
       },
       {
         "name": "Hydro Flask",
-        "domain": "",
+        "domain": "hydroflask.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "hydro-flask"
       },
       {
-        "name": "Stanley",
-        "domain": "",
+        "name": "Inside Weather",
+        "domain": "insideweather.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "stanley"
+        "catalog_status": "verified_first_party",
+        "slug": "inside-weather"
       },
       {
-        "name": "Ninja Kitchen",
-        "domain": "",
+        "name": "Joss & Main",
+        "domain": "jossandmain.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ninja-kitchen"
+        "catalog_status": "verified_first_party",
+        "slug": "joss-main"
       },
       {
-        "name": "KitchenAid",
-        "domain": "",
+        "name": "Joybird",
+        "domain": "joybird.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kitchenaid"
-      },
-      {
-        "name": "Cuisinart",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "cuisinart"
-      },
-      {
-        "name": "Vitamix",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vitamix"
-      },
-      {
-        "name": "Breville",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "breville"
+        "catalog_status": "verified_first_party",
+        "slug": "joybird"
       },
       {
         "name": "Keurig",
-        "domain": "",
+        "domain": "keurig.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "keurig"
       },
       {
-        "name": "Nespresso",
-        "domain": "",
+        "name": "Kirkland's",
+        "domain": "kirklands.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nespresso"
+        "catalog_status": "verified_first_party",
+        "slug": "kirkland-s"
+      },
+      {
+        "name": "KitchenAid",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "kitchenaid"
+      },
+      {
+        "name": "Knoll",
+        "domain": "knoll.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "knoll"
+      },
+      {
+        "name": "Kohl's Home",
+        "domain": "kohls.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "kohl-s-home"
+      },
+      {
+        "name": "La-Z-Boy",
+        "domain": "la-z-boy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "la-z-boy"
+      },
+      {
+        "name": "Lamps Plus",
+        "domain": "lampsplus.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lamps-plus"
+      },
+      {
+        "name": "Lands' End Home",
+        "domain": "landsend.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lands-end-home"
       },
       {
         "name": "Le Creuset",
-        "domain": "",
+        "domain": "lecreuset.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "le-creuset"
       },
       {
-        "name": "Lodge Cast Iron",
-        "domain": "",
+        "name": "Leesa",
+        "domain": "leesa.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "leesa"
+      },
+      {
+        "name": "Lodge Cast Iron",
+        "domain": "lodgecastiron.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "lodge-cast-iron"
       },
       {
-        "name": "Dyson Home",
-        "domain": "",
+        "name": "Lulu and Georgia",
+        "domain": "luluandgeorgia.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dyson-home"
+        "catalog_status": "verified_first_party",
+        "slug": "lulu-and-georgia"
+      },
+      {
+        "name": "Macy's Home",
+        "domain": "macys.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "macy-s-home"
+      },
+      {
+        "name": "Martha Stewart",
+        "domain": "marthastewart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "martha-stewart"
+      },
+      {
+        "name": "Mercury Row",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "mercury-row"
+      },
+      {
+        "name": "Nectar",
+        "domain": "nectarsleep.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nectar"
+      },
+      {
+        "name": "Nespresso",
+        "domain": "nespresso.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nespresso"
+      },
+      {
+        "name": "Ninja Kitchen",
+        "domain": "sharkninja.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ninja-kitchen"
+      },
+      {
+        "name": "Nordstrom Home",
+        "domain": "nordstrom.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nordstrom-home"
+      },
+      {
+        "name": "Parachute",
+        "domain": "parachutehome.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "parachute"
+      },
+      {
+        "name": "Parachute Home",
+        "domain": "parachutehome.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "parachute-home"
+      },
+      {
+        "name": "Poly & Bark",
+        "domain": "polyandbark.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "poly-bark"
+      },
+      {
+        "name": "Pottery Barn",
+        "domain": "potterybarn.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "pottery-barn"
+      },
+      {
+        "name": "Purple",
+        "domain": "purple.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "purple"
+      },
+      {
+        "name": "QVC Home",
+        "domain": "qvc.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "qvc-home"
+      },
+      {
+        "name": "Restoration Hardware",
+        "domain": "rh.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "restoration-hardware"
+      },
+      {
+        "name": "RH",
+        "domain": "rh.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "rh"
+      },
+      {
+        "name": "Rooms To Go",
+        "domain": "roomstogo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "rooms-to-go"
+      },
+      {
+        "name": "Ruggable",
+        "domain": "ruggable.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ruggable"
+      },
+      {
+        "name": "Saatva",
+        "domain": "saatva.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "saatva"
+      },
+      {
+        "name": "Schoolhouse",
+        "domain": "schoolhouse.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "schoolhouse"
+      },
+      {
+        "name": "Sealy",
+        "domain": "sealy.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sealy"
+      },
+      {
+        "name": "Serena & Lily",
+        "domain": "serenaandlily.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "serena-lily"
+      },
+      {
+        "name": "Serta",
+        "domain": "serta.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "serta"
+      },
+      {
+        "name": "Sleep Number",
+        "domain": "sleepnumber.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sleep-number"
+      },
+      {
+        "name": "Stanley",
+        "domain": "stanley1913.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "stanley"
+      },
+      {
+        "name": "Steelcase",
+        "domain": "steelcase.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "steelcase"
+      },
+      {
+        "name": "Target Home",
+        "domain": "target.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "target-home"
+      },
+      {
+        "name": "Tempur-Pedic",
+        "domain": "tempurpedic.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tempur-pedic"
+      },
+      {
+        "name": "The Citizenry",
+        "domain": "the-citizenry.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-citizenry"
+      },
+      {
+        "name": "The Company Store",
+        "domain": "thecompanystore.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-company-store"
+      },
+      {
+        "name": "The Container Store",
+        "domain": "containerstore.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-container-store"
+      },
+      {
+        "name": "Tuft & Needle",
+        "domain": "tuftandneedle.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tuft-needle"
+      },
+      {
+        "name": "Vitamix",
+        "domain": "vitamix.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vitamix"
+      },
+      {
+        "name": "Vitra",
+        "domain": "vitra.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vitra"
+      },
+      {
+        "name": "Walmart Home",
+        "domain": "walmart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "walmart-home"
+      },
+      {
+        "name": "West Elm",
+        "domain": "westelm.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "west-elm"
+      },
+      {
+        "name": "Williams Sonoma",
+        "domain": "williams-sonoma.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "williams-sonoma"
+      },
+      {
+        "name": "World Market",
+        "domain": "worldmarket.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "world-market"
+      },
+      {
+        "name": "Yeti",
+        "domain": "yeti.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "yeti"
       }
     ],
     "Food & Grocery": [
       {
-        "name": "H Mart",
-        "domain": "hmart.com",
-        "enabled": true,
-        "catalog_status": "priority_verified_seed"
-      },
-      {
-        "name": "McDonald's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "mcdonald-s"
-      },
-      {
-        "name": "Starbucks",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "starbucks"
-      },
-      {
-        "name": "KFC",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kfc"
-      },
-      {
-        "name": "Subway",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "subway"
-      },
-      {
-        "name": "Domino's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "domino-s"
-      },
-      {
-        "name": "Pizza Hut",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "pizza-hut"
-      },
-      {
-        "name": "Burger King",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "burger-king"
-      },
-      {
-        "name": "Taco Bell",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "taco-bell"
-      },
-      {
-        "name": "Wendy's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "wendy-s"
-      },
-      {
-        "name": "Chipotle",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "chipotle"
-      },
-      {
-        "name": "Dunkin'",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dunkin"
-      },
-      {
-        "name": "Panera Bread",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "panera-bread"
-      },
-      {
-        "name": "Popeyes",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "popeyes"
-      },
-      {
-        "name": "Panda Express",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "panda-express"
-      },
-      {
-        "name": "Papa Johns",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "papa-johns"
-      },
-      {
-        "name": "Little Caesars",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "little-caesars"
-      },
-      {
-        "name": "Jack in the Box",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "jack-in-the-box"
-      },
-      {
-        "name": "Five Guys",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "five-guys"
-      },
-      {
-        "name": "Tim Hortons",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tim-hortons"
-      },
-      {
-        "name": "Pret A Manger",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "pret-a-manger"
-      },
-      {
-        "name": "Costa Coffee",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "costa-coffee"
-      },
-      {
-        "name": "Krispy Kreme",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "krispy-kreme"
-      },
-      {
-        "name": "Baskin-Robbins",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "baskin-robbins"
-      },
-      {
-        "name": "Dairy Queen",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "dairy-queen"
-      },
-      {
-        "name": "GNC",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "gnc"
-      },
-      {
-        "name": "iHerb",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "iherb"
-      },
-      {
-        "name": "Thrive Market",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "thrive-market"
-      },
-      {
-        "name": "HelloFresh",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hellofresh"
-      },
-      {
-        "name": "Blue Apron",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "blue-apron"
-      },
-      {
-        "name": "Instacart",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "instacart"
-      },
-      {
-        "name": "Walmart Grocery",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "walmart-grocery"
-      },
-      {
-        "name": "Target Grocery",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "target-grocery"
-      },
-      {
-        "name": "Whole Foods Market",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "whole-foods-market"
-      },
-      {
-        "name": "Trader Joe's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "trader-joe-s"
-      },
-      {
-        "name": "Aldi",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "aldi"
-      },
-      {
-        "name": "Lidl",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lidl"
-      },
-      {
-        "name": "Carrefour",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "carrefour"
-      },
-      {
-        "name": "Tesco",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tesco"
-      },
-      {
-        "name": "Sainsbury's",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sainsbury-s"
-      },
-      {
-        "name": "Waitrose",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "waitrose"
-      },
-      {
-        "name": "Morrisons",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "morrisons"
-      },
-      {
-        "name": "Ocado",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ocado"
-      },
-      {
-        "name": "Iceland Foods",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "iceland-foods"
-      },
-      {
-        "name": "Marks & Spencer Food",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "marks-spencer-food"
-      },
-      {
-        "name": "Kroger",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kroger"
-      },
-      {
-        "name": "Publix",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "publix"
-      },
-      {
-        "name": "Safeway",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "safeway"
-      },
-      {
         "name": "Albertsons",
-        "domain": "",
+        "domain": "albertsons.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "albertsons"
       },
       {
-        "name": "H-E-B",
-        "domain": "",
+        "name": "Aldi",
+        "domain": "aldi.us",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "h-e-b"
+        "catalog_status": "verified_first_party",
+        "slug": "aldi"
       },
       {
-        "name": "Meijer",
-        "domain": "",
+        "name": "Baskin-Robbins",
+        "domain": "baskinrobbins.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "meijer"
+        "catalog_status": "verified_first_party",
+        "slug": "baskin-robbins"
       },
       {
-        "name": "Giant Food",
-        "domain": "",
+        "name": "Blue Apron",
+        "domain": "blueapron.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "giant-food"
+        "catalog_status": "verified_first_party",
+        "slug": "blue-apron"
       },
       {
-        "name": "Stop & Shop",
-        "domain": "",
+        "name": "Burger King",
+        "domain": "bk.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "stop-shop"
+        "catalog_status": "verified_first_party",
+        "slug": "burger-king"
       },
       {
-        "name": "Wegmans",
-        "domain": "",
+        "name": "Care/of",
+        "domain": "w3.org",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "wegmans"
+        "catalog_status": "verified_first_party_search",
+        "slug": "care-of"
       },
       {
-        "name": "Food Lion",
-        "domain": "",
+        "name": "Carrefour",
+        "domain": "carrefour.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "food-lion"
+        "catalog_status": "verified_first_party",
+        "slug": "carrefour"
       },
       {
-        "name": "Sprouts Farmers Market",
-        "domain": "",
+        "name": "Chipotle",
+        "domain": "chipotle.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sprouts-farmers-market"
+        "catalog_status": "verified_first_party",
+        "slug": "chipotle"
       },
       {
-        "name": "FreshDirect",
-        "domain": "",
+        "name": "Costa Coffee",
+        "domain": "w3.org",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "freshdirect"
+        "catalog_status": "verified_first_party_search",
+        "slug": "costa-coffee"
       },
       {
-        "name": "Misfits Market",
-        "domain": "",
+        "name": "Daily Harvest",
+        "domain": "daily-harvest.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "misfits-market"
+        "catalog_status": "verified_first_party",
+        "slug": "daily-harvest"
       },
       {
-        "name": "Hungryroot",
-        "domain": "",
+        "name": "Dairy Queen",
+        "domain": "dairyqueen.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hungryroot"
+        "catalog_status": "verified_first_party",
+        "slug": "dairy-queen"
+      },
+      {
+        "name": "Deliveroo",
+        "domain": "deliveroo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "deliveroo"
+      },
+      {
+        "name": "Domino's",
+        "domain": "dominos.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "domino-s"
+      },
+      {
+        "name": "DoorDash",
+        "domain": "doordash.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "doordash"
+      },
+      {
+        "name": "Drizly",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "drizly"
+      },
+      {
+        "name": "Dunkin'",
+        "domain": "dunkindonuts.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "dunkin"
+      },
+      {
+        "name": "Eatfit",
+        "domain": "eatfit.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "eatfit"
       },
       {
         "name": "EveryPlate",
-        "domain": "",
+        "domain": "everyplate.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "everyplate"
       },
       {
         "name": "Factor",
-        "domain": "",
+        "domain": "factor75.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "factor"
       },
       {
-        "name": "Daily Harvest",
-        "domain": "",
+        "name": "Five Guys",
+        "domain": "fiveguys.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "daily-harvest"
+        "catalog_status": "verified_first_party",
+        "slug": "five-guys"
       },
       {
-        "name": "Omaha Steaks",
-        "domain": "",
+        "name": "Food Lion",
+        "domain": "foodlion.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "omaha-steaks"
-      },
-      {
-        "name": "Harry & David",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "harry-david"
-      },
-      {
-        "name": "Goldbelly",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "goldbelly"
-      },
-      {
-        "name": "Myprotein",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "myprotein"
-      },
-      {
-        "name": "The Vitamin Shoppe",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "the-vitamin-shoppe"
-      },
-      {
-        "name": "Vitamin Shoppe",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vitamin-shoppe"
-      },
-      {
-        "name": "Swanson Vitamins",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "swanson-vitamins"
-      },
-      {
-        "name": "Vitacost",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vitacost"
-      },
-      {
-        "name": "Nature Made",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nature-made"
-      },
-      {
-        "name": "Ritual",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ritual"
-      },
-      {
-        "name": "Care/of",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "care-of"
-      },
-      {
-        "name": "Thrive Causemetics",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "thrive-causemetics"
-      },
-      {
-        "name": "Naked Wines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "naked-wines"
-      },
-      {
-        "name": "Wine.com",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "wine-com"
-      },
-      {
-        "name": "Total Wine & More",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "total-wine-more"
-      },
-      {
-        "name": "Drizly",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "drizly"
+        "catalog_status": "verified_first_party",
+        "slug": "food-lion"
       },
       {
         "name": "Fresh Market",
-        "domain": "",
+        "domain": "thefreshmarket.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "fresh-market"
       },
       {
-        "name": "Gopuff",
-        "domain": "",
+        "name": "FreshDirect",
+        "domain": "w3.org",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party_search",
+        "slug": "freshdirect"
+      },
+      {
+        "name": "Giant Food",
+        "domain": "giantfood.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "giant-food"
+      },
+      {
+        "name": "GNC",
+        "domain": "gnc.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "gnc"
+      },
+      {
+        "name": "Goldbelly",
+        "domain": "goldbelly.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "goldbelly"
+      },
+      {
+        "name": "Gopuff",
+        "domain": "gopuff.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "gopuff"
       },
       {
-        "name": "DoorDash",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "doordash"
-      },
-      {
-        "name": "Uber Eats",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "uber-eats"
-      },
-      {
         "name": "Grubhub",
-        "domain": "",
+        "domain": "grubhub.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "grubhub"
       },
       {
-        "name": "Postmates",
-        "domain": "",
+        "name": "H Mart",
+        "domain": "hmart.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "postmates"
+        "catalog_status": "verified_first_party"
       },
       {
-        "name": "Deliveroo",
-        "domain": "",
+        "name": "H-E-B",
+        "domain": "heb.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "deliveroo"
+        "catalog_status": "verified_first_party",
+        "slug": "h-e-b"
       },
       {
-        "name": "Just Eat",
-        "domain": "",
+        "name": "Harry & David",
+        "domain": "harryanddavid.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "just-eat"
+        "catalog_status": "verified_first_party",
+        "slug": "harry-david"
+      },
+      {
+        "name": "HelloFresh",
+        "domain": "hellofresh.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hellofresh"
       },
       {
         "name": "HelloFresh Market",
-        "domain": "",
+        "domain": "hellofresh.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "hellofresh-market"
       },
       {
-        "name": "Eatfit",
-        "domain": "",
+        "name": "Hungryroot",
+        "domain": "hungryroot.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "eatfit"
+        "catalog_status": "verified_first_party",
+        "slug": "hungryroot"
+      },
+      {
+        "name": "Iceland Foods",
+        "domain": "iceland.co.uk",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "iceland-foods"
+      },
+      {
+        "name": "iHerb",
+        "domain": "iherb.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "iherb"
+      },
+      {
+        "name": "Instacart",
+        "domain": "instacart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "instacart"
+      },
+      {
+        "name": "Jack in the Box",
+        "domain": "jackinthebox.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "jack-in-the-box"
+      },
+      {
+        "name": "Just Eat",
+        "domain": "justeat.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "just-eat"
+      },
+      {
+        "name": "KFC",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "kfc"
+      },
+      {
+        "name": "Krispy Kreme",
+        "domain": "krispykreme.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "krispy-kreme"
+      },
+      {
+        "name": "Kroger",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "kroger"
+      },
+      {
+        "name": "Lidl",
+        "domain": "lidl.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lidl"
+      },
+      {
+        "name": "Little Caesars",
+        "domain": "littlecaesars.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "little-caesars"
+      },
+      {
+        "name": "Marks & Spencer Food",
+        "domain": "marksandspencer.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "marks-spencer-food"
+      },
+      {
+        "name": "McDonald's",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "mcdonald-s"
+      },
+      {
+        "name": "Meijer",
+        "domain": "meijer.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "meijer"
+      },
+      {
+        "name": "Misfits Market",
+        "domain": "misfitsmarket.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "misfits-market"
+      },
+      {
+        "name": "Morrisons",
+        "domain": "morrisons.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "morrisons"
+      },
+      {
+        "name": "Myprotein",
+        "domain": "myprotein.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "myprotein"
+      },
+      {
+        "name": "Naked Wines",
+        "domain": "nakedwines.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "naked-wines"
+      },
+      {
+        "name": "Nature Made",
+        "domain": "naturemade.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nature-made"
+      },
+      {
+        "name": "Ocado",
+        "domain": "ocado.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ocado"
+      },
+      {
+        "name": "Omaha Steaks",
+        "domain": "omahasteaks.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "omaha-steaks"
+      },
+      {
+        "name": "Panda Express",
+        "domain": "pandaexpress.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "panda-express"
+      },
+      {
+        "name": "Panera Bread",
+        "domain": "panerabread.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "panera-bread"
+      },
+      {
+        "name": "Papa Johns",
+        "domain": "papajohns.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "papa-johns"
+      },
+      {
+        "name": "Pizza Hut",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "pizza-hut"
+      },
+      {
+        "name": "Popeyes",
+        "domain": "popeyes.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "popeyes"
+      },
+      {
+        "name": "Postmates",
+        "domain": "postmates.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "postmates"
+      },
+      {
+        "name": "Pret A Manger",
+        "domain": "pret.co.uk",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "pret-a-manger"
+      },
+      {
+        "name": "Publix",
+        "domain": "publix.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "publix"
+      },
+      {
+        "name": "Ritual",
+        "domain": "ritual.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ritual"
+      },
+      {
+        "name": "Safeway",
+        "domain": "safeway.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "safeway"
+      },
+      {
+        "name": "Sainsbury's",
+        "domain": "sainsburys.co.uk",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sainsbury-s"
+      },
+      {
+        "name": "Sprouts Farmers Market",
+        "domain": "sprouts.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sprouts-farmers-market"
+      },
+      {
+        "name": "Starbucks",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "starbucks"
+      },
+      {
+        "name": "Stop & Shop",
+        "domain": "stopandshop.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "stop-shop"
+      },
+      {
+        "name": "Subway",
+        "domain": "subway.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "subway"
+      },
+      {
+        "name": "Swanson Vitamins",
+        "domain": "swansonvitamins.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "swanson-vitamins"
+      },
+      {
+        "name": "Taco Bell",
+        "domain": "tacobell.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "taco-bell"
+      },
+      {
+        "name": "Target Grocery",
+        "domain": "target.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "target-grocery"
+      },
+      {
+        "name": "Tesco",
+        "domain": "tesco.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tesco"
+      },
+      {
+        "name": "The Vitamin Shoppe",
+        "domain": "vitaminshoppe.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "the-vitamin-shoppe"
+      },
+      {
+        "name": "Thrive Causemetics",
+        "domain": "thrivecausemetics.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "thrive-causemetics"
+      },
+      {
+        "name": "Thrive Market",
+        "domain": "thrivemarket.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "thrive-market"
+      },
+      {
+        "name": "Tim Hortons",
+        "domain": "timhortons.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tim-hortons"
       },
       {
         "name": "Too Good To Go",
-        "domain": "",
+        "domain": "toogoodtogo.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "too-good-to-go"
+      },
+      {
+        "name": "Total Wine & More",
+        "domain": "totalwine.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "total-wine-more"
+      },
+      {
+        "name": "Trader Joe's",
+        "domain": "traderjoes.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "trader-joe-s"
+      },
+      {
+        "name": "Uber Eats",
+        "domain": "ubereats.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "uber-eats"
+      },
+      {
+        "name": "Vitacost",
+        "domain": "vitacost.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vitacost"
+      },
+      {
+        "name": "Vitamin Shoppe",
+        "domain": "vitaminshoppe.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vitamin-shoppe"
+      },
+      {
+        "name": "Waitrose",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "waitrose"
+      },
+      {
+        "name": "Walmart Grocery",
+        "domain": "walmart.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "walmart-grocery"
+      },
+      {
+        "name": "Wegmans",
+        "domain": "wegmans.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "wegmans"
+      },
+      {
+        "name": "Wendy's",
+        "domain": "wendys.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "wendy-s"
+      },
+      {
+        "name": "Whole Foods Market",
+        "domain": "wholefoodsmarket.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "whole-foods-market"
+      },
+      {
+        "name": "Wine.com",
+        "domain": "wine.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "wine-com"
       }
     ],
     "Travel & Hotels": [
       {
-        "name": "Booking.com",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "booking-com"
-      },
-      {
-        "name": "Expedia",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "expedia"
-      },
-      {
-        "name": "Hotels.com",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hotels-com"
-      },
-      {
-        "name": "Agoda",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "agoda"
-      },
-      {
-        "name": "Trip.com",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "trip-com"
-      },
-      {
-        "name": "Priceline",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "priceline"
-      },
-      {
-        "name": "Kayak",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "kayak"
-      },
-      {
-        "name": "Skyscanner",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "skyscanner"
-      },
-      {
-        "name": "Travelocity",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "travelocity"
-      },
-      {
-        "name": "Orbitz",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "orbitz"
-      },
-      {
-        "name": "Vrbo",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "vrbo"
-      },
-      {
-        "name": "Airbnb",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "airbnb"
-      },
-      {
-        "name": "Hostelworld",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hostelworld"
-      },
-      {
-        "name": "TUI",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tui"
-      },
-      {
-        "name": "Tripadvisor",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "tripadvisor"
-      },
-      {
-        "name": "Klook",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "klook"
-      },
-      {
-        "name": "GetYourGuide",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "getyourguide"
-      },
-      {
-        "name": "Viator",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "viator"
-      },
-      {
-        "name": "Omio",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "omio"
-      },
-      {
-        "name": "Rome2Rio",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "rome2rio"
-      },
-      {
-        "name": "Trainline",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "trainline"
-      },
-      {
-        "name": "Amtrak",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "amtrak"
-      },
-      {
-        "name": "Greyhound",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "greyhound"
-      },
-      {
-        "name": "FlixBus",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "flixbus"
-      },
-      {
-        "name": "Southwest Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "southwest-airlines"
-      },
-      {
-        "name": "Delta Air Lines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "delta-air-lines"
-      },
-      {
-        "name": "United Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "united-airlines"
-      },
-      {
-        "name": "American Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "american-airlines"
-      },
-      {
-        "name": "JetBlue",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "jetblue"
-      },
-      {
-        "name": "Alaska Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "alaska-airlines"
-      },
-      {
-        "name": "Air Canada",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "air-canada"
-      },
-      {
-        "name": "British Airways",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "british-airways"
-      },
-      {
-        "name": "Virgin Atlantic",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "virgin-atlantic"
-      },
-      {
-        "name": "Lufthansa",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "lufthansa"
-      },
-      {
-        "name": "Air France",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "air-france"
-      },
-      {
-        "name": "KLM",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "klm"
-      },
-      {
-        "name": "Emirates",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "emirates"
-      },
-      {
-        "name": "Qatar Airways",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "qatar-airways"
-      },
-      {
-        "name": "Etihad Airways",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "etihad-airways"
-      },
-      {
-        "name": "Singapore Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "singapore-airlines"
-      },
-      {
-        "name": "Cathay Pacific",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "cathay-pacific"
-      },
-      {
-        "name": "ANA",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ana"
-      },
-      {
-        "name": "Japan Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "japan-airlines"
-      },
-      {
-        "name": "Qantas",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "qantas"
-      },
-      {
-        "name": "Ryanair",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ryanair"
-      },
-      {
-        "name": "easyJet",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "easyjet"
-      },
-      {
-        "name": "Iberia",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "iberia"
-      },
-      {
-        "name": "Turkish Airlines",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "turkish-airlines"
-      },
-      {
-        "name": "Marriott",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "marriott"
-      },
-      {
-        "name": "Hilton",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hilton"
-      },
-      {
-        "name": "Hyatt",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hyatt"
-      },
-      {
-        "name": "IHG Hotels & Resorts",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "ihg-hotels-resorts"
-      },
-      {
         "name": "Accor",
-        "domain": "",
+        "domain": "accor.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "accor"
       },
       {
-        "name": "Wyndham Hotels",
-        "domain": "",
+        "name": "Agoda",
+        "domain": "agoda.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "wyndham-hotels"
+        "catalog_status": "verified_first_party",
+        "slug": "agoda"
       },
       {
-        "name": "Radisson Hotels",
-        "domain": "",
+        "name": "Air Canada",
+        "domain": "aircanada.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "radisson-hotels"
+        "catalog_status": "verified_first_party",
+        "slug": "air-canada"
+      },
+      {
+        "name": "Air France",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "air-france"
+      },
+      {
+        "name": "Airbnb",
+        "domain": "airbnb.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "airbnb"
+      },
+      {
+        "name": "Alaska Airlines",
+        "domain": "alaskaair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "alaska-airlines"
+      },
+      {
+        "name": "American Airlines",
+        "domain": "aa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "american-airlines"
+      },
+      {
+        "name": "Amtrak",
+        "domain": "amtrak.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "amtrak"
+      },
+      {
+        "name": "ANA",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "ana"
+      },
+      {
+        "name": "Barceló Hotel Group",
+        "domain": "barcelo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "barcel-hotel-group"
       },
       {
         "name": "Best Western",
-        "domain": "",
+        "domain": "bestwestern.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "best-western"
       },
       {
-        "name": "Choice Hotels",
-        "domain": "",
+        "name": "Booking.com",
+        "domain": "booking.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "booking-com"
+      },
+      {
+        "name": "British Airways",
+        "domain": "britishairways.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "british-airways"
+      },
+      {
+        "name": "Cathay Pacific",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "cathay-pacific"
+      },
+      {
+        "name": "Choice Hotels",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
         "slug": "choice-hotels"
       },
       {
-        "name": "Motel 6",
-        "domain": "",
+        "name": "Club Med",
+        "domain": "clubmed.us",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "motel-6"
+        "catalog_status": "verified_first_party",
+        "slug": "club-med"
       },
       {
-        "name": "Travelodge",
-        "domain": "",
+        "name": "Comfort Inn",
+        "domain": "w3.org",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "travelodge"
+        "catalog_status": "verified_first_party_search",
+        "slug": "comfort-inn"
       },
       {
-        "name": "Premier Inn",
-        "domain": "",
+        "name": "Courtyard by Marriott",
+        "domain": "marriott.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "premier-inn"
-      },
-      {
-        "name": "Holiday Inn",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "holiday-inn"
+        "catalog_status": "verified_first_party",
+        "slug": "courtyard-by-marriott"
       },
       {
         "name": "Crowne Plaza",
-        "domain": "",
+        "domain": "ihg.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "crowne-plaza"
       },
       {
-        "name": "InterContinental",
-        "domain": "",
+        "name": "Delta Air Lines",
+        "domain": "delta.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "intercontinental"
+        "catalog_status": "verified_first_party",
+        "slug": "delta-air-lines"
       },
       {
-        "name": "Novotel",
-        "domain": "",
+        "name": "DoubleTree by Hilton",
+        "domain": "hilton.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "novotel"
+        "catalog_status": "verified_first_party",
+        "slug": "doubletree-by-hilton"
       },
       {
-        "name": "Pullman Hotels",
-        "domain": "",
+        "name": "easyJet",
+        "domain": "easyjet.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "pullman-hotels"
+        "catalog_status": "verified_first_party",
+        "slug": "easyjet"
       },
       {
-        "name": "Sofitel",
-        "domain": "",
+        "name": "Embassy Suites",
+        "domain": "hilton.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sofitel"
+        "catalog_status": "verified_first_party",
+        "slug": "embassy-suites"
+      },
+      {
+        "name": "Emirates",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "emirates"
+      },
+      {
+        "name": "Etihad Airways",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "etihad-airways"
+      },
+      {
+        "name": "Expedia",
+        "domain": "expedia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "expedia"
       },
       {
         "name": "Fairmont",
-        "domain": "",
+        "domain": "fairmont.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "fairmont"
       },
       {
-        "name": "Four Seasons",
-        "domain": "",
+        "name": "FlixBus",
+        "domain": "flixbus.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "flixbus"
+      },
+      {
+        "name": "Four Seasons",
+        "domain": "fourseasons.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "four-seasons"
       },
       {
-        "name": "Shangri-La",
-        "domain": "",
+        "name": "GetYourGuide",
+        "domain": "getyourguide.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "shangri-la"
+        "catalog_status": "verified_first_party",
+        "slug": "getyourguide"
+      },
+      {
+        "name": "Greyhound",
+        "domain": "greyhound.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "greyhound"
+      },
+      {
+        "name": "Hampton by Hilton",
+        "domain": "hilton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hampton-by-hilton"
+      },
+      {
+        "name": "Hampton Inn",
+        "domain": "hilton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hampton-inn"
+      },
+      {
+        "name": "Hilton",
+        "domain": "hilton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hilton"
+      },
+      {
+        "name": "Hilton Garden Inn",
+        "domain": "hilton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hilton-garden-inn"
+      },
+      {
+        "name": "Holiday Inn",
+        "domain": "ihg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "holiday-inn"
+      },
+      {
+        "name": "Homewood Suites",
+        "domain": "hilton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "homewood-suites"
+      },
+      {
+        "name": "Hostelworld",
+        "domain": "hostelworld.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hostelworld"
+      },
+      {
+        "name": "Hotels.com",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "hotels-com"
+      },
+      {
+        "name": "Hyatt",
+        "domain": "hyatt.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hyatt"
+      },
+      {
+        "name": "Hyatt Place",
+        "domain": "hyatt.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "hyatt-place"
+      },
+      {
+        "name": "Iberia",
+        "domain": "iberia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "iberia"
+      },
+      {
+        "name": "IHG Hotels & Resorts",
+        "domain": "ihg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ihg-hotels-resorts"
+      },
+      {
+        "name": "InterContinental",
+        "domain": "ihg.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "intercontinental"
+      },
+      {
+        "name": "Japan Airlines",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "japan-airlines"
+      },
+      {
+        "name": "JetBlue",
+        "domain": "jetblue.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "jetblue"
+      },
+      {
+        "name": "Kayak",
+        "domain": "kayak.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "kayak"
+      },
+      {
+        "name": "KLM",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "klm"
+      },
+      {
+        "name": "Klook",
+        "domain": "klook.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "klook"
+      },
+      {
+        "name": "La Quinta",
+        "domain": "wyndhamhotels.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "la-quinta"
+      },
+      {
+        "name": "Lufthansa",
+        "domain": "lufthansa.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "lufthansa"
       },
       {
         "name": "Mandarin Oriental",
-        "domain": "",
+        "domain": "mandarinoriental.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "mandarin-oriental"
       },
       {
-        "name": "Ritz-Carlton",
-        "domain": "",
+        "name": "Marriott",
+        "domain": "marriott.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "marriott"
+      },
+      {
+        "name": "Meliá Hotels",
+        "domain": "melia.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "meli-hotels"
+      },
+      {
+        "name": "Motel 6",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "motel-6"
+      },
+      {
+        "name": "NH Hotels",
+        "domain": "nh-hotels.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "nh-hotels"
+      },
+      {
+        "name": "Novotel",
+        "domain": "novotel.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "novotel"
+      },
+      {
+        "name": "Omio",
+        "domain": "omio.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "omio"
+      },
+      {
+        "name": "Orbitz",
+        "domain": "orbitz.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "orbitz"
+      },
+      {
+        "name": "Premier Inn",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "premier-inn"
+      },
+      {
+        "name": "Priceline",
+        "domain": "priceline.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "priceline"
+      },
+      {
+        "name": "Pullman Hotels",
+        "domain": "pullmanhotels.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "pullman-hotels"
+      },
+      {
+        "name": "Qantas",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "qantas"
+      },
+      {
+        "name": "Qatar Airways",
+        "domain": "qatarairways.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "qatar-airways"
+      },
+      {
+        "name": "Radisson Hotels",
+        "domain": "radissonhotels.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "radisson-hotels"
+      },
+      {
+        "name": "Residence Inn",
+        "domain": "marriott.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "residence-inn"
+      },
+      {
+        "name": "Ritz-Carlton",
+        "domain": "ritzcarlton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "ritz-carlton"
       },
       {
-        "name": "W Hotels",
-        "domain": "",
+        "name": "Rome2Rio",
+        "domain": "rome2rio.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
+        "slug": "rome2rio"
+      },
+      {
+        "name": "Ryanair",
+        "domain": "ryanair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "ryanair"
+      },
+      {
+        "name": "Shangri-La",
+        "domain": "shangri-la.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "shangri-la"
+      },
+      {
+        "name": "Sheraton",
+        "domain": "sheraton.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sheraton"
+      },
+      {
+        "name": "Singapore Airlines",
+        "domain": "singaporeair.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "singapore-airlines"
+      },
+      {
+        "name": "Skyscanner",
+        "domain": "skyscanner.net",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "skyscanner"
+      },
+      {
+        "name": "Sofitel",
+        "domain": "sofitel.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "sofitel"
+      },
+      {
+        "name": "Southwest Airlines",
+        "domain": "southwest.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "southwest-airlines"
+      },
+      {
+        "name": "Trainline",
+        "domain": "thetrainline.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "trainline"
+      },
+      {
+        "name": "Travelocity",
+        "domain": "travelocity.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "travelocity"
+      },
+      {
+        "name": "Travelodge",
+        "domain": "travelodge.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "travelodge"
+      },
+      {
+        "name": "Trip.com",
+        "domain": "trip.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "trip-com"
+      },
+      {
+        "name": "Tripadvisor",
+        "domain": "tripadvisor.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tripadvisor"
+      },
+      {
+        "name": "TUI",
+        "domain": "tui.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "tui"
+      },
+      {
+        "name": "Turkish Airlines",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "turkish-airlines"
+      },
+      {
+        "name": "United Airlines",
+        "domain": "w3.org",
+        "enabled": true,
+        "catalog_status": "verified_first_party_search",
+        "slug": "united-airlines"
+      },
+      {
+        "name": "Viator",
+        "domain": "viator.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "viator"
+      },
+      {
+        "name": "Virgin Atlantic",
+        "domain": "virginatlantic.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "virgin-atlantic"
+      },
+      {
+        "name": "Vrbo",
+        "domain": "vrbo.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
+        "slug": "vrbo"
+      },
+      {
+        "name": "W Hotels",
+        "domain": "marriott.com",
+        "enabled": true,
+        "catalog_status": "verified_first_party",
         "slug": "w-hotels"
       },
       {
         "name": "Westin",
-        "domain": "",
+        "domain": "westin.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
+        "catalog_status": "verified_first_party",
         "slug": "westin"
       },
       {
-        "name": "Sheraton",
-        "domain": "",
+        "name": "Wyndham Hotels",
+        "domain": "wyndhamhotels.com",
         "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "sheraton"
-      },
-      {
-        "name": "Courtyard by Marriott",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "courtyard-by-marriott"
-      },
-      {
-        "name": "Residence Inn",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "residence-inn"
-      },
-      {
-        "name": "Homewood Suites",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "homewood-suites"
-      },
-      {
-        "name": "Hampton by Hilton",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hampton-by-hilton"
-      },
-      {
-        "name": "DoubleTree by Hilton",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "doubletree-by-hilton"
-      },
-      {
-        "name": "Embassy Suites",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "embassy-suites"
-      },
-      {
-        "name": "Meliá Hotels",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "meli-hotels"
-      },
-      {
-        "name": "NH Hotels",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "nh-hotels"
-      },
-      {
-        "name": "Barceló Hotel Group",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "barcel-hotel-group"
-      },
-      {
-        "name": "Club Med",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "club-med"
-      },
-      {
-        "name": "Hyatt Place",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hyatt-place"
-      },
-      {
-        "name": "Hilton Garden Inn",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hilton-garden-inn"
-      },
-      {
-        "name": "Hampton Inn",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "hampton-inn"
-      },
-      {
-        "name": "La Quinta",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "la-quinta"
-      },
-      {
-        "name": "Comfort Inn",
-        "domain": "",
-        "enabled": true,
-        "seo_only": true,
-        "catalog_status": "priority_brand_pending_domain",
-        "slug": "comfort-inn"
+        "catalog_status": "verified_first_party",
+        "slug": "wyndham-hotels"
       }
     ]
   }
