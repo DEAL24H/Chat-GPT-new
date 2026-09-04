@@ -12,7 +12,7 @@ OVERRIDES = {
  'Burke Decor':'burkedecor.com','Costco Home':'costco.com','KitchenAid':'kitchenaid.com','Mercury Row':'wayfair.com','Care/of':'careof.com','Costa Coffee':'costa.co.uk','FreshDirect':'freshdirect.com','KFC':'kfc.com','Kroger':'kroger.com','McDonald\'s':'mcdonalds.com','Pizza Hut':'pizzahut.com','Starbucks':'starbucks.com','Waitrose':'waitrose.com',
  'Air France':'airfrance.com','ANA':'ana.co.jp','Cathay Pacific':'cathaypacific.com','Choice Hotels':'choicehotels.com','Comfort Inn':'choicehotels.com','Emirates':'emirates.com','Etihad Airways':'etihad.com','Hotels.com':'hotels.com','Japan Airlines':'jal.com','KLM':'klm.com','Motel 6':'motel6.com','Premier Inn':'premierinn.com','Qantas':'qantas.com','Turkish Airlines':'turkishairlines.com','United Airlines':'united.com'
 }
-REPLACEMENTS = {'Drizly': ('eBay','ebay.com')}
+REPLACEMENTS = {'Drizly': ('Micro Center','microcenter.com')}
 
 def host(v):
     v=(v or '').lower().strip().replace('https://','').replace('http://','').split('/')[0].split(':')[0]
@@ -36,8 +36,8 @@ def main():
             if str(e.get('name','')).strip().casefold()=='uber eats': uber_rows.append((category,e))
     if len(uber_rows)>1:
         category,e=uber_rows[-1]
-        e['name']='eBay'; e['domain']='ebay.com'; e['catalog_status']='verified_first_party'
-        changed.append('duplicate Uber Eats -> eBay (legacy Drizly replacement cleanup)')
+        e['name']='Micro Center'; e['domain']='microcenter.com'; e['catalog_status']='verified_first_party'
+        changed.append('duplicate Uber Eats -> Micro Center (legacy Drizly replacement cleanup)')
     if set(cats) != set(EXPECTED): errors.append(f'categories mismatch: {sorted(cats)}')
     for category, expected in EXPECTED.items():
         entries=cats.get(category,[])
