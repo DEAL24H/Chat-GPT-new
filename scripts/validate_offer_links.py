@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
-SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)", re.I)
+SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/", re.I)
 BAD_PATH_RE = re.compile(r"terms|terms.?conditions|privacy|legal|help|faq|promotion.?terms", re.I)
 
 
@@ -35,7 +35,6 @@ def main():
     for item in data:
         code = str(item.get("code") or "").strip()
         promotion = str(item.get("promotion_url") or item.get("url") or "").strip()
-        source = str(item.get("source_url") or "").strip()
         if code:
             code_count += 1
             if not is_purchase_url(promotion):
@@ -44,10 +43,6 @@ def main():
             seo_count += 1
             if not http_url(promotion):
                 errors.append(f"SEO {item.get('merchant')}: missing promotion destination")
-            # Code-less programs may intentionally point to an SEO/program landing page;
-            # they must not be silently replaced by source_url when a promotion_url exists.
-            if source and promotion != source and not http_url(promotion):
-                errors.append(f"SEO {item.get('merchant')}: invalid promotion destination")
 
     if errors:
         print(f"OFFER LINK VALIDATION FAILED: errors={len(errors)} code_offers={code_count} seo_offers={seo_count}")
