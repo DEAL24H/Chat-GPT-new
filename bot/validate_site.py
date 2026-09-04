@@ -19,13 +19,24 @@ def load_items():
         raise SystemExit(f"VALIDATION ERROR: cannot read news.json: {exc}")
 
 
-def official_destination(item):
+def host(value):
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    parsed = urlparse(raw if "://" in raw else "https://" + raw)
+    return (parsed.hostname or "").lower().removeprefix("www.")
+
+
+def same_domain(destination, domain):
+    dst, src = host(destination), host(domain)
+    return bool(dst and src and (dst == src or dst.endswith("." + src)))
+
+
+def official_destination(item, catalog_entry):
     destination = item.get("promotion_url") or item.get("source_url") or item.get("url") or ""
     if not destination:
         return False
-    source_domain = str(item.get("source_domain", "")).lower().removeprefix("www.")
-    host = urlparse(destination).netloc.lower().removeprefix("www.")
-    return bool(host and source_domain and (host == source_domain or host.endswith("." + source_domain)))
+    return same_domain(destination, catalog_entry.get("domain", ""))
 
 
 def main():
@@ -47,7 +58,6 @@ def main():
                 errors.append(f"brand slug collision: {owner!r} and {brand!r} -> {slug}")
             slug_owner[slug] = brand
 
-    active_brands = set()
     for item in active:
         hit = resolve_brand(item.get("merchant"))
         if not hit:
@@ -57,9 +67,8 @@ def main():
             errors.append(f"category mismatch for {hit['name']}: {item.get('category')!r} != {hit['category']}")
         if not (item.get("promotion_url") or item.get("source_url") or item.get("url")):
             errors.append(f"active offer has no destination: {hit['name']}")
-        elif not official_destination(item):
-            errors.append(f"active offer destination is outside its official source domain: {hit['name']}")
-        active_brands.add(hit["name"])
+        elif not official_destination(item, hit):
+            errors.append(f"active offer destination is outside catalog official domain: {hit['name']}")
 
     for category, slug in CATEGORY_SLUGS.items():
         path = ROOT / slug / "index.html"
