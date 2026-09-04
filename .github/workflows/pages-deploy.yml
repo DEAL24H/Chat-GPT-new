@@ -12,7 +12,7 @@ on:
       - 'data/analytics.json'
       - 'CNAME'
   workflow_run:
-    workflows: [Admin Control, Analytics Snapshot, Deal Bot]
+    workflows: [Admin Control, Analytics Snapshot, Deal Bot, Six Category SEO Migration]
     types: [completed]
     branches: [main]
 permissions:
