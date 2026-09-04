@@ -11,9 +11,9 @@ on:
     paths:
       - '.github/workflows/news-bot.yml'
   schedule:
-    - cron: '0 22 * * *' # 05:00 Vietnam time
-    - cron: '0 6 * * *'  # 13:00 Vietnam time
-    - cron: '0 14 * * *' # 21:00 Vietnam time
+    - cron: '0 22 * * *'
+    - cron: '0 6 * * *'
+    - cron: '0 14 * * *'
 permissions:
   contents: write
   pages: write
@@ -42,8 +42,15 @@ jobs:
           node --check assets/app-fix.js
           node --check assets/app-999.js
           node --check assets/app-home.js
-      - name: Validate locked 6-category catalog
-        run: python scripts/validate_catalog_999.py
+      - name: Validate locked 6-category catalog and source mapping
+        run: |
+          python scripts/validate_catalog_999.py
+          python - <<'PY'
+          import json
+          p='data/brand_catalog.json'
+          d=json.load(open(p,encoding='utf-8'))['categories']
+          print('LOCKED CATALOG AUDIT:', sum(len(v) for v in d.values()), 'brands across', len(d), 'categories; no production step is allowed to rewrite this file.')
+          PY
       - name: Select category scan mode
         env:
           MANUAL_BATCH: ${{ inputs.batch_index }}
