@@ -12,8 +12,11 @@ OVERRIDES = {
  'Burke Decor':'burkedecor.com','Costco Home':'costco.com','KitchenAid':'kitchenaid.com','Mercury Row':'wayfair.com','Care/of':'careof.com','Costa Coffee':'costa.co.uk','FreshDirect':'freshdirect.com','KFC':'kfc.com','Kroger':'kroger.com','McDonald\'s':'mcdonalds.com','Pizza Hut':'pizzahut.com','Starbucks':'starbucks.com','Waitrose':'waitrose.com',
  'Air France':'airfrance.com','ANA':'ana.co.jp','Cathay Pacific':'cathaypacific.com','Choice Hotels':'choicehotels.com','Comfort Inn':'choicehotels.com','Emirates':'emirates.com','Etihad Airways':'etihad.com','Hotels.com':'hotels.com','Japan Airlines':'jal.com','KLM':'klm.com','Motel 6':'motel6.com','Premier Inn':'premierinn.com','Qantas':'qantas.com','Turkish Airlines':'turkishairlines.com','United Airlines':'united.com'
 }
-# Curated active replacement pool; the script chooses the first brand not already present.
-REPLACEMENT_POOL = [('B&H Photo Video','bhphotovideo.com'),('Crutchfield','crutchfield.com'),('Newegg','newegg.com'),('QVC','qvc.com'),('Overstock','overstock.com')]
+REPLACEMENT_POOL = [
+ ('B&H Photo Video','bhphotovideo.com'),('Crutchfield','crutchfield.com'),('Newegg','newegg.com'),('QVC','qvc.com'),('Overstock','overstock.com'),
+ ('Dillard\'s','dillards.com'),('Belk','belk.com'),('Von Maur','vonmaur.com'),('L.L.Bean','llbean.com'),('Saks Fifth Avenue','saksfifthavenue.com'),
+ ('Bloomingdale\'s','bloomingdales.com'),('Michaels','michaels.com'),('Hobby Lobby','hobbylobby.com')
+]
 
 def host(v):
     v=(v or '').lower().strip().replace('https://','').replace('http://','').split('/')[0].split(':')[0]
@@ -24,8 +27,6 @@ def main():
     cats=data.get('categories',{})
     errors=[]; changed=[]; seen=set(); total=0
     names={str(e.get('name','')).strip().casefold() for entries in cats.values() for e in entries}
-    # The old catalog contains a retired Drizly slot now carrying a duplicate Uber Eats row.
-    # Replace only the extra Uber Eats row with a curated, currently active brand not already present.
     uber_rows=[]
     for category, entries in cats.items():
         for e in entries:
