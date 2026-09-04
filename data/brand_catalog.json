@@ -2453,10 +2453,10 @@
         "slug": "doordash"
       },
       {
-        "name": "Drizly",
-        "domain": "w3.org",
+        "name": "Uber Eats",
+        "domain": "ubereats.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "drizly"
       },
       {
