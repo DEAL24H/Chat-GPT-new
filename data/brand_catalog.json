@@ -1135,9 +1135,9 @@
     "Consumer": [
       {
         "name": "Acer",
-        "domain": "w3.org",
+        "domain": "acer.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "acer"
       },
       {
@@ -1169,9 +1169,9 @@
       },
       {
         "name": "AMD",
-        "domain": "w3.org",
+        "domain": "amd.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "amd"
       },
       {
@@ -1277,9 +1277,9 @@
       },
       {
         "name": "Chromecast",
-        "domain": "w3.org",
+        "domain": "store.google.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "chromecast"
       },
       {
@@ -1291,9 +1291,9 @@
       },
       {
         "name": "Costco",
-        "domain": "w3.org",
+        "domain": "costco.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Crutchfield",
@@ -1350,9 +1350,9 @@
       },
       {
         "name": "Fitbit",
-        "domain": "w3.org",
+        "domain": "fitbit.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "fitbit"
       },
       {
@@ -1385,9 +1385,9 @@
       },
       {
         "name": "Google Store",
-        "domain": "w3.org",
+        "domain": "store.google.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "google-store"
       },
       {
@@ -1444,16 +1444,16 @@
       },
       {
         "name": "JBL",
-        "domain": "w3.org",
+        "domain": "jbl.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "jbl"
       },
       {
         "name": "JCPenney",
-        "domain": "w3.org",
+        "domain": "jcp.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "jcpenney"
       },
       {
@@ -1557,9 +1557,9 @@
       },
       {
         "name": "Office Depot",
-        "domain": "w3.org",
+        "domain": "officedepot.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "OnePlus",
@@ -1649,9 +1649,9 @@
       },
       {
         "name": "Staples",
-        "domain": "w3.org",
+        "domain": "staples.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Steam",
@@ -1843,9 +1843,9 @@
       },
       {
         "name": "Burke Decor",
-        "domain": "w3.org",
+        "domain": "burkedecor.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "burke-decor"
       },
       {
@@ -1885,9 +1885,9 @@
       },
       {
         "name": "Costco Home",
-        "domain": "w3.org",
+        "domain": "costco.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "costco-home"
       },
       {
@@ -2018,9 +2018,9 @@
       },
       {
         "name": "KitchenAid",
-        "domain": "w3.org",
+        "domain": "kitchenaid.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "kitchenaid"
       },
       {
@@ -2102,9 +2102,9 @@
       },
       {
         "name": "Mercury Row",
-        "domain": "w3.org",
+        "domain": "wayfair.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "mercury-row"
       },
       {
@@ -2391,9 +2391,9 @@
       },
       {
         "name": "Care/of",
-        "domain": "w3.org",
+        "domain": "careof.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "care-of"
       },
       {
@@ -2412,9 +2412,9 @@
       },
       {
         "name": "Costa Coffee",
-        "domain": "w3.org",
+        "domain": "costa.co.uk",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "costa-coffee"
       },
       {
@@ -2510,9 +2510,9 @@
       },
       {
         "name": "FreshDirect",
-        "domain": "w3.org",
+        "domain": "freshdirect.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "freshdirect"
       },
       {
@@ -2628,9 +2628,9 @@
       },
       {
         "name": "KFC",
-        "domain": "w3.org",
+        "domain": "kfc.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "kfc"
       },
       {
@@ -2642,9 +2642,9 @@
       },
       {
         "name": "Kroger",
-        "domain": "w3.org",
+        "domain": "kroger.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "kroger"
       },
       {
@@ -2670,9 +2670,9 @@
       },
       {
         "name": "McDonald's",
-        "domain": "w3.org",
+        "domain": "mcdonalds.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "mcdonald-s"
       },
       {
@@ -2754,9 +2754,9 @@
       },
       {
         "name": "Pizza Hut",
-        "domain": "w3.org",
+        "domain": "pizzahut.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "pizza-hut"
       },
       {
@@ -2817,9 +2817,9 @@
       },
       {
         "name": "Starbucks",
-        "domain": "w3.org",
+        "domain": "starbucks.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "starbucks"
       },
       {
@@ -2936,9 +2936,9 @@
       },
       {
         "name": "Waitrose",
-        "domain": "w3.org",
+        "domain": "waitrose.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "waitrose"
       },
       {
@@ -3001,9 +3001,9 @@
       },
       {
         "name": "Air France",
-        "domain": "w3.org",
+        "domain": "airfrance.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "air-france"
       },
       {
@@ -3036,9 +3036,9 @@
       },
       {
         "name": "ANA",
-        "domain": "w3.org",
+        "domain": "ana.co.jp",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "ana"
       },
       {
@@ -3071,16 +3071,16 @@
       },
       {
         "name": "Cathay Pacific",
-        "domain": "w3.org",
+        "domain": "cathaypacific.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "cathay-pacific"
       },
       {
         "name": "Choice Hotels",
-        "domain": "w3.org",
+        "domain": "choicehotels.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "choice-hotels"
       },
       {
@@ -3092,9 +3092,9 @@
       },
       {
         "name": "Comfort Inn",
-        "domain": "w3.org",
+        "domain": "choicehotels.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "comfort-inn"
       },
       {
@@ -3141,16 +3141,16 @@
       },
       {
         "name": "Emirates",
-        "domain": "w3.org",
+        "domain": "emirates.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "emirates"
       },
       {
         "name": "Etihad Airways",
-        "domain": "w3.org",
+        "domain": "etihad.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "etihad-airways"
       },
       {
@@ -3246,9 +3246,9 @@
       },
       {
         "name": "Hotels.com",
-        "domain": "w3.org",
+        "domain": "hotels.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "hotels-com"
       },
       {
@@ -3288,9 +3288,9 @@
       },
       {
         "name": "Japan Airlines",
-        "domain": "w3.org",
+        "domain": "jal.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "japan-airlines"
       },
       {
@@ -3309,9 +3309,9 @@
       },
       {
         "name": "KLM",
-        "domain": "w3.org",
+        "domain": "klm.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "klm"
       },
       {
@@ -3358,9 +3358,9 @@
       },
       {
         "name": "Motel 6",
-        "domain": "w3.org",
+        "domain": "motel6.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "motel-6"
       },
       {
@@ -3393,9 +3393,9 @@
       },
       {
         "name": "Premier Inn",
-        "domain": "w3.org",
+        "domain": "premierinn.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "premier-inn"
       },
       {
@@ -3414,9 +3414,9 @@
       },
       {
         "name": "Qantas",
-        "domain": "w3.org",
+        "domain": "qantas.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "qantas"
       },
       {
@@ -3547,16 +3547,16 @@
       },
       {
         "name": "Turkish Airlines",
-        "domain": "w3.org",
+        "domain": "turkishairlines.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "turkish-airlines"
       },
       {
         "name": "United Airlines",
-        "domain": "w3.org",
+        "domain": "united.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search",
+        "catalog_status": "verified_first_party",
         "slug": "united-airlines"
       },
       {
