@@ -63,9 +63,9 @@
       },
       {
         "name": "ASOS",
-        "domain": "w3.org",
+        "domain": "asos.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Athleta",
@@ -177,9 +177,9 @@
       },
       {
         "name": "Fendi",
-        "domain": "w3.org",
+        "domain": "fendi.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Finish Line",
@@ -219,9 +219,9 @@
       },
       {
         "name": "Gucci",
-        "domain": "w3.org",
+        "domain": "gucci.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Guess",
@@ -237,9 +237,9 @@
       },
       {
         "name": "H&M",
-        "domain": "w3.org",
+        "domain": "hm.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "HOKA",
@@ -291,9 +291,9 @@
       },
       {
         "name": "Lululemon",
-        "domain": "w3.org",
+        "domain": "lululemon.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Macy's",
@@ -375,9 +375,9 @@
       },
       {
         "name": "Prada",
-        "domain": "w3.org",
+        "domain": "prada.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "PUMA",
@@ -477,9 +477,9 @@
       },
       {
         "name": "UNIQLO",
-        "domain": "w3.org",
+        "domain": "uniqlo.com",
         "enabled": true,
-        "catalog_status": "verified_first_party_search"
+        "catalog_status": "verified_first_party"
       },
       {
         "name": "Urban Outfitters",
