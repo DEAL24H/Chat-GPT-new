@@ -29,6 +29,15 @@ def main():
                 new_name, new_domain = REPLACEMENTS[name]
                 e['name']=new_name; e['domain']=new_domain; e['catalog_status']='verified_first_party'
                 changed.append(f'{name} -> {new_name} ({new_domain})')
+    # The previous failed Drizly replacement left two Uber Eats rows. Replace only the extra row.
+    uber_rows=[]
+    for category, entries in cats.items():
+        for e in entries:
+            if str(e.get('name','')).strip().casefold()=='uber eats': uber_rows.append((category,e))
+    if len(uber_rows)>1:
+        category,e=uber_rows[-1]
+        e['name']='eBay'; e['domain']='ebay.com'; e['catalog_status']='verified_first_party'
+        changed.append('duplicate Uber Eats -> eBay (legacy Drizly replacement cleanup)')
     if set(cats) != set(EXPECTED): errors.append(f'categories mismatch: {sorted(cats)}')
     for category, expected in EXPECTED.items():
         entries=cats.get(category,[])
