@@ -45,8 +45,10 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: deal-bot-main
-  cancel-in-progress: true
+  # Shared writer lock with Six Category SEO Migration.
+  # Do not cancel a writer that is already updating main.
+  group: deal24h-main-writer
+  cancel-in-progress: false
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -148,6 +150,10 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git diff --cached --quiet || git commit -m 'perf: shard browser data and search index'
+          # The shared concurrency lock prevents the known race with the
+          # six-category writer. Rebase once more as a defensive final check
+          # before pushing, without ever force-pushing main.
+          git pull --rebase origin main
           git push
       - name: Configure Pages
         uses: actions/configure-pages@v6
