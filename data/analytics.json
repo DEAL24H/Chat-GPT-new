@@ -1,11 +1,11 @@
 {
   "configured": true,
-  "updated_at": "2026-09-04T17:23:00.331293+00:00",
+  "updated_at": "2026-09-04T18:26:20.316647+00:00",
   "period_days": 30,
   "totals": {
     "active_users": 14,
     "sessions": 34,
-    "pageviews": 140,
+    "pageviews": 142,
     "engagement_rate": 14.7,
     "new_users": 18
   },
@@ -14,7 +14,7 @@
       "date": "20260904",
       "active_users": 8,
       "sessions": 21,
-      "pageviews": 70
+      "pageviews": 72
     },
     {
       "date": "20260903",
@@ -27,13 +27,13 @@
     {
       "title": "DEAL 24H — International Coupons, Promo Codes & Deals",
       "path": "/",
-      "pageviews": 108,
+      "pageviews": 109,
       "active_users": 14
     },
     {
       "title": "Nike Coupons, Promo Codes & Deals | DEAL 24H",
       "path": "/brand/nike/",
-      "pageviews": 16,
+      "pageviews": 17,
       "active_users": 2
     },
     {
