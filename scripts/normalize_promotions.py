@@ -9,13 +9,12 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "news.json"
-HEADERS = {"User-Agent": "Deal24H/2.5 (+final purchase destination resolver)"}
+HEADERS = {"User-Agent": "Deal24H/2.6 (+offer-level purchase destination resolver)"}
 TIMEOUT = 20
 CODE_RE = re.compile(r"\b(?:code|promo code|coupon code|use code|enter (?:the )?(?:promo )?code)\s*[:\-]?\s*([A-Z0-9][A-Z0-9_-]{3,})\b", re.I)
 CODE_TOKEN_RE = re.compile(r"\b[A-Z]{2,}\d[A-Z0-9_-]{2,}\b")
-SHOP_RE = re.compile(r"\b(?:shop|shop now|buy|product|products|collection|collections|sale|deal|deals|eligible|men|women|kids|shoes|clothing|checkout|store)\b", re.I)
-BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice)\b", re.I)
 SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/|/store(?:/|$)", re.I)
+BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice)\b", re.I)
 COMMERCE_HOST_RE = re.compile(r"^(?:store|shop)\.", re.I)
 BAD_CODES = {"WILL", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "HTTPS", "WWW", "CLICK", "VERIFY", "ACTIVE", "PROMO", "PROMOS", "OFFER", "OFFERS", "WITH", "ENTER", "THIS", "YOUR", "FROM", "ONLY", "APPLY", "HELP", "PAGE", "NEXT", "SIGN", "JOIN", "REQUIRED", "INTO"}
 
@@ -56,6 +55,15 @@ def explicit_code(item):
     return ""
 
 
+def normalized_host(value):
+    return (urlparse(str(value or "")).hostname or "").lower().removeprefix("www.")
+
+
+def same_official_domain(source, destination):
+    src, dst = normalized_host(source), normalized_host(destination)
+    return bool(src and dst and (dst == src or dst.endswith("." + src) or src.endswith("." + dst)))
+
+
 def is_purchase_url(url):
     if not str(url or "").startswith(("https://", "http://")):
         return False
@@ -63,8 +71,7 @@ def is_purchase_url(url):
     path = f"{parsed.path} {parsed.query}".lower()
     if BAD_RE.search(path) and not SHOP_PATH_RE.search(path):
         return False
-    host = (parsed.hostname or "").lower()
-    return bool(SHOP_PATH_RE.search(path) or COMMERCE_HOST_RE.search(host))
+    return bool(SHOP_PATH_RE.search(path) or COMMERCE_HOST_RE.search((parsed.hostname or "").lower()))
 
 
 def shopping_score(href, anchor_text, block_text, item_text, code):
@@ -73,9 +80,9 @@ def shopping_score(href, anchor_text, block_text, item_text, code):
     hay = normalize(f"{anchor_text} {block_text} {item_text}")
     score = 0
     if code and code.lower() in hay:
-        score += 120
+        score += 160
     overlap = len(tokens(item_text) & tokens(hay))
-    score += min(50, overlap * 5)
+    score += min(70, overlap * 7)
     if re.search(r"shop|buy|product|collection|sale|deal|eligible|checkout|store", anchor_text, re.I):
         score += 45
     if SHOP_PATH_RE.search(path):
@@ -83,7 +90,7 @@ def shopping_score(href, anchor_text, block_text, item_text, code):
     if COMMERCE_HOST_RE.search((parsed.hostname or "").lower()):
         score += 20
     if BAD_RE.search(path):
-        score -= 80
+        score -= 100
     return score
 
 
@@ -97,34 +104,28 @@ def landing_from_source(item, code=""):
     except Exception:
         return ""
 
-    if is_purchase_url(response.url) and not BAD_RE.search(urlparse(response.url).path):
-        return response.url
-
-    soup = BeautifulSoup(response.text, "html.parser")
+    source_host = normalized_host(response.url)
     item_text = str(item.get("content") or "")
     candidates = []
-    for tag in soup.find_all(["article", "li", "div", "section"]):
+    for tag in response.url and BeautifulSoup(response.text, "html.parser").find_all(["article", "li", "div", "section"]):
         block_text = normalize(tag.get_text(" ", strip=True))
         if not block_text or len(block_text) > 2500:
             continue
-        if code and code.lower() not in block_text and not similar(item_text, block_text, 0.35):
+        if code and code.lower() not in block_text and not similar(item_text, block_text, 0.30):
             continue
         for anchor in tag.find_all("a", href=True):
             href = urljoin(response.url, anchor.get("href", "").strip())
-            if not is_purchase_url(href):
-                continue
-            host = (urlparse(href).hostname or "").lower()
-            source_host = (urlparse(response.url).hostname or "").lower()
-            if host != source_host and not host.endswith("." + source_host.removeprefix("www.")):
+            if not is_purchase_url(href) or not same_official_domain(response.url, href):
                 continue
             score = shopping_score(href, anchor.get_text(" ", strip=True), block_text, item_text, code)
             if score > 0:
                 candidates.append((score, -len(href), href))
 
     if not candidates:
+        soup = BeautifulSoup(response.text, "html.parser")
         for anchor in soup.find_all("a", href=True):
             href = urljoin(response.url, anchor.get("href", "").strip())
-            if is_purchase_url(href):
+            if is_purchase_url(href) and same_official_domain(response.url, href):
                 score = shopping_score(href, anchor.get_text(" ", strip=True), "", item_text, code)
                 if score > 0:
                     candidates.append((score, -len(href), href))
@@ -152,6 +153,8 @@ def quality(item):
         score += 50
     if is_purchase_url(item.get("final_purchase_url")):
         score += 50
+    if same_official_domain(item.get("source_url"), item.get("final_purchase_url")):
+        score += 30
     if item.get("official_source"):
         score += 10
     if item.get("verified"):
@@ -166,17 +169,17 @@ def main():
     dropped = 0
     for item in data:
         item = dict(item)
-        item.setdefault("source_url", item.get("url") or item.get("promotion_url") or "")
+        item.setdefault("source_url", item.get("source_url") or item.get("url") or item.get("promotion_url") or "")
         code = explicit_code(item)
         existing = str(item.get("final_purchase_url") or item.get("promotion_url") or item.get("url") or "").strip()
-        if is_purchase_url(existing):
+        if is_purchase_url(existing) and same_official_domain(item.get("source_url"), existing) and existing != str(item.get("source_url") or "").strip():
             destination = existing
         else:
-            key = (str(item.get("source_url") or ""), code)
+            key = (str(item.get("source_url") or ""), code, normalize(item.get("content")))
             if key not in cache:
                 cache[key] = landing_from_source(item, code)
             destination = cache[key]
-        if not is_purchase_url(destination):
+        if not (is_purchase_url(destination) and same_official_domain(item.get("source_url"), destination) and destination != str(item.get("source_url") or "").strip()):
             dropped += 1
             continue
         item["final_purchase_url"] = destination
@@ -198,7 +201,7 @@ def main():
         item["id"] = hashlib.sha256(json.dumps({"merchant": item.get("merchant"), "code": explicit_code(item), "content": item.get("content"), "final_purchase_url": item.get("final_purchase_url")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
     deduped.sort(key=lambda x: str(x.get("last_checked") or x.get("detected_at") or ""), reverse=True)
     OUT.write_text(json.dumps(deduped[:4000], ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"FINAL PURCHASE NORMALIZATION: before={len(data)}, after={len(deduped)}, dropped_no_purchase={dropped}")
+    print(f"OFFER-LEVEL PURCHASE NORMALIZATION: before={len(data)}, after={len(deduped)}, dropped_invalid_or_unmatched={dropped}")
 
 
 if __name__ == "__main__":
