@@ -49,7 +49,10 @@ jobs:
           import json
           p='data/brand_catalog.json'
           d=json.load(open(p,encoding='utf-8'))['categories']
-          print('LOCKED CATALOG AUDIT:', sum(len(v) for v in d.values()), 'brands across', len(d), 'categories; no production step is allowed to rewrite this file.')
+          expected=['Fashion','Beauty','Consumer','Home & Living','Food & Grocery','Travel & Hotels']
+          assert list(d)==expected, f'Unexpected category order/set: {list(d)}'
+          assert all(len(d[c]) == 89 for c in expected), {c:len(d[c]) for c in expected}
+          print('LOCKED CATALOG AUDIT:', sum(len(v) for v in d.values()), 'brands across 6 categories; no production step may rewrite this file.')
           PY
       - name: Select category scan mode
         env:
@@ -88,6 +91,29 @@ jobs:
         run: python scripts/prune_nonpriority_offers.py
       - name: Build browser data shards and lightweight search index
         run: python scripts/build_data_shards.py
+      - name: Verify six generated shards are populated and consistent
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('data')
+          manifest=json.loads((root/'data-manifest.json').read_text(encoding='utf-8'))
+          expected=['fashion','beauty','consumer','home-and-living','food-and-grocery','travel-and-hotels']
+          assert list(manifest['shards']) == expected, f'Unexpected shards: {list(manifest["shards"])}'
+          counts={}
+          for slug in expected:
+              meta=manifest['shards'][slug]
+              path=root/meta['path'].replace('shards/','shards/')
+              rows=json.loads(path.read_text(encoding='utf-8'))
+              assert isinstance(rows,list), f'{slug}: shard is not a list'
+              assert len(rows)==meta['count'], f'{slug}: manifest={meta["count"]}, file={len(rows)}'
+              assert len(rows)>0, f'{slug}: EMPTY SHARD — refusing to deploy'
+              assert all((r.get('category') or '') == meta['category'] for r in rows), f'{slug}: category mismatch'
+              counts[meta['category']]=len(rows)
+          search=json.loads((root/'search-index.json').read_text(encoding='utf-8'))
+          assert search.get('count') == sum(counts.values()), f'search count mismatch: {search.get("count")} vs {sum(counts.values())}'
+          print('GENERATED DATA AUDIT PASS:', counts, 'total=', sum(counts.values()))
+          PY
       - name: Sync canonical deals to Supabase (optional)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -123,7 +149,7 @@ jobs:
         run: |
           git config user.name 'DEAL24H Bot'
           git config user.email 'actions@github.com'
-          git add data/news.json data/brand_scan_status.json data/*.json brand category fashion beauty consumer home-and-living food-and-grocery travel-and-hotels sitemap*.xml robots.txt go 2>/dev/null || true
+          git add data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/ 2>/dev/null || true
           git diff --cached --quiet || git commit -m 'chore: refresh deals and SEO pages'
           git push
       - name: Configure Pages
