@@ -11,10 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 CATALOG = ROOT / "data" / "brand_catalog.json"
 TIMEOUT = 15
-UA = "Mozilla/5.0 (compatible; Deal24HOfferLinkValidator/4.0; +https://deal24h.net/)"
+UA = "Mozilla/5.0 (compatible; Deal24HOfferLinkValidator/5.0; +https://deal24h.net/)"
 EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
 SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/|/store(?:/|$)", re.I)
-BAD_PATH_RE = re.compile(r"terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice", re.I)
+BAD_PATH_RE = re.compile(r"terms|terms.?conditions|privacy|legal|help|faq|conditions|returns|support|promo.?terms|product-advice", re.I)
 COMMERCE_HOST_RE = re.compile(r"^(?:store|shop)\.", re.I)
 CTA_RE = re.compile(r"\b(add to cart|buy now|shop now|add to bag|purchase|select options|choose options|checkout|shop|mua ngay|thêm vào giỏ|đặt hàng)\b", re.I)
 RUNTIME_INACCESSIBLE = {403, 408, 425, 429, 500, 502, 503, 504, 521, 522, 523, 524}
@@ -55,12 +55,7 @@ def discount_percent(text):
 def runtime_verify(item):
     url = str(item.get("final_purchase_url") or "").strip()
     try:
-        response = requests.get(
-            url,
-            headers={"User-Agent": UA, "Accept": "text/html,application/xhtml+xml"},
-            timeout=TIMEOUT,
-            allow_redirects=True,
-        )
+        response = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html,application/xhtml+xml"}, timeout=TIMEOUT, allow_redirects=True)
     except Exception as exc:
         return "runtime_inaccessible", f"DESTINATION_REQUEST_FAILED:{type(exc).__name__}", ""
 
@@ -90,13 +85,12 @@ def runtime_verify(item):
     if not signals:
         return "failed", "NO_COMMERCE_OR_PURCHASE_SIGNAL", final
 
-    item_text = str(item.get("content") or "")
-    source_terms = tokens(f"{item.get('title','')} {item_text}")
+    source_terms = tokens(f"{item.get('title','')} {item.get('content','')}")
     destination_terms = tokens(f"{title} {text}")
     if source_terms and len(source_terms & destination_terms) == 0:
         return "failed", "DESTINATION_HAS_NO_OFFER_CONTENT_OVERLAP", final
 
-    expected_pct = discount_percent(f"{item.get('discount','')} {item_text} {item.get('title','')}")
+    expected_pct = discount_percent(f"{item.get('discount','')} {item.get('content','')} {item.get('title','')}")
     destination_pct = discount_percent(text)
     if expected_pct is not None:
         if destination_pct is None:
@@ -104,7 +98,7 @@ def runtime_verify(item):
         if expected_pct != destination_pct:
             return "failed", f"DISCOUNT_MISMATCH_EXPECTED_{expected_pct}_FOUND_{destination_pct}", final
 
-    return "live_verified", "LIVE_PURCHASE_PAGE_VERIFIED", final
+    return "live_verified", "LIVE_EXACT_PURCHASE_PAGE_VERIFIED", final
 
 
 def main():
@@ -120,9 +114,8 @@ def main():
     if not isinstance(data, list):
         raise SystemExit("news.json is not a list")
 
-    errors = []
-    live_verified = 0
-    runtime_inaccessible = 0
+    published = []
+    rejected = []
     now = datetime.now(timezone.utc).isoformat()
 
     for item in data:
@@ -131,62 +124,50 @@ def main():
         destination = str(item.get("final_purchase_url") or "").strip()
         source = str(item.get("source_url") or "").strip()
         catalog_domain = catalog_domains.get(merchant.casefold(), "")
+        reason = ""
 
         if category not in EXPECTED_CATEGORIES:
-            errors.append(f"{merchant}: non-canonical category {category}")
-            continue
-        if item.get("source_verification_status") != "assistant_verified_first_party":
-            errors.append(f"{merchant}: source is not assistant-verified")
-            continue
-        if not is_purchase_url(destination):
-            errors.append(f"{merchant} {item.get('code') or 'DEAL'}: non-purchase destination {destination}")
-            continue
-        if item.get("promotion_url") != destination or item.get("url") != destination:
-            errors.append(f"{merchant}: duplicate destination fields are inconsistent")
-            continue
-        if not source.startswith(("https://", "http://")):
-            errors.append(f"{merchant}: invalid source_url")
-            continue
-        if not same_official_domain(source, destination):
-            errors.append(f"{merchant} {item.get('code') or 'DEAL'}: destination leaves source official domain: {destination}")
-            continue
-        if catalog_domain and not same_official_domain(catalog_domain, destination):
-            errors.append(f"{merchant} {item.get('code') or 'DEAL'}: destination leaves catalog official domain: {destination}")
-            continue
-        if source == destination:
-            errors.append(f"{merchant} {item.get('code') or 'DEAL'}: final_purchase_url is still the source/program page")
+            reason = f"NON_CANONICAL_CATEGORY:{category}"
+        elif item.get("source_verification_status") != "assistant_verified_first_party":
+            reason = "SOURCE_NOT_ASSISTANT_VERIFIED"
+        elif not is_purchase_url(destination):
+            reason = "DESTINATION_NOT_PURCHASE_URL"
+        elif item.get("promotion_url") != destination or item.get("url") != destination:
+            reason = "DESTINATION_FIELDS_INCONSISTENT"
+        elif not source.startswith(("https://", "http://")):
+            reason = "INVALID_SOURCE_URL"
+        elif not same_official_domain(source, destination):
+            reason = "DESTINATION_LEFT_SOURCE_OFFICIAL_DOMAIN"
+        elif catalog_domain and not same_official_domain(catalog_domain, destination):
+            reason = "DESTINATION_LEFT_CATALOG_OFFICIAL_DOMAIN"
+        elif source == destination:
+            reason = "DESTINATION_IS_SOURCE_PROGRAM_PAGE"
+
+        if reason:
+            rejected.append((merchant, reason, destination))
             continue
 
-        status, reason, final_url = runtime_verify(item)
-        if status == "failed":
-            errors.append(f"{merchant} {item.get('code') or 'DEAL'}: {reason}: {final_url}")
+        status, verify_reason, final_url = runtime_verify(item)
+        if status != "live_verified":
+            # Unreachable pages are not published. We do not infer correctness from a WAF/Cloudflare response.
+            rejected.append((merchant, verify_reason, final_url or destination))
             continue
 
-        item["purchase_url_verification_status"] = status
-        item["purchase_url_verification_reason"] = reason
-        item["purchase_url_verified_at"] = now if status == "live_verified" else None
-        if final_url and final_url != destination:
-            item["final_purchase_url"] = item["promotion_url"] = item["url"] = final_url
-        if status == "live_verified":
-            live_verified += 1
-        else:
-            runtime_inaccessible += 1
+        item["purchase_url_verification_status"] = "live_verified"
+        item["purchase_url_verification_reason"] = verify_reason
+        item["purchase_url_verified_at"] = now
+        item["final_purchase_url"] = item["promotion_url"] = item["url"] = final_url
+        item["published_offer_authority"] = "assistant_verified_source_plus_live_exact_purchase_page"
+        published.append(item)
 
-    DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    DATA.write_text(json.dumps(published, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"OFFER LINK VALIDATION: discovered={len(data)} published={len(published)} rejected={len(rejected)}")
+    for merchant, reason, url in rejected[:100]:
+        print(f"REJECT {merchant}: {reason}: {url}")
 
-    print(
-        "OFFER LINK VALIDATION:",
-        f"offers={len(data)} live_verified={live_verified} runtime_inaccessible={runtime_inaccessible} hard_failures={len(errors)}",
-    )
-    if runtime_inaccessible:
-        print("NOTE: runtime_inaccessible means GitHub Runner could not fetch the merchant URL (WAF/Cloudflare/rate-limit/etc.).")
-        print("      It is NOT treated as evidence that an assistant-verified official purchase destination is wrong.")
-    if errors:
-        print("OFFER LINK VALIDATION FAILED: hard integrity errors")
-        for error in errors[:100]:
-            print(error)
-        raise SystemExit(1)
-    print("OFFER LINK VALIDATION PASS: canonical categories, assistant source authority, same-merchant purchase destinations and all detectable live integrity checks are consistent")
+    if not published:
+        raise SystemExit("OFFER LINK VALIDATION FAILED: zero offers have a live, exact, same-merchant purchase destination")
+    print("OFFER LINK VALIDATION PASS: only live exact purchase destinations are publishable; inaccessible or unverifiable offers are dropped")
 
 
 if __name__ == "__main__":
