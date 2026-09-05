@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SELECTION = ROOT / "data" / "assistant_verified_source_selection.json"
 OUT = ROOT / "data" / "news.json"
 EXPECTED_CATEGORIES = ["Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"]
-FETCH_WORKERS = 12
-FETCH_TIMEOUT = 20
+FETCH_WORKERS = 20
+FETCH_TIMEOUT = 8
 HEADERS = {"User-Agent": "Deal24H/2.8 (+DEAL24H assistant-verified source collector)"}
 
 
@@ -87,7 +87,7 @@ def apply_source_contract(sources, deals):
 def main():
     sources, counts = load_selection()
     configure_bot_classifier()
-    print(f"ASSISTANT SOURCE GATE: {len(sources)} unique assistant-verified sources; counts={counts}; parallel_fetch_workers={FETCH_WORKERS}")
+    print(f"ASSISTANT SOURCE GATE: {len(sources)} unique assistant-verified sources; counts={counts}; parallel_fetch_workers={FETCH_WORKERS}; timeout={FETCH_TIMEOUT}s")
 
     all_deals = []
     failures = []
