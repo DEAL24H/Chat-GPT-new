@@ -21,6 +21,7 @@ permissions:
 concurrency:
   group: deal24h-main-writer
   cancel-in-progress: false
+# Build #307 trigger: run the full canonical pipeline after the Supabase URL fix.
 jobs:
   collect:
     runs-on: ubuntu-latest
