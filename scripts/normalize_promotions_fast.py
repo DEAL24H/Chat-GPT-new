@@ -11,15 +11,15 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "news.json"
 EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
-HEADERS = {"User-Agent": "Deal24H/2.8 (+DEAL24H official offer destination resolver)"}
+HEADERS = {"User-Agent": "Deal24H/3.0 (+DEAL24H exact official offer destination resolver)"}
 TIMEOUT = 12
-WORKERS = 16
+WORKERS = 20
 CODE_RE = re.compile(r"\b(?:code|promo code|coupon code|use code|enter (?:the )?(?:promo )?code)\s*[:\-]?\s*([A-Z0-9][A-Z0-9_-]{3,})\b", re.I)
 CODE_TOKEN_RE = re.compile(r"\b[A-Z]{2,}\d[A-Z0-9_-]{2,}\b")
 SHOP_PATH_RE = re.compile(r"/p/|/products?/|/shop(?:/|$)|/collections?/|/category/|/sale(?:/|$)|/deals?(?:/|$)|/w/|/t/|/store(?:/|$)", re.I)
-BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|promotion|promotions|conditions|returns|support|promo.?terms|product-advice)\b", re.I)
+BAD_RE = re.compile(r"\b(?:terms|terms.?conditions|privacy|legal|help|faq|conditions|returns|support|promo.?terms|product-advice)\b", re.I)
 COMMERCE_HOST_RE = re.compile(r"^(?:store|shop)\.", re.I)
-BAD_CODES = {"WILL", "CODE", "COUPON", "COUPONS", "TODAY", "DEAL", "DEALS", "SALE", "NEW", "SHOP", "HTTPS", "WWW", "CLICK", "VERIFY", "ACTIVE", "PROMO", "PROMOS", "OFFER", "OFFERS", "WITH", "ENTER", "THIS", "YOUR", "FROM", "ONLY", "APPLY", "HELP", "PAGE", "NEXT", "SIGN", "JOIN", "REQUIRED", "INTO"}
+BAD_CODES = {"WILL","CODE","COUPON","COUPONS","TODAY","DEAL","DEALS","SALE","NEW","SHOP","HTTPS","WWW","CLICK","VERIFY","ACTIVE","PROMO","PROMOS","OFFER","OFFERS","WITH","ENTER","THIS","YOUR","FROM","ONLY","APPLY","HELP","PAGE","NEXT","SIGN","JOIN","REQUIRED","INTO"}
 
 
 def load():
@@ -85,27 +85,25 @@ def shopping_score(href, anchor_text, block_text, item_text, code):
     path = f"{parsed.path} {parsed.query}".lower()
     hay = normalize(f"{anchor_text} {block_text} {item_text}")
     score = 0
-    if code and code.lower() in hay:
-        score += 160
+    if code and code.lower() in hay: score += 160
     score += min(70, len(tokens(item_text) & tokens(hay)) * 7)
-    if re.search(r"shop|buy|product|collection|sale|deal|eligible|checkout|store", anchor_text, re.I):
-        score += 45
-    if SHOP_PATH_RE.search(path):
-        score += 40
-    if COMMERCE_HOST_RE.search((parsed.hostname or "").lower()):
-        score += 20
-    if BAD_RE.search(path):
-        score -= 100
+    if re.search(r"shop|buy|product|collection|sale|deal|eligible|checkout|store", anchor_text, re.I): score += 45
+    if SHOP_PATH_RE.search(path): score += 40
+    if COMMERCE_HOST_RE.search((parsed.hostname or "").lower()): score += 20
+    if BAD_RE.search(path): score -= 100
     return score
 
 
-def landing_from_source(item, code=""):
+def landing_from_discovery(item, code=""):
     source_url = str(item.get("source_url") or "").strip()
-    if not source_url.startswith(("https://", "http://")):
+    discovery_url = str(item.get("discovery_url") or source_url).strip()
+    if not discovery_url.startswith(("https://", "http://")) or not same_official_domain(source_url, discovery_url):
         return ""
     try:
-        response = requests.get(source_url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
+        response = requests.get(discovery_url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
         response.raise_for_status()
+        if not same_official_domain(source_url, response.url):
+            return ""
     except Exception:
         return ""
     item_text = str(item.get("content") or "")
@@ -115,22 +113,18 @@ def landing_from_source(item, code=""):
         block_text = normalize(tag.get_text(" ", strip=True))
         if not block_text or len(block_text) > 2500:
             continue
+        # The exact offer/program evidence must be present in the same page block.
         if code and code.lower() not in block_text and not similar(item_text, block_text, 0.30):
+            continue
+        if not code and not similar(item_text, block_text, 0.42):
             continue
         for anchor in tag.find_all("a", href=True):
             href = urljoin(response.url, anchor.get("href", "").strip())
-            if not is_purchase_url(href) or not same_official_domain(response.url, href):
+            if not is_purchase_url(href) or not same_official_domain(source_url, href):
                 continue
             score = shopping_score(href, anchor.get_text(" ", strip=True), block_text, item_text, code)
-            if score > 0:
+            if score > 35:
                 candidates.append((score, -len(href), href))
-    if not candidates:
-        for anchor in soup.find_all("a", href=True):
-            href = urljoin(response.url, anchor.get("href", "").strip())
-            if is_purchase_url(href) and same_official_domain(response.url, href):
-                score = shopping_score(href, anchor.get_text(" ", strip=True), "", item_text, code)
-                if score > 0:
-                    candidates.append((score, -len(href), href))
     if not candidates:
         return ""
     candidates.sort(reverse=True)
@@ -140,13 +134,15 @@ def landing_from_source(item, code=""):
 def program_match(a, b):
     if normalize(a.get("merchant")) != normalize(b.get("merchant")):
         return False
+    if normalize(a.get("category")) != normalize(b.get("category")):
+        return False
     ca, cb = explicit_code(a), explicit_code(b)
     if ca and cb:
         return ca == cb
     da, db = normalize(a.get("discount")), normalize(b.get("discount"))
     if da and db and da != db:
         return False
-    return similar(a.get("content"), b.get("content"), 0.48 if ca or cb else 0.68)
+    return similar(a.get("content"), b.get("content"), 0.55 if ca or cb else 0.72)
 
 
 def quality(item):
@@ -156,11 +152,12 @@ def quality(item):
     if same_official_domain(item.get("source_url"), item.get("final_purchase_url")): score += 30
     if item.get("official_source"): score += 10
     if item.get("source_verification_status") == "assistant_verified_first_party": score += 20
+    if item.get("discovery_url"): score += 10
     return score
 
 
 def resolve_key(key, representative):
-    return key, landing_from_source(representative, explicit_code(representative))
+    return key, landing_from_discovery(representative, explicit_code(representative))
 
 
 def main():
@@ -175,29 +172,24 @@ def main():
         if item.get("source_verification_status") != "assistant_verified_first_party":
             dropped += 1
             continue
-        item.setdefault("source_url", item.get("source_url") or item.get("url") or item.get("promotion_url") or "")
-        code = explicit_code(item)
-        existing = str(item.get("final_purchase_url") or item.get("promotion_url") or item.get("url") or "").strip()
         source = str(item.get("source_url") or "").strip()
-        if is_purchase_url(existing) and same_official_domain(source, existing) and existing != source:
-            item["final_purchase_url"] = item["promotion_url"] = item["url"] = existing
-            item["code"] = code
-            item["code_context"] = bool(code)
-            item["purchase_url_verification_status"] = None
-            item["purchase_url_verification_reason"] = "pending_runtime_offer_validation"
-            item["purchase_url_verified_at"] = None
-            usable.append(item)
+        discovery = str(item.get("discovery_url") or source).strip()
+        if not source or not discovery or not same_official_domain(source, discovery):
+            dropped += 1
             continue
-        key = (source, code, normalize(item.get("content")))
+        code = explicit_code(item)
+        existing = str(item.get("final_purchase_url") or "").strip()
+        # Never trust a previous URL just because it is syntactically a shop URL.
+        # It must be re-associated with the exact offer block from the discovery page.
+        key = (source, discovery, code, normalize(item.get("content")))
         pending.setdefault(key, item)
 
     resolved = {}
-    if pending:
-        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-            futures = {pool.submit(resolve_key, key, item): key for key, item in pending.items()}
-            for future in as_completed(futures):
-                key, destination = future.result()
-                resolved[key] = destination
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {pool.submit(resolve_key, key, item): key for key, item in pending.items()}
+        for future in as_completed(futures):
+            key, destination = future.result()
+            resolved[key] = destination
 
     for key, item in pending.items():
         destination = resolved.get(key, "")
@@ -209,7 +201,7 @@ def main():
         item["code"] = explicit_code(item)
         item["code_context"] = bool(item["code"])
         item["purchase_url_verification_status"] = None
-        item["purchase_url_verification_reason"] = "pending_runtime_offer_validation"
+        item["purchase_url_verification_reason"] = "pending_exact_offer_destination_runtime_validation"
         item["purchase_url_verified_at"] = None
         usable.append(item)
 
@@ -222,11 +214,12 @@ def main():
             deduped[duplicate] = item
 
     for item in deduped:
-        item["id"] = hashlib.sha256(json.dumps({"merchant": item.get("merchant"), "code": explicit_code(item), "content": item.get("content"), "final_purchase_url": item.get("final_purchase_url")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+        item["id"] = hashlib.sha256(json.dumps({"merchant": item.get("merchant"), "category": item.get("category"), "code": explicit_code(item), "content": item.get("content"), "final_purchase_url": item.get("final_purchase_url")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
 
-    deduped.sort(key=lambda x: str(x.get("last_checked") or x.get("detected_at") or ""), reverse=True)
     OUT.write_text(json.dumps(deduped[:4000], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"OFFER DESTINATION RESOLUTION: before={len(data)}, after={len(deduped)}, dropped_invalid_or_unmatched={dropped}, parallel_workers={WORKERS}")
+    print(f"EXACT OFFER DESTINATION RESOLUTION: before={len(data)}, after={len(deduped)}, dropped_invalid_or_unmatched={dropped}, workers={WORKERS}")
+    if not deduped:
+        raise SystemExit("EXACT OFFER DESTINATION RESOLUTION FAILED: no offer had an exact same-merchant purchase destination")
 
 
 if __name__ == "__main__":
