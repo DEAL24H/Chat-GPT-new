@@ -75,14 +75,7 @@ jobs:
         run: |
           echo '=== CATEGORY GROUP 1/2: Fashion + Beauty + Consumer ==='
           DEAL_BATCH_INDEX=0 python bot/scalable_brand_collector.py
-      - name: Wait 30 minutes after first category group completes
-        if: env.DEAL_SCAN_MODE == 'full'
-        run: |
-          echo 'First three-category scan completed at:'
-          date -u
-          echo 'Waiting exactly 30 minutes before scanning the remaining three categories.'
-          sleep 1800
-      - name: Scan remaining three categories
+      - name: Scan remaining three categories immediately
         if: env.DEAL_SCAN_MODE == 'full' || env.DEAL_MANUAL_BATCH == '1'
         run: |
           echo '=== CATEGORY GROUP 2/2: Home & Living + Food & Grocery + Travel & Hotels ==='
