@@ -43,22 +43,22 @@ jobs:
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
 
-      - name: Run parallel deal collector only from assistant-verified 120-source allowlist
+      - name: Discover offers across approved first-party merchant pages
         run: python bot/assistant_verified_news_runner.py
 
-      - name: Resolve offer pages to same-merchant purchase destinations
+      - name: Resolve each offer to its exact same-merchant purchase destination
         run: python scripts/normalize_promotions_fast.py
 
-      - name: Verify every published offer destination
+      - name: Verify exact purchase destination live
         run: python scripts/validate_offer_links.py
 
-      - name: Sync canonical verified deals to Supabase
+      - name: Sync only publishable verified deals to Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/sync_supabase.py
 
-      - name: Final four-category source and data contract gate
+      - name: Final canonical source and publish contract gate
         run: |
           python - <<'PY'
           import json
@@ -77,13 +77,14 @@ jobs:
           assert len({(x.get('category'), str(x.get('merchant')).casefold()) for x in selection['sources']}) == 120
           assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in selection['sources'])
 
-          assert isinstance(news, list)
+          assert isinstance(news, list) and news
           assert all(x.get('category') in expected for x in news)
           assert all(x.get('source_verification_status') == 'assistant_verified_first_party' for x in news)
           assert all(x.get('official_source') is True for x in news)
           assert all(x.get('final_purchase_url') for x in news)
           assert all(x.get('promotion_url') == x.get('final_purchase_url') == x.get('url') for x in news)
-          assert all(x.get('purchase_url_verification_status') in {'live_verified','runtime_inaccessible'} for x in news)
-          print('FINAL CANONICAL CONTRACT PASS: assistant source authority -> four categories -> purchase destination -> Supabase sync')
-          print('PUBLISHED OFFERS:', len(news))
+          assert all(x.get('purchase_url_verification_status') == 'live_verified' for x in news)
+          assert all(x.get('published_offer_authority') == 'assistant_verified_source_plus_live_exact_purchase_page' for x in news)
+          print('FINAL CANONICAL CONTRACT PASS: assistant source -> official offer discovery -> exact purchase URL -> live verification -> Supabase')
+          print('PUBLISHED VERIFIED OFFERS:', len(news))
           PY
