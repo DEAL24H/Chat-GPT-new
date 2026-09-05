@@ -1,9 +1,4 @@
-"""Run the deal collector only against the assistant-verified source gate.
-
-Merchant identity is decided by the assistant-verified manifests. The bot does not
-re-decide official identity from GitHub crawler behavior. Source fetching is parallel
-only for performance; it never changes source authority.
-"""
+"""Run the deal collector only against the assistant-verified source gate."""
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -34,6 +29,8 @@ def load_selection():
         raise SystemExit("ASSISTANT SOURCE GATE FAILED: unexpected source authority")
     if data.get("runtime_source_identity_recheck") is not False:
         raise SystemExit("ASSISTANT SOURCE GATE FAILED: runtime source identity recheck must be disabled")
+    if not data.get("unique_merchants_per_category"):
+        raise SystemExit("ASSISTANT SOURCE GATE FAILED: selection must guarantee unique merchants per category")
     if not all(x.get("verification_status") == "assistant_verified_first_party" for x in sources):
         raise SystemExit("ASSISTANT SOURCE GATE FAILED: every selected source must be assistant_verified_first_party")
     return sources, counts
@@ -41,7 +38,7 @@ def load_selection():
 
 def configure_bot_classifier():
     news_bot.CATEGORIES = {
-        "Fashion": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "asos", "zara", "h&m", "uniqlo", "levi", "crocs"],
+        "Fashion": ["fashion", "apparel", "clothing", "shoes", "sneaker", "dress", "jeans", "bag", "accessories", "nike", "adidas", "puma", "asos", "zara", "h&m", "uniqlo", "levi"],
         "Electronics": ["electronics", "electronic", "laptop", "computer", "phone", "smartphone", "tablet", "tv", "television", "headphone", "monitor", "printer", "camera", "gaming", "apple", "samsung", "sony", "dell", "lenovo", "hp", "logitech", "philips", "nintendo", "bose", "jbl"],
         "Beauty & Personal Care": ["beauty", "cosmetic", "skincare", "makeup", "cosmetics", "sephora", "l'oreal", "loreal", "maybelline", "mac", "nyx", "elf", "cerave", "la roche", "rare beauty", "charlotte tilbury", "glossier", "fenty", "olaplex"],
         "Home & Living": ["home", "living", "household", "kitchen", "appliance", "furniture", "mattress", "decor", "ikea", "dyson", "wayfair", "walmart", "target", "lowe's", "pottery barn", "west elm", "costco"],
@@ -50,11 +47,13 @@ def configure_bot_classifier():
 
 def fetch_and_extract(source):
     try:
-        response = requests.get(source["url"], headers=HEADERS, timeout=FETCH_TIMEOUT, allow_redirects=True)
+        source_url = source["official_homepage"]
+        runtime_source = dict(source)
+        runtime_source["url"] = source_url
+        runtime_source["name"] = source.get("name") or source.get("merchant")
+        response = requests.get(source_url, headers=HEADERS, timeout=FETCH_TIMEOUT, allow_redirects=True)
         response.raise_for_status()
-        # The assistant already established source identity. This runtime check only
-        # decides whether the page is currently reachable for offer extraction.
-        deals = news_bot.extract_deals(response.text, source)
+        deals = news_bot.extract_deals(response.text, runtime_source)
         return source, deals, None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:180]}"
@@ -66,9 +65,7 @@ def apply_source_contract(sources, deals):
     for item in deals:
         merchant = str(item.get("merchant") or "").strip()
         source = by_merchant.get(merchant.casefold())
-        if not source:
-            continue
-        if source["category"] not in EXPECTED_CATEGORIES:
+        if not source or source["category"] not in EXPECTED_CATEGORIES:
             continue
         item["category"] = source["category"]
         item["country"] = "International"
@@ -90,7 +87,7 @@ def apply_source_contract(sources, deals):
 def main():
     sources, counts = load_selection()
     configure_bot_classifier()
-    print(f"ASSISTANT SOURCE GATE: {len(sources)} assistant-verified sources; counts={counts}; parallel_fetch_workers={FETCH_WORKERS}")
+    print(f"ASSISTANT SOURCE GATE: {len(sources)} unique assistant-verified sources; counts={counts}; parallel_fetch_workers={FETCH_WORKERS}")
 
     all_deals = []
     failures = []
@@ -105,8 +102,6 @@ def main():
             all_deals.extend(deals)
             print(f"SOURCE FETCH OK: {source['merchant']} -> discovered={len(deals)}")
 
-    # Runtime fetch failures are not source-identity failures. They simply contribute
-    # zero currently discoverable offers; the assistant-verified source remains valid.
     kept = apply_source_contract(sources, all_deals)
     print(f"ASSISTANT SOURCE COLLECTION COMPLETE: raw_offers={len(all_deals)} kept={len(kept)} runtime_unavailable_sources={len(failures)}")
     if not kept:
