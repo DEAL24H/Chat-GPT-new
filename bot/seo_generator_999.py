@@ -36,6 +36,11 @@ def logo(b):
     return f"https://www.google.com/s2/favicons?domain={quote(d)}&sz=128" if d else ""
 
 
+def official_homepage(b):
+    d = domain(b).strip().removeprefix("www.")
+    return f"https://{d}/" if d else ""
+
+
 def page(t, d, c, b, r="index,follow", s=None):
     ld = f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False, separators=(",", ":"))}</script>' if s else ""
     ga = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4}',{{anonymize_ip:true}});</script>'''
@@ -59,7 +64,7 @@ def card(x):
 
 
 def brand_intro(brand, category):
-    """Short permanent copy: informative, stable, and linked to the DEAL24H brand page."""
+    """Short permanent copy with an external link to the verified official merchant homepage."""
     category_copy = {
         "Fashion": "fashion and apparel",
         "Beauty": "beauty and personal care",
@@ -68,15 +73,16 @@ def brand_intro(brand, category):
         "Food & Grocery": "food, grocery and everyday essentials",
         "Travel & Hotels": "travel, hotels and accommodation",
     }.get(category, category.lower())
+    official = official_homepage(brand)
+    link = f'<a href="{esc(official)}" target="_blank" rel="noopener">Visit the official {esc(brand)} website</a>' if official else ""
     return (f'<section class="brand-about" aria-labelledby="brand-about-title">'
             f'<h2 id="brand-about-title">About {esc(brand)}</h2>'
-            f'<p>{esc(brand)} is a well-known name in {category_copy}. '
-            f'<a href="/brand/{brand_slug(brand)}/">View the {esc(brand)} page on DEAL24H</a> '
-            f'for current offers, coupon codes and deal updates.</p></section>')
+            f'<p>{esc(brand)} is a well-known name in {category_copy}. {link} '
+            f'to explore the brand’s official products and information.</p></section>')
 
 
 def deal_seo_summary(brand, items):
-    """Generate a few short SEO sentences only from real, currently active offer data."""
+    """Generate short SEO sentences only from real, currently active offer data."""
     snippets = []
     for x in items[:8]:
         code = str(x.get("code") or "").strip()
@@ -138,7 +144,7 @@ def main():
             offer_section = f'<section><h2>All active {esc(b)} offers</h2><div class="grid">{"".join(card(x) for x in items)}</div></section>' if items else '<section><h2>Current offers</h2><p>No active coupon code or deal is currently listed for this brand. The page remains available and will update when a verified official offer is found.</p></section>'
             body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{ih}</div><div><p class="eyebrow">{esc(cat.upper())} · COUPONS & DEALS</p><h1>{esc(b)} Coupons, Promo Codes & Deals</h1></div></div><p class="lead">Find current {esc(b)} promotions and verified official offers on DEAL24H.</p></section>{permanent}{dynamic}{offer_section}<p><a href="/{cs}/">← More {esc(cat)} offers</a></p>'
             els = [{"@type":"ListItem","position":i + 1,"name":f"{b} " + ("coupon code " + str(x.get("code")) if x.get("code") else "deal"),"url":x.get("final_purchase_url")} for i, x in enumerate(items)]
-            schema = {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":b,"url":f"https://{domain(b)}"},{"@type":"WebPage","name":f"{b} Coupons, Promo Codes & Deals","url":u}]}
+            schema = {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":b,"url":official_homepage(b)},{"@type":"WebPage","name":f"{b} Coupons, Promo Codes & Deals","url":u}]}
             if els:
                 schema["@graph"].append({"@type":"ItemList","name":f"Active {b} offers","numberOfItems":len(items),"itemListElement":els})
             write(p, page(f"{b} Coupons, Promo Codes & Deals | DEAL 24H", f"Find current {b} coupon codes, promo codes and official deals from official merchant sources on DEAL24H.", u, body, s=schema))
@@ -155,5 +161,4 @@ def main():
     print(f"SEO 999 catalog: persistent_brand_pages={len(brand_urls)}, category_pages={len(cat_urls)}, active_offer_brands={sum(bool(v) for v in bb.values())}")
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
