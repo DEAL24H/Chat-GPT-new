@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: deal24h-verified-pipeline-tn01
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   verify:
@@ -41,7 +41,7 @@ jobs:
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
 
-      - name: Run deal collector only from assistant-verified 120-source allowlist
+      - name: Run parallel deal collector only from assistant-verified 120-source allowlist
         run: python bot/assistant_verified_news_runner.py
 
       - name: Resolve offer pages to same-merchant purchase destinations
