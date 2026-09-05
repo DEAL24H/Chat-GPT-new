@@ -1,5 +1,11 @@
 """Synchronize Supabase as a mirror of canonical data/news.json.
 
+Supabase uses public.deals as the canonical partitioned table. The six
+category names (deals_fashion, deals_beauty, ...) are PostgreSQL partitions,
+not independent PostgREST API resources. Inserts/deletes against public.deals
+are automatically routed to the correct partition, so the bot must never call
+those partition names through /rest/v1.
+
 The browser data and Supabase are derived from the same canonical dataset.
 The public browser never receives the service-role key.
 """
@@ -13,16 +19,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 
+CATEGORIES = (
+    "Fashion",
+    "Beauty",
+    "Consumer",
+    "Home & Living",
+    "Food & Grocery",
+    "Travel & Hotels",
+)
+
 
 def normalize_base_url(value: str) -> str:
-    """Accept either a Supabase project URL or a URL already ending in /rest/v1."""
+    """Accept either a Supabase project URL or a URL ending in /rest/v1."""
     raw = str(value or "").strip().rstrip("/")
     if not raw:
         return ""
-    for suffix in ("/rest/v1", "/rest/v1/"):
-        if raw.lower().endswith(suffix.rstrip("/")):
-            raw = raw[: -len(suffix.rstrip("/"))].rstrip("/")
-            break
+    suffix = "/rest/v1"
+    if raw.lower().endswith(suffix):
+        raw = raw[: -len(suffix)].rstrip("/")
     parsed = urllib.parse.urlparse(raw)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise RuntimeError("SUPABASE_URL must be a valid project URL")
@@ -31,15 +45,6 @@ def normalize_base_url(value: str) -> str:
 
 URL = normalize_base_url(os.getenv("SUPABASE_URL", ""))
 KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
-
-CATEGORY_TABLES = {
-    "Fashion": "deals_fashion",
-    "Beauty": "deals_beauty",
-    "Consumer": "deals_consumer",
-    "Home & Living": "deals_home_living",
-    "Food & Grocery": "deals_food_grocery",
-    "Travel & Hotels": "deals_travel_hotels",
-}
 
 if not URL or not KEY:
     print("Supabase sync skipped: credentials are not configured.")
@@ -72,6 +77,12 @@ for x in items:
     if row["id"]:
         rows.append(row)
 
+by_category = {category: [] for category in CATEGORIES}
+for row in rows:
+    category = row["category"]
+    if category in by_category:
+        by_category[category].append(row)
+
 headers = {
     "apikey": KEY,
     "Authorization": f"Bearer {KEY}",
@@ -80,7 +91,7 @@ headers = {
 }
 
 
-def request(method, table, body=None, query="", prefer=None):
+def request(method, table="deals", body=None, query="", prefer=None):
     endpoint = f"{URL}/rest/v1/{table}{query}"
     payload = None if body is None else json.dumps(body, ensure_ascii=False).encode("utf-8")
     req_headers = dict(headers)
@@ -92,54 +103,62 @@ def request(method, table, body=None, query="", prefer=None):
             return response.status, response.headers, response.read()
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")[:1000]
-        raise RuntimeError(f"Supabase {method} {endpoint} failed: HTTP {exc.code}: {detail}") from exc
+        safe_endpoint = f"{URL}/rest/v1/{table}{query}"
+        raise RuntimeError(
+            f"Supabase {method} {safe_endpoint} failed: HTTP {exc.code}: {detail}"
+        ) from exc
     except urllib.error.URLError as exc:
         raise RuntimeError(f"Supabase {method} {endpoint} failed: {exc.reason}") from exc
 
 
-def sync_table(table, table_rows):
+def sync_canonical_table(table_rows):
     ids = [r["id"] for r in table_rows]
-    # Upsert first so a failed later cleanup cannot destroy the existing mirror.
+    # Upsert first so a failed cleanup cannot destroy the existing mirror.
     if table_rows:
-        request("POST", table, table_rows)
+        request("POST", "deals", table_rows)
     if ids:
         encoded = ",".join(urllib.parse.quote(i, safe="") for i in ids)
-        request("DELETE", table, query=f"?id=not.in.({encoded})")
+        request("DELETE", "deals", query=f"?id=not.in.({encoded})")
     else:
-        request("DELETE", table, query="?id=not.is.null")
+        request("DELETE", "deals", query="?id=not.is.null")
 
 
-def verify_table(table, expected_count):
+def exact_count(query=""):
     _, response_headers, _ = request(
         "GET",
-        table,
-        query="?select=id&limit=1",
+        "deals",
+        query=f"?select=id&limit=1{query}",
         prefer="count=exact",
     )
     content_range = response_headers.get("Content-Range", "")
     if "/" not in content_range:
-        raise RuntimeError(f"Supabase {table}: missing Content-Range verification header")
-    actual = int(content_range.rsplit("/", 1)[1])
-    if actual != expected_count:
-        raise RuntimeError(f"Supabase {table}: expected {expected_count} rows, found {actual}")
+        raise RuntimeError("Supabase deals: missing Content-Range verification header")
+    try:
+        return int(content_range.rsplit("/", 1)[1])
+    except ValueError as exc:
+        raise RuntimeError(f"Supabase deals: invalid Content-Range: {content_range}") from exc
 
 
-by_category = {category: [] for category in CATEGORY_TABLES}
-for row in rows:
-    by_category.setdefault(row["category"], []).append(row)
+# The only PostgREST resource written by this job is public.deals.
+# PostgreSQL automatically routes rows into the six category partitions.
+sync_canonical_table(rows)
+actual_total = exact_count()
+if actual_total != len(rows):
+    raise RuntimeError(f"Supabase deals: expected {len(rows)} rows, found {actual_total}")
 
-# Canonical all-deals mirror.
-sync_table("deals", rows)
-verify_table("deals", len(rows))
-
-# Category tables are strict mirrors of the same canonical rows.
-for category, table in CATEGORY_TABLES.items():
-    expected = len(by_category.get(category, []))
-    sync_table(table, by_category.get(category, []))
-    verify_table(table, expected)
+# Verify each category through the parent table. This also proves the
+# partition routing worked without touching partition names through PostgREST.
+for category in CATEGORIES:
+    expected = len(by_category[category])
+    encoded_category = urllib.parse.quote(category, safe="")
+    actual = exact_count(f"&category=eq.{encoded_category}")
+    if actual != expected:
+        raise RuntimeError(
+            f"Supabase deals category {category!r}: expected {expected} rows, found {actual}"
+        )
 
 print(
-    "Supabase canonical sync + verification OK:",
-    f"deals={len(rows)}",
-    ", ".join(f"{category}={len(by_category.get(category, []))}" for category in CATEGORY_TABLES),
+    "Supabase canonical partition sync + verification OK:",
+    f"deals={actual_total}",
+    ", ".join(f"{category}={len(by_category[category])}" for category in CATEGORIES),
 )
