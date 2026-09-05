@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "generated_at": "2026-09-05T06:41:34.245351+00:00",
+  "version": "9ccf070dd7a3baef9115d76376c41edf332c0057f4a7703d7b7a156ffdbaa3fb",
+  "files": [
+    "news.json",
+    "data-manifest.json",
+    "search-index.json",
+    "shards/beauty.json",
+    "shards/consumer.json",
+    "shards/fashion.json",
+    "shards/food-and-grocery.json",
+    "shards/home-and-living.json",
+    "shards/travel-and-hotels.json"
+  ]
+}

@@ -1,0 +1,7092 @@
+{
+  "1stdibs": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "1stDibs",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:22.523528+00:00",
+    "domain": "1stdibs.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "abercrombie & fitch": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Abercrombie & Fitch",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:05.080464+00:00",
+    "domain": "abercrombie.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "accor": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Accor",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:32.292467+00:00",
+    "domain": "accor.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "acer": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Acer",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:34.385557+00:00",
+    "domain": "acer.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.acer.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "adidas": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Adidas",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:06.486418+00:00",
+    "domain": "adidas.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.adidas.com/"
+  },
+  "adorama": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Adorama",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:33.935039+00:00",
+    "domain": "adorama.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.adorama.com/"
+  },
+  "aerie": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Aerie",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:01.286166+00:00",
+    "domain": "ae.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "agoda": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Agoda",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:39.948861+00:00",
+    "domain": "agoda.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "air canada": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Air Canada",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:33.163164+00:00",
+    "domain": "aircanada.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "air france": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Air France",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:39.520939+00:00",
+    "domain": "airfrance.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='airfrance.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "airbnb": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Airbnb",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:43.286481+00:00",
+    "domain": "airbnb.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "alaska airlines": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Alaska Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:38.835881+00:00",
+    "domain": "alaskaair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "albertsons": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Albertsons",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:09.663011+00:00",
+    "domain": "albertsons.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "aldi": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Aldi",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:13.287543+00:00",
+    "domain": "aldi.us",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "aliexpress": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "AliExpress",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:31.455447+00:00",
+    "domain": "aliexpress.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "allbirds": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Allbirds",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:26:59.426085+00:00",
+    "domain": "allbirds.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "allmodern": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "AllModern",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:29.118630+00:00",
+    "domain": "allmodern.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.allmodern.com/"
+  },
+  "allswell": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Allswell",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:21.162483+00:00",
+    "domain": "walmart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "alo yoga": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Alo Yoga",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:26:58.394803+00:00",
+    "domain": "aloyoga.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "amazon": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Amazon",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:31.012005+00:00",
+    "domain": "amazon.com",
+    "http_statuses": [
+      202,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "amazon fire tv": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Amazon Fire TV",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:31.726645+00:00",
+    "domain": "amazon.com",
+    "http_statuses": [
+      202,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "amazon home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Amazon Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:22.450661+00:00",
+    "domain": "amazon.com",
+    "http_statuses": [
+      202,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "amd": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "AMD",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:37.971329+00:00",
+    "domain": "amd.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.amd.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "american airlines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "American Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:45.917146+00:00",
+    "domain": "aa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://aa.com/"
+  },
+  "american eagle": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "American Eagle",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:00.601689+00:00",
+    "domain": "ae.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "amika": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Amika",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:18.292963+00:00",
+    "domain": "loveamika.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "amtrak": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Amtrak",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:39.640324+00:00",
+    "domain": "amtrak.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ana": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "ANA",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:47.295326+00:00",
+    "domain": "ana.co.jp",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.ana.co.jp', port=443): Read timed out. (read timeout=15)"
+  },
+  "anastasia beverly hills": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Anastasia Beverly Hills",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:19.568075+00:00",
+    "domain": "anastasiabeverlyhills.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "anker": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Anker",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:33.861313+00:00",
+    "domain": "anker.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "anthropologie": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Anthropologie",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:04.868062+00:00",
+    "domain": "anthropologie.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.anthropologie.com/"
+  },
+  "apple": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Apple",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:33.273614+00:00",
+    "domain": "apple.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "arc'teryx": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Arc'teryx",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:08.605027+00:00",
+    "domain": "arcteryx.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "arlo": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Arlo",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:32.205009+00:00",
+    "domain": "arlo.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "armani exchange": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Armani Exchange",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:00.043046+00:00",
+    "domain": "armani.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "article": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Article",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:25.482891+00:00",
+    "domain": "article.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "article home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Article Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:25.449291+00:00",
+    "domain": "article.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ashley": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Ashley",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:28.135170+00:00",
+    "domain": "ashleyfurniture.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://ashleyfurniture.com/"
+  },
+  "asics": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "ASICS",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:04.557294+00:00",
+    "domain": "asics.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.asics.com/us/en-us/"
+  },
+  "asos": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "ASOS",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:04.677164+00:00",
+    "domain": "asos.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.asos.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "asrock": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "ASRock",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:40.975251+00:00",
+    "domain": "asrock.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "asus": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "ASUS",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:33.395632+00:00",
+    "domain": "asus.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "at home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "At Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:29.075035+00:00",
+    "domain": "athome.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.athome.com/"
+  },
+  "athleta": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Athleta",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:26:57.826530+00:00",
+    "domain": "athleta.gap.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "aveeno": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Aveeno",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:23.831849+00:00",
+    "domain": "aveeno.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://aveeno.com/"
+  },
+  "avocado": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Avocado",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:21.381231+00:00",
+    "domain": "avocadogreenbrands.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "avène": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Avène",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:25.728040+00:00",
+    "domain": "aveneusa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://aveneusa.com/"
+  },
+  "b&h photo": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "B&H Photo",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:39.803799+00:00",
+    "domain": "bhphotovideo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://bhphotovideo.com/"
+  },
+  "b&h photo video": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "B&H Photo Video",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:39.835988+00:00",
+    "domain": "bhphotovideo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://bhphotovideo.com/"
+  },
+  "back market": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Back Market",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:39.200696+00:00",
+    "domain": "backmarket.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "balenciaga": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Balenciaga",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:11.838557+00:00",
+    "domain": "balenciaga.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "ballard designs": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Ballard Designs",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:28.607889+00:00",
+    "domain": "ballarddesigns.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.ballarddesigns.com/"
+  },
+  "banana republic": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Banana Republic",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:00.746503+00:00",
+    "domain": "bananarepublic.gap.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "barceló hotel group": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Barceló Hotel Group",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:44.869198+00:00",
+    "domain": "barcelo.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "baskin-robbins": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Baskin-Robbins",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:06.892073+00:00",
+    "domain": "baskinrobbins.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "bath & body works": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Bath & Body Works",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:18.776545+00:00",
+    "domain": "bathandbodyworks.com",
+    "http_statuses": [
+      307,
+      307,
+      307
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "beats": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Beats",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:35.339905+00:00",
+    "domain": "beatsbydre.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "beautyrest": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Beautyrest",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:21.370812+00:00",
+    "domain": "beautyrest.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "bed bath & beyond": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Bed Bath & Beyond",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:44.491797+00:00",
+    "domain": "bedbathandbeyond.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "belkin": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Belkin",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:40.929834+00:00",
+    "domain": "belkin.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "benefit cosmetics": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Benefit Cosmetics",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:21.973501+00:00",
+    "domain": "benefitcosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "best buy": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Best Buy",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:01.447960+00:00",
+    "domain": "bestbuy.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "best western": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Best Western",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:49.763045+00:00",
+    "domain": "bestwestern.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.bestwestern.com/en_US.html"
+  },
+  "bhg": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "BHG",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:23.733618+00:00",
+    "domain": "bhg.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "bioderma": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Bioderma",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:21.479582+00:00",
+    "domain": "bioderma.us",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "birch lane": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Birch Lane",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:30.476114+00:00",
+    "domain": "birchlane.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.birchlane.com/"
+  },
+  "birkenstock": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Birkenstock",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:06.684825+00:00",
+    "domain": "birkenstock.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='birkenstock.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='birkenstock.com', port=443) at 0x7fdffc608f50>, 'Connection to birkenstock.com timed out. (connect timeout=15)'))"
+  },
+  "blink": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Blink",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:36.856140+00:00",
+    "domain": "blinkforhome.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "blue apron": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Blue Apron",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:13.901681+00:00",
+    "domain": "blueapron.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.blueapron.com/"
+  },
+  "bobbi brown": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Bobbi Brown",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:29.368536+00:00",
+    "domain": "bobbibrowncosmetics.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://bobbibrowncosmetics.com/"
+  },
+  "boll & branch": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Boll & Branch",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:26.746749+00:00",
+    "domain": "bollandbranch.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "booking.com": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Booking.com",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:46.092336+00:00",
+    "domain": "booking.com",
+    "http_statuses": [
+      202,
+      202,
+      202
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "bose": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Bose",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:39.069106+00:00",
+    "domain": "bose.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "breville": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Breville",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:26.069017+00:00",
+    "domain": "breville.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "briogeo": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Briogeo",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:22.885508+00:00",
+    "domain": "briogeohair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "british airways": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "British Airways",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:46.670086+00:00",
+    "domain": "britishairways.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "brooklinen": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Brooklinen",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:27.745329+00:00",
+    "domain": "brooklinen.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "brooks running": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Brooks Running",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:08.145065+00:00",
+    "domain": "brooksrunning.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.brooksrunning.com/"
+  },
+  "burberry": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Burberry",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:02.243255+00:00",
+    "domain": "burberry.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "burger king": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Burger King",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:07.734419+00:00",
+    "domain": "bk.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "burke decor": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Burke Decor",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:30.226643+00:00",
+    "domain": "burkedecor.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:SSLError:HTTPSConnectionPool(host='burkedecor.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+  },
+  "burrow": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Burrow",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:29.266295+00:00",
+    "domain": "burrow.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "calvin klein": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Calvin Klein",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:09.728067+00:00",
+    "domain": "calvinklein.us",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.calvinklein.us/"
+  },
+  "canon": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Canon",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:44.410833+00:00",
+    "domain": "usa.canon.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.usa.canon.com/"
+  },
+  "care/of": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Care/of",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:18.262970+00:00",
+    "domain": "careof.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectionError:HTTPSConnectionPool(host='careof.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='careof.com', port=443): Failed to resolve 'careof.com' ([Errno -3] Temporary failure in name resolution)\"))"
+  },
+  "carrefour": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Carrefour",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:19.066969+00:00",
+    "domain": "carrefour.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.carrefour.com/"
+  },
+  "casper": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Casper",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:28.678445+00:00",
+    "domain": "casper.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "castlery": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Castlery",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:26.643590+00:00",
+    "domain": "castlery.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "cathay pacific": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Cathay Pacific",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:52.495557+00:00",
+    "domain": "cathaypacific.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='cathaypacific.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "cb2": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "CB2",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:34.631484+00:00",
+    "domain": "cb2.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.cb2.com/"
+  },
+  "cerave": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "CeraVe",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:23.536053+00:00",
+    "domain": "cerave.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "cetaphil": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Cetaphil",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:24.777630+00:00",
+    "domain": "cetaphil.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "chairish": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Chairish",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:35.670759+00:00",
+    "domain": "chairish.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "charlotte tilbury": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Charlotte Tilbury",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:28.204574+00:00",
+    "domain": "charlottetilbury.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "chipotle": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Chipotle",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:18.004677+00:00",
+    "domain": "chipotle.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "choice hotels": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Choice Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:53.513990+00:00",
+    "domain": "choicehotels.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.choicehotels.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "chromecast": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Chromecast",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:45.634508+00:00",
+    "domain": "store.google.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "clinique": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Clinique",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:31.427048+00:00",
+    "domain": "clinique.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://clinique.com/"
+  },
+  "club med": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Club Med",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:53.293241+00:00",
+    "domain": "clubmed.us",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='clubmed.us', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='clubmed.us', port=443) at 0x7f0ce458e510>, 'Connection to clubmed.us timed out. (connect timeout=15)'))"
+  },
+  "coach": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Coach",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:08.600247+00:00",
+    "domain": "coach.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://coach.com/"
+  },
+  "colourpop": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "ColourPop",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:30.212826+00:00",
+    "domain": "colourpop.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "columbia sportswear": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Columbia Sportswear",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:05.844990+00:00",
+    "domain": "columbia.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "comfort inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Comfort Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:54.236438+00:00",
+    "domain": "choicehotels.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.choicehotels.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "converse": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Converse",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:13.162053+00:00",
+    "domain": "converse.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.converse.com/"
+  },
+  "corsair": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Corsair",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:41.672347+00:00",
+    "domain": "corsair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "cosrx": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "COSRX",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:31.732906+00:00",
+    "domain": "cosrx.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "costa coffee": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Costa Coffee",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:19.956199+00:00",
+    "domain": "costa.co.uk",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='costa.co.uk', port=443): Read timed out. (read timeout=15)"
+  },
+  "costco": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Costco",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:46.819166+00:00",
+    "domain": "costco.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.costco.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "costco home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Costco Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:34.376582+00:00",
+    "domain": "costco.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.costco.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "courtyard by marriott": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Courtyard by Marriott",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:54.670116+00:00",
+    "domain": "marriott.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.marriott.com/default.mi"
+  },
+  "covergirl": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Covergirl",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:25.682124+00:00",
+    "domain": "covergirl.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "coyuchi": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Coyuchi",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:30.310802+00:00",
+    "domain": "coyuchi.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "crate & barrel": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Crate & Barrel",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:36.456799+00:00",
+    "domain": "crateandbarrel.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.crateandbarrel.com/"
+  },
+  "crocs": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Crocs",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:13.092570+00:00",
+    "domain": "crocs.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.crocs.com/"
+  },
+  "crowne plaza": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Crowne Plaza",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:56.772484+00:00",
+    "domain": "ihg.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://ihg.com/"
+  },
+  "crutchfield": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Crutchfield",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:47.829690+00:00",
+    "domain": "crutchfield.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://crutchfield.com/"
+  },
+  "cuisinart": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Cuisinart",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:30.701296+00:00",
+    "domain": "cuisinart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "daily harvest": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Daily Harvest",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:14.901491+00:00",
+    "domain": "daily-harvest.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "dairy queen": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Dairy Queen",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:29.059101+00:00",
+    "domain": "dairyqueen.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "deliveroo": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Deliveroo",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:13.727174+00:00",
+    "domain": "deliveroo.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "dell": {
+    "attempts": 4,
+    "batch": 1,
+    "brand": "Dell",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:47.925493+00:00",
+    "domain": "dell.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "delta air lines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Delta Air Lines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:34:56.835338+00:00",
+    "domain": "delta.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectionError:HTTPSConnectionPool(host='delta.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='delta.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+  },
+  "dermalogica": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Dermalogica",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:30.929285+00:00",
+    "domain": "dermalogica.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "design within reach": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Design Within Reach",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:36.151509+00:00",
+    "domain": "dwr.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "diesel": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Diesel",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:06.026255+00:00",
+    "domain": "diesel.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "dillard's": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Dillard's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:20.735479+00:00",
+    "domain": "dillards.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "dji": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "DJI",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:42.494227+00:00",
+    "domain": "dji.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "dkny": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "DKNY",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:11.130867+00:00",
+    "domain": "dkny.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "dolce & gabbana": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Dolce & Gabbana",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:07.886867+00:00",
+    "domain": "dolcegabbana.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "domino's": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Domino's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:15.285379+00:00",
+    "domain": "dominos.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "doordash": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "DoorDash",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:21.226191+00:00",
+    "domain": "doordash.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.doordash.com/"
+  },
+  "doubletree by hilton": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "DoubleTree by Hilton",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:38.735767+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "douglas": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Douglas",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:35.829716+00:00",
+    "domain": "douglas.de",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.douglas.de/"
+  },
+  "dove": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Dove",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:37.643848+00:00",
+    "domain": "dove.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.dove.com/"
+  },
+  "dove beauty": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Dove Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:37.521023+00:00",
+    "domain": "dove.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.dove.com/"
+  },
+  "dr. martens": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Dr. Martens",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:16.537369+00:00",
+    "domain": "drmartens.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "drunk elephant": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Drunk Elephant",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:33.335476+00:00",
+    "domain": "drunkelephant.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "dunkin'": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Dunkin'",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:30.987796+00:00",
+    "domain": "dunkindonuts.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "dyson": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Dyson",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:46.591990+00:00",
+    "domain": "dyson.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "dyson beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Dyson Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:35.874495+00:00",
+    "domain": "dyson.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "dyson home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Dyson Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:34.667637+00:00",
+    "domain": "dyson.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "e.l.f. cosmetics": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "e.l.f. Cosmetics",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:34.091899+00:00",
+    "domain": "elfcosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "easyjet": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "easyJet",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:04.092013+00:00",
+    "domain": "easyjet.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://easyjet.com/"
+  },
+  "eatfit": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Eatfit",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:18.685477+00:00",
+    "domain": "eatfit.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "ebay": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "eBay",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:51.079707+00:00",
+    "domain": "ebay.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.ebay.com/"
+  },
+  "embassy suites": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Embassy Suites",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:40.080007+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "emirates": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Emirates",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:07.160028+00:00",
+    "domain": "emirates.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.emirates.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "emporio armani": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Emporio Armani",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:12.145813+00:00",
+    "domain": "armani.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "epic games store": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Epic Games Store",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:51.766123+00:00",
+    "domain": "epicgames.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://store.epicgames.com/"
+  },
+  "epson": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Epson",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:03.914143+00:00",
+    "domain": "epson.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "estée lauder": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Estée Lauder",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:39.343957+00:00",
+    "domain": "esteelauder.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://esteelauder.com/"
+  },
+  "etihad airways": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Etihad Airways",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:08.454001+00:00",
+    "domain": "etihad.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.etihad.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "etsy": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Etsy",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:52.423983+00:00",
+    "domain": "etsy.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.etsy.com/"
+  },
+  "etsy home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Etsy Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:37.260013+00:00",
+    "domain": "etsy.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.etsy.com/"
+  },
+  "eucerin": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Eucerin",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:35.808374+00:00",
+    "domain": "eucerinus.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "everlane": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Everlane",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:13.889131+00:00",
+    "domain": "everlane.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "everyplate": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "EveryPlate",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:20.821127+00:00",
+    "domain": "everyplate.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "expedia": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Expedia",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:12.342207+00:00",
+    "domain": "expedia.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.expedia.com/"
+  },
+  "fabletics": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Fabletics",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:17.674381+00:00",
+    "domain": "fabletics.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://fabletics.com/"
+  },
+  "factor": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Factor",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:40.545854+00:00",
+    "domain": "factor75.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "fairmont": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Fairmont",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:16.368058+00:00",
+    "domain": "fairmont.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "farmacy": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Farmacy",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:42.837667+00:00",
+    "domain": "farmacybeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "fendi": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Fendi",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:16.172514+00:00",
+    "domain": "fendi.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='fendi.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "fenty beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Fenty Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:46.132292+00:00",
+    "domain": "fentybeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "finish line": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Finish Line",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:18.293842+00:00",
+    "domain": "finishline.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.finishline.com/"
+  },
+  "first aid beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "First Aid Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:40.464610+00:00",
+    "domain": "firstaidbeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "fitbit": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Fitbit",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:47.951439+00:00",
+    "domain": "fitbit.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "five guys": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Five Guys",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:27.566329+00:00",
+    "domain": "fiveguys.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "flixbus": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "FlixBus",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:32.787198+00:00",
+    "domain": "flixbus.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "floyd": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Floyd",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:31.460583+00:00",
+    "domain": "floydhome.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "food lion": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Food Lion",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:27.370853+00:00",
+    "domain": "foodlion.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://foodlion.com/"
+  },
+  "foot locker": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Foot Locker",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:19.200838+00:00",
+    "domain": "footlocker.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: d14225d71ce82001PFB for url: https://www.footlocker.com/"
+  },
+  "forever 21": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Forever 21",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:14.469741+00:00",
+    "domain": "forever21.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "four seasons": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Four Seasons",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:40.249414+00:00",
+    "domain": "fourseasons.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.fourseasons.com:443/"
+  },
+  "framework": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Framework",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:54.047386+00:00",
+    "domain": "frame.work",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://frame.work/"
+  },
+  "free people": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Free People",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:20.582803+00:00",
+    "domain": "freepeople.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.freepeople.com/"
+  },
+  "fresh": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Fresh",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:46.662923+00:00",
+    "domain": "fresh.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "fresh market": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Fresh Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:23.339202+00:00",
+    "domain": "thefreshmarket.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "freshdirect": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "FreshDirect",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:28.748213+00:00",
+    "domain": "freshdirect.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.freshdirect.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "frontgate": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Frontgate",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:38.337643+00:00",
+    "domain": "frontgate.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.frontgate.com/"
+  },
+  "gamestop": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "GameStop",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:55.697374+00:00",
+    "domain": "gamestop.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.gamestop.com/"
+  },
+  "gap": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Gap",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:14.776534+00:00",
+    "domain": "gap.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "garmin": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Garmin",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:48.537763+00:00",
+    "domain": "garmin.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "getyourguide": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "GetYourGuide",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:40.404458+00:00",
+    "domain": "getyourguide.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.getyourguide.com/"
+  },
+  "ghd": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "GHD",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:37.592725+00:00",
+    "domain": "ghdhair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "giant food": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Giant Food",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:28.768842+00:00",
+    "domain": "giantfood.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://giantfood.com/"
+  },
+  "gigabyte": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Gigabyte",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:12.342352+00:00",
+    "domain": "gigabyte.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='gigabyte.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='gigabyte.com', port=443) at 0x7fdffcfb69c0>, 'Connection to gigabyte.com timed out. (connect timeout=15)'))"
+  },
+  "givenchy": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Givenchy",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:20.886337+00:00",
+    "domain": "givenchy.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://givenchy.com/"
+  },
+  "glossier": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Glossier",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:46.152945+00:00",
+    "domain": "glossier.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "glow recipe": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Glow Recipe",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:48.706795+00:00",
+    "domain": "glowrecipe.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "gnc": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "GNC",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:23.715749+00:00",
+    "domain": "gnc.com",
+    "http_statuses": [
+      307,
+      307,
+      307
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "goldbelly": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Goldbelly",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:24.618596+00:00",
+    "domain": "goldbelly.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "good molecules": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Good Molecules",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:40.962736+00:00",
+    "domain": "goodmolecules.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "google store": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Google Store",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:51.800726+00:00",
+    "domain": "store.google.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "gopro": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "GoPro",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:52.579764+00:00",
+    "domain": "gopro.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "gopuff": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Gopuff",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:32.654641+00:00",
+    "domain": "gopuff.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.gopuff.com/"
+  },
+  "grandin road": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Grandin Road",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:38.595198+00:00",
+    "domain": "grandinroad.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.grandinroad.com/"
+  },
+  "greyhound": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Greyhound",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:46.994491+00:00",
+    "domain": "greyhound.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "grubhub": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Grubhub",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:27.224425+00:00",
+    "domain": "grubhub.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "gucci": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Gucci",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:22.154076+00:00",
+    "domain": "gucci.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.gucci.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "guess": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Guess",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:35.905961+00:00",
+    "domain": "guess.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "gymshark": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Gymshark",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:30.599833+00:00",
+    "domain": "gymshark.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "h mart": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "H Mart",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:29.014386+00:00",
+    "domain": "hmart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "h&m": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "H&M",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:23.735447+00:00",
+    "domain": "hm.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='hm.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "h-e-b": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "H-E-B",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:36.731514+00:00",
+    "domain": "heb.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:401 Client Error: Unauthorized for url: https://www.heb.com/"
+  },
+  "hampton by hilton": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hampton by Hilton",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:23.647595+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "hampton inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hampton Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:25.860752+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "harbor freight": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Harbor Freight",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:59.371804+00:00",
+    "domain": "harborfreight.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://harborfreight.com/"
+  },
+  "harry & david": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Harry & David",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:30.931041+00:00",
+    "domain": "harryanddavid.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "hay": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "HAY",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:32.170836+00:00",
+    "domain": "hay.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "hellofresh": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "HelloFresh",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:47.124937+00:00",
+    "domain": "hellofresh.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "hellofresh market": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "HelloFresh Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:46.908067+00:00",
+    "domain": "hellofresh.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "herman miller": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Herman Miller",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:40.778801+00:00",
+    "domain": "hermanmiller.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "hero cosmetics": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Hero Cosmetics",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:44.645438+00:00",
+    "domain": "herocosmetics.us",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "hilton": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hilton",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:23.035303+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "hilton garden inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hilton Garden Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:26.568257+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "hoka": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "HOKA",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:25.691973+00:00",
+    "domain": "hoka.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error:  for url: https://www.hoka.com/"
+  },
+  "holiday inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Holiday Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:54.653144+00:00",
+    "domain": "ihg.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://ihg.com/"
+  },
+  "hollister": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Hollister",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:26.463550+00:00",
+    "domain": "hollisterco.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "home depot": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Home Depot",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:59.528111+00:00",
+    "domain": "homedepot.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.homedepot.com/"
+  },
+  "homegoods": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "HomeGoods",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:53.148533+00:00",
+    "domain": "homegoods.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "homewood suites": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Homewood Suites",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:32.139308+00:00",
+    "domain": "hilton.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hilton.com/en/"
+  },
+  "hostelworld": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Hostelworld",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:35:55.387176+00:00",
+    "domain": "hostelworld.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "hotels.com": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hotels.com",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:00.935100+00:00",
+    "domain": "hotels.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='hotels.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "hourglass": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Hourglass",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:59.168883+00:00",
+    "domain": "hourglasscosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "houzz": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Houzz",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:36.451848+00:00",
+    "domain": "houzz.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "hp": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "HP",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:32:09.727632+00:00",
+    "domain": "hp.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "huda beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Huda Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:55.956055+00:00",
+    "domain": "hudabeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "hugo boss": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Hugo Boss",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:28.978206+00:00",
+    "domain": "hugoboss.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hugoboss.com/"
+  },
+  "hungryroot": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Hungryroot",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:45.078034+00:00",
+    "domain": "hungryroot.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "hyatt": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hyatt",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:02.136412+00:00",
+    "domain": "hyatt.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hyatt.com/"
+  },
+  "hyatt place": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hyatt Place",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:02.412811+00:00",
+    "domain": "hyatt.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.hyatt.com/"
+  },
+  "hydro flask": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Hydro Flask",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:39.944001+00:00",
+    "domain": "hydroflask.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://hydroflask.com/"
+  },
+  "iberia": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Iberia",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:05.683896+00:00",
+    "domain": "iberia.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.iberia.com:443/"
+  },
+  "iceland foods": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Iceland Foods",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:39.254781+00:00",
+    "domain": "iceland.co.uk",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.iceland.co.uk/"
+  },
+  "ifixit": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "iFixit",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:54.911420+00:00",
+    "domain": "ifixit.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "iherb": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "iHerb",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:35.844349+00:00",
+    "domain": "iherb.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ihg hotels & resorts": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "IHG Hotels & Resorts",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:09.467450+00:00",
+    "domain": "ihg.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://ihg.com/"
+  },
+  "ikea": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "IKEA",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:56.177407+00:00",
+    "domain": "ikea.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "ilia": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Ilia",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:51.535038+00:00",
+    "domain": "iliabeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "inside weather": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Inside Weather",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:37.816047+00:00",
+    "domain": "insideweather.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "instacart": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Instacart",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:38.574054+00:00",
+    "domain": "instacart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "intel": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Intel",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:29:57.044154+00:00",
+    "domain": "intel.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "intercontinental": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "InterContinental",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:09.681525+00:00",
+    "domain": "ihg.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://ihg.com/"
+  },
+  "j.crew": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "J.Crew",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:21.874732+00:00",
+    "domain": "jcrew.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "jack in the box": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Jack in the Box",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:41.623140+00:00",
+    "domain": "jackinthebox.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='jackinthebox.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='jackinthebox.com', port=443) at 0x7f0cd083a2a0>, 'Connection to jackinthebox.com timed out. (connect timeout=15)'))"
+  },
+  "japan airlines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Japan Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:13.474527+00:00",
+    "domain": "jal.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='jal.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='jal.com', port=443) at 0x7f0cd0ac1e50>, 'Connection to jal.com timed out. (connect timeout=15)'))"
+  },
+  "jbl": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "JBL",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:03.228891+00:00",
+    "domain": "jbl.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:SSLError:HTTPSConnectionPool(host='jbl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+  },
+  "jcpenney": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "JCPenney",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:31:03.605830+00:00",
+    "domain": "jcp.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.jcpenney.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "jd sports": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "JD Sports",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:28.274683+00:00",
+    "domain": "jdsports.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='jdsports.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='jdsports.com', port=443) at 0x7fe00cddb9b0>, 'Connection to jdsports.com timed out. (connect timeout=15)'))"
+  },
+  "jetblue": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "JetBlue",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:14.979081+00:00",
+    "domain": "jetblue.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "joss & main": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Joss & Main",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:38.386919+00:00",
+    "domain": "jossandmain.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "joybird": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Joybird",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:37.666416+00:00",
+    "domain": "joybird.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "just eat": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Just Eat",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:37.490825+00:00",
+    "domain": "justeat.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "kate spade": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Kate Spade",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:29.184439+00:00",
+    "domain": "katespade.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://katespade.com/"
+  },
+  "kayak": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Kayak",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:09.828666+00:00",
+    "domain": "kayak.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "keurig": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Keurig",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:43.448915+00:00",
+    "domain": "keurig.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectionError:HTTPSConnectionPool(host='keurig.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='keurig.com', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+  },
+  "kfc": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "KFC",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:44.525252+00:00",
+    "domain": "kfc.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.kfc.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "kiehl's": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Kiehl's",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:51.603459+00:00",
+    "domain": "kiehls.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.kiehls.com/"
+  },
+  "kirkland's": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Kirkland's",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:37.047696+00:00",
+    "domain": "kirklands.com",
+    "http_statuses": [
+      200,
+      200,
+      307
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "kitchenaid": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "KitchenAid",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:45.200572+00:00",
+    "domain": "kitchenaid.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.kitchenaid.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "klm": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "KLM",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:17.268598+00:00",
+    "domain": "klm.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='klm.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "klook": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Klook",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:21.321036+00:00",
+    "domain": "klook.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.klook.com:443/"
+  },
+  "knoll": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Knoll",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:39.146128+00:00",
+    "domain": "knoll.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "kohl's": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Kohl's",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:04.398634+00:00",
+    "domain": "kohls.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://kohls.com/"
+  },
+  "kohl's home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Kohl's Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:44.635642+00:00",
+    "domain": "kohls.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://kohls.com/"
+  },
+  "kosas": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Kosas",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:48.706809+00:00",
+    "domain": "kosas.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "krispy kreme": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Krispy Kreme",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:39.678162+00:00",
+    "domain": "krispykreme.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "kroger": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Kroger",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:46.953092+00:00",
+    "domain": "kroger.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.kroger.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "kérastase": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Kérastase",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:55.485921+00:00",
+    "domain": "kerastase-usa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.kerastase-usa.com/"
+  },
+  "l'oréal": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "L'Oréal",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:49.225593+00:00",
+    "domain": "loreal.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "l'oréal paris": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "L'Oréal Paris",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:50.340957+00:00",
+    "domain": "lorealparisusa.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "la quinta": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "La Quinta",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:11.400274+00:00",
+    "domain": "wyndhamhotels.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "la roche-posay": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "La Roche-Posay",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:57.413719+00:00",
+    "domain": "laroche-posay.us",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.laroche-posay.us/"
+  },
+  "la-z-boy": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "La-Z-Boy",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:38.429035+00:00",
+    "domain": "la-z-boy.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "lacoste": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Lacoste",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:32.894215+00:00",
+    "domain": "lacoste.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://lacoste.com/"
+  },
+  "lamps plus": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Lamps Plus",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:54.652310+00:00",
+    "domain": "lampsplus.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "lancôme": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Lancôme",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:57.234119+00:00",
+    "domain": "lancome-usa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.lancome-usa.com/"
+  },
+  "lands' end home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Lands' End Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:42.891371+00:00",
+    "domain": "landsend.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "laneige": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Laneige",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:55.213342+00:00",
+    "domain": "us.laneige.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "le creuset": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Le Creuset",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:40.248885+00:00",
+    "domain": "lecreuset.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "leesa": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Leesa",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:51.096041+00:00",
+    "domain": "leesa.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "lenovo": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Lenovo",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:07.014128+00:00",
+    "domain": "lenovo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.lenovo.com/"
+  },
+  "levi's": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Levi's",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:34.906230+00:00",
+    "domain": "levi.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.levi.com/US/en_US/"
+  },
+  "lg": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "LG",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:05.266128+00:00",
+    "domain": "lg.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "lidl": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Lidl",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:41.129092+00:00",
+    "domain": "lidl.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "little caesars": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Little Caesars",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:47.575420+00:00",
+    "domain": "littlecaesars.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "living proof": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Living Proof",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:56.804171+00:00",
+    "domain": "livingproof.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "lodge cast iron": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Lodge Cast Iron",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:42.219661+00:00",
+    "domain": "lodgecastiron.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "logitech": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Logitech",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:03.880103+00:00",
+    "domain": "logitech.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "lowe's": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Lowe's",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:18.557794+00:00",
+    "domain": "lowes.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "lufthansa": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Lufthansa",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:20.235627+00:00",
+    "domain": "lufthansa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.lufthansa.com/"
+  },
+  "lulu and georgia": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Lulu and Georgia",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:44.059106+00:00",
+    "domain": "luluandgeorgia.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "lululemon": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Lululemon",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:36.743790+00:00",
+    "domain": "lululemon.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='lululemon.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "lush": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Lush",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:55.604326+00:00",
+    "domain": "lush.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "mac cosmetics": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "MAC Cosmetics",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:01.640682+00:00",
+    "domain": "maccosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "macy's": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Macy's",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:36.941216+00:00",
+    "domain": "macys.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.macys.com/"
+  },
+  "macy's home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Macy's Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:48.062112+00:00",
+    "domain": "macys.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.macys.com/"
+  },
+  "madewell": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Madewell",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:32.519817+00:00",
+    "domain": "madewell.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "mandarin oriental": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Mandarin Oriental",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:20.603958+00:00",
+    "domain": "mandarinoriental.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "marc jacobs": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Marc Jacobs",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:47.998403+00:00",
+    "domain": "marcjacobs.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "marks & spencer food": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Marks & Spencer Food",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:42.507464+00:00",
+    "domain": "marksandspencer.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "marriott": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Marriott",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:28.164709+00:00",
+    "domain": "marriott.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.marriott.com/default.mi"
+  },
+  "martha stewart": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Martha Stewart",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:51.780960+00:00",
+    "domain": "marthastewart.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "maybelline": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Maybelline",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:28:55.904989+00:00",
+    "domain": "maybelline.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "mcdonald's": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "McDonald's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:49.557171+00:00",
+    "domain": "mcdonalds.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.mcdonalds.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "meijer": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Meijer",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:50.515248+00:00",
+    "domain": "meijer.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.meijer.com/"
+  },
+  "meliá hotels": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Meliá Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:28.317437+00:00",
+    "domain": "melia.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.melia.com/"
+  },
+  "mercury row": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Mercury Row",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:46.629986+00:00",
+    "domain": "wayfair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "merrell": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Merrell",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:35.287812+00:00",
+    "domain": "merrell.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "meta quest": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Meta Quest",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:14.861408+00:00",
+    "domain": "meta.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "michael kors": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Michael Kors",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:37.058504+00:00",
+    "domain": "michaelkors.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "micro center": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Micro Center",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:11.855896+00:00",
+    "domain": "microcenter.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.microcenter.com/"
+  },
+  "microsoft": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Microsoft",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:32:19.842386+00:00",
+    "domain": "microsoft.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "milk makeup": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Milk Makeup",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:09.600412+00:00",
+    "domain": "milkmakeup.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "misfits market": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Misfits Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:53.075978+00:00",
+    "domain": "misfitsmarket.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "mizuno": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Mizuno",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:35.698211+00:00",
+    "domain": "mizunousa.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "moncler": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Moncler",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:45.422470+00:00",
+    "domain": "moncler.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.moncler.com/"
+  },
+  "moroccanoil": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Moroccanoil",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:03.279098+00:00",
+    "domain": "moroccanoil.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "morphe": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Morphe",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:06.655810+00:00",
+    "domain": "morphe.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "morrisons": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Morrisons",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:48.534725+00:00",
+    "domain": "morrisons.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "motel 6": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Motel 6",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:28.671044+00:00",
+    "domain": "motel6.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='motel6.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "motorola": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Motorola",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:07.526491+00:00",
+    "domain": "motorola.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "msi": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "MSI",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:16.920847+00:00",
+    "domain": "msi.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.msi.com/"
+  },
+  "murad": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Murad",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:04.229785+00:00",
+    "domain": "murad.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "myprotein": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Myprotein",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:52.343141+00:00",
+    "domain": "myprotein.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "naked wines": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Naked Wines",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:59.358189+00:00",
+    "domain": "nakedwines.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nars": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "NARS",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:02.107595+00:00",
+    "domain": "narscosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nature made": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Nature Made",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:51.982071+00:00",
+    "domain": "naturemade.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nectar": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Nectar",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:44.631212+00:00",
+    "domain": "nectarsleep.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nespresso": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Nespresso",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:03.095733+00:00",
+    "domain": "nespresso.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "neutrogena": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Neutrogena",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:05.229940+00:00",
+    "domain": "neutrogena.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://neutrogena.com/"
+  },
+  "new balance": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "New Balance",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:43.657557+00:00",
+    "domain": "newbalance.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.newbalance.com/"
+  },
+  "newegg": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Newegg",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:08.397225+00:00",
+    "domain": "newegg.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nh hotels": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "NH Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:30.794700+00:00",
+    "domain": "nh-hotels.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.nh-hotels.com/en"
+  },
+  "nike": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Nike",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:39.469965+00:00",
+    "domain": "nike.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nikon": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Nikon",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:11.540818+00:00",
+    "domain": "nikonusa.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ninja kitchen": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Ninja Kitchen",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:46.768784+00:00",
+    "domain": "sharkninja.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "nintendo": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Nintendo",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:17.134881+00:00",
+    "domain": "nintendo.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "nordstrom": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Nordstrom",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:46.864778+00:00",
+    "domain": "nordstrom.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "nordstrom home": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Nordstrom Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:58.687201+00:00",
+    "domain": "nordstrom.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "nothing": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Nothing",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:12.665187+00:00",
+    "domain": "nothing.tech",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "novotel": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Novotel",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:25.089505+00:00",
+    "domain": "novotel.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "nvidia": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "NVIDIA",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:14.697052+00:00",
+    "domain": "nvidia.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "nyx professional makeup": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "NYX Professional Makeup",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:06.500430+00:00",
+    "domain": "nyxcosmetics.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.nyxcosmetics.com/"
+  },
+  "ocado": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Ocado",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:48.836869+00:00",
+    "domain": "ocado.com",
+    "http_statuses": [
+      202,
+      202,
+      202
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "office depot": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Office Depot",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:31:20.430962+00:00",
+    "domain": "officedepot.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.officedepot.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "olaplex": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Olaplex",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:07.377174+00:00",
+    "domain": "olaplex.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "olay": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Olay",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:06.141830+00:00",
+    "domain": "olay.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "old navy": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Old Navy",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:40.602883+00:00",
+    "domain": "oldnavy.gap.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "omaha steaks": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Omaha Steaks",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:56.230212+00:00",
+    "domain": "omahasteaks.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://omahasteaks.com/"
+  },
+  "omio": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Omio",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:27.839804+00:00",
+    "domain": "omio.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "on": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "On",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:42.035978+00:00",
+    "domain": "on.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "oneplus": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "OnePlus",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:35.922666+00:00",
+    "domain": "oneplus.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "orbitz": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Orbitz",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:33.974824+00:00",
+    "domain": "orbitz.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.orbitz.com/"
+  },
+  "origins": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Origins",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:09.779137+00:00",
+    "domain": "origins.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://origins.com/"
+  },
+  "ouai": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Ouai",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:07.833872+00:00",
+    "domain": "theouai.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "overstock": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "Overstock",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:23.475395+00:00",
+    "domain": "overstock.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "panda express": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Panda Express",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:58.921894+00:00",
+    "domain": "pandaexpress.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.pandaexpress.com:443/"
+  },
+  "panera bread": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Panera Bread",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:59.146248+00:00",
+    "domain": "panerabread.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='panerabread.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='panerabread.com', port=443) at 0x7f0cd081e3f0>, 'Connection to panerabread.com timed out. (connect timeout=15)'))"
+  },
+  "papa johns": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Papa Johns",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:53.033545+00:00",
+    "domain": "papajohns.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "parachute": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Parachute",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:55.868961+00:00",
+    "domain": "parachutehome.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "parachute home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Parachute Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:56.142863+00:00",
+    "domain": "parachutehome.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "pat mcgrath labs": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Pat McGrath Labs",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:10.159820+00:00",
+    "domain": "patmcgrath.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "patagonia": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Patagonia",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:51.027697+00:00",
+    "domain": "patagonia.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:404 Client Error: Not Found for url: https://www.patagonia.com/"
+  },
+  "paula's choice": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Paula's Choice",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:24.658556+00:00",
+    "domain": "paulaschoice.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "peter thomas roth": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Peter Thomas Roth",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:11.959173+00:00",
+    "domain": "drbrandtskincare.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "philips": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Philips",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:18.463964+00:00",
+    "domain": "philips.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "pizza hut": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Pizza Hut",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:35:00.607530+00:00",
+    "domain": "pizzahut.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.pizzahut.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "playstation": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "PlayStation",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:19.002381+00:00",
+    "domain": "playstation.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "poly & bark": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Poly & Bark",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:50.503224+00:00",
+    "domain": "polyandbark.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "popeyes": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Popeyes",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:54.252257+00:00",
+    "domain": "popeyes.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "postmates": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Postmates",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:04.087883+00:00",
+    "domain": "postmates.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "pottery barn": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Pottery Barn",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:03.776309+00:00",
+    "domain": "potterybarn.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "prada": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Prada",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:51.442519+00:00",
+    "domain": "prada.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.prada.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "premier inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Premier Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:33.901774+00:00",
+    "domain": "premierinn.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='premierinn.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "pret a manger": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Pret A Manger",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:57.195794+00:00",
+    "domain": "pret.co.uk",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "priceline": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Priceline",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:29.734490+00:00",
+    "domain": "priceline.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "publix": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Publix",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:58.606376+00:00",
+    "domain": "publix.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "pullman hotels": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Pullman Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:28.921686+00:00",
+    "domain": "pullmanhotels.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "puma": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "PUMA",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:46.341255+00:00",
+    "domain": "puma.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "purple": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Purple",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:50.453584+00:00",
+    "domain": "purple.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "qantas": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Qantas",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:35.869756+00:00",
+    "domain": "qantas.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='qantas.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "qatar airways": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Qatar Airways",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:36.326880+00:00",
+    "domain": "qatarairways.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://qatarairways.com/"
+  },
+  "qvc": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "QVC",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:25.930544+00:00",
+    "domain": "qvc.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:418 Client Error: I'm a teapot for url: https://www.qvc.com/"
+  },
+  "qvc home": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "QVC Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:59.341227+00:00",
+    "domain": "qvc.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:418 Client Error: I'm a teapot for url: https://www.qvc.com/"
+  },
+  "radisson hotels": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Radisson Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:37.954888+00:00",
+    "domain": "radissonhotels.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.radissonhotels.com/"
+  },
+  "ralph lauren": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Ralph Lauren",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:46.885738+00:00",
+    "domain": "ralphlauren.com",
+    "http_statuses": [
+      307,
+      307,
+      307
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "rare beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Rare Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:12.285507+00:00",
+    "domain": "rarebeauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "razer": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Razer",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:21.470466+00:00",
+    "domain": "razer.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "redken": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Redken",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:15.349179+00:00",
+    "domain": "redken.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.redken.com/"
+  },
+  "reebok": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Reebok",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:51.114625+00:00",
+    "domain": "reebok.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "reformation": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Reformation",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:49.584167+00:00",
+    "domain": "thereformation.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "residence inn": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Residence Inn",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:38.360030+00:00",
+    "domain": "marriott.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.marriott.com/default.mi"
+  },
+  "restoration hardware": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Restoration Hardware",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:58.617322+00:00",
+    "domain": "rh.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://rh.com/"
+  },
+  "revlon": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Revlon",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:10.857923+00:00",
+    "domain": "revlon.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "rh": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "RH",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:59.558146+00:00",
+    "domain": "rh.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://rh.com/"
+  },
+  "ring": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Ring",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:20.383241+00:00",
+    "domain": "ring.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ritual": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Ritual",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:00.931623+00:00",
+    "domain": "ritual.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "rituals": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Rituals",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:29.864266+00:00",
+    "domain": "rituals.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "ritz-carlton": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Ritz-Carlton",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:40.395121+00:00",
+    "domain": "ritzcarlton.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "roku": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Roku",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:21.910647+00:00",
+    "domain": "roku.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "rome2rio": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Rome2Rio",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:41.439916+00:00",
+    "domain": "rome2rio.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.rome2rio.com/"
+  },
+  "rooms to go": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Rooms To Go",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:56.841667+00:00",
+    "domain": "roomstogo.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "ruggable": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Ruggable",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:57.259012+00:00",
+    "domain": "ruggable.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "ryanair": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Ryanair",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:37.440039+00:00",
+    "domain": "ryanair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "saatva": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Saatva",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:58.524652+00:00",
+    "domain": "saatva.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "safeway": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Safeway",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:02.077993+00:00",
+    "domain": "safeway.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "saie": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Saie",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:16.070542+00:00",
+    "domain": "saiehello.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sainsbury's": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Sainsbury's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:07.290927+00:00",
+    "domain": "sainsburys.co.uk",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://sainsburys.co.uk/"
+  },
+  "saint laurent": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Saint Laurent",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:14.571379+00:00",
+    "domain": "ysl.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.ysl.com/en-us"
+  },
+  "salomon": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Salomon",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:51.945494+00:00",
+    "domain": "salomon.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sam edelman": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Sam Edelman",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:58.575973+00:00",
+    "domain": "samedelman.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.samedelman.com/"
+  },
+  "sam's club": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Sam's Club",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:25.465307+00:00",
+    "domain": "samsclub.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "samsung": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Samsung",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:24.802634+00:00",
+    "domain": "samsung.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "schoolhouse": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Schoolhouse",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:59.156884+00:00",
+    "domain": "schoolhouse.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "sealy": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Sealy",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:57.402925+00:00",
+    "domain": "sealy.com",
+    "http_statuses": [
+      202,
+      202,
+      202
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sennheiser": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Sennheiser",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:25.862893+00:00",
+    "domain": "sennheiser.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sephora": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Sephora",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:17.916089+00:00",
+    "domain": "sephora.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.sephora.com/"
+  },
+  "serena & lily": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Serena & Lily",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:06.132232+00:00",
+    "domain": "serenaandlily.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.serenaandlily.com/"
+  },
+  "serta": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Serta",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:59.107617+00:00",
+    "domain": "serta.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "shangri-la": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Shangri-La",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:06.931722+00:00",
+    "domain": "shangri-la.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "shein": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "SHEIN",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:54.944444+00:00",
+    "domain": "shein.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "sheraton": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Sheraton",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:38.370439+00:00",
+    "domain": "sheraton.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "shiseido": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Shiseido",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:17.909382+00:00",
+    "domain": "shiseido.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "singapore airlines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Singapore Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:45.965156+00:00",
+    "domain": "singaporeair.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:404 Client Error: Not Found for url: https://singaporeair.com/"
+  },
+  "sk-ii": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "SK-II",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:13.318317+00:00",
+    "domain": "sk-ii.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 4,
+    "status": "ok"
+  },
+  "skechers": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Skechers",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:55.160451+00:00",
+    "domain": "skechers.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "skinceuticals": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "SkinCeuticals",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:19.200358+00:00",
+    "domain": "skinceuticals.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.skinceuticals.com/"
+  },
+  "skyscanner": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Skyscanner",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:40.398670+00:00",
+    "domain": "skyscanner.net",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "sleep number": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Sleep Number",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:06.865118+00:00",
+    "domain": "sleepnumber.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.sleepnumber.com/"
+  },
+  "smashbox": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Smashbox",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:19.686662+00:00",
+    "domain": "smashbox.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://smashbox.com/"
+  },
+  "sofitel": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Sofitel",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:41.421036+00:00",
+    "domain": "sofitel.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "sonos": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Sonos",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:32.234495+00:00",
+    "domain": "sonos.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://sonos.com/"
+  },
+  "sony": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Sony",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:33.643538+00:00",
+    "domain": "sony.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.sony.com:443/"
+  },
+  "southwest airlines": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Southwest Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:49.756717+00:00",
+    "domain": "southwest.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sprouts farmers market": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Sprouts Farmers Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:04.332279+00:00",
+    "domain": "sprouts.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "stanley": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Stanley",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:03.747661+00:00",
+    "domain": "stanley1913.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "staples": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Staples",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:31:33.194995+00:00",
+    "domain": "staples.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='staples.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "starbucks": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Starbucks",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:10.087386+00:00",
+    "domain": "starbucks.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "steam": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Steam",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:27.198483+00:00",
+    "domain": "steampowered.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "steelcase": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Steelcase",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:01.816778+00:00",
+    "domain": "steelcase.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "steelseries": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "SteelSeries",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:34.399030+00:00",
+    "domain": "steelseries.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://steelseries.com/"
+  },
+  "steve madden": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Steve Madden",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:27:57.356758+00:00",
+    "domain": "stevemadden.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "stop & shop": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Stop & Shop",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:11.703494+00:00",
+    "domain": "stopandshop.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://stopandshop.com/"
+  },
+  "strivectin": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "StriVectin",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:15.414240+00:00",
+    "domain": "strivectin.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "subway": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Subway",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:35.574333+00:00",
+    "domain": "subway.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "sunday riley": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Sunday Riley",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:17.760133+00:00",
+    "domain": "sundayriley.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "supergoop!": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Supergoop!",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:19.353572+00:00",
+    "domain": "supergoop.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "swanson vitamins": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Swanson Vitamins",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:10.402514+00:00",
+    "domain": "swansonvitamins.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "swappa": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Swappa",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:33.684983+00:00",
+    "domain": "swappa.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "t-mobile": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "T-Mobile",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:41.268134+00:00",
+    "domain": "t-mobile.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://t-mobile.com/"
+  },
+  "t3 micro": {
+    "attempts": 2,
+    "batch": 1,
+    "brand": "T3 Micro",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:29.807881+00:00",
+    "domain": "t3micro.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "taco bell": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Taco Bell",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:10.870767+00:00",
+    "domain": "tacobell.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "target": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Target",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:35.262297+00:00",
+    "domain": "target.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "target grocery": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Target Grocery",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:12.104915+00:00",
+    "domain": "target.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "target home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Target Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:00.868100+00:00",
+    "domain": "target.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "tarte": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Tarte",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:24.017974+00:00",
+    "domain": "tartecosmetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "tatcha": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Tatcha",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:22.799329+00:00",
+    "domain": "tatcha.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "tempur-pedic": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Tempur-Pedic",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:32:59.867806+00:00",
+    "domain": "tempurpedic.com",
+    "http_statuses": [
+      202,
+      202,
+      202
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "temu": {
+    "attempts": 1,
+    "batch": 1,
+    "brand": "Temu",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:49.460387+00:00",
+    "domain": "temu.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "tesco": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Tesco",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:18.533402+00:00",
+    "domain": "tesco.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://tesco.com/"
+  },
+  "the body shop": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "The Body Shop",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:22.420671+00:00",
+    "domain": "thebodyshop.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "the citizenry": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "The Citizenry",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:01.054837+00:00",
+    "domain": "the-citizenry.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "the company store": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "The Company Store",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:04.448712+00:00",
+    "domain": "thecompanystore.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "the container store": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "The Container Store",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:00.637395+00:00",
+    "domain": "containerstore.com",
+    "http_statuses": [
+      307,
+      307,
+      307
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "the inkey list": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "The Inkey List",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:26.113753+00:00",
+    "domain": "theinkeylist.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "the north face": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "The North Face",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:02.592370+00:00",
+    "domain": "thenorthface.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://thenorthface.com/"
+  },
+  "the ordinary": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "The Ordinary",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:24.630455+00:00",
+    "domain": "theordinary.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "the vitamin shoppe": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "The Vitamin Shoppe",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:19.581116+00:00",
+    "domain": "vitaminshoppe.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.vitaminshoppe.com"
+  },
+  "thrive causemetics": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Thrive Causemetics",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:15.149844+00:00",
+    "domain": "thrivecausemetics.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 3,
+    "status": "ok"
+  },
+  "thrive market": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Thrive Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:16.397782+00:00",
+    "domain": "thrivemarket.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 2,
+    "status": "ok"
+  },
+  "tim hortons": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Tim Hortons",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:17.376126+00:00",
+    "domain": "timhortons.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "timberland": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Timberland",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:04.907704+00:00",
+    "domain": "timberland.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://timberland.com/"
+  },
+  "tommy hilfiger": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Tommy Hilfiger",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:06.177930+00:00",
+    "domain": "tommy.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://usa.tommy.com/en"
+  },
+  "too faced": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Too Faced",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:27.061112+00:00",
+    "domain": "toofaced.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://toofaced.com/"
+  },
+  "too good to go": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Too Good To Go",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:25.100182+00:00",
+    "domain": "toogoodtogo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.toogoodtogo.com/"
+  },
+  "tory burch": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Tory Burch",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:05.094942+00:00",
+    "domain": "toryburch.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "total wine & more": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Total Wine & More",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:26.153610+00:00",
+    "domain": "totalwine.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://totalwine.com/"
+  },
+  "tower 28": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Tower 28",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:28.370228+00:00",
+    "domain": "tower28beauty.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "trader joe's": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Trader Joe's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:27.448820+00:00",
+    "domain": "traderjoes.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.traderjoes.com/"
+  },
+  "trainline": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Trainline",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:43.305845+00:00",
+    "domain": "thetrainline.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "travelocity": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Travelocity",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:49.881118+00:00",
+    "domain": "travelocity.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.travelocity.com/"
+  },
+  "travelodge": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Travelodge",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:50.515695+00:00",
+    "domain": "travelodge.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:SSLError:HTTPSConnectionPool(host='travelodge.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'travelodge.com'. (_ssl.c:1010)\")))"
+  },
+  "trip.com": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Trip.com",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:49.133076+00:00",
+    "domain": "trip.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "tripadvisor": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Tripadvisor",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:56.936189+00:00",
+    "domain": "tripadvisor.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.tripadvisor.com/"
+  },
+  "tuft & needle": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Tuft & Needle",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:05.499134+00:00",
+    "domain": "tuftandneedle.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "tui": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "TUI",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:36:52.886506+00:00",
+    "domain": "tui.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "turkish airlines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Turkish Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:57.268217+00:00",
+    "domain": "turkishairlines.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='turkishairlines.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "uber eats": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Uber Eats",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:33:26.809277+00:00",
+    "domain": "ubereats.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "ugg": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "UGG",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:12.791474+00:00",
+    "domain": "ugg.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error:  for url: https://www.ugg.com/"
+  },
+  "ulta beauty": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Ulta Beauty",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:31.782600+00:00",
+    "domain": "ulta.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "under armour": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Under Armour",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:12.583011+00:00",
+    "domain": "underarmour.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:418 Client Error: Unknown Error for url: https://www.underarmour.com/"
+  },
+  "uniqlo": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "UNIQLO",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:29:16.455368+00:00",
+    "domain": "uniqlo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.uniqlo.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "united airlines": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "United Airlines",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:58.080294+00:00",
+    "domain": "united.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='www.united.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "urban decay": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Urban Decay",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:30.073553+00:00",
+    "domain": "urbandecay.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.urbandecay.com/"
+  },
+  "urban outfitters": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Urban Outfitters",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:14.547761+00:00",
+    "domain": "urbanoutfitters.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.urbanoutfitters.com/"
+  },
+  "valentino": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Valentino",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:10.426181+00:00",
+    "domain": "valentino.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "valve": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Valve",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:35.689486+00:00",
+    "domain": "valvesoftware.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "vans": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Vans",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:17.914312+00:00",
+    "domain": "vans.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://vans.com/"
+  },
+  "vaseline": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Vaseline",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:32.087670+00:00",
+    "domain": "vaseline.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.vaseline.com/"
+  },
+  "veja": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Veja",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:14.793416+00:00",
+    "domain": "veja-store.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "verizon": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Verizon",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:37.027776+00:00",
+    "domain": "verizon.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "versace": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Versace",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:29:21.526049+00:00",
+    "domain": "versace.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ConnectTimeout:HTTPSConnectionPool(host='versace.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='versace.com', port=443) at 0x7fe01c6cd6a0>, 'Connection to versace.com timed out. (connect timeout=15)'))"
+  },
+  "viator": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Viator",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:00.388280+00:00",
+    "domain": "viator.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.viator.com/"
+  },
+  "vichy": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Vichy",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:31.804388+00:00",
+    "domain": "vichyusa.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.vichyusa.com/"
+  },
+  "victoria's secret": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Victoria's Secret",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:15.807088+00:00",
+    "domain": "victoriassecret.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "victoria's secret pink": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Victoria's Secret PINK",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:15.836595+00:00",
+    "domain": "victoriassecret.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "virgin atlantic": {
+    "attempts": 2,
+    "batch": 2,
+    "brand": "Virgin Atlantic",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:03.355635+00:00",
+    "domain": "virginatlantic.com",
+    "http_statuses": [
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "vitacost": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Vitacost",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:24.463245+00:00",
+    "domain": "vitacost.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "vitamin shoppe": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Vitamin Shoppe",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:32.270683+00:00",
+    "domain": "vitaminshoppe.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.vitaminshoppe.com"
+  },
+  "vitamix": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Vitamix",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:02.416181+00:00",
+    "domain": "vitamix.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 1,
+    "status": "ok"
+  },
+  "vitra": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Vitra",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:12.041361+00:00",
+    "domain": "vitra.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.vitra.com:443/"
+  },
+  "vrbo": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Vrbo",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:05.175076+00:00",
+    "domain": "vrbo.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:429 Client Error: Too Many Requests for url: https://www.vrbo.com/"
+  },
+  "vuori": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Vuori",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:16.223988+00:00",
+    "domain": "vuoriclothing.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "w hotels": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "W Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:08.177479+00:00",
+    "domain": "marriott.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.marriott.com/default.mi"
+  },
+  "waitrose": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Waitrose",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:35:32.383355+00:00",
+    "domain": "waitrose.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:ReadTimeout:HTTPSConnectionPool(host='waitrose.com', port=443): Read timed out. (read timeout=15)"
+  },
+  "walmart": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Walmart",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:36.986259+00:00",
+    "domain": "walmart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "walmart grocery": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Walmart Grocery",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:28.609605+00:00",
+    "domain": "walmart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "walmart home": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Walmart Home",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:04.708407+00:00",
+    "domain": "walmart.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "wayfair": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Wayfair",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:40.376882+00:00",
+    "domain": "wayfair.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "wegmans": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Wegmans",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:28.432397+00:00",
+    "domain": "wegmans.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "wendy's": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Wendy's",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:29.976031+00:00",
+    "domain": "wendys.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "west elm": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "West Elm",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:19.932939+00:00",
+    "domain": "westelm.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "westin": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Westin",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:01.372229+00:00",
+    "domain": "westin.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "error:RuntimeError:REDIRECTED_OUTSIDE_OFFICIAL_DOMAIN"
+  },
+  "whole foods market": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Whole Foods Market",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:30.532801+00:00",
+    "domain": "wholefoodsmarket.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "williams sonoma": {
+    "attempts": 1,
+    "batch": 2,
+    "brand": "Williams Sonoma",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:19.966547+00:00",
+    "domain": "williams-sonoma.com",
+    "http_statuses": [
+      200
+    ],
+    "records_found": 0,
+    "status": "ok"
+  },
+  "wine.com": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Wine.com",
+    "category": "Food & Grocery",
+    "checked_at": "2026-09-05T06:34:38.659988+00:00",
+    "domain": "wine.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.wine.com/"
+  },
+  "world market": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "World Market",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:12.864229+00:00",
+    "domain": "worldmarket.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "wyndham hotels": {
+    "attempts": 3,
+    "batch": 2,
+    "brand": "Wyndham Hotels",
+    "category": "Travel & Hotels",
+    "checked_at": "2026-09-05T06:37:03.478293+00:00",
+    "domain": "wyndhamhotels.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "xbox": {
+    "attempts": 3,
+    "batch": 1,
+    "brand": "Xbox",
+    "category": "Consumer",
+    "checked_at": "2026-09-05T06:30:38.521426+00:00",
+    "domain": "xbox.com",
+    "http_statuses": [
+      200,
+      200,
+      200
+    ],
+    "records_found": 5,
+    "status": "ok"
+  },
+  "yeti": {
+    "attempts": 0,
+    "batch": 2,
+    "brand": "Yeti",
+    "category": "Home & Living",
+    "checked_at": "2026-09-05T06:33:12.448747+00:00",
+    "domain": "yeti.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.yeti.com/"
+  },
+  "youth to the people": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Youth To The People",
+    "category": "Beauty",
+    "checked_at": "2026-09-05T06:29:32.396987+00:00",
+    "domain": "youthtothepeople.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://www.youthtothepeople.com/"
+  },
+  "zara": {
+    "attempts": 0,
+    "batch": 1,
+    "brand": "Zara",
+    "category": "Fashion",
+    "checked_at": "2026-09-05T06:28:23.579783+00:00",
+    "domain": "zara.com",
+    "http_statuses": [],
+    "records_found": 0,
+    "status": "error:HTTPError:403 Client Error: Forbidden for url: https://zara.com/"
+  }
+}
