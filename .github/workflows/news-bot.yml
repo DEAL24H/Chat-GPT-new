@@ -170,14 +170,15 @@ jobs:
           wc -c data/shards/*.json
           echo '=== TRACKED SHARDS ==='
           git ls-files data/shards/
-          echo '=== STAGE GENERATED OUTPUT ==='
-          git add -A -- data/ brand/ fashion/ beauty/ consumer/ home-and-living/ food-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/
+          echo '=== STAGE ALL GENERATED CHANGES ==='
+          git add -A
           echo '=== STAGED CHANGES ==='
           git diff --cached --name-status
           git diff --cached --stat
           staged_files=$(git diff --cached --name-only)
           if printf '%s\n' "$staged_files" | grep -E '^(data/brand_catalog\.json|bot/|scripts/.*\.py|assets/|\.github/workflows/)' >/dev/null; then
             echo 'FATAL: source code, catalog, assets, or workflow changes were staged unexpectedly.' >&2
+            printf '%s\n' "$staged_files" | grep -E '^(data/brand_catalog\.json|bot/|scripts/.*\.py|assets/|\.github/workflows/)' >&2 || true
             exit 1
           fi
           if git diff --cached --quiet; then
