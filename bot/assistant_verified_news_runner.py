@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFESTS = [
     ROOT / "data" / "assistant_verified_sources.json",
     ROOT / "data" / "assistant_verified_electronics_additions.json",
+    ROOT / "data" / "assistant_verified_beauty_additions.json",
 ]
 
 
@@ -24,7 +25,11 @@ def load_verified():
         part = data.get("verified_sources", [])
         if not isinstance(part, list):
             raise SystemExit(f"ASSISTANT SOURCE GATE FAILED: {path.name} verified_sources must be a list")
-        rows.extend(part)
+        default_category = str(data.get("category", "")).strip()
+        for row in part:
+            if default_category and "category" not in row:
+                row = {**row, "category": default_category}
+            rows.append(row)
 
     out = []
     seen = set()
@@ -35,12 +40,11 @@ def load_verified():
         if not key[0] or not key[1] or key in seen:
             continue
         seen.add(key)
-        category = str(row.get("category", "Electronics")).strip()
         out.append({
             "name": f"{row['name']} — Assistant Verified",
             "url": row["official_homepage"],
             "domain": row["domain"],
-            "category": category,
+            "category": str(row.get("category", "")).strip(),
             "merchant": row["name"],
         })
     if not out:
