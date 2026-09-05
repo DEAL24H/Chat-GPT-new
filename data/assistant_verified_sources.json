@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "purpose": "Only sources personally researched and verified by the assistant may be handed to the DEAL24H bot.",
+  "rule": "The bot must never promote entries from the research catalog directly. A source appears here only after official-domain identity and first-party commerce navigation have been checked.",
+  "verified_by": "assistant",
+  "verified_sources": [
+    {"category":"Fashion","rank":1,"name":"Zara","domain":"zara.com","official_homepage":"https://www.zara.com/","verification_status":"verified_first_party","evidence":["https://www.zara.com/vn/en/","official site exposes Special Prices, collections and product navigation"]},
+    {"category":"Fashion","rank":2,"name":"Nike","domain":"nike.com","official_homepage":"https://www.nike.com/","verification_status":"verified_first_party","evidence":["https://www.nike.com/","official site exposes Shop links, products and a current official promotion"]},
+    {"category":"Fashion","rank":3,"name":"Adidas","domain":"adidas.com","official_homepage":"https://www.adidas.com/","verification_status":"verified_first_party","evidence":["https://www.adidas.com/","official site exposes Outlet-Sale, products and Shop now links"]},
+    {"category":"Fashion","rank":4,"name":"Mango","domain":"mango.com","official_homepage":"https://shop.mango.com/","verification_status":"verified_first_party","evidence":["https://shop.mango.com/","official site exposes SALE UP TO 70% OFF and direct shopping categories"]},
+    {"category":"Fashion","rank":5,"name":"UNIQLO","domain":"uniqlo.com","official_homepage":"https://www.uniqlo.com/","verification_status":"verified_first_party","evidence":["https://www.uniqlo.com/","official site exposes Sale, Limited Time Offers and product categories"]},
+    {"category":"Fashion","rank":6,"name":"H&M","domain":"hm.com","official_homepage":"https://www2.hm.com/","verification_status":"verified_first_party","evidence":["https://www2.hm.com/","official site identifies H&M, exposes products and current sale navigation"]},
+    {"category":"Fashion","rank":7,"name":"New Balance","domain":"newbalance.com","official_homepage":"https://www.newbalance.com/","verification_status":"verified_first_party","evidence":["https://www.newbalance.com/","official New Balance ecommerce site with product/shopping navigation"]},
+    {"category":"Fashion","rank":8,"name":"PUMA","domain":"puma.com","official_homepage":"https://us.puma.com/","verification_status":"verified_first_party","evidence":["https://us.puma.com/","official PUMA ecommerce site with clothing, shoes and accessories navigation"]},
+    {"category":"Fashion","rank":9,"name":"Louis Vuitton","domain":"louisvuitton.com","official_homepage":"https://us.louisvuitton.com/","verification_status":"verified_first_party","evidence":["https://us.louisvuitton.com/","official Louis Vuitton ecommerce site with product navigation"]},
+    {"category":"Fashion","rank":10,"name":"Coach","domain":"coach.com","official_homepage":"https://www.coach.com/","verification_status":"verified_first_party","evidence":["https://www.coach.com/","official Coach online store with product navigation"]},
+    {"category":"Fashion","rank":11,"name":"ASOS","domain":"asos.com","official_homepage":"https://www.asos.com/","verification_status":"verified_first_party","evidence":["https://www.asos.com/","official ASOS ecommerce site with extensive product navigation"]}
+  ]
+}
