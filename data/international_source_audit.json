@@ -1,0 +1,2752 @@
+{
+  "schema_version": 4,
+  "generated_at": "2026-09-05T23:24:49.980833+00:00",
+  "registry_file": "data/international_brand_registry.json",
+  "execution_allowlist": [
+    "data/assistant_verified_sources.json",
+    "data/assistant_verified_electronics_additions.json",
+    "data/assistant_verified_beauty_additions.json",
+    "data/assistant_verified_home_additions.json"
+  ],
+  "source_authority": "assistant_verified_manifests",
+  "runtime_source_identity_recheck": false,
+  "selection_rule": "Preserve original researched rank order. Only genuinely unverified/missing assistant sources are replaced by the next assistant-verified candidate; crawler accessibility failures do not disqualify a source.",
+  "total_candidates_audited": 140,
+  "verified_first_party": 140,
+  "not_verified": 0,
+  "target_categories_without_30_eligible": [],
+  "selection": {
+    "Fashion": {
+      "candidate_count": 30,
+      "assistant_verified_count": 30,
+      "selected_count": 30,
+      "promoted_ranks": [
+        31
+      ],
+      "meets_target": true
+    },
+    "Electronics": {
+      "candidate_count": 42,
+      "assistant_verified_count": 42,
+      "selected_count": 30,
+      "promoted_ranks": [],
+      "meets_target": true
+    },
+    "Beauty & Personal Care": {
+      "candidate_count": 38,
+      "assistant_verified_count": 38,
+      "selected_count": 30,
+      "promoted_ranks": [
+        31,
+        32
+      ],
+      "meets_target": true
+    },
+    "Home & Living": {
+      "candidate_count": 30,
+      "assistant_verified_count": 30,
+      "selected_count": 30,
+      "promoted_ranks": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "meets_target": true
+    }
+  },
+  "selected": {
+    "Fashion": [
+      {
+        "rank": 1,
+        "name": "Zara",
+        "domain": "zara.com",
+        "official_homepage": "https://www.zara.com/"
+      },
+      {
+        "rank": 2,
+        "name": "Nike",
+        "domain": "nike.com",
+        "official_homepage": "https://www.nike.com/"
+      },
+      {
+        "rank": 3,
+        "name": "Adidas",
+        "domain": "adidas.com",
+        "official_homepage": "https://www.adidas.com/"
+      },
+      {
+        "rank": 4,
+        "name": "Mango",
+        "domain": "mango.com",
+        "official_homepage": "https://shop.mango.com/"
+      },
+      {
+        "rank": 5,
+        "name": "UNIQLO",
+        "domain": "uniqlo.com",
+        "official_homepage": "https://www.uniqlo.com/"
+      },
+      {
+        "rank": 6,
+        "name": "H&M",
+        "domain": "hm.com",
+        "official_homepage": "https://www2.hm.com/"
+      },
+      {
+        "rank": 7,
+        "name": "New Balance",
+        "domain": "newbalance.com",
+        "official_homepage": "https://www.newbalance.com/"
+      },
+      {
+        "rank": 8,
+        "name": "PUMA",
+        "domain": "puma.com",
+        "official_homepage": "https://us.puma.com/"
+      },
+      {
+        "rank": 9,
+        "name": "Louis Vuitton",
+        "domain": "louisvuitton.com",
+        "official_homepage": "https://us.louisvuitton.com/"
+      },
+      {
+        "rank": 10,
+        "name": "Coach",
+        "domain": "coach.com",
+        "official_homepage": "https://www.coach.com/"
+      },
+      {
+        "rank": 11,
+        "name": "ASOS",
+        "domain": "asos.com",
+        "official_homepage": "https://www.asos.com/"
+      },
+      {
+        "rank": 12,
+        "name": "UGG",
+        "domain": "ugg.com",
+        "official_homepage": "https://www.ugg.com/"
+      },
+      {
+        "rank": 13,
+        "name": "Vans",
+        "domain": "vans.com",
+        "official_homepage": "https://www.vans.com/"
+      },
+      {
+        "rank": 14,
+        "name": "Hermès",
+        "domain": "hermes.com",
+        "official_homepage": "https://www.hermes.com/us/en/"
+      },
+      {
+        "rank": 15,
+        "name": "Levi's",
+        "domain": "levi.com",
+        "official_homepage": "https://www.levi.com/US/en_US/"
+      },
+      {
+        "rank": 16,
+        "name": "Tommy Hilfiger",
+        "domain": "tommy.com",
+        "official_homepage": "https://usa.tommy.com/en/"
+      },
+      {
+        "rank": 17,
+        "name": "Ralph Lauren",
+        "domain": "ralphlauren.com",
+        "official_homepage": "https://www.ralphlauren.com/"
+      },
+      {
+        "rank": 18,
+        "name": "Converse",
+        "domain": "converse.com",
+        "official_homepage": "https://www.converse.com/us"
+      },
+      {
+        "rank": 19,
+        "name": "Urban Outfitters",
+        "domain": "urbanoutfitters.com",
+        "official_homepage": "https://www.urbanoutfitters.com/"
+      },
+      {
+        "rank": 21,
+        "name": "Dior",
+        "domain": "dior.com",
+        "official_homepage": "https://www.dior.com/en_us"
+      },
+      {
+        "rank": 22,
+        "name": "Calvin Klein",
+        "domain": "calvinklein.com",
+        "official_homepage": "https://www.calvinklein.us/en"
+      },
+      {
+        "rank": 23,
+        "name": "Chanel",
+        "domain": "chanel.com",
+        "official_homepage": "https://www.chanel.com/"
+      },
+      {
+        "rank": 24,
+        "name": "Gucci",
+        "domain": "gucci.com",
+        "official_homepage": "https://www.gucci.com/us/en/"
+      },
+      {
+        "rank": 25,
+        "name": "Timberland",
+        "domain": "timberland.com",
+        "official_homepage": "https://www.timberland.com/"
+      },
+      {
+        "rank": 26,
+        "name": "Michael Kors",
+        "domain": "michaelkors.com",
+        "official_homepage": "https://www.michaelkors.com/"
+      },
+      {
+        "rank": 27,
+        "name": "Prada",
+        "domain": "prada.com",
+        "official_homepage": "https://www.prada.com/us/en.html"
+      },
+      {
+        "rank": 28,
+        "name": "Valentino",
+        "domain": "valentino.com",
+        "official_homepage": "https://www.valentino.com/en-us/"
+      },
+      {
+        "rank": 29,
+        "name": "Balenciaga",
+        "domain": "balenciaga.com",
+        "official_homepage": "https://www.balenciaga.com/en-us"
+      },
+      {
+        "rank": 30,
+        "name": "Steve Madden",
+        "domain": "stevemadden.com",
+        "official_homepage": "https://www.stevemadden.com/"
+      },
+      {
+        "rank": 31,
+        "name": "Burberry",
+        "domain": "burberry.com",
+        "official_homepage": "https://int.burberry.com/"
+      }
+    ],
+    "Electronics": [
+      {
+        "rank": 1,
+        "name": "Apple",
+        "domain": "apple.com",
+        "official_homepage": "https://www.apple.com/"
+      },
+      {
+        "rank": 2,
+        "name": "Samsung",
+        "domain": "samsung.com",
+        "official_homepage": "https://www.samsung.com/"
+      },
+      {
+        "rank": 3,
+        "name": "Sony",
+        "domain": "sony.com",
+        "official_homepage": "https://www.sony.com/"
+      },
+      {
+        "rank": 4,
+        "name": "Xiaomi",
+        "domain": "mi.com",
+        "official_homepage": "https://www.mi.com/"
+      },
+      {
+        "rank": 5,
+        "name": "LG",
+        "domain": "lg.com",
+        "official_homepage": "https://www.lg.com/"
+      },
+      {
+        "rank": 6,
+        "name": "Lenovo",
+        "domain": "lenovo.com",
+        "official_homepage": "https://www.lenovo.com/"
+      },
+      {
+        "rank": 7,
+        "name": "HP",
+        "domain": "hp.com",
+        "official_homepage": "https://www.hp.com/us-en/shop/"
+      },
+      {
+        "rank": 8,
+        "name": "Dell",
+        "domain": "dell.com",
+        "official_homepage": "https://www.dell.com/en-us/shop/deals"
+      },
+      {
+        "rank": 9,
+        "name": "ASUS",
+        "domain": "asus.com",
+        "official_homepage": "https://www.asus.com/"
+      },
+      {
+        "rank": 10,
+        "name": "Huawei",
+        "domain": "huawei.com",
+        "official_homepage": "https://consumer.huawei.com/"
+      },
+      {
+        "rank": 10,
+        "name": "Huawei",
+        "domain": "consumer.huawei.com",
+        "official_homepage": "https://consumer.huawei.com/es/shop/"
+      },
+      {
+        "rank": 11,
+        "name": "Microsoft",
+        "domain": "microsoft.com",
+        "official_homepage": "https://www.microsoft.com/"
+      },
+      {
+        "rank": 12,
+        "name": "Google",
+        "domain": "store.google.com",
+        "official_homepage": "https://store.google.com/us/category/offers"
+      },
+      {
+        "rank": 13,
+        "name": "Panasonic",
+        "domain": "panasonic.com",
+        "official_homepage": "https://www.panasonic.com/"
+      },
+      {
+        "rank": 14,
+        "name": "Canon",
+        "domain": "canon.com",
+        "official_homepage": "https://www.usa.canon.com/"
+      },
+      {
+        "rank": 14,
+        "name": "Canon",
+        "domain": "usa.canon.com",
+        "official_homepage": "https://www.usa.canon.com/"
+      },
+      {
+        "rank": 15,
+        "name": "Nikon",
+        "domain": "nikonusa.com",
+        "official_homepage": "https://www.nikonusa.com/"
+      },
+      {
+        "rank": 16,
+        "name": "Bose",
+        "domain": "bose.com",
+        "official_homepage": "https://www.bose.com/"
+      },
+      {
+        "rank": 17,
+        "name": "JBL",
+        "domain": "jbl.com",
+        "official_homepage": "https://www.jbl.com/"
+      },
+      {
+        "rank": 18,
+        "name": "Philips",
+        "domain": "philips.com",
+        "official_homepage": "https://hk.shop.lighting.philips.com/en/pages/limited-time-offer"
+      },
+      {
+        "rank": 19,
+        "name": "Nintendo",
+        "domain": "nintendo.com",
+        "official_homepage": "https://www.nintendo.com/us/store/"
+      },
+      {
+        "rank": 20,
+        "name": "GoPro",
+        "domain": "gopro.com",
+        "official_homepage": "https://gopro.com/en/us/"
+      },
+      {
+        "rank": 21,
+        "name": "OnePlus",
+        "domain": "oneplus.com",
+        "official_homepage": "https://www.oneplus.com/us/"
+      },
+      {
+        "rank": 22,
+        "name": "Acer",
+        "domain": "acer.com",
+        "official_homepage": "https://store.acer.com/"
+      },
+      {
+        "rank": 23,
+        "name": "MSI",
+        "domain": "msi.com",
+        "official_homepage": "https://www.msi.com/"
+      },
+      {
+        "rank": 24,
+        "name": "Razer",
+        "domain": "razer.com",
+        "official_homepage": "https://www.razer.com/store"
+      },
+      {
+        "rank": 25,
+        "name": "Logitech",
+        "domain": "logitech.com",
+        "official_homepage": "https://www.logitech.com/en-us/shop/deals"
+      },
+      {
+        "rank": 26,
+        "name": "Garmin",
+        "domain": "garmin.com",
+        "official_homepage": "https://www.garmin.com/"
+      },
+      {
+        "rank": 27,
+        "name": "Amazon Devices",
+        "domain": "amazon.com",
+        "official_homepage": "https://www.amazon.com/"
+      },
+      {
+        "rank": 28,
+        "name": "Alienware",
+        "domain": "alienware.com",
+        "official_homepage": "https://www.alienware.com/"
+      }
+    ],
+    "Beauty & Personal Care": [
+      {
+        "rank": 1,
+        "name": "L'Oréal",
+        "domain": "loreal.com",
+        "official_homepage": "https://www.loreal.com/"
+      },
+      {
+        "rank": 2,
+        "name": "Maybelline",
+        "domain": "maybelline.com",
+        "official_homepage": "https://www.maybelline.com/"
+      },
+      {
+        "rank": 3,
+        "name": "e.l.f. Cosmetics",
+        "domain": "elfcosmetics.com",
+        "official_homepage": "https://www.elfcosmetics.com/"
+      },
+      {
+        "rank": 4,
+        "name": "CeraVe",
+        "domain": "cerave.com",
+        "official_homepage": "https://www.cerave.com/"
+      },
+      {
+        "rank": 5,
+        "name": "The Ordinary",
+        "domain": "theordinary.com",
+        "official_homepage": "https://theordinary.com/"
+      },
+      {
+        "rank": 6,
+        "name": "Fenty Beauty",
+        "domain": "fentybeauty.com",
+        "official_homepage": "https://fentybeauty.com/"
+      },
+      {
+        "rank": 8,
+        "name": "NYX Professional Makeup",
+        "domain": "nyxcosmetics.com",
+        "official_homepage": "https://www.nyxcosmetics.com/"
+      },
+      {
+        "rank": 10,
+        "name": "Glossier",
+        "domain": "glossier.com",
+        "official_homepage": "https://www.glossier.com/"
+      },
+      {
+        "rank": 11,
+        "name": "Rare Beauty",
+        "domain": "rarebeauty.com",
+        "official_homepage": "https://www.rarebeauty.com/"
+      },
+      {
+        "rank": 12,
+        "name": "Estée Lauder",
+        "domain": "esteelauder.com",
+        "official_homepage": "https://www.esteelauder.com/"
+      },
+      {
+        "rank": 13,
+        "name": "La Roche-Posay",
+        "domain": "laroche-posay.us",
+        "official_homepage": "https://www.laroche-posay.us/"
+      },
+      {
+        "rank": 14,
+        "name": "Dior Beauty",
+        "domain": "dior.com",
+        "official_homepage": "https://www.dior.com/en_us/beauty"
+      },
+      {
+        "rank": 15,
+        "name": "COSRX",
+        "domain": "cosrx.com",
+        "official_homepage": "https://www.cosrx.com/"
+      },
+      {
+        "rank": 16,
+        "name": "Revlon",
+        "domain": "revlon.com",
+        "official_homepage": "https://www.revlon.com/"
+      },
+      {
+        "rank": 17,
+        "name": "NARS",
+        "domain": "narscosmetics.com",
+        "official_homepage": "https://www.narscosmetics.com/"
+      },
+      {
+        "rank": 18,
+        "name": "Clinique",
+        "domain": "clinique.com",
+        "official_homepage": "https://www.clinique.com/"
+      },
+      {
+        "rank": 19,
+        "name": "Lancôme",
+        "domain": "lancome-usa.com",
+        "official_homepage": "https://www.lancome-usa.com/"
+      },
+      {
+        "rank": 20,
+        "name": "Huda Beauty",
+        "domain": "hudabeauty.com",
+        "official_homepage": "https://www.hudabeauty.com/"
+      },
+      {
+        "rank": 21,
+        "name": "The Body Shop",
+        "domain": "thebodyshop.com",
+        "official_homepage": "https://www.thebodyshop.com/"
+      },
+      {
+        "rank": 22,
+        "name": "Neutrogena",
+        "domain": "neutrogena.com",
+        "official_homepage": "https://www.neutrogena.com/"
+      },
+      {
+        "rank": 23,
+        "name": "Olay",
+        "domain": "olay.com",
+        "official_homepage": "https://www.olay.com/"
+      },
+      {
+        "rank": 24,
+        "name": "Aveeno",
+        "domain": "aveeno.com",
+        "official_homepage": "https://www.aveeno.com/"
+      },
+      {
+        "rank": 25,
+        "name": "Kylie Cosmetics",
+        "domain": "kyliecosmetics.com",
+        "official_homepage": "https://www.kyliecosmetics.com/"
+      },
+      {
+        "rank": 26,
+        "name": "Olaplex",
+        "domain": "olaplex.com",
+        "official_homepage": "https://www.olaplex.com/"
+      },
+      {
+        "rank": 27,
+        "name": "Tatcha",
+        "domain": "tatcha.com",
+        "official_homepage": "https://tatcha.com/"
+      },
+      {
+        "rank": 28,
+        "name": "Kiehl's",
+        "domain": "kiehls.com",
+        "official_homepage": "https://www.kiehls.com/"
+      },
+      {
+        "rank": 29,
+        "name": "Sephora",
+        "domain": "sephora.com",
+        "official_homepage": "https://www.sephora.com/"
+      },
+      {
+        "rank": 30,
+        "name": "Ulta Beauty",
+        "domain": "ulta.com",
+        "official_homepage": "https://www.ulta.com/"
+      },
+      {
+        "rank": 31,
+        "name": "Paula's Choice",
+        "domain": "paulaschoice.com",
+        "official_homepage": "https://www.paulaschoice.com/"
+      },
+      {
+        "rank": 32,
+        "name": "LANEIGE",
+        "domain": "laneige.com",
+        "official_homepage": "https://www.laneige.com/"
+      }
+    ],
+    "Home & Living": [
+      {
+        "rank": 1,
+        "name": "IKEA",
+        "domain": "ikea.com",
+        "official_homepage": "https://www.ikea.com/"
+      },
+      {
+        "rank": 3,
+        "name": "Lowe's",
+        "domain": "lowes.com",
+        "official_homepage": "https://www.lowes.com/"
+      },
+      {
+        "rank": 4,
+        "name": "Wayfair",
+        "domain": "wayfair.com",
+        "official_homepage": "https://www.wayfair.com/"
+      },
+      {
+        "rank": 7,
+        "name": "Walmart",
+        "domain": "walmart.com",
+        "official_homepage": "https://www.walmart.com/"
+      },
+      {
+        "rank": 8,
+        "name": "Target",
+        "domain": "target.com",
+        "official_homepage": "https://www.target.com/"
+      },
+      {
+        "rank": 9,
+        "name": "Ashley",
+        "domain": "ashleyfurniture.com",
+        "official_homepage": "https://www.ashleyfurniture.com/"
+      },
+      {
+        "rank": 11,
+        "name": "Ace Hardware",
+        "domain": "acehardware.com",
+        "official_homepage": "https://www.acehardware.com/"
+      },
+      {
+        "rank": 12,
+        "name": "Costco",
+        "domain": "costco.com",
+        "official_homepage": "https://www.costco.com/"
+      },
+      {
+        "rank": 13,
+        "name": "Amazon Home",
+        "domain": "amazon.com",
+        "official_homepage": "https://www.amazon.com/"
+      },
+      {
+        "rank": 14,
+        "name": "Dyson",
+        "domain": "dyson.com",
+        "official_homepage": "https://www.dyson.com/"
+      },
+      {
+        "rank": 15,
+        "name": "Shark",
+        "domain": "sharkclean.com",
+        "official_homepage": "https://www.sharkclean.com/"
+      },
+      {
+        "rank": 16,
+        "name": "Bosch",
+        "domain": "bosch.com",
+        "official_homepage": "https://www.bosch.com/"
+      },
+      {
+        "rank": 17,
+        "name": "KitchenAid",
+        "domain": "kitchenaid.com",
+        "official_homepage": "https://www.kitchenaid.com/"
+      },
+      {
+        "rank": 18,
+        "name": "Whirlpool",
+        "domain": "whirlpool.com",
+        "official_homepage": "https://www.whirlpool.com/"
+      },
+      {
+        "rank": 19,
+        "name": "GE Appliances",
+        "domain": "geappliances.com",
+        "official_homepage": "https://www.geappliances.com/"
+      },
+      {
+        "rank": 20,
+        "name": "Pottery Barn",
+        "domain": "potterybarn.com",
+        "official_homepage": "https://www.potterybarn.com/"
+      },
+      {
+        "rank": 21,
+        "name": "West Elm",
+        "domain": "westelm.com",
+        "official_homepage": "https://www.westelm.com/"
+      },
+      {
+        "rank": 22,
+        "name": "Crate & Barrel",
+        "domain": "crateandbarrel.com",
+        "official_homepage": "https://www.crateandbarrel.com/"
+      },
+      {
+        "rank": 23,
+        "name": "La-Z-Boy",
+        "domain": "la-z-boy.com",
+        "official_homepage": "https://www.la-z-boy.com/"
+      },
+      {
+        "rank": 25,
+        "name": "Harbor Freight",
+        "domain": "harborfreight.com",
+        "official_homepage": "https://www.harborfreight.com/"
+      },
+      {
+        "rank": 26,
+        "name": "Uline",
+        "domain": "uline.com",
+        "official_homepage": "https://www.uline.com/"
+      },
+      {
+        "rank": 27,
+        "name": "Mattress Firm",
+        "domain": "mattressfirm.com",
+        "official_homepage": "https://www.mattressfirm.com/"
+      },
+      {
+        "rank": 28,
+        "name": "Dunelm",
+        "domain": "dunelm.com",
+        "official_homepage": "https://www.dunelm.com/"
+      },
+      {
+        "rank": 30,
+        "name": "Habitat",
+        "domain": "habitat.co.uk",
+        "official_homepage": "https://www.habitat.co.uk/"
+      },
+      {
+        "rank": 31,
+        "name": "Homebase",
+        "domain": "homebase.co.uk",
+        "official_homepage": "https://www.homebase.co.uk/"
+      },
+      {
+        "rank": 32,
+        "name": "The Range",
+        "domain": "therange.co.uk",
+        "official_homepage": "https://www.therange.co.uk/"
+      },
+      {
+        "rank": 33,
+        "name": "John Lewis & Partners",
+        "domain": "johnlewis.com",
+        "official_homepage": "https://www.johnlewis.com/"
+      },
+      {
+        "rank": 34,
+        "name": "Argos",
+        "domain": "argos.co.uk",
+        "official_homepage": "https://www.argos.co.uk/"
+      },
+      {
+        "rank": 35,
+        "name": "Bed Bath & Beyond",
+        "domain": "bedbathandbeyond.com",
+        "official_homepage": "https://www.bedbathandbeyond.com/"
+      },
+      {
+        "rank": 36,
+        "name": "Overstock",
+        "domain": "overstock.com",
+        "official_homepage": "https://www.overstock.com/"
+      }
+    ]
+  },
+  "results": [
+    {
+      "rank": 1,
+      "name": "Zara",
+      "category": "Fashion",
+      "domain": "zara.com",
+      "official_homepage": "https://www.zara.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980320+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 2,
+      "name": "Nike",
+      "category": "Fashion",
+      "domain": "nike.com",
+      "official_homepage": "https://www.nike.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980337+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 3,
+      "name": "Adidas",
+      "category": "Fashion",
+      "domain": "adidas.com",
+      "official_homepage": "https://www.adidas.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980341+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 4,
+      "name": "Mango",
+      "category": "Fashion",
+      "domain": "mango.com",
+      "official_homepage": "https://shop.mango.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980345+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 5,
+      "name": "UNIQLO",
+      "category": "Fashion",
+      "domain": "uniqlo.com",
+      "official_homepage": "https://www.uniqlo.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980347+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 6,
+      "name": "H&M",
+      "category": "Fashion",
+      "domain": "hm.com",
+      "official_homepage": "https://www2.hm.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980350+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 7,
+      "name": "New Balance",
+      "category": "Fashion",
+      "domain": "newbalance.com",
+      "official_homepage": "https://www.newbalance.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980352+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 8,
+      "name": "PUMA",
+      "category": "Fashion",
+      "domain": "puma.com",
+      "official_homepage": "https://us.puma.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980354+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 9,
+      "name": "Louis Vuitton",
+      "category": "Fashion",
+      "domain": "louisvuitton.com",
+      "official_homepage": "https://us.louisvuitton.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980356+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 10,
+      "name": "Coach",
+      "category": "Fashion",
+      "domain": "coach.com",
+      "official_homepage": "https://www.coach.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980359+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 11,
+      "name": "ASOS",
+      "category": "Fashion",
+      "domain": "asos.com",
+      "official_homepage": "https://www.asos.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980361+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 12,
+      "name": "UGG",
+      "category": "Fashion",
+      "domain": "ugg.com",
+      "official_homepage": "https://www.ugg.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980363+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 13,
+      "name": "Vans",
+      "category": "Fashion",
+      "domain": "vans.com",
+      "official_homepage": "https://www.vans.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980366+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 14,
+      "name": "Hermès",
+      "category": "Fashion",
+      "domain": "hermes.com",
+      "official_homepage": "https://www.hermes.com/us/en/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980368+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 15,
+      "name": "Levi's",
+      "category": "Fashion",
+      "domain": "levi.com",
+      "official_homepage": "https://www.levi.com/US/en_US/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980370+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 16,
+      "name": "Tommy Hilfiger",
+      "category": "Fashion",
+      "domain": "tommy.com",
+      "official_homepage": "https://usa.tommy.com/en/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980373+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 17,
+      "name": "Ralph Lauren",
+      "category": "Fashion",
+      "domain": "ralphlauren.com",
+      "official_homepage": "https://www.ralphlauren.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980375+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 18,
+      "name": "Converse",
+      "category": "Fashion",
+      "domain": "converse.com",
+      "official_homepage": "https://www.converse.com/us",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980377+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 19,
+      "name": "Urban Outfitters",
+      "category": "Fashion",
+      "domain": "urbanoutfitters.com",
+      "official_homepage": "https://www.urbanoutfitters.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980380+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 21,
+      "name": "Dior",
+      "category": "Fashion",
+      "domain": "dior.com",
+      "official_homepage": "https://www.dior.com/en_us",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980382+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 22,
+      "name": "Calvin Klein",
+      "category": "Fashion",
+      "domain": "calvinklein.com",
+      "official_homepage": "https://www.calvinklein.us/en",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980384+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 23,
+      "name": "Chanel",
+      "category": "Fashion",
+      "domain": "chanel.com",
+      "official_homepage": "https://www.chanel.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980386+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 24,
+      "name": "Gucci",
+      "category": "Fashion",
+      "domain": "gucci.com",
+      "official_homepage": "https://www.gucci.com/us/en/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980391+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 25,
+      "name": "Timberland",
+      "category": "Fashion",
+      "domain": "timberland.com",
+      "official_homepage": "https://www.timberland.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980393+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 26,
+      "name": "Michael Kors",
+      "category": "Fashion",
+      "domain": "michaelkors.com",
+      "official_homepage": "https://www.michaelkors.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980396+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 27,
+      "name": "Prada",
+      "category": "Fashion",
+      "domain": "prada.com",
+      "official_homepage": "https://www.prada.com/us/en.html",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980398+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 28,
+      "name": "Valentino",
+      "category": "Fashion",
+      "domain": "valentino.com",
+      "official_homepage": "https://www.valentino.com/en-us/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980400+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 29,
+      "name": "Balenciaga",
+      "category": "Fashion",
+      "domain": "balenciaga.com",
+      "official_homepage": "https://www.balenciaga.com/en-us",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980403+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 30,
+      "name": "Steve Madden",
+      "category": "Fashion",
+      "domain": "stevemadden.com",
+      "official_homepage": "https://www.stevemadden.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980405+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 31,
+      "name": "Burberry",
+      "category": "Fashion",
+      "domain": "burberry.com",
+      "official_homepage": "https://int.burberry.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980407+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 1,
+      "name": "Apple",
+      "category": "Electronics",
+      "domain": "apple.com",
+      "official_homepage": "https://www.apple.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980455+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 2,
+      "name": "Samsung",
+      "category": "Electronics",
+      "domain": "samsung.com",
+      "official_homepage": "https://www.samsung.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980458+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 3,
+      "name": "Sony",
+      "category": "Electronics",
+      "domain": "sony.com",
+      "official_homepage": "https://www.sony.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980463+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 4,
+      "name": "Xiaomi",
+      "category": "Electronics",
+      "domain": "mi.com",
+      "official_homepage": "https://www.mi.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980466+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 5,
+      "name": "LG",
+      "category": "Electronics",
+      "domain": "lg.com",
+      "official_homepage": "https://www.lg.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980468+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 6,
+      "name": "Lenovo",
+      "category": "Electronics",
+      "domain": "lenovo.com",
+      "official_homepage": "https://www.lenovo.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980470+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 7,
+      "name": "HP",
+      "category": "Electronics",
+      "domain": "hp.com",
+      "official_homepage": "https://www.hp.com/us-en/shop/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980473+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 8,
+      "name": "Dell",
+      "category": "Electronics",
+      "domain": "dell.com",
+      "official_homepage": "https://www.dell.com/en-us/shop/deals",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980475+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 9,
+      "name": "ASUS",
+      "category": "Electronics",
+      "domain": "asus.com",
+      "official_homepage": "https://www.asus.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980477+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 10,
+      "name": "Huawei",
+      "category": "Electronics",
+      "domain": "huawei.com",
+      "official_homepage": "https://consumer.huawei.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980479+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 10,
+      "name": "Huawei",
+      "category": "Electronics",
+      "domain": "consumer.huawei.com",
+      "official_homepage": "https://consumer.huawei.com/es/shop/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980484+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 11,
+      "name": "Microsoft",
+      "category": "Electronics",
+      "domain": "microsoft.com",
+      "official_homepage": "https://www.microsoft.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980487+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 12,
+      "name": "Google",
+      "category": "Electronics",
+      "domain": "store.google.com",
+      "official_homepage": "https://store.google.com/us/category/offers",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980491+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 13,
+      "name": "Panasonic",
+      "category": "Electronics",
+      "domain": "panasonic.com",
+      "official_homepage": "https://www.panasonic.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980494+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 14,
+      "name": "Canon",
+      "category": "Electronics",
+      "domain": "canon.com",
+      "official_homepage": "https://www.usa.canon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980496+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 14,
+      "name": "Canon",
+      "category": "Electronics",
+      "domain": "usa.canon.com",
+      "official_homepage": "https://www.usa.canon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980498+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 15,
+      "name": "Nikon",
+      "category": "Electronics",
+      "domain": "nikonusa.com",
+      "official_homepage": "https://www.nikonusa.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980500+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 16,
+      "name": "Bose",
+      "category": "Electronics",
+      "domain": "bose.com",
+      "official_homepage": "https://www.bose.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980503+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 17,
+      "name": "JBL",
+      "category": "Electronics",
+      "domain": "jbl.com",
+      "official_homepage": "https://www.jbl.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980505+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 18,
+      "name": "Philips",
+      "category": "Electronics",
+      "domain": "philips.com",
+      "official_homepage": "https://hk.shop.lighting.philips.com/en/pages/limited-time-offer",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980507+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 19,
+      "name": "Nintendo",
+      "category": "Electronics",
+      "domain": "nintendo.com",
+      "official_homepage": "https://www.nintendo.com/us/store/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980510+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 20,
+      "name": "GoPro",
+      "category": "Electronics",
+      "domain": "gopro.com",
+      "official_homepage": "https://gopro.com/en/us/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980512+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 21,
+      "name": "OnePlus",
+      "category": "Electronics",
+      "domain": "oneplus.com",
+      "official_homepage": "https://www.oneplus.com/us/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980516+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 22,
+      "name": "Acer",
+      "category": "Electronics",
+      "domain": "acer.com",
+      "official_homepage": "https://store.acer.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980519+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 23,
+      "name": "MSI",
+      "category": "Electronics",
+      "domain": "msi.com",
+      "official_homepage": "https://www.msi.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980521+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 24,
+      "name": "Razer",
+      "category": "Electronics",
+      "domain": "razer.com",
+      "official_homepage": "https://www.razer.com/store",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980523+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 25,
+      "name": "Logitech",
+      "category": "Electronics",
+      "domain": "logitech.com",
+      "official_homepage": "https://www.logitech.com/en-us/shop/deals",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980526+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 26,
+      "name": "Garmin",
+      "category": "Electronics",
+      "domain": "garmin.com",
+      "official_homepage": "https://www.garmin.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980528+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 27,
+      "name": "Amazon Devices",
+      "category": "Electronics",
+      "domain": "amazon.com",
+      "official_homepage": "https://www.amazon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980531+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 28,
+      "name": "Alienware",
+      "category": "Electronics",
+      "domain": "alienware.com",
+      "official_homepage": "https://www.alienware.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980533+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 29,
+      "name": "iRobot",
+      "category": "Electronics",
+      "domain": "irobot.com",
+      "official_homepage": "https://www.irobot.com/en_US/us/shop",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980535+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 30,
+      "name": "Sonos",
+      "category": "Electronics",
+      "domain": "sonos.com",
+      "official_homepage": "https://www.sonos.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980537+00:00",
+      "manifest": "data/assistant_verified_sources.json"
+    },
+    {
+      "rank": 31,
+      "name": "Anker",
+      "category": "Electronics",
+      "domain": "anker.com",
+      "official_homepage": "https://www.anker.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980542+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 32,
+      "name": "Belkin",
+      "category": "Electronics",
+      "domain": "belkin.com",
+      "official_homepage": "https://www.belkin.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980544+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 33,
+      "name": "TP-Link",
+      "category": "Electronics",
+      "domain": "tp-link.com",
+      "official_homepage": "https://www.tp-link.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980546+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 34,
+      "name": "Corsair",
+      "category": "Electronics",
+      "domain": "corsair.com",
+      "official_homepage": "https://www.corsair.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980549+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 35,
+      "name": "Nothing",
+      "category": "Electronics",
+      "domain": "nothing.tech",
+      "official_homepage": "https://nothing.tech/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980551+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 36,
+      "name": "Sennheiser",
+      "category": "Electronics",
+      "domain": "sennheiser-hearing.com",
+      "official_homepage": "https://www.sennheiser-hearing.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980554+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 37,
+      "name": "Beats",
+      "category": "Electronics",
+      "domain": "beatsbydre.com",
+      "official_homepage": "https://www.beatsbydre.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980556+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 38,
+      "name": "Marshall",
+      "category": "Electronics",
+      "domain": "marshall.com",
+      "official_homepage": "https://www.marshall.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980558+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 39,
+      "name": "SteelSeries",
+      "category": "Electronics",
+      "domain": "steelseries.com",
+      "official_homepage": "https://steelseries.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980560+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 40,
+      "name": "HyperX",
+      "category": "Electronics",
+      "domain": "hyperx.com",
+      "official_homepage": "https://hyperx.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980563+00:00",
+      "manifest": "data/assistant_verified_electronics_additions.json"
+    },
+    {
+      "rank": 1,
+      "name": "L'Oréal",
+      "category": "Beauty & Personal Care",
+      "domain": "loreal.com",
+      "official_homepage": "https://www.loreal.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980608+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 2,
+      "name": "Maybelline",
+      "category": "Beauty & Personal Care",
+      "domain": "maybelline.com",
+      "official_homepage": "https://www.maybelline.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980611+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 3,
+      "name": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "domain": "elfcosmetics.com",
+      "official_homepage": "https://www.elfcosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980613+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 4,
+      "name": "CeraVe",
+      "category": "Beauty & Personal Care",
+      "domain": "cerave.com",
+      "official_homepage": "https://www.cerave.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980616+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 5,
+      "name": "The Ordinary",
+      "category": "Beauty & Personal Care",
+      "domain": "theordinary.com",
+      "official_homepage": "https://theordinary.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980618+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 6,
+      "name": "Fenty Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "fentybeauty.com",
+      "official_homepage": "https://fentybeauty.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980621+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 8,
+      "name": "NYX Professional Makeup",
+      "category": "Beauty & Personal Care",
+      "domain": "nyxcosmetics.com",
+      "official_homepage": "https://www.nyxcosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980623+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 10,
+      "name": "Glossier",
+      "category": "Beauty & Personal Care",
+      "domain": "glossier.com",
+      "official_homepage": "https://www.glossier.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980625+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 11,
+      "name": "Rare Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "rarebeauty.com",
+      "official_homepage": "https://www.rarebeauty.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980628+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 12,
+      "name": "Estée Lauder",
+      "category": "Beauty & Personal Care",
+      "domain": "esteelauder.com",
+      "official_homepage": "https://www.esteelauder.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980630+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 13,
+      "name": "La Roche-Posay",
+      "category": "Beauty & Personal Care",
+      "domain": "laroche-posay.us",
+      "official_homepage": "https://www.laroche-posay.us/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980635+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 14,
+      "name": "Dior Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "dior.com",
+      "official_homepage": "https://www.dior.com/en_us/beauty",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980637+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 15,
+      "name": "COSRX",
+      "category": "Beauty & Personal Care",
+      "domain": "cosrx.com",
+      "official_homepage": "https://www.cosrx.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980639+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 16,
+      "name": "Revlon",
+      "category": "Beauty & Personal Care",
+      "domain": "revlon.com",
+      "official_homepage": "https://www.revlon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980642+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 17,
+      "name": "NARS",
+      "category": "Beauty & Personal Care",
+      "domain": "narscosmetics.com",
+      "official_homepage": "https://www.narscosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980644+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 18,
+      "name": "Clinique",
+      "category": "Beauty & Personal Care",
+      "domain": "clinique.com",
+      "official_homepage": "https://www.clinique.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980646+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 19,
+      "name": "Lancôme",
+      "category": "Beauty & Personal Care",
+      "domain": "lancome-usa.com",
+      "official_homepage": "https://www.lancome-usa.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980649+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 20,
+      "name": "Huda Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "hudabeauty.com",
+      "official_homepage": "https://www.hudabeauty.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980651+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 21,
+      "name": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "domain": "thebodyshop.com",
+      "official_homepage": "https://www.thebodyshop.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980655+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 22,
+      "name": "Neutrogena",
+      "category": "Beauty & Personal Care",
+      "domain": "neutrogena.com",
+      "official_homepage": "https://www.neutrogena.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980658+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 23,
+      "name": "Olay",
+      "category": "Beauty & Personal Care",
+      "domain": "olay.com",
+      "official_homepage": "https://www.olay.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980661+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 24,
+      "name": "Aveeno",
+      "category": "Beauty & Personal Care",
+      "domain": "aveeno.com",
+      "official_homepage": "https://www.aveeno.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980664+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 25,
+      "name": "Kylie Cosmetics",
+      "category": "Beauty & Personal Care",
+      "domain": "kyliecosmetics.com",
+      "official_homepage": "https://www.kyliecosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980666+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 26,
+      "name": "Olaplex",
+      "category": "Beauty & Personal Care",
+      "domain": "olaplex.com",
+      "official_homepage": "https://www.olaplex.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980669+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 27,
+      "name": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "domain": "tatcha.com",
+      "official_homepage": "https://tatcha.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980671+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 28,
+      "name": "Kiehl's",
+      "category": "Beauty & Personal Care",
+      "domain": "kiehls.com",
+      "official_homepage": "https://www.kiehls.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980673+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 29,
+      "name": "Sephora",
+      "category": "Beauty & Personal Care",
+      "domain": "sephora.com",
+      "official_homepage": "https://www.sephora.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980676+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 30,
+      "name": "Ulta Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "ulta.com",
+      "official_homepage": "https://www.ulta.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980678+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 31,
+      "name": "Paula's Choice",
+      "category": "Beauty & Personal Care",
+      "domain": "paulaschoice.com",
+      "official_homepage": "https://www.paulaschoice.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980680+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 32,
+      "name": "LANEIGE",
+      "category": "Beauty & Personal Care",
+      "domain": "laneige.com",
+      "official_homepage": "https://www.laneige.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980682+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 33,
+      "name": "MAC Cosmetics",
+      "category": "Beauty & Personal Care",
+      "domain": "maccosmetics.com",
+      "official_homepage": "https://www.maccosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980687+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 34,
+      "name": "Charlotte Tilbury",
+      "category": "Beauty & Personal Care",
+      "domain": "charlottetilbury.com",
+      "official_homepage": "https://www.charlottetilbury.com/uk/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980689+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 35,
+      "name": "ILIA Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "iliabeauty.com",
+      "official_homepage": "https://iliabeauty.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980691+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 36,
+      "name": "Tower 28 Beauty",
+      "category": "Beauty & Personal Care",
+      "domain": "tower28beauty.com",
+      "official_homepage": "https://www.tower28beauty.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980694+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 37,
+      "name": "Beauty of Joseon",
+      "category": "Beauty & Personal Care",
+      "domain": "beautyofjoseon.com",
+      "official_homepage": "https://beautyofjoseon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980696+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 38,
+      "name": "Drunk Elephant",
+      "category": "Beauty & Personal Care",
+      "domain": "drunkelephant.com",
+      "official_homepage": "https://www.drunkelephant.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980698+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 39,
+      "name": "Tarte",
+      "category": "Beauty & Personal Care",
+      "domain": "tartecosmetics.com",
+      "official_homepage": "https://tartecosmetics.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980701+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 40,
+      "name": "ColourPop",
+      "category": "Beauty & Personal Care",
+      "domain": "colourpop.com",
+      "official_homepage": "https://colourpop.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980703+00:00",
+      "manifest": "data/assistant_verified_beauty_additions.json"
+    },
+    {
+      "rank": 1,
+      "name": "IKEA",
+      "category": "Home & Living",
+      "domain": "ikea.com",
+      "official_homepage": "https://www.ikea.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980742+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 3,
+      "name": "Lowe's",
+      "category": "Home & Living",
+      "domain": "lowes.com",
+      "official_homepage": "https://www.lowes.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980745+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 4,
+      "name": "Wayfair",
+      "category": "Home & Living",
+      "domain": "wayfair.com",
+      "official_homepage": "https://www.wayfair.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980749+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 7,
+      "name": "Walmart",
+      "category": "Home & Living",
+      "domain": "walmart.com",
+      "official_homepage": "https://www.walmart.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980751+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 8,
+      "name": "Target",
+      "category": "Home & Living",
+      "domain": "target.com",
+      "official_homepage": "https://www.target.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980754+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 9,
+      "name": "Ashley",
+      "category": "Home & Living",
+      "domain": "ashleyfurniture.com",
+      "official_homepage": "https://www.ashleyfurniture.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980756+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 11,
+      "name": "Ace Hardware",
+      "category": "Home & Living",
+      "domain": "acehardware.com",
+      "official_homepage": "https://www.acehardware.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980758+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 12,
+      "name": "Costco",
+      "category": "Home & Living",
+      "domain": "costco.com",
+      "official_homepage": "https://www.costco.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980760+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 13,
+      "name": "Amazon Home",
+      "category": "Home & Living",
+      "domain": "amazon.com",
+      "official_homepage": "https://www.amazon.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980763+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 14,
+      "name": "Dyson",
+      "category": "Home & Living",
+      "domain": "dyson.com",
+      "official_homepage": "https://www.dyson.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980765+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 15,
+      "name": "Shark",
+      "category": "Home & Living",
+      "domain": "sharkclean.com",
+      "official_homepage": "https://www.sharkclean.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980767+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 16,
+      "name": "Bosch",
+      "category": "Home & Living",
+      "domain": "bosch.com",
+      "official_homepage": "https://www.bosch.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980770+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 17,
+      "name": "KitchenAid",
+      "category": "Home & Living",
+      "domain": "kitchenaid.com",
+      "official_homepage": "https://www.kitchenaid.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980774+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 18,
+      "name": "Whirlpool",
+      "category": "Home & Living",
+      "domain": "whirlpool.com",
+      "official_homepage": "https://www.whirlpool.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980777+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 19,
+      "name": "GE Appliances",
+      "category": "Home & Living",
+      "domain": "geappliances.com",
+      "official_homepage": "https://www.geappliances.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980779+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 20,
+      "name": "Pottery Barn",
+      "category": "Home & Living",
+      "domain": "potterybarn.com",
+      "official_homepage": "https://www.potterybarn.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980782+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 21,
+      "name": "West Elm",
+      "category": "Home & Living",
+      "domain": "westelm.com",
+      "official_homepage": "https://www.westelm.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980784+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 22,
+      "name": "Crate & Barrel",
+      "category": "Home & Living",
+      "domain": "crateandbarrel.com",
+      "official_homepage": "https://www.crateandbarrel.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980786+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 23,
+      "name": "La-Z-Boy",
+      "category": "Home & Living",
+      "domain": "la-z-boy.com",
+      "official_homepage": "https://www.la-z-boy.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980788+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 25,
+      "name": "Harbor Freight",
+      "category": "Home & Living",
+      "domain": "harborfreight.com",
+      "official_homepage": "https://www.harborfreight.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980791+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 26,
+      "name": "Uline",
+      "category": "Home & Living",
+      "domain": "uline.com",
+      "official_homepage": "https://www.uline.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980793+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 27,
+      "name": "Mattress Firm",
+      "category": "Home & Living",
+      "domain": "mattressfirm.com",
+      "official_homepage": "https://www.mattressfirm.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980796+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 28,
+      "name": "Dunelm",
+      "category": "Home & Living",
+      "domain": "dunelm.com",
+      "official_homepage": "https://www.dunelm.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980800+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 30,
+      "name": "Habitat",
+      "category": "Home & Living",
+      "domain": "habitat.co.uk",
+      "official_homepage": "https://www.habitat.co.uk/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980802+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 31,
+      "name": "Homebase",
+      "category": "Home & Living",
+      "domain": "homebase.co.uk",
+      "official_homepage": "https://www.homebase.co.uk/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980804+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 32,
+      "name": "The Range",
+      "category": "Home & Living",
+      "domain": "therange.co.uk",
+      "official_homepage": "https://www.therange.co.uk/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980807+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 33,
+      "name": "John Lewis & Partners",
+      "category": "Home & Living",
+      "domain": "johnlewis.com",
+      "official_homepage": "https://www.johnlewis.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980809+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 34,
+      "name": "Argos",
+      "category": "Home & Living",
+      "domain": "argos.co.uk",
+      "official_homepage": "https://www.argos.co.uk/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980811+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 35,
+      "name": "Bed Bath & Beyond",
+      "category": "Home & Living",
+      "domain": "bedbathandbeyond.com",
+      "official_homepage": "https://www.bedbathandbeyond.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980814+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    },
+    {
+      "rank": 36,
+      "name": "Overstock",
+      "category": "Home & Living",
+      "domain": "overstock.com",
+      "official_homepage": "https://www.overstock.com/",
+      "status": "verified_first_party",
+      "verification_authority": "assistant",
+      "verification_method": "assistant_research_manifest",
+      "runtime_http_identity_check": "not_performed",
+      "reason": "assistant_verified_source_of_truth",
+      "checked_at": "2026-09-05T23:24:49.980816+00:00",
+      "manifest": "data/assistant_verified_home_additions.json"
+    }
+  ]
+}
