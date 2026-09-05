@@ -21,7 +21,6 @@ permissions:
 concurrency:
   group: deal24h-main-writer
   cancel-in-progress: false
-# Manual full-cycle trigger after canonical Supabase partition-parent fix.
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -162,30 +161,34 @@ jobs:
         run: python scripts/verify_ga4.py
       - name: Validate active offers and six-category SEO links
         run: python bot/validate_site_fast.py
-      - name: Verify canonical files before publish
+      - name: Stage and verify canonical generated output
         run: |
-          set -e
-          echo '=== WORKTREE STATUS ==='
+          set -euo pipefail
+          echo '=== WORKTREE STATUS BEFORE STAGE ==='
           git status --short
           echo '=== GENERATED SHARDS ==='
           wc -c data/shards/*.json
           echo '=== TRACKED SHARDS ==='
           git ls-files data/shards/
-          git add data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/ 2>/dev/null || true
+          echo '=== STAGE GENERATED OUTPUT ==='
+          git add -A -- data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/
           echo '=== STAGED CHANGES ==='
           git diff --cached --name-status
           git diff --cached --stat
-          if git diff --quiet -- data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/; then
+          staged_files=$(git diff --cached --name-only)
+          if printf '%s\n' "$staged_files" | grep -E '^(data/brand_catalog\.json|bot/|scripts/.*\.py|assets/|\.github/workflows/)' >/dev/null; then
+            echo 'FATAL: source code, catalog, assets, or workflow changes were staged unexpectedly.' >&2
+            exit 1
+          fi
+          if git diff --cached --quiet; then
             echo 'NO_GENERATED_CHANGE_DETECTED'
           else
-            if git diff --cached --quiet; then
-              echo 'FATAL: generated files differ from HEAD but nothing is staged.' >&2
-              exit 1
-            fi
+            echo 'GENERATED_OUTPUT_STAGED_OK'
           fi
       - name: Commit canonical data and SEO pages
         if: success()
         run: |
+          set -euo pipefail
           git config user.name 'DEAL24H Bot'
           git config user.email 'actions@github.com'
           if git diff --cached --quiet; then
@@ -197,7 +200,7 @@ jobs:
       - name: Verify GitHub main contains the published commit
         if: success()
         run: |
-          set -e
+          set -euo pipefail
           git fetch origin main
           LOCAL_SHA=$(git rev-parse HEAD)
           REMOTE_SHA=$(git rev-parse origin/main)
