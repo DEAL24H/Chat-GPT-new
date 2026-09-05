@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-09-05T23:35:58.830098+00:00",
+  "generated_at": "2026-09-05T23:36:11.672755+00:00",
   "registry_file": "data/international_brand_registry.json",
   "execution_allowlist": [
     "data/assistant_verified_sources.json",
@@ -799,7 +799,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829601+00:00",
+      "checked_at": "2026-09-05T23:36:11.672260+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -813,7 +813,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829613+00:00",
+      "checked_at": "2026-09-05T23:36:11.672271+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -827,7 +827,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829617+00:00",
+      "checked_at": "2026-09-05T23:36:11.672276+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -841,7 +841,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829620+00:00",
+      "checked_at": "2026-09-05T23:36:11.672279+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -855,7 +855,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829623+00:00",
+      "checked_at": "2026-09-05T23:36:11.672281+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -869,7 +869,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829625+00:00",
+      "checked_at": "2026-09-05T23:36:11.672284+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -883,7 +883,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829628+00:00",
+      "checked_at": "2026-09-05T23:36:11.672286+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -897,7 +897,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829630+00:00",
+      "checked_at": "2026-09-05T23:36:11.672288+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -911,7 +911,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829632+00:00",
+      "checked_at": "2026-09-05T23:36:11.672291+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -925,7 +925,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829635+00:00",
+      "checked_at": "2026-09-05T23:36:11.672293+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -939,7 +939,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829637+00:00",
+      "checked_at": "2026-09-05T23:36:11.672295+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -953,7 +953,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829639+00:00",
+      "checked_at": "2026-09-05T23:36:11.672298+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -967,7 +967,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829641+00:00",
+      "checked_at": "2026-09-05T23:36:11.672300+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -981,7 +981,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829644+00:00",
+      "checked_at": "2026-09-05T23:36:11.672302+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -995,7 +995,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829646+00:00",
+      "checked_at": "2026-09-05T23:36:11.672305+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1009,7 +1009,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829648+00:00",
+      "checked_at": "2026-09-05T23:36:11.672307+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1023,7 +1023,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829650+00:00",
+      "checked_at": "2026-09-05T23:36:11.672309+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1037,7 +1037,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829653+00:00",
+      "checked_at": "2026-09-05T23:36:11.672312+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1051,7 +1051,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829655+00:00",
+      "checked_at": "2026-09-05T23:36:11.672314+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1065,7 +1065,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829658+00:00",
+      "checked_at": "2026-09-05T23:36:11.672316+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1079,7 +1079,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829660+00:00",
+      "checked_at": "2026-09-05T23:36:11.672318+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1093,7 +1093,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829662+00:00",
+      "checked_at": "2026-09-05T23:36:11.672321+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1107,7 +1107,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829666+00:00",
+      "checked_at": "2026-09-05T23:36:11.672325+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1121,7 +1121,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829669+00:00",
+      "checked_at": "2026-09-05T23:36:11.672327+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1135,7 +1135,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829671+00:00",
+      "checked_at": "2026-09-05T23:36:11.672329+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1149,7 +1149,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829674+00:00",
+      "checked_at": "2026-09-05T23:36:11.672332+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1163,7 +1163,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829676+00:00",
+      "checked_at": "2026-09-05T23:36:11.672334+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1177,7 +1177,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829678+00:00",
+      "checked_at": "2026-09-05T23:36:11.672336+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1191,7 +1191,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829681+00:00",
+      "checked_at": "2026-09-05T23:36:11.672339+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1205,7 +1205,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829683+00:00",
+      "checked_at": "2026-09-05T23:36:11.672341+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1219,7 +1219,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829731+00:00",
+      "checked_at": "2026-09-05T23:36:11.672389+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1233,7 +1233,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829734+00:00",
+      "checked_at": "2026-09-05T23:36:11.672392+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1247,7 +1247,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829739+00:00",
+      "checked_at": "2026-09-05T23:36:11.672396+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1261,7 +1261,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829742+00:00",
+      "checked_at": "2026-09-05T23:36:11.672399+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1275,7 +1275,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829744+00:00",
+      "checked_at": "2026-09-05T23:36:11.672401+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1289,7 +1289,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829746+00:00",
+      "checked_at": "2026-09-05T23:36:11.672403+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1303,7 +1303,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829749+00:00",
+      "checked_at": "2026-09-05T23:36:11.672406+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1317,7 +1317,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829751+00:00",
+      "checked_at": "2026-09-05T23:36:11.672408+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1331,7 +1331,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829753+00:00",
+      "checked_at": "2026-09-05T23:36:11.672410+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1345,7 +1345,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829755+00:00",
+      "checked_at": "2026-09-05T23:36:11.672413+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1359,7 +1359,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829760+00:00",
+      "checked_at": "2026-09-05T23:36:11.672417+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1373,7 +1373,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829762+00:00",
+      "checked_at": "2026-09-05T23:36:11.672419+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1387,7 +1387,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829767+00:00",
+      "checked_at": "2026-09-05T23:36:11.672423+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1401,7 +1401,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829769+00:00",
+      "checked_at": "2026-09-05T23:36:11.672426+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1415,7 +1415,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829771+00:00",
+      "checked_at": "2026-09-05T23:36:11.672428+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1429,7 +1429,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829774+00:00",
+      "checked_at": "2026-09-05T23:36:11.672430+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1443,7 +1443,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829776+00:00",
+      "checked_at": "2026-09-05T23:36:11.672432+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1457,7 +1457,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829778+00:00",
+      "checked_at": "2026-09-05T23:36:11.672435+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1471,7 +1471,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829780+00:00",
+      "checked_at": "2026-09-05T23:36:11.672437+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1485,7 +1485,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829783+00:00",
+      "checked_at": "2026-09-05T23:36:11.672439+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1499,7 +1499,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829785+00:00",
+      "checked_at": "2026-09-05T23:36:11.672441+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1513,7 +1513,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829787+00:00",
+      "checked_at": "2026-09-05T23:36:11.672443+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1527,7 +1527,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829791+00:00",
+      "checked_at": "2026-09-05T23:36:11.672447+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1541,7 +1541,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829794+00:00",
+      "checked_at": "2026-09-05T23:36:11.672450+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1555,7 +1555,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829796+00:00",
+      "checked_at": "2026-09-05T23:36:11.672452+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1569,7 +1569,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829798+00:00",
+      "checked_at": "2026-09-05T23:36:11.672454+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1583,7 +1583,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829800+00:00",
+      "checked_at": "2026-09-05T23:36:11.672457+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1597,7 +1597,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829803+00:00",
+      "checked_at": "2026-09-05T23:36:11.672459+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1611,7 +1611,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829805+00:00",
+      "checked_at": "2026-09-05T23:36:11.672462+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1625,7 +1625,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829807+00:00",
+      "checked_at": "2026-09-05T23:36:11.672464+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1639,7 +1639,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829809+00:00",
+      "checked_at": "2026-09-05T23:36:11.672466+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1653,7 +1653,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829812+00:00",
+      "checked_at": "2026-09-05T23:36:11.672468+00:00",
       "manifest": "data/assistant_verified_sources.json"
     },
     {
@@ -1667,7 +1667,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829816+00:00",
+      "checked_at": "2026-09-05T23:36:11.672472+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1681,7 +1681,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829818+00:00",
+      "checked_at": "2026-09-05T23:36:11.672474+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1695,7 +1695,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829820+00:00",
+      "checked_at": "2026-09-05T23:36:11.672477+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1709,7 +1709,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829823+00:00",
+      "checked_at": "2026-09-05T23:36:11.672479+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1723,7 +1723,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829825+00:00",
+      "checked_at": "2026-09-05T23:36:11.672481+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1737,7 +1737,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829827+00:00",
+      "checked_at": "2026-09-05T23:36:11.672483+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1751,7 +1751,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829829+00:00",
+      "checked_at": "2026-09-05T23:36:11.672486+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1765,7 +1765,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829831+00:00",
+      "checked_at": "2026-09-05T23:36:11.672488+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1779,7 +1779,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829833+00:00",
+      "checked_at": "2026-09-05T23:36:11.672490+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1793,7 +1793,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829836+00:00",
+      "checked_at": "2026-09-05T23:36:11.672493+00:00",
       "manifest": "data/assistant_verified_electronics_additions.json"
     },
     {
@@ -1807,7 +1807,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829881+00:00",
+      "checked_at": "2026-09-05T23:36:11.672537+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1821,7 +1821,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829884+00:00",
+      "checked_at": "2026-09-05T23:36:11.672540+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1835,7 +1835,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829887+00:00",
+      "checked_at": "2026-09-05T23:36:11.672543+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1849,7 +1849,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829889+00:00",
+      "checked_at": "2026-09-05T23:36:11.672545+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1863,7 +1863,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829891+00:00",
+      "checked_at": "2026-09-05T23:36:11.672547+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1877,7 +1877,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829894+00:00",
+      "checked_at": "2026-09-05T23:36:11.672550+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1891,7 +1891,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829896+00:00",
+      "checked_at": "2026-09-05T23:36:11.672552+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1905,7 +1905,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829899+00:00",
+      "checked_at": "2026-09-05T23:36:11.672554+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1919,7 +1919,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829901+00:00",
+      "checked_at": "2026-09-05T23:36:11.672557+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1933,7 +1933,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829903+00:00",
+      "checked_at": "2026-09-05T23:36:11.672559+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1947,7 +1947,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829907+00:00",
+      "checked_at": "2026-09-05T23:36:11.672563+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1961,7 +1961,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829910+00:00",
+      "checked_at": "2026-09-05T23:36:11.672566+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1975,7 +1975,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829912+00:00",
+      "checked_at": "2026-09-05T23:36:11.672568+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -1989,7 +1989,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829914+00:00",
+      "checked_at": "2026-09-05T23:36:11.672570+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2003,7 +2003,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829916+00:00",
+      "checked_at": "2026-09-05T23:36:11.672572+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2017,7 +2017,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829918+00:00",
+      "checked_at": "2026-09-05T23:36:11.672574+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2031,7 +2031,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829921+00:00",
+      "checked_at": "2026-09-05T23:36:11.672577+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2045,7 +2045,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829923+00:00",
+      "checked_at": "2026-09-05T23:36:11.672579+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2059,7 +2059,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829927+00:00",
+      "checked_at": "2026-09-05T23:36:11.672583+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2073,7 +2073,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829929+00:00",
+      "checked_at": "2026-09-05T23:36:11.672585+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2087,7 +2087,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829933+00:00",
+      "checked_at": "2026-09-05T23:36:11.672589+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2101,7 +2101,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829935+00:00",
+      "checked_at": "2026-09-05T23:36:11.672592+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2115,7 +2115,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829938+00:00",
+      "checked_at": "2026-09-05T23:36:11.672594+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2129,7 +2129,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829940+00:00",
+      "checked_at": "2026-09-05T23:36:11.672596+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2143,7 +2143,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829942+00:00",
+      "checked_at": "2026-09-05T23:36:11.672598+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2157,7 +2157,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829944+00:00",
+      "checked_at": "2026-09-05T23:36:11.672601+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2171,7 +2171,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829947+00:00",
+      "checked_at": "2026-09-05T23:36:11.672603+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2185,7 +2185,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829949+00:00",
+      "checked_at": "2026-09-05T23:36:11.672605+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2199,7 +2199,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829951+00:00",
+      "checked_at": "2026-09-05T23:36:11.672607+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2213,7 +2213,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829953+00:00",
+      "checked_at": "2026-09-05T23:36:11.672610+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2227,7 +2227,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829957+00:00",
+      "checked_at": "2026-09-05T23:36:11.672613+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2241,7 +2241,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829959+00:00",
+      "checked_at": "2026-09-05T23:36:11.672616+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2255,7 +2255,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829961+00:00",
+      "checked_at": "2026-09-05T23:36:11.672618+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2269,7 +2269,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829964+00:00",
+      "checked_at": "2026-09-05T23:36:11.672620+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2283,7 +2283,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829966+00:00",
+      "checked_at": "2026-09-05T23:36:11.672623+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2297,7 +2297,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829968+00:00",
+      "checked_at": "2026-09-05T23:36:11.672625+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2311,7 +2311,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829970+00:00",
+      "checked_at": "2026-09-05T23:36:11.672627+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2325,7 +2325,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.829973+00:00",
+      "checked_at": "2026-09-05T23:36:11.672630+00:00",
       "manifest": "data/assistant_verified_beauty_additions.json"
     },
     {
@@ -2339,7 +2339,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830011+00:00",
+      "checked_at": "2026-09-05T23:36:11.672668+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2353,7 +2353,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830014+00:00",
+      "checked_at": "2026-09-05T23:36:11.672671+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2367,7 +2367,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830018+00:00",
+      "checked_at": "2026-09-05T23:36:11.672675+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2381,7 +2381,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830020+00:00",
+      "checked_at": "2026-09-05T23:36:11.672677+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2395,7 +2395,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830022+00:00",
+      "checked_at": "2026-09-05T23:36:11.672679+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2409,7 +2409,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830025+00:00",
+      "checked_at": "2026-09-05T23:36:11.672682+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2423,7 +2423,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830027+00:00",
+      "checked_at": "2026-09-05T23:36:11.672684+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2437,7 +2437,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830029+00:00",
+      "checked_at": "2026-09-05T23:36:11.672686+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2451,7 +2451,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830031+00:00",
+      "checked_at": "2026-09-05T23:36:11.672688+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2465,7 +2465,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830033+00:00",
+      "checked_at": "2026-09-05T23:36:11.672691+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2479,7 +2479,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830036+00:00",
+      "checked_at": "2026-09-05T23:36:11.672693+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2493,7 +2493,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830038+00:00",
+      "checked_at": "2026-09-05T23:36:11.672695+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2507,7 +2507,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830042+00:00",
+      "checked_at": "2026-09-05T23:36:11.672699+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2521,7 +2521,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830044+00:00",
+      "checked_at": "2026-09-05T23:36:11.672702+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2535,7 +2535,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830046+00:00",
+      "checked_at": "2026-09-05T23:36:11.672704+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2549,7 +2549,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830049+00:00",
+      "checked_at": "2026-09-05T23:36:11.672706+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2563,7 +2563,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830051+00:00",
+      "checked_at": "2026-09-05T23:36:11.672708+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2577,7 +2577,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830053+00:00",
+      "checked_at": "2026-09-05T23:36:11.672711+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2591,7 +2591,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830055+00:00",
+      "checked_at": "2026-09-05T23:36:11.672713+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2605,7 +2605,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830058+00:00",
+      "checked_at": "2026-09-05T23:36:11.672715+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2619,7 +2619,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830060+00:00",
+      "checked_at": "2026-09-05T23:36:11.672717+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2633,7 +2633,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830062+00:00",
+      "checked_at": "2026-09-05T23:36:11.672720+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2647,7 +2647,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830066+00:00",
+      "checked_at": "2026-09-05T23:36:11.672723+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2661,7 +2661,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830069+00:00",
+      "checked_at": "2026-09-05T23:36:11.672726+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2675,7 +2675,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830071+00:00",
+      "checked_at": "2026-09-05T23:36:11.672728+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2689,7 +2689,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830073+00:00",
+      "checked_at": "2026-09-05T23:36:11.672730+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2703,7 +2703,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830075+00:00",
+      "checked_at": "2026-09-05T23:36:11.672732+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2717,7 +2717,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830078+00:00",
+      "checked_at": "2026-09-05T23:36:11.672735+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2731,7 +2731,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830080+00:00",
+      "checked_at": "2026-09-05T23:36:11.672737+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     },
     {
@@ -2745,7 +2745,7 @@
       "verification_method": "assistant_research_manifest",
       "runtime_http_identity_check": "not_performed",
       "reason": "assistant_verified_source_of_truth",
-      "checked_at": "2026-09-05T23:35:58.830082+00:00",
+      "checked_at": "2026-09-05T23:36:11.672739+00:00",
       "manifest": "data/assistant_verified_home_additions.json"
     }
   ]
