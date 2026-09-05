@@ -1,0 +1,41 @@
+name: SEO Integrity
+
+on:
+  push:
+    branches: [TN01]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seo-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout TN01
+        uses: actions/checkout@v4
+        with:
+          ref: TN01
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate SEO pages
+        run: python bot/seo_generator_999.py
+
+      - name: Validate SEO architecture
+        run: python scripts/validate_seo_brand_pages.py
+
+      - name: Commit generated SEO output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add brand sitemap.xml sitemap-brands.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "No generated SEO changes to commit."
+          else
+            git commit -m "chore: refresh generated brand SEO pages"
+            git push origin TN01
+          fi
