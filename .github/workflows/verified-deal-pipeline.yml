@@ -7,6 +7,7 @@ on:
       - 'bot/**'
       - 'scripts/**'
       - 'data/assistant_verified_*.json'
+      - 'supabase/migrations/**'
       - '.github/workflows/verified-deal-pipeline.yml'
   workflow_dispatch:
 
@@ -49,19 +50,36 @@ jobs:
       - name: Verify every published offer destination
         run: python scripts/validate_offer_links.py
 
-      - name: Final 4-category / 120-source completion gate
+      - name: Sync canonical verified deals to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/sync_supabase.py
+
+      - name: Final four-category source and data contract gate
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('data/assistant_verified_source_selection.json')
-          d = json.loads(p.read_text(encoding='utf-8'))
+
           expected = ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
-          assert d.get('total') == 120
-          assert d.get('counts') == {c:30 for c in expected}, d.get('counts')
-          assert len(d.get('sources', [])) == 120
-          assert d.get('source_authority') == 'assistant_verified_manifests'
-          assert d.get('runtime_source_identity_recheck') is False
-          assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in d['sources'])
-          print('FINAL SOURCE COMPLETION GATE PASS: 4 categories x 30 = 120 assistant-verified sources')
+          selection = json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
+          news = json.loads(Path('data/news.json').read_text(encoding='utf-8'))
+
+          assert selection.get('total') == 120
+          assert selection.get('counts') == {c:30 for c in expected}, selection.get('counts')
+          assert len(selection.get('sources', [])) == 120
+          assert selection.get('source_authority') == 'assistant_verified_manifests'
+          assert selection.get('runtime_source_identity_recheck') is False
+          assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in selection['sources'])
+
+          assert isinstance(news, list)
+          assert all(x.get('category') in expected for x in news)
+          assert all(x.get('source_verification_status') == 'assistant_verified_first_party' for x in news)
+          assert all(x.get('official_source') is True for x in news)
+          assert all(x.get('final_purchase_url') for x in news)
+          assert all(x.get('promotion_url') == x.get('final_purchase_url') == x.get('url') for x in news)
+          assert all(x.get('purchase_url_verification_status') in {'live_verified','runtime_inaccessible'} for x in news)
+          print('FINAL CANONICAL CONTRACT PASS: assistant source authority -> four categories -> purchase destination -> Supabase sync')
+          print('PUBLISHED OFFERS:', len(news))
           PY
