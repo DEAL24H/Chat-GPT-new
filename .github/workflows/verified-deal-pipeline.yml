@@ -1,0 +1,65 @@
+name: DEAL24H Verified Deal Pipeline
+
+on:
+  push:
+    branches: [TN01]
+    paths:
+      - 'bot/**'
+      - 'scripts/**'
+      - 'data/assistant_verified_*.json'
+      - '.github/workflows/verified-deal-pipeline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deal24h-verified-pipeline-tn01
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout TN01
+        uses: actions/checkout@v4
+        with:
+          ref: TN01
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r bot/requirements.txt
+
+      - name: Syntax gate
+        run: python -m py_compile bot/*.py scripts/*.py
+
+      - name: Live verify 30 sources per category with rank-31+ fallback
+        run: python scripts/validate_assistant_source_gate.py
+
+      - name: Run deal collector only from the live-verified 120-source gate
+        run: python bot/assistant_verified_news_runner.py
+
+      - name: Resolve offer pages to same-merchant purchase destinations
+        run: python scripts/normalize_promotions_fast.py
+
+      - name: Verify every published offer destination
+        run: python scripts/validate_offer_links.py
+
+      - name: Final 4-category / 120-source completion gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/assistant_verified_source_selection.json')
+          d = json.loads(p.read_text(encoding='utf-8'))
+          expected = ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
+          assert d.get('total') == 120
+          assert d.get('counts') == {c:30 for c in expected}, d.get('counts')
+          assert len(d.get('sources', [])) == 120
+          assert all(x.get('verification_status') == 'live_verified_first_party' for x in d['sources'])
+          print('FINAL SOURCE COMPLETION GATE PASS: 4 categories x 30 = 120')
+          PY
