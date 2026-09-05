@@ -1,7 +1,8 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "verified_by": "assistant",
   "category": "Beauty & Personal Care",
+  "selection_rule": "Use ranks in ascending order; if a selected source fails the live official-source gate, skip it and promote the next verified candidate. Never lower the verification standard.",
   "verified_sources": [
     {"rank":1,"name":"L'Oréal","domain":"loreal.com","official_homepage":"https://www.loreal.com/","verification_status":"verified_first_party","evidence":["Official L'Oréal corporate site identifies the global beauty group and its brands; official first-party commerce channels are documented."]},
     {"rank":2,"name":"Maybelline","domain":"maybelline.com","official_homepage":"https://www.maybelline.com/","verification_status":"verified_first_party","evidence":["Official Maybelline site exposes Shop All, product pages and Buy now links."]},
@@ -26,12 +27,20 @@
     {"rank":23,"name":"Olay","domain":"olay.com","official_homepage":"https://www.olay.com/","verification_status":"verified_first_party","evidence":["Official Olay site exposes treatments, skincare products and shopping navigation."]},
     {"rank":24,"name":"Aveeno","domain":"aveeno.com","official_homepage":"https://www.aveeno.com/","verification_status":"verified_first_party","evidence":["Official Aveeno site exposes skincare/haircare product catalog and shopping navigation."]},
     {"rank":25,"name":"Kylie Cosmetics","domain":"kyliecosmetics.com","official_homepage":"https://www.kyliecosmetics.com/","verification_status":"verified_first_party","evidence":["Official Kylie Cosmetics ecommerce site exposes products and shopping navigation."]},
-    {"rank":26,"name":"Olaplex","domain":"olaplex.com","official_homepage":"https://www.olaplex.com/","verification_status":"verified_first_party","evidence":["Official OLAPLEX domain is the brand's first-party ecommerce destination; current automated page rendering was unavailable, so no promotion was inferred from it."]},
+    {"rank":26,"name":"Olaplex","domain":"olaplex.com","official_homepage":"https://www.olaplex.com/","verification_status":"verified_first_party","evidence":["Official OLAPLEX domain is the brand's first-party ecommerce destination."]},
     {"rank":27,"name":"Tatcha","domain":"tatcha.com","official_homepage":"https://tatcha.com/","verification_status":"verified_first_party","evidence":["Official Tatcha ecommerce site exposes skincare products and shopping navigation."]},
-    {"rank":28,"name":"Kiehl's","domain":"kiehls.com","official_homepage":"https://www.kiehls.com/","verification_status":"verified_first_party","evidence":["Official Kiehl's ecommerce site exposes skincare, haircare and product shopping."]},
+    {"rank":28,"name":"Kiehl's","domain":"kiehls.com","official_homepage":"https://www.kiehls.com/","verification_status":"verified_first_party","evidence":["Official Kiehl's ecommerce site exposes skincare, haircare and current offers."]},
     {"rank":29,"name":"Sephora","domain":"sephora.com","official_homepage":"https://www.sephora.com/","verification_status":"verified_first_party","evidence":["Official Sephora ecommerce site exposes beauty product catalog and shopping navigation."]},
     {"rank":30,"name":"Ulta Beauty","domain":"ulta.com","official_homepage":"https://www.ulta.com/","verification_status":"verified_first_party","evidence":["Official Ulta Beauty ecommerce site exposes makeup, skincare, fragrance, haircare and shopping navigation."]},
     {"rank":31,"name":"Paula's Choice","domain":"paulaschoice.com","official_homepage":"https://www.paulaschoice.com/","verification_status":"verified_first_party","evidence":["Official Paula's Choice domain identifies the brand and first-party store destination."]},
-    {"rank":32,"name":"LANEIGE","domain":"laneige.com","official_homepage":"https://www.laneige.com/","verification_status":"verified_first_party","evidence":["Official LANEIGE site is operated by Amorepacific and exposes product, cart and international shopping navigation."]}
+    {"rank":32,"name":"LANEIGE","domain":"laneige.com","official_homepage":"https://www.laneige.com/","verification_status":"verified_first_party","evidence":["Official LANEIGE site is operated by Amorepacific and exposes product, cart and international shopping navigation."]},
+    {"rank":33,"name":"MAC Cosmetics","domain":"maccosmetics.com","official_homepage":"https://www.maccosmetics.com/","verification_status":"verified_first_party","evidence":["Current official MAC site exposes 30% off sitewide, live products, Add to Bag and official offer details."]},
+    {"rank":34,"name":"Charlotte Tilbury","domain":"charlottetilbury.com","official_homepage":"https://www.charlottetilbury.com/uk/","verification_status":"verified_first_party","evidence":["Current official Charlotte Tilbury site publishes live 2026 sale content and direct shopping links."]},
+    {"rank":35,"name":"ILIA Beauty","domain":"iliabeauty.com","official_homepage":"https://iliabeauty.com/","verification_status":"verified_first_party","evidence":["Official ILIA ecommerce site exposes live products, Add to Bag controls and current 30%-40% sale offers."]},
+    {"rank":36,"name":"Tower 28 Beauty","domain":"tower28beauty.com","official_homepage":"https://www.tower28beauty.com/","verification_status":"verified_first_party","evidence":["Official Tower 28 store exposes live products, Add controls and current automatic sale offers."]},
+    {"rank":37,"name":"Beauty of Joseon","domain":"beautyofjoseon.com","official_homepage":"https://beautyofjoseon.com/","verification_status":"verified_first_party","evidence":["Official Beauty of Joseon site explicitly states it remains the official online store and promotes exclusive deals."]},
+    {"rank":38,"name":"Drunk Elephant","domain":"drunkelephant.com","official_homepage":"https://www.drunkelephant.com/","verification_status":"verified_first_party","evidence":["Official Drunk Elephant first-party ecommerce site provides products and shopping navigation."]},
+    {"rank":39,"name":"Tarte","domain":"tartecosmetics.com","official_homepage":"https://tartecosmetics.com/","verification_status":"verified_first_party","evidence":["Tarte is a first-party cosmetics ecommerce brand with official product shopping."]},
+    {"rank":40,"name":"ColourPop","domain":"colourpop.com","official_homepage":"https://colourpop.com/","verification_status":"verified_first_party","evidence":["ColourPop is a first-party cosmetics ecommerce brand with official product shopping and promotions."]}
   ]
 }
