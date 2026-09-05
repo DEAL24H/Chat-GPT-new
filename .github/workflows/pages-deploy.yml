@@ -11,10 +11,6 @@ on:
       - 'dashboard/**'
       - 'data/analytics.json'
       - 'CNAME'
-  workflow_run:
-    workflows: [Admin Control, Analytics Snapshot, Deal Bot, Six Category SEO Migration]
-    types: [completed]
-    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -24,13 +20,17 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Verify checked-out commit
+        run: |
+          echo "PUBLISH_COMMIT=$(git rev-parse HEAD)"
+          git status --short
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
