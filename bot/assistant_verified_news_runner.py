@@ -13,7 +13,9 @@ MANIFESTS = [
     ROOT / "data" / "assistant_verified_sources.json",
     ROOT / "data" / "assistant_verified_electronics_additions.json",
     ROOT / "data" / "assistant_verified_beauty_additions.json",
+    ROOT / "data" / "assistant_verified_home_additions.json",
 ]
+EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
 
 
 def load_verified():
@@ -36,6 +38,9 @@ def load_verified():
     for row in rows:
         if row.get("verification_status") != "verified_first_party":
             continue
+        category = str(row.get("category", "")).strip()
+        if category not in EXPECTED_CATEGORIES:
+            continue
         key = (str(row.get("name", "")).strip().lower(), str(row.get("domain", "")).strip().lower())
         if not key[0] or not key[1] or key in seen:
             continue
@@ -44,11 +49,13 @@ def load_verified():
             "name": f"{row['name']} — Assistant Verified",
             "url": row["official_homepage"],
             "domain": row["domain"],
-            "category": str(row.get("category", "")).strip(),
+            "category": category,
             "merchant": row["name"],
         })
-    if not out:
-        raise SystemExit("ASSISTANT SOURCE GATE FAILED: no assistant-verified sources")
+
+    counts = {category: sum(1 for x in out if x["category"] == category) for category in EXPECTED_CATEGORIES}
+    if any(counts[c] < 30 for c in EXPECTED_CATEGORIES):
+        raise SystemExit(f"ASSISTANT SOURCE GATE FAILED: need 30 verified sources/category, got {counts}")
     return out
 
 
