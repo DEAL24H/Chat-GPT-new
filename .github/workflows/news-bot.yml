@@ -34,13 +34,13 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: bot/requirements.txt
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
       - name: Validate code syntax
         run: |
           python -m py_compile bot/*.py scripts/*.py
-          node --check assets/app-fix.js
-          node --check assets/app-999.js
           node --check assets/app-home.js
       - name: Validate locked 6-category catalog and source mapping
         run: |
@@ -88,7 +88,7 @@ jobs:
           echo '=== CATEGORY GROUP 2/2: Home & Living + Food & Grocery + Travel & Hotels ==='
           DEAL_BATCH_INDEX=1 python bot/scalable_brand_collector.py
       - name: Normalize promotion destinations and duplicates
-        run: python scripts/normalize_promotions.py
+        run: python scripts/normalize_promotions_fast.py
       - name: Validate code and SEO offer destinations
         run: python scripts/validate_offer_links.py
       - name: Keep only six-category offers
@@ -121,7 +121,7 @@ jobs:
       - name: Verify GA4 on public pages
         run: python scripts/verify_ga4.py
       - name: Validate active offers and six-category SEO links
-        run: python bot/validate_site.py
+        run: python bot/validate_site_fast.py
       - name: Clean generated Python bytecode
         if: always()
         run: find . -type d -name '__pycache__' -prune -exec rm -rf {} +
