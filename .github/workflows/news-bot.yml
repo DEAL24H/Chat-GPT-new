@@ -103,7 +103,7 @@ jobs:
           counts={}
           for slug in expected:
               meta=manifest['shards'][slug]
-              path=root/meta['path'].replace('shards/','shards/')
+              path=root/meta['path']
               rows=json.loads(path.read_text(encoding='utf-8'))
               assert isinstance(rows,list), f'{slug}: shard is not a list'
               assert len(rows)==meta['count'], f'{slug}: manifest={meta["count"]}, file={len(rows)}'
@@ -114,11 +114,31 @@ jobs:
           assert search.get('count') == sum(counts.values()), f'search count mismatch: {search.get("count")} vs {sum(counts.values())}'
           print('GENERATED DATA AUDIT PASS:', counts, 'total=', sum(counts.values()))
           PY
-      - name: Sync canonical deals to Supabase (optional)
+      - name: Create canonical data version
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          root=Path('data')
+          files=[root/'news.json', root/'data-manifest.json', root/'search-index.json']+sorted((root/'shards').glob('*.json'))
+          h=hashlib.sha256()
+          for p in files:
+              h.update(str(p.relative_to(root)).encode())
+              h.update(p.read_bytes())
+          version=h.hexdigest()
+          payload={'schema':1,'generated_at':datetime.now(timezone.utc).isoformat(),'version':version,'files':[str(p.relative_to(root)) for p in files]}
+          (root/'data-version.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('CANONICAL DATA VERSION:', version)
+          PY
+      - name: Sync canonical deals to Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python scripts/sync_supabase.py
+        run: |
+          test -n "$SUPABASE_URL" || { echo 'SUPABASE_URL is required'; exit 1; }
+          test -n "$SUPABASE_SERVICE_ROLE_KEY" || { echo 'SUPABASE_SERVICE_ROLE_KEY is required'; exit 1; }
+          python scripts/sync_supabase.py
       - name: Generate SEO pages for six priority categories
         run: |
           python bot/seo_generator_999.py
@@ -141,21 +161,54 @@ jobs:
         run: python scripts/verify_ga4.py
       - name: Validate active offers and six-category SEO links
         run: python bot/validate_site_fast.py
-      - name: Clean generated Python bytecode
-        if: always()
-        run: find . -type d -name '__pycache__' -prune -exec rm -rf {} +
-      - name: Commit deal data and SEO pages
+      - name: Verify canonical files before publish
+        run: |
+          set -e
+          echo '=== WORKTREE STATUS ==='
+          git status --short
+          echo '=== GENERATED SHARDS ==='
+          wc -c data/shards/*.json
+          echo '=== TRACKED SHARDS ==='
+          git ls-files data/shards/
+          git add data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/ 2>/dev/null || true
+          echo '=== STAGED CHANGES ==='
+          git diff --cached --name-status
+          git diff --cached --stat
+          if git diff --quiet -- data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/; then
+            echo 'NO_GENERATED_CHANGE_DETECTED'
+          else
+            if git diff --cached --quiet; then
+              echo 'FATAL: generated files differ from HEAD but nothing is staged.' >&2
+              exit 1
+            fi
+          fi
+      - name: Commit canonical data and SEO pages
         if: success()
         run: |
           git config user.name 'DEAL24H Bot'
           git config user.email 'actions@github.com'
-          git add data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-and-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/ 2>/dev/null || true
-          git diff --cached --quiet || git commit -m 'chore: refresh deals and SEO pages'
-          git push
+          if git diff --cached --quiet; then
+            echo 'Nothing new to commit; canonical data is already current.'
+          else
+            git commit -m 'chore: publish canonical deals and SEO data'
+            git push origin HEAD:main
+          fi
+      - name: Verify GitHub main contains the published commit
+        if: success()
+        run: |
+          set -e
+          git fetch origin main
+          LOCAL_SHA=$(git rev-parse HEAD)
+          REMOTE_SHA=$(git rev-parse origin/main)
+          echo "LOCAL_MAIN=$LOCAL_SHA"
+          echo "REMOTE_MAIN=$REMOTE_SHA"
+          test "$LOCAL_SHA" = "$REMOTE_SHA" || { echo 'FATAL: origin/main does not match published workspace'; exit 1; }
+          test -s data/data-version.json
+          echo 'GITHUB CANONICAL PUBLISH PASS'
       - name: Configure Pages
         if: success()
         uses: actions/configure-pages@v6
-      - name: Upload Pages artifact
+      - name: Upload Pages artifact from verified Git commit
         if: success()
         uses: actions/upload-pages-artifact@v4
         with:
