@@ -10,7 +10,8 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "news.json"
-HEADERS = {"User-Agent": "Deal24H/2.7 (+parallel offer-level purchase destination resolver)"}
+EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
+HEADERS = {"User-Agent": "Deal24H/2.8 (+DEAL24H official offer destination resolver)"}
 TIMEOUT = 12
 WORKERS = 16
 CODE_RE = re.compile(r"\b(?:code|promo code|coupon code|use code|enter (?:the )?(?:promo )?code)\s*[:\-]?\s*([A-Z0-9][A-Z0-9_-]{3,})\b", re.I)
@@ -103,7 +104,7 @@ def landing_from_source(item, code=""):
     if not source_url.startswith(("https://", "http://")):
         return ""
     try:
-        response = requests.get(source_url, headers=HEADERS, timeout=TIMEOUT)
+        response = requests.get(source_url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True)
         response.raise_for_status()
     except Exception:
         return ""
@@ -154,7 +155,7 @@ def quality(item):
     if is_purchase_url(item.get("final_purchase_url")): score += 50
     if same_official_domain(item.get("source_url"), item.get("final_purchase_url")): score += 30
     if item.get("official_source"): score += 10
-    if item.get("verified"): score += 5
+    if item.get("source_verification_status") == "assistant_verified_first_party": score += 20
     return score
 
 
@@ -168,6 +169,12 @@ def main():
     pending = {}
     for raw in data:
         item = dict(raw)
+        if str(item.get("category") or "").strip() not in EXPECTED_CATEGORIES:
+            dropped += 1
+            continue
+        if item.get("source_verification_status") != "assistant_verified_first_party":
+            dropped += 1
+            continue
         item.setdefault("source_url", item.get("source_url") or item.get("url") or item.get("promotion_url") or "")
         code = explicit_code(item)
         existing = str(item.get("final_purchase_url") or item.get("promotion_url") or item.get("url") or "").strip()
@@ -176,10 +183,14 @@ def main():
             item["final_purchase_url"] = item["promotion_url"] = item["url"] = existing
             item["code"] = code
             item["code_context"] = bool(code)
+            item["purchase_url_verification_status"] = None
+            item["purchase_url_verification_reason"] = "pending_runtime_offer_validation"
+            item["purchase_url_verified_at"] = None
             usable.append(item)
             continue
         key = (source, code, normalize(item.get("content")))
         pending.setdefault(key, item)
+
     resolved = {}
     if pending:
         with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -187,6 +198,7 @@ def main():
             for future in as_completed(futures):
                 key, destination = future.result()
                 resolved[key] = destination
+
     for key, item in pending.items():
         destination = resolved.get(key, "")
         source = str(item.get("source_url") or "").strip()
@@ -196,7 +208,11 @@ def main():
         item["final_purchase_url"] = item["promotion_url"] = item["url"] = destination
         item["code"] = explicit_code(item)
         item["code_context"] = bool(item["code"])
+        item["purchase_url_verification_status"] = None
+        item["purchase_url_verification_reason"] = "pending_runtime_offer_validation"
+        item["purchase_url_verified_at"] = None
         usable.append(item)
+
     deduped = []
     for item in sorted(usable, key=quality, reverse=True):
         duplicate = next((i for i, previous in enumerate(deduped) if program_match(item, previous)), None)
@@ -204,11 +220,13 @@ def main():
             deduped.append(item)
         elif quality(item) > quality(deduped[duplicate]):
             deduped[duplicate] = item
+
     for item in deduped:
         item["id"] = hashlib.sha256(json.dumps({"merchant": item.get("merchant"), "code": explicit_code(item), "content": item.get("content"), "final_purchase_url": item.get("final_purchase_url")}, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+
     deduped.sort(key=lambda x: str(x.get("last_checked") or x.get("detected_at") or ""), reverse=True)
-    OUT.write_text(json.dumps(deduped[:4000], ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"OFFER-LEVEL PURCHASE NORMALIZATION: before={len(data)}, after={len(deduped)}, dropped_invalid_or_unmatched={dropped}, parallel_workers={WORKERS}")
+    OUT.write_text(json.dumps(deduped[:4000], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"OFFER DESTINATION RESOLUTION: before={len(data)}, after={len(deduped)}, dropped_invalid_or_unmatched={dropped}, parallel_workers={WORKERS}")
 
 
 if __name__ == "__main__":
