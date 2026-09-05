@@ -9,10 +9,10 @@ on:
       - '.github/workflows/analytics.yml'
 permissions:
   id-token: write
-  contents: write
-  actions: write
+  contents: read
+  pages: write
 concurrency:
-  group: analytics-main
+  group: analytics-pages
   cancel-in-progress: true
 jobs:
   collect:
@@ -32,18 +32,16 @@ jobs:
       - name: Collect GA4 data
         env:
           GA4_PROPERTY_ID: '552658187'
-        run: |
-          python scripts/fetch_analytics.py
-      - name: Commit analytics snapshot
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/analytics.json
-          git diff --cached --quiet || git commit -m 'chore: update analytics snapshot'
-          git push
+        run: python scripts/fetch_analytics.py
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Upload Pages artifact with fresh analytics
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
       - name: Deploy Pages with fresh analytics
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run pages-deploy.yml --ref main
+        id: deployment
+        uses: actions/deploy-pages@v5
 
-# GA4 access is granted to the WIF service account; no JSON key is required.
+# Analytics is intentionally read-only with respect to GitHub main.
+# The production Deal Bot is the only workflow that publishes canonical data to main.
