@@ -7,6 +7,8 @@ on:
       - 'bot/**'
       - 'scripts/**'
       - 'data/assistant_verified_*.json'
+      - 'data/brand_catalog.json'
+      - 'data/international_brand_registry.json'
       - 'supabase/migrations/**'
       - '.github/workflows/verified-deal-pipeline.yml'
   workflow_dispatch:
@@ -71,6 +73,8 @@ jobs:
           assert len(selection.get('sources', [])) == 120
           assert selection.get('source_authority') == 'assistant_verified_manifests'
           assert selection.get('runtime_source_identity_recheck') is False
+          assert selection.get('unique_merchants_per_category') is True
+          assert len({(x.get('category'), str(x.get('merchant')).casefold()) for x in selection['sources']}) == 120
           assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in selection['sources'])
 
           assert isinstance(news, list)
