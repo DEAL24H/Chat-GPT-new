@@ -1,6 +1,6 @@
-"""Synchronize Supabase as a mirror of the canonical data/news.json.
+"""Synchronize Supabase as a mirror of canonical data/news.json.
 
-The browser data and Supabase must be derived from the same canonical dataset.
+The browser data and Supabase are derived from the same canonical dataset.
 The public browser never receives the service-role key.
 """
 import json
@@ -12,7 +12,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
-URL = os.getenv("SUPABASE_URL", "").rstrip("/")
+
+
+def normalize_base_url(value: str) -> str:
+    """Accept either a Supabase project URL or a URL already ending in /rest/v1."""
+    raw = str(value or "").strip().rstrip("/")
+    if not raw:
+        return ""
+    for suffix in ("/rest/v1", "/rest/v1/"):
+        if raw.lower().endswith(suffix.rstrip("/")):
+            raw = raw[: -len(suffix.rstrip("/"))].rstrip("/")
+            break
+    parsed = urllib.parse.urlparse(raw)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise RuntimeError("SUPABASE_URL must be a valid project URL")
+    return raw
+
+
+URL = normalize_base_url(os.getenv("SUPABASE_URL", ""))
 KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 
 CATEGORY_TABLES = {
@@ -63,12 +80,21 @@ headers = {
 }
 
 
-def request(method, table, body=None, query=""):
+def request(method, table, body=None, query="", prefer=None):
     endpoint = f"{URL}/rest/v1/{table}{query}"
     payload = None if body is None else json.dumps(body, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(endpoint, data=payload, method=method, headers=headers)
-    with urllib.request.urlopen(req, timeout=60) as response:
-        return response.status
+    req_headers = dict(headers)
+    if prefer:
+        req_headers["Prefer"] = prefer
+    req = urllib.request.Request(endpoint, data=payload, method=method, headers=req_headers)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as response:
+            return response.status, response.headers, response.read()
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", errors="replace")[:1000]
+        raise RuntimeError(f"Supabase {method} {endpoint} failed: HTTP {exc.code}: {detail}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"Supabase {method} {endpoint} failed: {exc.reason}") from exc
 
 
 def sync_table(table, table_rows):
@@ -77,11 +103,25 @@ def sync_table(table, table_rows):
     if table_rows:
         request("POST", table, table_rows)
     if ids:
-        # Remove records that no longer exist in canonical news.json.
         encoded = ",".join(urllib.parse.quote(i, safe="") for i in ids)
         request("DELETE", table, query=f"?id=not.in.({encoded})")
     else:
         request("DELETE", table, query="?id=not.is.null")
+
+
+def verify_table(table, expected_count):
+    _, response_headers, _ = request(
+        "GET",
+        table,
+        query="?select=id&limit=1",
+        prefer="count=exact",
+    )
+    content_range = response_headers.get("Content-Range", "")
+    if "/" not in content_range:
+        raise RuntimeError(f"Supabase {table}: missing Content-Range verification header")
+    actual = int(content_range.rsplit("/", 1)[1])
+    if actual != expected_count:
+        raise RuntimeError(f"Supabase {table}: expected {expected_count} rows, found {actual}")
 
 
 by_category = {category: [] for category in CATEGORY_TABLES}
@@ -90,13 +130,16 @@ for row in rows:
 
 # Canonical all-deals mirror.
 sync_table("deals", rows)
+verify_table("deals", len(rows))
 
 # Category tables are strict mirrors of the same canonical rows.
 for category, table in CATEGORY_TABLES.items():
+    expected = len(by_category.get(category, []))
     sync_table(table, by_category.get(category, []))
+    verify_table(table, expected)
 
 print(
-    "Supabase canonical sync OK:",
+    "Supabase canonical sync + verification OK:",
     f"deals={len(rows)}",
     ", ".join(f"{category}={len(by_category.get(category, []))}" for category in CATEGORY_TABLES),
 )
