@@ -1,16 +1,10 @@
 """Gate for the assistant-verified first-party merchant source allowlist.
 
-The assistant is the authority for SOURCE verification.  This gate deliberately does
-not re-crawl merchant homepages: HTTP 403/429, Cloudflare/WAF, regional redirects,
-timeouts, or GitHub-runner network policy are crawler-access issues, not evidence that
-an already assistant-verified official merchant is unofficial.
-
-Runtime crawling remains appropriate for individual OFFER/PURCHASE URLs, where the
-pipeline must prove that a published offer actually lands on the advertised merchant
-product/deal destination.  That is a separate integrity layer.
+The assistant is the authority for SOURCE verification. This gate does not re-crawl
+merchant homepages. Runtime HTTP failures are crawler-access issues, not source identity
+failures. The gate enforces 30 UNIQUE merchants per canonical category.
 """
 import json
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,17 +34,24 @@ def load():
 
 
 def dedupe(rows):
-    """First occurrence wins; duplicate manifests must not alter rank or authority."""
-    seen = set()
+    """First occurrence wins; a merchant cannot occupy two slots because of regional domains."""
+    seen_merchants = set()
+    seen_domains = set()
     out = []
     for row in rows:
         category = str(row.get("category", "")).strip()
-        name = str(row.get("name", "")).strip().lower()
+        name = str(row.get("name", "")).strip()
+        merchant_key = (category, name.casefold())
         domain = str(row.get("domain", "")).strip().lower().removeprefix("www.")
-        key = (category, name, domain)
-        if category not in EXPECTED or not name or not domain or key in seen:
+        domain_key = (category, domain)
+        if category not in EXPECTED or not name or not domain:
             continue
-        seen.add(key)
+        if merchant_key in seen_merchants:
+            continue
+        if domain_key in seen_domains:
+            continue
+        seen_merchants.add(merchant_key)
+        seen_domains.add(domain_key)
         out.append(row)
     return out
 
@@ -63,7 +64,6 @@ def main():
     for category in EXPECTED:
         candidates = [r for r in rows if str(r.get("category", "")).strip() == category]
         candidates.sort(key=lambda r: (int(r.get("rank", 999999)), str(r.get("name", "")).lower()))
-        # The manifest itself is the assistant-verified source of truth.
         verified = [r for r in candidates if r.get("verification_status") == "verified_first_party"]
         rejected = [r for r in candidates if r.get("verification_status") != "verified_first_party"]
         for row in rejected:
@@ -71,13 +71,10 @@ def main():
         chosen = verified[:30]
         selected[category] = chosen
         if len(chosen) < 30:
-            failures.append(f"{category}: only {len(chosen)}/30 assistant-verified sources")
+            failures.append(f"{category}: only {len(chosen)}/30 UNIQUE assistant-verified merchants")
 
         for row in chosen:
-            print(
-                f"PASS {category} rank={row.get('rank')} {row.get('name')} "
-                f"domain={row.get('domain')} source=assistant_verified_manifest"
-            )
+            print(f"PASS {category} rank={row.get('rank')} {row.get('name')} domain={row.get('domain')} source=assistant_verified_manifest")
         for row in verified[30:]:
             print(f"BACKUP {category} rank={row.get('rank')} {row.get('name')}")
 
@@ -105,18 +102,17 @@ def main():
                 "verification_method": "assistant_research_manifest",
             })
     output = {
-        "schema_version": 2,
+        "schema_version": 3,
         "total": 120,
         "counts": counts,
-        "selection_rule": "Original research rank order is preserved. Only sources absent from the assistant-verified allowlist or explicitly not verified may be replaced by the next assistant-verified rank.",
+        "unique_merchants_per_category": True,
+        "selection_rule": "Preserve original demand rank order. If an original candidate is not assistant-verified or duplicates an already selected merchant, take the next assistant-verified unique merchant rank.",
         "source_authority": "assistant_verified_manifests",
         "runtime_source_identity_recheck": False,
         "sources": out,
     }
-    (ROOT / "data" / "assistant_verified_source_selection.json").write_text(
-        json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    print("ASSISTANT SOURCE GATE PASS: 4 categories x 30 = 120 assistant-verified first-party sources")
+    (ROOT / "data" / "assistant_verified_source_selection.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("ASSISTANT SOURCE GATE PASS: 4 categories x 30 UNIQUE merchants = 120 assistant-verified first-party sources")
 
 
 if __name__ == "__main__":
