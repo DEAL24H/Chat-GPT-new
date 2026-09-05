@@ -171,7 +171,7 @@ jobs:
           echo '=== TRACKED SHARDS ==='
           git ls-files data/shards/
           echo '=== STAGE GENERATED OUTPUT ==='
-          git add -A -- data/ brand/ category/ fashion/ beauty/ consumer/ home-and-living/ food-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/
+          git add -A -- data/ brand/ fashion/ beauty/ consumer/ home-and-living/ food-grocery/ travel-and-hotels/ sitemap*.xml robots.txt go/
           echo '=== STAGED CHANGES ==='
           git diff --cached --name-status
           git diff --cached --stat
