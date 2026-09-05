@@ -37,10 +37,10 @@ jobs:
       - name: Syntax gate
         run: python -m py_compile bot/*.py scripts/*.py
 
-      - name: Live verify 30 sources per category with rank-31+ fallback
+      - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
 
-      - name: Run deal collector only from the live-verified 120-source gate
+      - name: Run deal collector only from assistant-verified 120-source allowlist
         run: python bot/assistant_verified_news_runner.py
 
       - name: Resolve offer pages to same-merchant purchase destinations
@@ -60,6 +60,8 @@ jobs:
           assert d.get('total') == 120
           assert d.get('counts') == {c:30 for c in expected}, d.get('counts')
           assert len(d.get('sources', [])) == 120
-          assert all(x.get('verification_status') == 'live_verified_first_party' for x in d['sources'])
-          print('FINAL SOURCE COMPLETION GATE PASS: 4 categories x 30 = 120')
+          assert d.get('source_authority') == 'assistant_verified_manifests'
+          assert d.get('runtime_source_identity_recheck') is False
+          assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in d['sources'])
+          print('FINAL SOURCE COMPLETION GATE PASS: 4 categories x 30 = 120 assistant-verified sources')
           PY
