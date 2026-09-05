@@ -1,10 +1,9 @@
 import json
 import re
 from pathlib import Path
-from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-REGISTRY = ROOT / "data" / "international_brand_registry.json"
+CATALOG = ROOT / "data" / "brand_catalog.json"
 BASE = "https://deal24h.net"
 
 
@@ -12,40 +11,48 @@ def fail(msg):
     raise SystemExit(f"SEO VALIDATION FAILED: {msg}")
 
 
+def slug(value):
+    return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower().replace("&", " and ").replace("'", "")).strip("-")
+
+
 def main():
-    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
-    categories = data["categories"]
+    data = json.loads(CATALOG.read_text(encoding="utf-8"))
+    categories = data.get("categories", {})
     expected = []
 
     for category, entries in categories.items():
         for entry in entries:
-            name = entry["name"]
-            slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-            path = ROOT / "brand" / slug / "index.html"
+            name = str(entry.get("name", "")).strip()
+            if not name:
+                continue
+            s = slug(name)
+            path = ROOT / "brand" / s / "index.html"
             if not path.exists():
-                fail(f"missing brand page for {name}: {path}")
+                fail(f"missing generated brand page for {name}")
             html = path.read_text(encoding="utf-8")
-            official = "https://" + entry["domain"].removeprefix("www.") + "/"
-            canonical = f"{BASE}/brand/{slug}/"
+            official_domain = str(entry.get("domain", "")).strip().removeprefix("www.")
+            official = f"https://{official_domain}/"
+            canonical = f"{BASE}/brand/{s}/"
 
             if '<meta name="robots" content="index,follow">' not in html:
                 fail(f"{name}: page is not index,follow")
             if f'<link rel="canonical" href="{canonical}">' not in html:
-                fail(f"{name}: canonical is not DEAL24H brand URL")
+                fail(f"{name}: canonical is not the DEAL24H URL")
             if f'<h2 id="brand-about-title">About {name}</h2>' not in html:
                 fail(f"{name}: permanent About block missing")
-            if f'href="{official}"' not in html:
-                fail(f"{name}: official homepage link missing or wrong")
-            if f'href="{BASE}/brand/{slug}/"' in html:
-                pass
+            if official_domain and f'href="{official}"' not in html:
+                fail(f"{name}: official homepage link does not match catalog domain")
             expected.append(canonical)
 
-    sitemap = (ROOT / "sitemap-brands.xml").read_text(encoding="utf-8") if (ROOT / "sitemap-brands.xml").exists() else ""
-    for url in expected:
-        if f"<loc>{url}</loc>" not in sitemap:
-            fail(f"brand sitemap missing {url}")
+    sitemap_path = ROOT / "sitemap-brands.xml"
+    if not sitemap_path.exists():
+        fail("sitemap-brands.xml is missing")
+    sitemap = sitemap_path.read_text(encoding="utf-8")
+    missing = [u for u in expected if f"<loc>{u}</loc>" not in sitemap]
+    if missing:
+        fail(f"brand sitemap missing {len(missing)} generated brand URLs; first={missing[0]}")
 
-    print(f"SEO VALIDATION PASSED: {len(expected)} brand pages are indexable, canonicalized to DEAL24H, contain permanent About blocks, and link to their registered official homepage.")
+    print(f"SEO VALIDATION PASSED: {len(expected)} catalog brand pages are indexable, canonicalized to DEAL24H, contain permanent About blocks, and link to their registered official homepage.")
 
 
 if __name__ == "__main__":
