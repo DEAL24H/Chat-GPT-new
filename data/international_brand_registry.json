@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "purpose": "International high-search brand and merchant sources for DEAL24H",
+  "selection_scope": "Global; Vietnam is not a ranking criterion",
+  "categories": {
+    "Fashion": [
+      {"name":"Nike","domain":"nike.com"},
+      {"name":"Adidas","domain":"adidas.com"},
+      {"name":"Zara","domain":"zara.com"},
+      {"name":"H&M","domain":"hm.com"},
+      {"name":"UNIQLO","domain":"uniqlo.com"},
+      {"name":"New Balance","domain":"newbalance.com"},
+      {"name":"PUMA","domain":"puma.com"},
+      {"name":"Levi's","domain":"levi.com"},
+      {"name":"ASOS","domain":"asos.com"},
+      {"name":"SHEIN","domain":"shein.com"}
+    ],
+    "Electronics": [
+      {"name":"Apple","domain":"apple.com"},
+      {"name":"Samsung","domain":"samsung.com"},
+      {"name":"Sony","domain":"sony.com"},
+      {"name":"Xiaomi","domain":"mi.com"},
+      {"name":"LG","domain":"lg.com"},
+      {"name":"Lenovo","domain":"lenovo.com"},
+      {"name":"HP","domain":"hp.com"},
+      {"name":"Dell","domain":"dell.com"},
+      {"name":"ASUS","domain":"asus.com"},
+      {"name":"Best Buy","domain":"bestbuy.com"}
+    ],
+    "Beauty & Personal Care": [
+      {"name":"L'Oréal","domain":"loreal.com"},
+      {"name":"Maybelline","domain":"maybelline.com"},
+      {"name":"Estée Lauder","domain":"esteelauder.com"},
+      {"name":"MAC Cosmetics","domain":"maccosmetics.com"},
+      {"name":"NYX Professional Makeup","domain":"nyxcosmetics.com"},
+      {"name":"e.l.f. Cosmetics","domain":"elfcosmetics.com"},
+      {"name":"CeraVe","domain":"cerave.com"},
+      {"name":"Rare Beauty","domain":"rarebeauty.com"},
+      {"name":"Charlotte Tilbury","domain":"charlottetilbury.com"},
+      {"name":"Sephora","domain":"sephora.com"}
+    ],
+    "Home & Living": [
+      {"name":"IKEA","domain":"ikea.com"},
+      {"name":"Home Depot","domain":"homedepot.com"},
+      {"name":"Lowe's","domain":"lowes.com"},
+      {"name":"Wayfair","domain":"wayfair.com"},
+      {"name":"Dyson","domain":"dyson.com"},
+      {"name":"Shark","domain":"sharkclean.com"},
+      {"name":"Bosch","domain":"bosch.com"},
+      {"name":"KitchenAid","domain":"kitchenaid.com"},
+      {"name":"Pottery Barn","domain":"potterybarn.com"},
+      {"name":"West Elm","domain":"westelm.com"}
+    ]
+  }
+}
