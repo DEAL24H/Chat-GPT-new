@@ -1,55 +1,20 @@
 {
-  "schema_version": 1,
-  "purpose": "International high-search brand and merchant sources for DEAL24H",
-  "selection_scope": "Global; Vietnam is not a ranking criterion",
+  "schema_version": 2,
+  "purpose": "International high-search brand and merchant source registry for DEAL24H",
+  "selection_scope": "Global search demand; Vietnam is not a ranking criterion",
+  "selection_rule": "Target 30 eligible sources per category. Candidates are ordered by researched international search-demand signals; if a candidate fails official-identity/source validation, the next candidate is promoted until 30 eligible sources are reached.",
   "categories": {
     "Fashion": [
-      {"name":"Nike","domain":"nike.com"},
-      {"name":"Adidas","domain":"adidas.com"},
-      {"name":"Zara","domain":"zara.com"},
-      {"name":"H&M","domain":"hm.com"},
-      {"name":"UNIQLO","domain":"uniqlo.com"},
-      {"name":"New Balance","domain":"newbalance.com"},
-      {"name":"PUMA","domain":"puma.com"},
-      {"name":"Levi's","domain":"levi.com"},
-      {"name":"ASOS","domain":"asos.com"},
-      {"name":"SHEIN","domain":"shein.com"}
+      {"rank":1,"name":"Zara","domain":"zara.com"},{"rank":2,"name":"Nike","domain":"nike.com"},{"rank":3,"name":"Adidas","domain":"adidas.com"},{"rank":4,"name":"Mango","domain":"mango.com"},{"rank":5,"name":"UNIQLO","domain":"uniqlo.com"},{"rank":6,"name":"H&M","domain":"hm.com"},{"rank":7,"name":"New Balance","domain":"newbalance.com"},{"rank":8,"name":"PUMA","domain":"puma.com"},{"rank":9,"name":"Louis Vuitton","domain":"louisvuitton.com"},{"rank":10,"name":"Coach","domain":"coach.com"},{"rank":11,"name":"ASOS","domain":"asos.com"},{"rank":12,"name":"UGG","domain":"ugg.com"},{"rank":13,"name":"Vans","domain":"vans.com"},{"rank":14,"name":"Hermès","domain":"hermes.com"},{"rank":15,"name":"Levi's","domain":"levi.com"},{"rank":16,"name":"Tommy Hilfiger","domain":"tommy.com"},{"rank":17,"name":"Ralph Lauren","domain":"ralphlauren.com"},{"rank":18,"name":"Converse","domain":"converse.com"},{"rank":19,"name":"Urban Outfitters","domain":"urbanoutfitters.com"},{"rank":20,"name":"Gap","domain":"gap.com"},{"rank":21,"name":"Dior","domain":"dior.com"},{"rank":22,"name":"Calvin Klein","domain":"calvinklein.com"},{"rank":23,"name":"Chanel","domain":"chanel.com"},{"rank":24,"name":"Gucci","domain":"gucci.com"},{"rank":25,"name":"Timberland","domain":"timberland.com"},{"rank":26,"name":"Michael Kors","domain":"michaelkors.com"},{"rank":27,"name":"Prada","domain":"prada.com"},{"rank":28,"name":"Valentino","domain":"valentino.com"},{"rank":29,"name":"Balenciaga","domain":"balenciaga.com"},{"rank":30,"name":"Steve Madden","domain":"stevemadden.com"}
     ],
     "Electronics": [
-      {"name":"Apple","domain":"apple.com"},
-      {"name":"Samsung","domain":"samsung.com"},
-      {"name":"Sony","domain":"sony.com"},
-      {"name":"Xiaomi","domain":"mi.com"},
-      {"name":"LG","domain":"lg.com"},
-      {"name":"Lenovo","domain":"lenovo.com"},
-      {"name":"HP","domain":"hp.com"},
-      {"name":"Dell","domain":"dell.com"},
-      {"name":"ASUS","domain":"asus.com"},
-      {"name":"Best Buy","domain":"bestbuy.com"}
+      {"rank":1,"name":"Apple","domain":"apple.com"},{"rank":2,"name":"Samsung","domain":"samsung.com"},{"rank":3,"name":"Sony","domain":"sony.com"},{"rank":4,"name":"Xiaomi","domain":"mi.com"},{"rank":5,"name":"LG","domain":"lg.com"},{"rank":6,"name":"Lenovo","domain":"lenovo.com"},{"rank":7,"name":"HP","domain":"hp.com"},{"rank":8,"name":"Dell","domain":"dell.com"},{"rank":9,"name":"ASUS","domain":"asus.com"},{"rank":10,"name":"Huawei","domain":"huawei.com"},{"rank":11,"name":"Microsoft","domain":"microsoft.com"},{"rank":12,"name":"Google","domain":"store.google.com"},{"rank":13,"name":"Panasonic","domain":"panasonic.com"},{"rank":14,"name":"Canon","domain":"canon.com"},{"rank":15,"name":"Nikon","domain":"nikon.com"},{"rank":16,"name":"Bose","domain":"bose.com"},{"rank":17,"name":"JBL","domain":"jbl.com"},{"rank":18,"name":"Philips","domain":"philips.com"},{"rank":19,"name":"Nintendo","domain":"nintendo.com"},{"rank":20,"name":"GoPro","domain":"gopro.com"},{"rank":21,"name":"OnePlus","domain":"oneplus.com"},{"rank":22,"name":"Acer","domain":"acer.com"},{"rank":23,"name":"MSI","domain":"msi.com"},{"rank":24,"name":"Razer","domain":"razer.com"},{"rank":25,"name":"Logitech","domain":"logitech.com"},{"rank":26,"name":"Garmin","domain":"garmin.com"},{"rank":27,"name":"Amazon Devices","domain":"amazon.com"},{"rank":28,"name":"Alienware","domain":"alienware.com"},{"rank":29,"name":"iRobot","domain":"irobot.com"},{"rank":30,"name":"Sonos","domain":"sonos.com"}
     ],
     "Beauty & Personal Care": [
-      {"name":"L'Oréal","domain":"loreal.com"},
-      {"name":"Maybelline","domain":"maybelline.com"},
-      {"name":"Estée Lauder","domain":"esteelauder.com"},
-      {"name":"MAC Cosmetics","domain":"maccosmetics.com"},
-      {"name":"NYX Professional Makeup","domain":"nyxcosmetics.com"},
-      {"name":"e.l.f. Cosmetics","domain":"elfcosmetics.com"},
-      {"name":"CeraVe","domain":"cerave.com"},
-      {"name":"Rare Beauty","domain":"rarebeauty.com"},
-      {"name":"Charlotte Tilbury","domain":"charlottetilbury.com"},
-      {"name":"Sephora","domain":"sephora.com"}
+      {"rank":1,"name":"L'Oréal","domain":"loreal.com"},{"rank":2,"name":"Maybelline","domain":"maybelline.com"},{"rank":3,"name":"e.l.f. Cosmetics","domain":"elfcosmetics.com"},{"rank":4,"name":"CeraVe","domain":"cerave.com"},{"rank":5,"name":"The Ordinary","domain":"theordinary.com"},{"rank":6,"name":"Fenty Beauty","domain":"fentybeauty.com"},{"rank":7,"name":"Charlotte Tilbury","domain":"charlottetilbury.com"},{"rank":8,"name":"NYX Professional Makeup","domain":"nyxcosmetics.com"},{"rank":9,"name":"MAC Cosmetics","domain":"maccosmetics.com"},{"rank":10,"name":"Glossier","domain":"glossier.com"},{"rank":11,"name":"Rare Beauty","domain":"rarebeauty.com"},{"rank":12,"name":"Estée Lauder","domain":"esteelauder.com"},{"rank":13,"name":"La Roche-Posay","domain":"laroche-posay.us"},{"rank":14,"name":"Dior Beauty","domain":"dior.com"},{"rank":15,"name":"COSRX","domain":"cosrx.com"},{"rank":16,"name":"Revlon","domain":"revlon.com"},{"rank":17,"name":"NARS","domain":"narscosmetics.com"},{"rank":18,"name":"Clinique","domain":"clinique.com"},{"rank":19,"name":"Lancôme","domain":"lancome-usa.com"},{"rank":20,"name":"Huda Beauty","domain":"hudabeauty.com"},{"rank":21,"name":"The Body Shop","domain":"thebodyshop.com"},{"rank":22,"name":"Neutrogena","domain":"neutrogena.com"},{"rank":23,"name":"Olay","domain":"olay.com"},{"rank":24,"name":"Aveeno","domain":"aveeno.com"},{"rank":25,"name":"CeraVe","domain":"cerave.com"},{"rank":26,"name":"Olaplex","domain":"olaplex.com"},{"rank":27,"name":"Tatcha","domain":"tatcha.com"},{"rank":28,"name":"Kiehl's","domain":"kiehls.com"},{"rank":29,"name":"Sephora","domain":"sephora.com"},{"rank":30,"name":"Ulta Beauty","domain":"ulta.com"}
     ],
     "Home & Living": [
-      {"name":"IKEA","domain":"ikea.com"},
-      {"name":"Home Depot","domain":"homedepot.com"},
-      {"name":"Lowe's","domain":"lowes.com"},
-      {"name":"Wayfair","domain":"wayfair.com"},
-      {"name":"Dyson","domain":"dyson.com"},
-      {"name":"Shark","domain":"sharkclean.com"},
-      {"name":"Bosch","domain":"bosch.com"},
-      {"name":"KitchenAid","domain":"kitchenaid.com"},
-      {"name":"Pottery Barn","domain":"potterybarn.com"},
-      {"name":"West Elm","domain":"westelm.com"}
+      {"rank":1,"name":"IKEA","domain":"ikea.com"},{"rank":2,"name":"Home Depot","domain":"homedepot.com"},{"rank":3,"name":"Lowe's","domain":"lowes.com"},{"rank":4,"name":"Wayfair","domain":"wayfair.com"},{"rank":5,"name":"Leroy Merlin","domain":"leroymerlin.fr"},{"rank":6,"name":"B&Q","domain":"diy.com"},{"rank":7,"name":"Walmart","domain":"walmart.com"},{"rank":8,"name":"Target","domain":"target.com"},{"rank":9,"name":"Ashley","domain":"ashleyfurniture.com"},{"rank":10,"name":"Temu","domain":"temu.com"},{"rank":11,"name":"Ace Hardware","domain":"acehardware.com"},{"rank":12,"name":"Costco","domain":"costco.com"},{"rank":13,"name":"Amazon Home","domain":"amazon.com"},{"rank":14,"name":"Dyson","domain":"dyson.com"},{"rank":15,"name":"Shark","domain":"sharkclean.com"},{"rank":16,"name":"Bosch","domain":"bosch.com"},{"rank":17,"name":"KitchenAid","domain":"kitchenaid.com"},{"rank":18,"name":"Whirlpool","domain":"whirlpool.com"},{"rank":19,"name":"GE Appliances","domain":"geappliances.com"},{"rank":20,"name":"Pottery Barn","domain":"potterybarn.com"},{"rank":21,"name":"West Elm","domain":"westelm.com"},{"rank":22,"name":"Crate & Barrel","domain":"crateandbarrel.com"},{"rank":23,"name":"La-Z-Boy","domain":"la-z-boy.com"},{"rank":24,"name":"CB2","domain":"cb2.com"},{"rank":25,"name":"Harbor Freight","domain":"harborfreight.com"},{"rank":26,"name":"Uline","domain":"uline.com"},{"rank":27,"name":"Mattress Firm","domain":"mattressfirm.com"},{"rank":28,"name":"Dunelm","domain":"dunelm.com"},{"rank":29,"name":"DFS","domain":"dfs.co.uk"},{"rank":30,"name":"Habitat","domain":"habitat.co.uk"}
     ]
   }
 }
