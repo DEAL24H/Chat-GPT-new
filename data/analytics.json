@@ -1,20 +1,20 @@
 {
   "configured": true,
-  "updated_at": "2026-09-05T01:23:00.925313+00:00",
+  "updated_at": "2026-09-05T02:24:33.929388+00:00",
   "period_days": 30,
   "totals": {
     "active_users": 14,
     "sessions": 34,
-    "pageviews": 142,
-    "engagement_rate": 14.7,
-    "new_users": 18
+    "pageviews": 145,
+    "engagement_rate": 61.8,
+    "new_users": 20
   },
   "daily": [
     {
       "date": "20260904",
       "active_users": 8,
       "sessions": 21,
-      "pageviews": 72
+      "pageviews": 75
     },
     {
       "date": "20260903",
@@ -27,7 +27,7 @@
     {
       "title": "DEAL 24H — International Coupons, Promo Codes & Deals",
       "path": "/",
-      "pageviews": 109,
+      "pageviews": 112,
       "active_users": 14
     },
     {
