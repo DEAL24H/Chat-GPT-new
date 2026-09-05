@@ -1,7 +1,9 @@
 """Run the deal collector only against assistant-verified first-party sources.
 
 The research catalog is not an execution allowlist. Only manifests in this
-assistant-verified gate are eligible for the bot.
+assistant-verified gate are eligible for the bot. Backup candidates beyond the
+30 selected sources per category are retained for replacement, but are not
+handed to the bot unless a selected source is later quarantined.
 """
 import json
 from pathlib import Path
@@ -15,7 +17,7 @@ MANIFESTS = [
     ROOT / "data" / "assistant_verified_beauty_additions.json",
     ROOT / "data" / "assistant_verified_home_additions.json",
 ]
-EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
+EXPECTED_CATEGORIES = ["Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"]
 
 
 def load_verified():
@@ -33,7 +35,7 @@ def load_verified():
                 row = {**row, "category": default_category}
             rows.append(row)
 
-    out = []
+    eligible = []
     seen = set()
     for row in rows:
         if row.get("verification_status") != "verified_first_party":
@@ -45,24 +47,36 @@ def load_verified():
         if not key[0] or not key[1] or key in seen:
             continue
         seen.add(key)
+        eligible.append(row)
+
+    selected = []
+    counts = {}
+    for category in EXPECTED_CATEGORIES:
+        candidates = [r for r in eligible if str(r.get("category", "")).strip() == category]
+        candidates.sort(key=lambda r: (int(r.get("rank", 9999)), str(r.get("name", "")).lower()))
+        if len(candidates) < 30:
+            counts[category] = len(candidates)
+            raise SystemExit(f"ASSISTANT SOURCE GATE FAILED: {category} has only {len(candidates)} verified sources")
+        chosen = candidates[:30]
+        counts[category] = len(chosen)
+        selected.extend(chosen)
+
+    out = []
+    for row in selected:
         out.append({
             "name": f"{row['name']} — Assistant Verified",
             "url": row["official_homepage"],
             "domain": row["domain"],
-            "category": category,
+            "category": str(row["category"]).strip(),
             "merchant": row["name"],
         })
-
-    counts = {category: sum(1 for x in out if x["category"] == category) for category in EXPECTED_CATEGORIES}
-    if any(counts[c] < 30 for c in EXPECTED_CATEGORIES):
-        raise SystemExit(f"ASSISTANT SOURCE GATE FAILED: need 30 verified sources/category, got {counts}")
-    return out
+    return out, counts
 
 
 def main():
-    sources = load_verified()
+    sources, counts = load_verified()
     news_bot.SOURCES = sources
-    print(f"ASSISTANT SOURCE GATE: {len(sources)} verified first-party sources handed to bot")
+    print(f"ASSISTANT SOURCE GATE: {len(sources)} verified first-party sources handed to bot; counts={counts}")
     for source in sources:
         print(f"  ALLOWED: {source['merchant']} -> {source['domain']}")
     news_bot.main()
