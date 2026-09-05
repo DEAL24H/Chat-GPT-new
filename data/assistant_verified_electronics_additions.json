@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "verified_by": "assistant",
+  "category": "Electronics",
+  "verified_sources": [
+    {"rank":7,"name":"HP","domain":"hp.com","official_homepage":"https://www.hp.com/us-en/shop/","verification_status":"verified_first_party","evidence":["Official HP Store exposes current Back to School/Weekly Deals, product pages and direct shopping."]},
+    {"rank":8,"name":"Dell","domain":"dell.com","official_homepage":"https://www.dell.com/en-us/shop/deals","verification_status":"verified_first_party","evidence":["Official Dell Top Deals page exposes live products, prices, discounts, special offers and Customize & Buy destinations."]},
+    {"rank":12,"name":"Google","domain":"store.google.com","official_homepage":"https://store.google.com/us/category/offers","verification_status":"verified_first_party","evidence":["Official Google Store offers page exposes live Pixel, Fitbit and Nest offers with direct shopping destinations."]},
+    {"rank":15,"name":"Nikon","domain":"nikonusa.com","official_homepage":"https://www.nikonusa.com/","verification_status":"verified_first_party","evidence":["Official Nikon USA store exposes current Trade Up savings, products and Shop Now purchase navigation."]},
+    {"rank":18,"name":"Philips","domain":"philips.com","official_homepage":"https://hk.shop.lighting.philips.com/en/pages/limited-time-offer","verification_status":"verified_first_party","evidence":["Official Philips Lighting online store exposes current limited-time offers, flash sales and Shop All product navigation."]},
+    {"rank":21,"name":"OnePlus","domain":"oneplus.com","official_homepage":"https://www.oneplus.com/us/","verification_status":"verified_first_party","evidence":["Official OnePlus US site exposes current devices, product pages and official offer information."]},
+    {"rank":25,"name":"Logitech","domain":"logitech.com","official_homepage":"https://www.logitech.com/en-us/shop/deals","verification_status":"verified_first_party","evidence":["Official Logitech Deals page exposes current multi-item discount promotion and direct shopping."]},
+    {"rank":27,"name":"Amazon Devices","domain":"amazon.com","official_homepage":"https://www.amazon.com/","verification_status":"verified_first_party","evidence":["Amazon is the official merchant and manufacturer source for Amazon Devices including Kindle, Fire TV and Echo; Amazon's own device documentation identifies these products."]},
+    {"rank":28,"name":"Alienware","domain":"alienware.com","official_homepage":"https://www.alienware.com/","verification_status":"verified_first_party","evidence":["Alienware is Dell's official gaming brand; current Dell official deal pages expose live Alienware products with discounts and direct purchase destinations."]}
+  ]
+}
