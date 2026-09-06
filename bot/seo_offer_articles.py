@@ -16,10 +16,29 @@ def clean(v): return re.sub(r'\s+', ' ', str(v or '')).strip()
 def load():
     data = json.loads(DATA.read_text(encoding='utf-8'))
     return data if isinstance(data, list) else data.get('items', [])
-def offer_title(item, merchant):
+
+def price_or_bare_value(text):
+    value = clean(text)
+    return bool(re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%\s*(?:off)?)?|(?:\d+(?:[.,]\d+)?\s*(?:%|off))', value, re.I))
+
+def meaningful_offer_title(item, merchant):
     title = clean(item.get('title'))
     title = re.sub(rf'^{re.escape(merchant)}\s*[—-]\s*', '', title, flags=re.I)
-    return title or clean(item.get('content'))[:120] or f'{merchant} official promotion'
+    if title and not price_or_bare_value(title) and len(title) >= 8:
+        return title
+    content = clean(item.get('content'))
+    if not content:
+        return ''
+    # Use text that was actually extracted from the merchant offer, never invent a name.
+    for part in re.split(r'(?<=[.!?])\s+|\n+', content):
+        part = clean(part).strip(' -:;')
+        if len(part) >= 12 and not price_or_bare_value(part):
+            return part[:120].rsplit(' ', 1)[0] if len(part) > 120 else part
+    return ''
+
+def offer_title(item, merchant):
+    return meaningful_offer_title(item, merchant)
+
 def offer_type(item): return 'code' if clean(item.get('code')) else 'direct'
 def page(title, description, canonical, body):
     copy_js = '''<script>document.querySelectorAll('.copy-code').forEach(function(b){b.addEventListener('click',function(){var c=b.dataset.code||'';var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy code'},1400)};if(navigator.clipboard){navigator.clipboard.writeText(c).then(done).catch(function(){fallback(c,done)})}else{fallback(c,done)}})});function fallback(c,done){var t=document.createElement('textarea');t.value=c;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();done()}</script>'''
@@ -30,6 +49,8 @@ def make_article(item):
     purchase = clean(item.get('final_purchase_url'))
     if not purchase: return None
     typ = offer_type(item); title = offer_title(item, merchant); discount = clean(item.get('discount'))
+    if not title:
+        return None
     content = clean(item.get('content')) or title
     if len(content) > 900: content = content[:897].rsplit(' ', 1)[0] + '...'
     digest = hashlib.sha1(f"{merchant}|{title}|{code}|{purchase}".encode()).hexdigest()[:10]
@@ -42,6 +63,7 @@ def make_article(item):
     source_link = f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ''
     body = f'''<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc(discount) + ' — ' if discount else ''}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2><p>{esc(content)}</p>{code_html}<p>{cta}</p>{source_html}{source_link}</article>'''
     return canonical, page(f'{merchant} — {title} | DEAL 24H', f'{merchant} {label.lower()}: {title}. Verified official merchant offer with the correct purchase destination.', canonical, body), typ
+
 def main():
     out = ROOT / 'seo'
     if out.exists(): shutil.rmtree(out)
