@@ -30,7 +30,7 @@ concurrency:
 
 jobs:
   verify-and-publish:
-    if: github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: publish verified DEAL24H data and SEO')
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: publish verified DEAL24H data and SEO') }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
