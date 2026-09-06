@@ -177,7 +177,16 @@ jobs:
       - name: Commit generated output
         if: github.ref == 'refs/heads/main'
         run: |
-          if git diff --cached --quiet; then
+          set -euo pipefail
+          git fetch origin main
+          remote_sha=$(git rev-parse origin/main)
+          local_sha=$(git rev-parse HEAD)
+          if [ "$remote_sha" != "$local_sha" ]; then
+            echo "Remote main advanced from $local_sha to $remote_sha while this run was executing."
+            echo 'Discarding this run’s stale generated workspace and deploying the current main safely.'
+            git reset --hard "$remote_sha"
+            git clean -fd
+          elif git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
             git config user.name 'deal24h-bot'
