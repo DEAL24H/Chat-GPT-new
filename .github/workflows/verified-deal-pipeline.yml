@@ -56,13 +56,13 @@ jobs:
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
 
-      - name: Discover offers across approved first-party merchant pages
-        run: python bot/assistant_verified_news_runner.py
+      - name: Discover real promotions with the canonical deal bot
+        run: python bot/deal_bot.py
 
-      - name: Resolve each offer to its same-merchant purchase destination
-        run: python scripts/normalize_promotions_fast.py
+      - name: Enforce promotion quality contract before link verification
+        run: python scripts/validate_deal_contract.py
 
-      - name: Verify purchase destinations live
+      - name: Verify purchase destinations live and exact
         run: python scripts/validate_offer_links.py
 
       - name: Build canonical browser data shards
@@ -138,6 +138,8 @@ jobs:
           assert all(x.get('category') in expected for x in news)
           assert all(x.get('source_verification_status') == 'assistant_verified_first_party' for x in news)
           assert all(x.get('official_source') is True for x in news)
+          assert all(x.get('offer_qualified') is True for x in news)
+          assert all(x.get('promotion_type') in {'coupon_code','direct_promotion'} for x in news)
           assert all(x.get('final_purchase_url') for x in news)
           assert all(x.get('promotion_url') == x.get('final_purchase_url') == x.get('url') for x in news)
           assert all(x.get('purchase_url_verification_status') == 'live_verified' for x in news)
