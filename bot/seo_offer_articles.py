@@ -26,27 +26,16 @@ BENEFIT_RE = re.compile(
     r"\bmember (?:price|savings|offer)\b|\bbundle\b)",
     re.I,
 )
-BAD_TEXT_RE = re.compile(
-    r"\b(?:your cart is empty|estimated total|current price|original price|"
-    r"add to wishlist|add to cart|checkout|cart|sign in|log in|login|create account|"
-    r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|"
-    r"shipping address|billing address|search results|compare products|recently viewed|"
-    r"recommended for you|sort by|filter by|size guide|store locator|customer service|help center|"
-    r"amazon devices small business deals)\b",
-    re.I,
-)
 
-# Scraped pages frequently contain navigation/product-card/UI fragments around
-# the real promotion. Remove those fragments before publishing SEO text rather
-# than rejecting an otherwise verified offer. Keep this list aligned with the
-# visible-text validator, including standalone "cart".
-NOISE_FRAGMENT_RE = re.compile(
+# One canonical visible-text noise contract. This is intentionally applied to
+# every scraped field that can appear as visible SEO copy, not only content.
+VISIBLE_NOISE_RE = re.compile(
     r"(?:your cart is empty|estimated total|current price|regular price|original price|"
     r"add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|"
-    r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|"
-    r"billing address|search results|compare products|recently viewed|recommended for you|"
-    r"sort by|filter by|size guide|store locator|customer service|help center|"
-    r"amazon devices small business deals)",
+    r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|"
+    r"shipping address|billing address|search results|compare products|recently viewed|"
+    r"recommended for you|sort by|filter by|size guide|store locator|customer service|"
+    r"help center|amazon devices small business deals)",
     re.I,
 )
 
@@ -63,16 +52,13 @@ def clean(value):
     return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
-def clean_content(value):
+def sanitize_visible(value):
+    """Remove UI/navigation fragments from any text that will be visible."""
     text = clean(value)
-    if not text:
-        return ""
-    # Remove repeated UI fragments, including phrases where the scraper has
-    # separated words such as "shopping cart".
     previous = None
     while text and text != previous:
         previous = text
-        text = NOISE_FRAGMENT_RE.sub(" ", text)
+        text = VISIBLE_NOISE_RE.sub(" ", text)
         text = re.sub(r"\s*[|•·]+\s*", " ", text)
         text = clean(text)
     return text
@@ -92,12 +78,11 @@ def valid_offer(item):
         return False
     if item.get("status") in {"expired", "inactive"}:
         return False
-    title = clean(item.get("title"))
-    content = clean_content(item.get("content"))
+
+    title = sanitize_visible(item.get("title"))
+    content = sanitize_visible(item.get("content"))
     purchase = clean(item.get("final_purchase_url"))
     if not title or not content or not purchase:
-        return False
-    if BAD_TEXT_RE.search(title):
         return False
     evidence = f"{title} {content}"
     if not PROMO_RE.search(evidence):
@@ -110,7 +95,7 @@ def valid_offer(item):
 
 
 def meaningful_title(item, merchant):
-    title = clean(item.get("title"))
+    title = sanitize_visible(item.get("title"))
     title = re.sub(rf"^{re.escape(merchant)}\s*[—:-]\s*", "", title, flags=re.I)
     if title and len(title) >= 8 and not re.fullmatch(r"(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?", title, re.I):
         return title[:140].rsplit(" ", 1)[0] if len(title) > 140 else title
@@ -123,23 +108,28 @@ def page(title, description, canonical, body):
 
 
 def make_article(item):
-    merchant = clean(item.get("merchant")) or "Merchant"
+    merchant = sanitize_visible(item.get("merchant")) or "Merchant"
     if not valid_offer(item):
         return None
     title = meaningful_title(item, merchant)
     if not title:
         return None
+
     code = clean(item.get("code"))
     purchase = clean(item.get("final_purchase_url"))
     promotion_url = clean(item.get("promotion_url"))
-    discount = clean(item.get("discount"))
-    content = clean_content(item.get("content"))
+    discount = sanitize_visible(item.get("discount"))
+    content = sanitize_visible(item.get("content"))
+    if not content:
+        return None
     if len(content) > 900:
         content = content[:897].rsplit(" ", 1)[0] + "..."
+
     identity = "|".join((merchant, title, code, purchase, promotion_url, discount, content))
     digest = hashlib.sha1(identity.encode()).hexdigest()[:10]
     canonical = f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"
     label = "Promo code" if code else "Direct deal"
+
     code_html = (
         f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span>'
         f'<button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>'
@@ -149,10 +139,12 @@ def make_article(item):
     source = clean(item.get("source_url"))
     source_html = f'<p class="source-note">Verified from the official {esc(merchant)} source.</p>'
     source_link = f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ""
+    lead_discount = f"{discount} — " if discount else ""
+
     body = (
         f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p>'
         f'<h1>{esc(merchant)} — {esc(title)}</h1>'
-        f'<p class="lead">{esc(discount) + " — " if discount else ""}{esc(label)} for {esc(merchant)}.</p>'
+        f'<p class="lead">{esc(lead_discount)}{esc(label)} for {esc(merchant)}.</p>'
         f'</section><article><h2>This {esc(label.lower())}</h2><p>{esc(content)}</p>'
         f'{code_html}<p>{cta}</p>{source_html}{source_link}</article>'
     )
@@ -189,6 +181,22 @@ def main():
     if len(urls) != len(set(urls)):
         raise SystemExit("SEO OFFER ARTICLES FAILED: duplicate canonical URLs for distinct verified offers")
 
+    # Self-check the exact visible text contract before handing output to the
+    # workflow validator. This makes the generator fail locally at the source
+    # instead of producing known-invalid HTML for a later pipeline step.
+    class VisibleText:
+        def __init__(self): self.parts = []
+        def feed(self, text): self.parts.append(re.sub(r"<[^>]+>", " ", text))
+        def text(self): return " ".join(self.parts)
+
+    bad_visible = []
+    for p in out.glob("*/index.html"):
+        parser = VisibleText(); parser.feed(p.read_text(encoding="utf-8"))
+        if VISIBLE_NOISE_RE.search(parser.text()):
+            bad_visible.append(str(p))
+    if bad_visible:
+        raise SystemExit("SEO OFFER ARTICLES FAILED: visible UI noise remained: " + ", ".join(bad_visible[:20]))
+
     today = datetime.now(timezone.utc).date().isoformat()
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -204,6 +212,7 @@ def main():
                 "counts": counts,
                 "urls": len(urls),
                 "rejected_non_qualified": rejected,
+                "visible_text_noise": 0,
             },
             ensure_ascii=False,
             indent=2,
@@ -211,7 +220,7 @@ def main():
         + "\n",
         encoding="utf-8",
     )
-    print(f"SEO OFFER ARTICLES: code={counts['code']} direct={counts['direct']} total={len(urls)} rejected={rejected}")
+    print(f"SEO OFFER ARTICLES: code={counts['code']} direct={counts['direct']} total={len(urls)} rejected={rejected} visible_text_noise=0")
 
 
 if __name__ == "__main__": main()
