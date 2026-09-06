@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-09-06T07:11:57.469884+00:00",
+  "generated_at": "2026-09-06T07:39:55.011744+00:00",
   "counts": {
-    "code": 13,
-    "direct": 440
+    "code": 7,
+    "direct": 10
   },
-  "urls": 453
+  "urls": 17,
+  "rejected_non_qualified": 0
 }
