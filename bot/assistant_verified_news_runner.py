@@ -1,8 +1,9 @@
 """Discover active offers from assistant-verified first-party merchant pages only.
 
 Purchase destinations are preserved from the previous canonical dataset when the
-same offer is rediscovered. The pipeline must never throw away a known purchase
-URL and then re-crawl discovery pages to guess another URL.
+same offer is rediscovered. When a newly discovered offer has no supplied URL,
+the runner extracts the shopping link attached to that same offer element/page;
+it does not re-crawl the discovery page in a separate resolver loop.
 """
 import hashlib
 import json
@@ -162,6 +163,38 @@ def previous_purchase_url(item, previous):
     return best if best_score >= (100 if code else 40) else ""
 
 
+def same_page_purchase_url(page_url, html, source_url, offer):
+    """Pick a shopping URL from the same fetched page, scored against this offer.
+
+    This is extraction from the already-fetched discovery response, not a second
+    crawl/resolver pass. A URL is accepted only on the approved merchant domain.
+    """
+    soup = BeautifulSoup(html or "", "html.parser")
+    offer_text = normalize(offer.get("content") or offer.get("title"))
+    offer_tokens = tokens(offer_text)
+    best = None
+    best_score = 0
+    for anchor in soup.find_all("a", href=True):
+        href = urljoin(page_url, str(anchor.get("href") or "").strip())
+        if not is_purchase_url(href) or not same_approved_domain(source_url, href):
+            continue
+        text = normalize(" ".join(anchor.stripped_strings))
+        parent = anchor.parent
+        parent_text = normalize(parent.get_text(" ", strip=True)) if parent else ""
+        combined_tokens = tokens(f"{text} {parent_text}")
+        overlap = len(offer_tokens & combined_tokens) / max(1, len(offer_tokens))
+        score = overlap * 70
+        if re.search(r"\b(?:shop|buy|view|see|claim|get|save)\b", text, re.I):
+            score += 15
+        if SHOP_PATH_RE.search(urlparse(href).path):
+            score += 15
+        if normalize(href) == normalize(offer.get("source_url")):
+            score -= 30
+        if score > best_score:
+            best_score, best = score, href
+    return best if best_score >= 15 else ""
+
+
 def collect_source(source, previous):
     source_url = source["official_homepage"]
     queue = candidate_urls(source_url)
@@ -190,21 +223,22 @@ def collect_source(source, previous):
             item = dict(raw)
             item.update({"merchant": source["merchant"], "category": source["category"], "country": "International", "official_source": True, "source_domain": source["domain"], "source_url": source_url, "official_homepage": source_url, "discovery_url": response.url, "source_verification_status": "assistant_verified_first_party", "source_verification_authority": "assistant", "source_verification_method": "assistant_research_manifest", "discovery_evidence": "official_first_party_page"})
             supplied = str(item.get("final_purchase_url") or item.get("purchase_url") or item.get("promotion_url") or "").strip()
-            if supplied and is_purchase_url(supplied) and same_approved_domain(source_url, supplied):
-                destination = supplied
-            else:
+            destination = supplied if supplied and is_purchase_url(supplied) and same_approved_domain(source_url, supplied) else ""
+            if not destination:
+                destination = same_page_purchase_url(response.url, response.text, source_url, item)
+            if not destination:
                 destination = previous_purchase_url(item, previous)
             if destination:
                 item["final_purchase_url"] = destination
                 item["promotion_url"] = destination
                 item["url"] = destination
                 item["purchase_url_verification_status"] = "live_verified" if any(str(x.get("final_purchase_url") or "") == destination and x.get("purchase_url_verification_status") == "live_verified" for x in previous) else None
-                item["purchase_url_verification_reason"] = "preserved_previous_verified_purchase_destination" if item["purchase_url_verification_status"] == "live_verified" else "pending_live_verification_of_supplied_purchase_destination"
+                item["purchase_url_verification_reason"] = "preserved_or_extracted_from_discovery_page" if item["purchase_url_verification_status"] == "live_verified" else "pending_live_verification_of_supplied_purchase_destination"
                 item["purchase_url_verified_at"] = next((x.get("purchase_url_verified_at") for x in previous if str(x.get("final_purchase_url") or "") == destination and x.get("purchase_url_verification_status") == "live_verified"), None)
             else:
                 item["final_purchase_url"] = item["promotion_url"] = item["url"] = ""
                 item["purchase_url_verification_status"] = None
-                item["purchase_url_verification_reason"] = "no_supplied_purchase_destination"
+                item["purchase_url_verification_reason"] = "no_purchase_link_attached_to_discovered_offer"
                 item["purchase_url_verified_at"] = None
             found.append(item)
         for link in linked_promo_urls(response.url, response.text, source_url):
