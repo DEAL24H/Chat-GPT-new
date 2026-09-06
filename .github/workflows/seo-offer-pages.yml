@@ -10,6 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: deal24h-main-publisher
+  cancel-in-progress: false
+
 jobs:
   publish:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
@@ -43,12 +47,27 @@ jobs:
           set -euo pipefail
           git config user.name 'DEAL24H Bot'
           git config user.email 'actions@github.com'
+          if git diff --cached --quiet; then
+            git add seo sitemap-seo.xml
+          fi
           git add seo sitemap-seo.xml
           if git diff --cached --quiet; then
             echo 'NO_OFFER_SEO_CHANGES'
           else
             git commit -m 'chore: publish explicit offer SEO pages'
-            git push origin HEAD:main
+            for attempt in 1 2 3; do
+              if git push origin HEAD:main; then
+                echo "OFFER_SEO_PUSH_PASS: attempt=$attempt"
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo 'OFFER_SEO_PUSH_FAILED_AFTER_RETRIES'
+                exit 1
+              fi
+              echo "OFFER_SEO_PUSH_RETRY: attempt=$attempt"
+              git fetch origin main
+              git rebase origin/main
+            done
           fi
 
       - name: Configure Pages
