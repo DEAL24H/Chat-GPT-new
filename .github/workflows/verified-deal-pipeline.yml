@@ -46,6 +46,8 @@ jobs:
         run: |
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-home.js
+      - name: Fast SEO generator preflight
+        run: python scripts/test_seo_offer_contract.py
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
       - name: Verify generated source selection contract
