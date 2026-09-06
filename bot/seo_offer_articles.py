@@ -105,11 +105,16 @@ def make_article(item):
         return None
     code = clean(item.get("code"))
     purchase = clean(item.get("final_purchase_url"))
+    promotion_url = clean(item.get("promotion_url"))
     discount = clean(item.get("discount"))
     content = clean(item.get("content"))
     if len(content) > 900:
         content = content[:897].rsplit(" ", 1)[0] + "..."
-    digest = hashlib.sha1(f"{merchant}|{title}|{code}|{purchase}".encode()).hexdigest()[:10]
+    # Keep every distinct verified offer on its own stable URL. The promotion
+    # source is part of the identity because multiple real programs can share
+    # a merchant, purchase destination, title, or even a coupon code.
+    identity = "|".join((merchant, title, code, purchase, promotion_url, discount, content))
+    digest = hashlib.sha1(identity.encode()).hexdigest()[:10]
     canonical = f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"
     label = "Promo code" if code else "Direct deal"
     code_html = (
@@ -158,11 +163,14 @@ def main():
         urls.append(canonical)
         counts[typ] += 1
 
+    if len(urls) != len(set(urls)):
+        raise SystemExit("SEO OFFER ARTICLES FAILED: duplicate canonical URLs for distinct verified offers")
+
     today = datetime.now(timezone.utc).date().isoformat()
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "".join(f"<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n" for u in sorted(set(urls)))
+        + "".join(f"<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n" for u in sorted(urls))
         + "</urlset>\n"
     )
     (ROOT / "sitemap-seo.xml").write_text(sitemap, encoding="utf-8")
@@ -183,5 +191,4 @@ def main():
     print(f"SEO OFFER ARTICLES: code={counts['code']} direct={counts['direct']} total={len(urls)} rejected={rejected}")
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
