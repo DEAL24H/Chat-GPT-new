@@ -48,11 +48,11 @@ def main():
   status,vr,final=live(item)
   if status!='live_verified':rejected.append((merchant,vr,final));continue
   item['purchase_url_verification_status']='live_verified';item['purchase_url_verification_reason']=vr;item['purchase_url_verified_at']=now;item['final_purchase_url']=final;item['url']=final
-  item['published_offer_authority']='assistant_verified_source_plus_live_exact_purchase_page';item['purchase_destination_kind']='brand_sales_or_product_page'
+  item['published_offer_authority']='assistant_verified_source_plus_live_brand_purchase_destination';item['purchase_destination_kind']='brand_sales_or_product_page'
   published.append(item)
  DATA.write_text(json.dumps(published,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print(f'OFFER LINK VALIDATION: discovered={len(data)} published={len(published)} rejected={len(rejected)}')
  for m,r,u in rejected[:100]:print(f'REJECT {m}: {r}: {u}')
  if not published:raise SystemExit('OFFER LINK VALIDATION FAILED: zero live brand sales destinations')
- print('OFFER LINK VALIDATION PASS: promotion source and purchase destination are independently preserved and verified')
+ print('OFFER LINK VALIDATION PASS: promotion source and purchase destination are independently preserved and verified; shared official sales destinations are allowed')
 if __name__=='__main__':main()
