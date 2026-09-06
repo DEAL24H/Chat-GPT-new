@@ -20,12 +20,11 @@ class VisibleText(HTMLParser):
         self.parts = []
         self.links = []
         self.canonical = ""
-        self.in_title = False
         self.skip_depth = 0
 
     def handle_starttag(self, tag, attrs):
-        attrs = dict(attrs)
         tag = tag.lower()
+        attrs = dict(attrs)
         if tag in {"script", "style", "template", "noscript"}:
             self.skip_depth += 1
             return
@@ -35,8 +34,6 @@ class VisibleText(HTMLParser):
             self.links.append(attrs["href"])
         if tag == "link" and "canonical" in attrs.get("rel", "").lower().split():
             self.canonical = attrs.get("href", "")
-        if tag == "title":
-            self.in_title = True
 
     def handle_endtag(self, tag):
         tag = tag.lower()
@@ -46,8 +43,6 @@ class VisibleText(HTMLParser):
             return
         if self.skip_depth:
             return
-        if tag == "title":
-            self.in_title = False
 
     def handle_data(self, data):
         if not self.skip_depth:
@@ -103,7 +98,7 @@ def main():
     if counts != expected_counts:
         errors.append(f"MODE_COUNTS_MISMATCH:expected={expected_counts}:actual={counts}")
 
-    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
+    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
     if sitemap_urls != seen:
         errors.append(f"SITEMAP_MISMATCH:missing={len(seen-sitemap_urls)}:extra={len(sitemap_urls-seen)}")
 
