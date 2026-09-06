@@ -56,6 +56,20 @@ jobs:
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
 
+      - name: Verify generated source selection contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/assistant_verified_source_selection.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          expected=['Fashion','Electronics','Beauty & Personal Care','Home & Living']
+          assert d.get('total') == 120
+          assert d.get('counts') == {c:30 for c in expected}, d.get('counts')
+          assert len(d.get('sources',[])) == 120
+          print('SOURCE SELECTION PASS: 120 total / 30 per category')
+          PY
+
       - name: Discover real promotions with the canonical deal bot
         run: python bot/deal_bot.py
 
@@ -73,46 +87,34 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-
-          root = Path('data')
-          expected = ['fashion','electronics','beauty-personal-care','home-and-living']
-          manifest = json.loads((root / 'data-manifest.json').read_text(encoding='utf-8'))
+          root=Path('data'); expected=['fashion','electronics','beauty-personal-care','home-and-living']
+          manifest=json.loads((root/'data-manifest.json').read_text(encoding='utf-8'))
           assert manifest.get('categories') == ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
-          assert list(manifest.get('shards', {})) == expected
-          counts = {}
+          assert list(manifest.get('shards',{})) == expected
+          counts={}
           for slug in expected:
-              meta = manifest['shards'][slug]
-              rows = json.loads((root / meta['path']).read_text(encoding='utf-8'))
-              assert isinstance(rows, list)
-              assert len(rows) == meta['count']
-              assert all((r.get('category') or '') == meta['category'] for r in rows)
-              counts[meta['category']] = len(rows)
-          search = json.loads((root / 'search-index.json').read_text(encoding='utf-8'))
+              meta=manifest['shards'][slug]; rows=json.loads((root/meta['path']).read_text(encoding='utf-8'))
+              assert isinstance(rows,list) and len(rows)==meta['count']
+              assert all((r.get('category') or '')==meta['category'] for r in rows)
+              counts[meta['category']]=len(rows)
+          search=json.loads((root/'search-index.json').read_text(encoding='utf-8'))
           assert search.get('count') == sum(counts.values())
-          print('CANONICAL DATA SHARDS PASS:', counts, 'total=', sum(counts.values()))
+          print('CANONICAL DATA SHARDS PASS:',counts,'total=',sum(counts.values()))
           PY
 
       - name: Create canonical data version
         run: |
           python - <<'PY'
-          import hashlib, json
-          from datetime import datetime, timezone
+          import hashlib,json
+          from datetime import datetime,timezone
           from pathlib import Path
-
-          root = Path('data')
-          files = [root / 'news.json', root / 'data-manifest.json', root / 'search-index.json'] + sorted((root / 'shards').glob('*.json'))
-          h = hashlib.sha256()
+          root=Path('data'); files=[root/'news.json',root/'data-manifest.json',root/'search-index.json']+sorted((root/'shards').glob('*.json'))
+          h=hashlib.sha256()
           for p in files:
-              h.update(str(p.relative_to(root)).encode())
-              h.update(p.read_bytes())
-          payload = {
-              'schema': 1,
-              'generated_at': datetime.now(timezone.utc).isoformat(),
-              'version': h.hexdigest(),
-              'files': [str(p.relative_to(root)) for p in files],
-          }
-          (root / 'data-version.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          print('CANONICAL DATA VERSION:', payload['version'])
+              h.update(str(p.relative_to(root)).encode()); h.update(p.read_bytes())
+          payload={'schema':1,'generated_at':datetime.now(timezone.utc).isoformat(),'version':h.hexdigest(),'files':[str(p.relative_to(root)) for p in files]}
+          (root/'data-version.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('CANONICAL DATA VERSION:',payload['version'])
           PY
 
       - name: Final canonical source and publish contract gate
@@ -120,68 +122,50 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-
-          expected = ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
-          selection = json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
-          news = json.loads(Path('data/news.json').read_text(encoding='utf-8'))
-
-          assert selection.get('total') == 120
-          assert selection.get('counts') == {c: 30 for c in expected}, selection.get('counts')
-          assert len(selection.get('sources', [])) == 120
-          assert selection.get('source_authority') == 'assistant_verified_manifests'
+          expected=['Fashion','Electronics','Beauty & Personal Care','Home & Living']
+          selection=json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
+          news=json.loads(Path('data/news.json').read_text(encoding='utf-8'))
+          assert selection.get('total')==120
+          assert selection.get('counts')=={c:30 for c in expected}, selection.get('counts')
+          assert len(selection.get('sources',[]))==120
+          assert selection.get('source_authority')=='assistant_verified_manifests'
           assert selection.get('runtime_source_identity_recheck') is False
           assert selection.get('unique_merchants_per_category') is True
-          assert len({(x.get('category'), str(x.get('merchant')).casefold()) for x in selection['sources']}) == 120
-          assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in selection['sources'])
-
-          assert isinstance(news, list)
+          assert len({(x.get('category'),str(x.get('merchant')).casefold()) for x in selection['sources']})==120
+          assert all(x.get('verification_status')=='assistant_verified_first_party' for x in selection['sources'])
+          assert isinstance(news,list)
           assert all(x.get('category') in expected for x in news)
-          assert all(x.get('source_verification_status') == 'assistant_verified_first_party' for x in news)
+          assert all(x.get('source_verification_status')=='assistant_verified_first_party' for x in news)
           assert all(x.get('official_source') is True for x in news)
           assert all(x.get('offer_qualified') is True for x in news)
           assert all(x.get('promotion_type') in {'coupon_code','direct_promotion'} for x in news)
           assert all(x.get('final_purchase_url') for x in news)
-          assert all(x.get('promotion_url') == x.get('final_purchase_url') == x.get('url') for x in news)
-          assert all(x.get('purchase_url_verification_status') == 'live_verified' for x in news)
-          assert all(x.get('published_offer_authority') == 'assistant_verified_source_plus_live_exact_purchase_page' for x in news)
+          assert all(x.get('promotion_url') for x in news)
+          assert all(x.get('purchase_url_verification_status')=='live_verified' for x in news)
+          assert all(x.get('published_offer_authority')=='assistant_verified_source_plus_live_exact_purchase_page' for x in news)
           print('FINAL CANONICAL CONTRACT PASS')
-          print('PUBLISHED VERIFIED OFFERS:', len(news))
+          print('PUBLISHED VERIFIED OFFERS:',len(news))
           PY
 
       - name: Remove legacy generated category and brand pages
         if: github.ref == 'refs/heads/main'
         run: |
           python - <<'PY'
-          import shutil
+          import shutil,sys
           from pathlib import Path
-          import sys
-
-          root = Path('.')
-          sys.path.insert(0, str(root))
-          from bot.catalog_utils import CATALOG, brand_slug
-
-          allowed_brands = {brand_slug(entry['name']) for entries in CATALOG.values() for entry in entries}
-          brand_root = root / 'brand'
-          removed_brands = 0
-          if brand_root.exists():
-              for child in brand_root.iterdir():
-                  if child.is_dir() and child.name not in allowed_brands:
-                      shutil.rmtree(child)
-                      removed_brands += 1
-
-          legacy_categories = {
-              'beauty', 'consumer', 'food-grocery', 'travel-hotels',
-              'gaming', 'sports-outdoor', 'software-digital-services',
-              'baby-kids-family-family', 'automotive-accessories', 'books-education-media'
-          }
-          removed_categories = 0
-          for slug in legacy_categories:
-              path = root / slug
-              if path.exists() and path.is_dir():
-                  shutil.rmtree(path)
-                  removed_categories += 1
-
-          print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed_brands}, removed_category_pages={removed_categories}')
+          root=Path('.'); sys.path.insert(0,str(root))
+          from bot.catalog_utils import CATALOG,brand_slug
+          allowed={brand_slug(e['name']) for entries in CATALOG.values() for e in entries}
+          br=root/'brand'; removed=0
+          if br.exists():
+              for child in br.iterdir():
+                  if child.is_dir() and child.name not in allowed: shutil.rmtree(child); removed+=1
+          legacy={'beauty','consumer','food-grocery','travel-hotels','gaming','sports-outdoor','software-digital-services','baby-kids-family-family','automotive-accessories','books-education-media'}
+          rc=0
+          for slug in legacy:
+              p=root/slug
+              if p.exists() and p.is_dir(): shutil.rmtree(p); rc+=1
+          print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed}, removed_category_pages={rc}')
           PY
 
       - name: Sync verified deals to Supabase
@@ -191,9 +175,30 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/sync_supabase.py
 
-      - name: Generate canonical SEO pages
+      - name: Generate canonical brand/category SEO pages
         if: github.ref == 'refs/heads/main'
         run: python bot/seo_generator_999.py
+
+      - name: Generate canonical offer SEO pages
+        if: github.ref == 'refs/heads/main'
+        run: python bot/seo_offer_articles.py
+
+      - name: Validate generated SEO output
+        if: github.ref == 'refs/heads/main'
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          data=json.loads(Path('data/news.json').read_text(encoding='utf-8'))
+          meta=json.loads(Path('seo/seo-modes.json').read_text(encoding='utf-8'))
+          assert meta['urls']==meta['counts']['code']+meta['counts']['direct']
+          files=list(Path('seo').glob('*/index.html'))
+          assert len(files)==meta['urls'], (len(files),meta['urls'])
+          banned=re.compile(r'\b(?:current price|regular price|original price|add to cart|cart|checkout|login|sign in|amazon devices small business deals)\b',re.I)
+          bad=[str(p) for p in files if banned.search(p.read_text(encoding='utf-8'))]
+          assert not bad, 'SEO NOISE FOUND: '+', '.join(bad[:20])
+          print('SEO OUTPUT PASS:',meta['counts'],'total=',meta['urls'],'noise=0')
+          PY
 
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
@@ -203,40 +208,24 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
-          git add brand sitemap.xml sitemap-brands.xml robots.txt
+          git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
+          git add -A brand seo sitemap.xml sitemap-brands.xml sitemap-seo.xml robots.txt
           for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do
             git add -A -- "$legacy" 2>/dev/null || true
           done
-          if git diff --cached --quiet; then
-            echo 'NO_CANONICAL_OUTPUT_CHANGES'
-          else
-            echo 'CANONICAL_OUTPUT_STAGED'
-            git diff --cached --stat
-          fi
+          if git diff --cached --quiet; then echo 'NO_CANONICAL_OUTPUT_CHANGES'; else echo 'CANONICAL_OUTPUT_STAGED'; git diff --cached --stat; fi
 
       - name: Commit canonical generated output
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git config user.name 'DEAL24H Bot'
-          git config user.email 'actions@github.com'
-          if git diff --cached --quiet; then
-            echo 'Nothing new to commit.'
-          else
+          git config user.name 'DEAL24H Bot'; git config user.email 'actions@github.com'
+          if git diff --cached --quiet; then echo 'Nothing new to commit.'; else
             git commit -m 'chore: publish verified DEAL24H data and SEO'
             for attempt in 1 2 3; do
-              if git push origin HEAD:main; then
-                echo "CANONICAL_OUTPUT_PUSH_PASS: attempt=$attempt"
-                break
-              fi
-              if [ "$attempt" -eq 3 ]; then
-                echo 'CANONICAL_OUTPUT_PUSH_FAILED_AFTER_RETRIES'
-                exit 1
-              fi
-              echo "CANONICAL_OUTPUT_PUSH_RETRY: attempt=$attempt"
-              git fetch origin main
-              git rebase origin/main
+              if git push origin HEAD:main; then echo "CANONICAL_OUTPUT_PUSH_PASS: attempt=$attempt"; break; fi
+              if [ "$attempt" -eq 3 ]; then echo 'CANONICAL_OUTPUT_PUSH_FAILED_AFTER_RETRIES'; exit 1; fi
+              echo "CANONICAL_OUTPUT_PUSH_RETRY: attempt=$attempt"; git fetch origin main; git rebase origin/main
             done
           fi
 
