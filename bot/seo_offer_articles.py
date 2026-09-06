@@ -28,10 +28,24 @@ BENEFIT_RE = re.compile(
 )
 BAD_TEXT_RE = re.compile(
     r"\b(?:your cart is empty|estimated total|current price|original price|"
-    r"add to wishlist|sign in|log in|create account|privacy policy|terms(?: and conditions)?|"
-    r"cookie(?:s| policy)?|product advice|shipping address|billing address|search results|"
-    r"compare products|recently viewed|recommended for you|sort by|filter by|size guide|"
-    r"store locator|customer service|help center)\b",
+    r"add to wishlist|add to cart|checkout|sign in|log in|login|create account|"
+    r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|"
+    r"shipping address|billing address|search results|compare products|recently viewed|"
+    r"recommended for you|sort by|filter by|size guide|store locator|customer service|help center|"
+    r"amazon devices small business deals)\b",
+    re.I,
+)
+
+# Scraped pages frequently contain navigation/product-card/UI fragments around
+# the real promotion. Remove those fragments before publishing SEO text rather
+# than rejecting an otherwise verified offer.
+NOISE_FRAGMENT_RE = re.compile(
+    r"(?:your cart is empty|estimated total|current price|original price|add to wishlist|"
+    r"add to cart|checkout|sign in|log in|login|create account|privacy policy|"
+    r"terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|"
+    r"billing address|search results|compare products|recently viewed|recommended for you|"
+    r"sort by|filter by|size guide|store locator|customer service|help center|"
+    r"amazon devices small business deals)",
     re.I,
 )
 
@@ -46,6 +60,16 @@ def slug(value):
 
 def clean(value):
     return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
+def clean_content(value):
+    text = clean(value)
+    if not text:
+        return ""
+    text = NOISE_FRAGMENT_RE.sub(" ", text)
+    # Remove common punctuation-only separators left after UI fragments.
+    text = re.sub(r"\s*[|•·]+\s*", " ", text)
+    return clean(text)
 
 
 def load():
@@ -63,11 +87,11 @@ def valid_offer(item):
     if item.get("status") in {"expired", "inactive"}:
         return False
     title = clean(item.get("title"))
-    content = clean(item.get("content"))
+    content = clean_content(item.get("content"))
     purchase = clean(item.get("final_purchase_url"))
     if not title or not content or not purchase:
         return False
-    if BAD_TEXT_RE.search(title) or BAD_TEXT_RE.search(content):
+    if BAD_TEXT_RE.search(title):
         return False
     evidence = f"{title} {content}"
     if not PROMO_RE.search(evidence):
@@ -87,10 +111,6 @@ def meaningful_title(item, merchant):
     return ""
 
 
-def offer_type(item):
-    return "code" if clean(item.get("code")) else "direct"
-
-
 def page(title, description, canonical, body):
     copy_js = """<script>document.querySelectorAll('.copy-code').forEach(function(b){b.addEventListener('click',function(){var c=b.dataset.code||'';var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy code'},1400)};if(navigator.clipboard){navigator.clipboard.writeText(c).then(done).catch(function(){fallback(c,done)})}else{fallback(c,done)}})});function fallback(c,done){var t=document.createElement('textarea');t.value=c;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();done()}</script>"""
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v=20260903d"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion.</div></footer>{copy_js}</body></html>'''
@@ -107,12 +127,9 @@ def make_article(item):
     purchase = clean(item.get("final_purchase_url"))
     promotion_url = clean(item.get("promotion_url"))
     discount = clean(item.get("discount"))
-    content = clean(item.get("content"))
+    content = clean_content(item.get("content"))
     if len(content) > 900:
         content = content[:897].rsplit(" ", 1)[0] + "..."
-    # Keep every distinct verified offer on its own stable URL. The promotion
-    # source is part of the identity because multiple real programs can share
-    # a merchant, purchase destination, title, or even a coupon code.
     identity = "|".join((merchant, title, code, purchase, promotion_url, discount, content))
     digest = hashlib.sha1(identity.encode()).hexdigest()[:10]
     canonical = f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"
