@@ -1,5 +1,7 @@
 """Build browser-friendly data shards and a compact global search index."""
-import hashlib, json, re
+import hashlib
+import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,11 +10,9 @@ SOURCE = DATA / "news.json"
 OUT = DATA / "shards"
 CATEGORY_SLUGS = {
     "Fashion": "fashion",
-    "Beauty": "beauty",
-    "Consumer": "consumer",
+    "Electronics": "electronics",
+    "Beauty & Personal Care": "beauty-personal-care",
     "Home & Living": "home-and-living",
-    "Food & Grocery": "food-and-grocery",
-    "Travel & Hotels": "travel-and-hotels",
 }
 
 
@@ -80,7 +80,7 @@ def main():
             "text": norm(" ".join([row["merchant"], row["title"], row["code"], row["content"]]))[:600],
         })
 
-    manifest = {"version": 2, "categories": list(CATEGORY_SLUGS), "shards": {}, "search": "search-index.json"}
+    manifest = {"version": 3, "categories": list(CATEGORY_SLUGS), "shards": {}, "search": "search-index.json"}
     for category, shard_slug in CATEGORY_SLUGS.items():
         rows = shards[shard_slug]
         rows.sort(key=lambda x: (norm(x.get("merchant")), x.get("id", "")))
