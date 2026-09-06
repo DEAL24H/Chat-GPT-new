@@ -1,0 +1,90 @@
+name: DEAL24H Verified Deal Pipeline
+
+on:
+  push:
+    branches: [TN01]
+    paths:
+      - 'bot/**'
+      - 'scripts/**'
+      - 'data/assistant_verified_*.json'
+      - 'data/brand_catalog.json'
+      - 'data/international_brand_registry.json'
+      - 'supabase/migrations/**'
+      - '.github/workflows/verified-deal-pipeline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deal24h-verified-pipeline-tn01
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout TN01
+        uses: actions/checkout@v4
+        with:
+          ref: TN01
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r bot/requirements.txt
+
+      - name: Syntax gate
+        run: python -m py_compile bot/*.py scripts/*.py
+
+      - name: Apply assistant-verified 30-per-category source allowlist
+        run: python scripts/validate_assistant_source_gate.py
+
+      - name: Discover offers across approved first-party merchant pages
+        run: python bot/assistant_verified_news_runner.py
+
+      - name: Resolve each offer to its exact same-merchant purchase destination
+        run: python scripts/normalize_promotions_fast.py
+
+      - name: Verify exact purchase destination live
+        run: python scripts/validate_offer_links.py
+
+      - name: Sync only publishable verified deals to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/sync_supabase.py
+
+      - name: Final canonical source and publish contract gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
+          selection = json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
+          news = json.loads(Path('data/news.json').read_text(encoding='utf-8'))
+
+          assert selection.get('total') == 120
+          assert selection.get('counts') == {c:30 for c in expected}, selection.get('counts')
+          assert len(selection.get('sources', [])) == 120
+          assert selection.get('source_authority') == 'assistant_verified_manifests'
+          assert selection.get('runtime_source_identity_recheck') is False
+          assert selection.get('unique_merchants_per_category') is True
+          assert len({(x.get('category'), str(x.get('merchant')).casefold()) for x in selection['sources']}) == 120
+          assert all(x.get('verification_status') == 'assistant_verified_first_party' for x in selection['sources'])
+
+          assert isinstance(news, list) and news
+          assert all(x.get('category') in expected for x in news)
+          assert all(x.get('source_verification_status') == 'assistant_verified_first_party' for x in news)
+          assert all(x.get('official_source') is True for x in news)
+          assert all(x.get('final_purchase_url') for x in news)
+          assert all(x.get('promotion_url') == x.get('final_purchase_url') == x.get('url') for x in news)
+          assert all(x.get('purchase_url_verification_status') == 'live_verified' for x in news)
+          assert all(x.get('published_offer_authority') == 'assistant_verified_source_plus_live_exact_purchase_page' for x in news)
+          print('FINAL CANONICAL CONTRACT PASS: assistant source -> official offer discovery -> exact purchase URL -> live verification -> Supabase')
+          print('PUBLISHED VERIFIED OFFERS:', len(news))
+          PY

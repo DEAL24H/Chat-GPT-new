@@ -5,7 +5,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "data" / "brand_catalog.json"
-CATEGORY_LABELS = {"Fashion": "Fashion", "Beauty": "Beauty", "Gaming": "Gaming", "Consumer": "Consumer"}
+EXPECTED_CATEGORIES = ("Fashion", "Electronics", "Beauty & Personal Care", "Home & Living")
+CATEGORY_LABELS = {c: c for c in EXPECTED_CATEGORIES}
 
 
 def normalize_brand(value):
@@ -15,9 +16,14 @@ def normalize_brand(value):
 def load_catalog():
     try:
         data = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
-        return data.get("categories", {}) if isinstance(data, dict) else {}
-    except Exception:
-        return {}
+        categories = data.get("categories", {}) if isinstance(data, dict) else {}
+        if set(categories) != set(EXPECTED_CATEGORIES):
+            raise ValueError(f"Canonical catalog categories mismatch: {sorted(categories)}")
+        if any(len(categories[c]) != 30 for c in EXPECTED_CATEGORIES):
+            raise ValueError("Canonical catalog must contain exactly 30 brands per category")
+        return categories
+    except Exception as exc:
+        raise RuntimeError(f"Cannot load canonical brand catalog: {exc}") from exc
 
 
 CATALOG = load_catalog()
