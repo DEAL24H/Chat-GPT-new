@@ -4,6 +4,7 @@ import json
 import re
 import shutil
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,8 +28,6 @@ BENEFIT_RE = re.compile(
     re.I,
 )
 
-# One canonical visible-text noise contract. This is intentionally applied to
-# every scraped field that can appear as visible SEO copy, not only content.
 VISIBLE_NOISE_RE = re.compile(
     r"(?:your cart is empty|estimated total|current price|regular price|original price|"
     r"add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|"
@@ -53,7 +52,6 @@ def clean(value):
 
 
 def sanitize_visible(value):
-    """Remove UI/navigation fragments from any text that will be visible."""
     text = clean(value)
     previous = None
     while text and text != previous:
@@ -181,17 +179,31 @@ def main():
     if len(urls) != len(set(urls)):
         raise SystemExit("SEO OFFER ARTICLES FAILED: duplicate canonical URLs for distinct verified offers")
 
-    # Self-check the exact visible text contract before handing output to the
-    # workflow validator. This makes the generator fail locally at the source
-    # instead of producing known-invalid HTML for a later pipeline step.
-    class VisibleText:
-        def __init__(self): self.parts = []
-        def feed(self, text): self.parts.append(re.sub(r"<[^>]+>", " ", text))
-        def text(self): return " ".join(self.parts)
+    class VisibleText(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.parts = []
+            self.skip_depth = 0
+
+        def handle_starttag(self, tag, attrs):
+            if tag.lower() in {"script", "style", "template", "noscript"}:
+                self.skip_depth += 1
+
+        def handle_endtag(self, tag):
+            if tag.lower() in {"script", "style", "template", "noscript"} and self.skip_depth:
+                self.skip_depth -= 1
+
+        def handle_data(self, data):
+            if not self.skip_depth:
+                self.parts.append(data)
+
+        def text(self):
+            return " ".join(self.parts)
 
     bad_visible = []
     for p in out.glob("*/index.html"):
-        parser = VisibleText(); parser.feed(p.read_text(encoding="utf-8"))
+        parser = VisibleText()
+        parser.feed(p.read_text(encoding="utf-8"))
         if VISIBLE_NOISE_RE.search(parser.text()):
             bad_visible.append(str(p))
     if bad_visible:
