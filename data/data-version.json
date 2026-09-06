@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-06T06:28:46.957081+00:00",
-  "version": "f8885f395fb1adeece261facb9785f06dfdc0ef41ebf3a2c967c6665838a9118",
+  "generated_at": "2026-09-06T07:11:30.086858+00:00",
+  "version": "95c2543876d0121bb65d6b33fbf21395b643a1ef974575f4c02d73f05df84084",
   "files": [
     "news.json",
     "data-manifest.json",
