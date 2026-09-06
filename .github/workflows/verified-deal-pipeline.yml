@@ -167,28 +167,7 @@ jobs:
         run: python bot/seo_offer_articles.py
       - name: Validate generated SEO output
         if: github.ref == 'refs/heads/main'
-        run: |
-          python - <<'PY'
-          import json,re
-          from pathlib import Path
-          from html.parser import HTMLParser
-          class VisibleText(HTMLParser):
-              def __init__(self): super().__init__(); self.parts=[]
-              def handle_data(self, data): self.parts.append(data)
-              def text(self): return ' '.join(self.parts)
-          meta=json.loads(Path('seo/seo-modes.json').read_text(encoding='utf-8'))
-          assert meta['urls']==meta['counts']['code']+meta['counts']['direct']
-          files=list(Path('seo').glob('*/index.html'))
-          assert len(files)==meta['urls'], (len(files),meta['urls'])
-          banned=re.compile(r'\b(?:current price|regular price|original price|add to cart|cart|checkout|login|sign in|amazon devices small business deals)\b',re.I)
-          bad=[]
-          for p in files:
-              parser=VisibleText(); parser.feed(p.read_text(encoding='utf-8'))
-              visible=parser.text()
-              if banned.search(visible): bad.append(str(p))
-          assert not bad, 'SEO NOISE FOUND IN VISIBLE TEXT: '+', '.join(bad[:20])
-          print('SEO OUTPUT PASS:',meta['counts'],'total=',meta['urls'],'visible_text_noise=0')
-          PY
+        run: python scripts/validate_generated_seo.py
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
         run: python bot/validate_site_fast.py
