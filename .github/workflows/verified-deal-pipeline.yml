@@ -63,6 +63,56 @@ jobs:
       - name: Verify purchase destinations live
         run: python scripts/validate_offer_links.py
 
+      - name: Build canonical browser data shards
+        run: python scripts/build_data_shards.py
+
+      - name: Verify canonical 4-category data shards
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('data')
+          expected = ['fashion','electronics','beauty-personal-care','home-and-living']
+          manifest = json.loads((root / 'data-manifest.json').read_text(encoding='utf-8'))
+          assert manifest.get('categories') == ['Fashion','Electronics','Beauty & Personal Care','Home & Living']
+          assert list(manifest.get('shards', {})) == expected
+          counts = {}
+          for slug in expected:
+              meta = manifest['shards'][slug]
+              rows = json.loads((root / meta['path']).read_text(encoding='utf-8'))
+              assert isinstance(rows, list)
+              assert len(rows) == meta['count']
+              assert all((r.get('category') or '') == meta['category'] for r in rows)
+              counts[meta['category']] = len(rows)
+          search = json.loads((root / 'search-index.json').read_text(encoding='utf-8'))
+          assert search.get('count') == sum(counts.values())
+          print('CANONICAL DATA SHARDS PASS:', counts, 'total=', sum(counts.values()))
+          PY
+
+      - name: Create canonical data version
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path('data')
+          files = [root / 'news.json', root / 'data-manifest.json', root / 'search-index.json'] + sorted((root / 'shards').glob('*.json'))
+          h = hashlib.sha256()
+          for p in files:
+              h.update(str(p.relative_to(root)).encode())
+              h.update(p.read_bytes())
+          payload = {
+              'schema': 1,
+              'generated_at': datetime.now(timezone.utc).isoformat(),
+              'version': h.hexdigest(),
+              'files': [str(p.relative_to(root)) for p in files],
+          }
+          (root / 'data-version.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('CANONICAL DATA VERSION:', payload['version'])
+          PY
+
       - name: Final canonical source and publish contract gate
         run: |
           python - <<'PY'
