@@ -2,7 +2,6 @@ import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse
 
 from bot.seo_offer_articles import VISIBLE_NOISE_RE
 
@@ -14,31 +13,45 @@ BASE = "https://deal24h.net"
 
 
 class VisibleText(HTMLParser):
+    """Collect actual rendered text while ignoring non-visible script/style blocks."""
+
     def __init__(self):
         super().__init__()
         self.parts = []
         self.links = []
         self.canonical = ""
-        self.title = ""
         self.in_title = False
+        self.skip_depth = 0
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        tag = tag.lower()
+        if tag in {"script", "style", "template", "noscript"}:
+            self.skip_depth += 1
+            return
+        if self.skip_depth:
+            return
         if tag == "a" and attrs.get("href"):
             self.links.append(attrs["href"])
-        if tag == "link" and attrs.get("rel", "").lower() == "canonical":
+        if tag == "link" and "canonical" in attrs.get("rel", "").lower().split():
             self.canonical = attrs.get("href", "")
         if tag == "title":
             self.in_title = True
 
     def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in {"script", "style", "template", "noscript"}:
+            if self.skip_depth:
+                self.skip_depth -= 1
+            return
+        if self.skip_depth:
+            return
         if tag == "title":
             self.in_title = False
 
     def handle_data(self, data):
-        self.parts.append(data)
-        if self.in_title:
-            self.title += data
+        if not self.skip_depth:
+            self.parts.append(data)
 
     def text(self):
         return " ".join(self.parts)
@@ -47,7 +60,7 @@ class VisibleText(HTMLParser):
 def main():
     meta = json.loads((SEO / "seo-modes.json").read_text(encoding="utf-8"))
     expected_total = int(meta["urls"])
-    expected_counts = meta["counts"]
+    expected_counts = {"code": int(meta["counts"]["code"]), "direct": int(meta["counts"]["direct"])}
     files = sorted(SEO.glob("*/index.html"))
     assert len(files) == expected_total, (len(files), expected_total)
 
@@ -66,7 +79,7 @@ def main():
         canonical = parser.canonical.strip()
         expected_canonical = f"{BASE}/{path.parent.relative_to(SEO).as_posix()}/"
 
-        if not canonical or canonical != expected_canonical:
+        if canonical != expected_canonical:
             errors.append(f"BAD_CANONICAL:{path}:{canonical}")
         if canonical in seen:
             errors.append(f"DUPLICATE_CANONICAL:{canonical}")
@@ -87,9 +100,10 @@ def main():
         if not any(u in purchase_urls for u in ctas):
             errors.append(f"CTA_NOT_VERIFIED_PURCHASE_URL:{path}")
 
-    assert counts == {"code": int(expected_counts["code"]), "direct": int(expected_counts["direct"])}, counts
+    if counts != expected_counts:
+        errors.append(f"MODE_COUNTS_MISMATCH:expected={expected_counts}:actual={counts}")
 
-    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
+    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
     if sitemap_urls != seen:
         errors.append(f"SITEMAP_MISMATCH:missing={len(seen-sitemap_urls)}:extra={len(sitemap_urls-seen)}")
 
