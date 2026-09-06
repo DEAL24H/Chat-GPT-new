@@ -84,7 +84,8 @@ def main():
         parser.feed(path.read_text(encoding="utf-8"))
         visible = re.sub(r"\s+", " ", parser.text()).strip()
         canonical = parser.canonical.strip()
-        expected_canonical = f"{BASE}/{path.parent.relative_to(SEO).as_posix()}/"
+        slug = path.parent.relative_to(SEO).as_posix()
+        expected_canonical = f"{BASE}/seo/{slug}/"
 
         if canonical != expected_canonical:
             errors.append(f"BAD_CANONICAL:{path}:{canonical}")
@@ -119,7 +120,7 @@ def main():
     if counts != expected_counts:
         errors.append(f"MODE_COUNTS_MISMATCH:expected={expected_counts}:actual={counts}")
 
-    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
+    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
     if sitemap_urls != seen:
         errors.append(f"SITEMAP_MISMATCH:missing={len(seen-sitemap_urls)}:extra={len(sitemap_urls-seen)}")
 
