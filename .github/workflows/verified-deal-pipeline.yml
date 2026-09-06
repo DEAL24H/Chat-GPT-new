@@ -25,7 +25,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: deal24h-verified-${{ github.ref }}
+  group: deal24h-main-publisher
   cancel-in-progress: false
 
 jobs:
