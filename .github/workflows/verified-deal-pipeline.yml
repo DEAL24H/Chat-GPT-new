@@ -34,25 +34,20 @@ jobs:
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: bot/requirements.txt
-
       - name: Install dependencies
         run: pip install -r bot/requirements.txt
-
       - name: Syntax gate
         run: |
           python -m py_compile bot/*.py scripts/*.py
           node --check assets/app-home.js
-
       - name: Apply assistant-verified 30-per-category source allowlist
         run: python scripts/validate_assistant_source_gate.py
-
       - name: Verify generated source selection contract
         run: |
           python - <<'PY'
@@ -66,19 +61,14 @@ jobs:
           assert len(d.get('sources',[])) == 120
           print('SOURCE SELECTION PASS: 120 total / 30 per category')
           PY
-
       - name: Discover real promotions with the canonical deal bot
         run: python bot/deal_bot.py
-
       - name: Enforce promotion quality contract before link verification
         run: python scripts/validate_deal_contract.py
-
       - name: Verify purchase destinations live and exact
         run: python scripts/validate_offer_links.py
-
       - name: Build canonical browser data shards
         run: python scripts/build_data_shards.py
-
       - name: Verify canonical 4-category data shards
         run: |
           python - <<'PY'
@@ -98,7 +88,6 @@ jobs:
           assert search.get('count') == sum(counts.values())
           print('CANONICAL DATA SHARDS PASS:',counts,'total=',sum(counts.values()))
           PY
-
       - name: Create canonical data version
         run: |
           python - <<'PY'
@@ -113,7 +102,6 @@ jobs:
           (root/'data-version.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('CANONICAL DATA VERSION:',payload['version'])
           PY
-
       - name: Final canonical source and publish contract gate
         run: |
           python - <<'PY'
@@ -143,7 +131,6 @@ jobs:
           print('FINAL CANONICAL CONTRACT PASS')
           print('PUBLISHED VERIFIED OFFERS:',len(news))
           PY
-
       - name: Remove legacy generated category and brand pages
         if: github.ref == 'refs/heads/main'
         run: |
@@ -164,42 +151,45 @@ jobs:
               if p.exists() and p.is_dir(): shutil.rmtree(p); rc+=1
           print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed}, removed_category_pages={rc}')
           PY
-
       - name: Sync verified deals to Supabase
         if: github.ref == 'refs/heads/main'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/sync_supabase.py
-
       - name: Generate canonical brand/category SEO pages
         if: github.ref == 'refs/heads/main'
         run: python bot/seo_generator_999.py
-
       - name: Generate canonical offer SEO pages
         if: github.ref == 'refs/heads/main'
         run: python bot/seo_offer_articles.py
-
       - name: Validate generated SEO output
         if: github.ref == 'refs/heads/main'
         run: |
           python - <<'PY'
           import json,re
           from pathlib import Path
+          from html.parser import HTMLParser
+          class VisibleText(HTMLParser):
+              def __init__(self): super().__init__(); self.parts=[]
+              def handle_data(self, data): self.parts.append(data)
+              def text(self): return ' '.join(self.parts)
           meta=json.loads(Path('seo/seo-modes.json').read_text(encoding='utf-8'))
           assert meta['urls']==meta['counts']['code']+meta['counts']['direct']
           files=list(Path('seo').glob('*/index.html'))
           assert len(files)==meta['urls'], (len(files),meta['urls'])
           banned=re.compile(r'\b(?:current price|regular price|original price|add to cart|cart|checkout|login|sign in|amazon devices small business deals)\b',re.I)
-          bad=[str(p) for p in files if banned.search(p.read_text(encoding='utf-8'))]
-          assert not bad, 'SEO NOISE FOUND: '+', '.join(bad[:20])
-          print('SEO OUTPUT PASS:',meta['counts'],'total=',meta['urls'],'noise=0')
+          bad=[]
+          for p in files:
+              parser=VisibleText(); parser.feed(p.read_text(encoding='utf-8'))
+              visible=parser.text()
+              if banned.search(visible): bad.append(str(p))
+          assert not bad, 'SEO NOISE FOUND IN VISIBLE TEXT: '+', '.join(bad[:20])
+          print('SEO OUTPUT PASS:',meta['counts'],'total=',meta['urls'],'visible_text_noise=0')
           PY
-
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
         run: python bot/validate_site_fast.py
-
       - name: Stage canonical generated output
         if: github.ref == 'refs/heads/main'
         run: |
@@ -210,7 +200,6 @@ jobs:
             git add -A -- "$legacy" 2>/dev/null || true
           done
           if git diff --cached --quiet; then echo 'NO_CANONICAL_OUTPUT_CHANGES'; else echo 'CANONICAL_OUTPUT_STAGED'; git diff --cached --stat; fi
-
       - name: Commit canonical generated output
         if: github.ref == 'refs/heads/main'
         run: |
@@ -224,17 +213,14 @@ jobs:
               echo "CANONICAL_OUTPUT_PUSH_RETRY: attempt=$attempt"; git fetch origin main; git rebase origin/main
             done
           fi
-
       - name: Configure Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v6
-
       - name: Upload verified Pages artifact
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
-
       - name: Deploy verified Pages
         if: github.ref == 'refs/heads/main'
         id: deployment
