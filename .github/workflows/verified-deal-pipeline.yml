@@ -180,6 +180,13 @@ jobs:
           print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed_brands}, removed_category_pages={removed_categories}')
           PY
 
+      - name: Sync verified deals to Supabase
+        if: github.ref == 'refs/heads/main'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/sync_supabase.py
+
       - name: Generate canonical SEO pages
         if: github.ref == 'refs/heads/main'
         run: python bot/seo_generator_999.py
