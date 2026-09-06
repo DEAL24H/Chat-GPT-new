@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; SOURCE=DATA/'news.json'; OUT=DATA/'shards'
-CATEGORY_SLUGS={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-and-personal-care','Home & Living':'home-and-living'}
+CATEGORY_SLUGS={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}
 def norm(value):return re.sub(r'[^a-z0-9]+',' ',str(value or '').lower()).strip()
 def stable_id(item):
  raw=str(item.get('id') or ''); return raw or hashlib.sha1(json.dumps(item,sort_keys=True).encode()).hexdigest()[:16]
