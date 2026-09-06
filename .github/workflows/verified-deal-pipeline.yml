@@ -10,6 +10,8 @@ on:
       - 'data/brand_catalog.json'
       - 'data/international_brand_registry.json'
       - 'supabase/migrations/**'
+      - 'assets/app-home.js'
+      - 'index.html'
       - '.github/workflows/verified-deal-pipeline.yml'
   schedule:
     - cron: '0 22 * * *'
