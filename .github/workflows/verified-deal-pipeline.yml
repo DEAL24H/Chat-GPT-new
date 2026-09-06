@@ -30,11 +30,7 @@ concurrency:
 
 jobs:
   verify-and-publish:
-    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: publish verified DEAL24H data and SEO') }}
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v4
@@ -190,7 +186,6 @@ jobs:
           python - <<'PY'
           import json,re
           from pathlib import Path
-          data=json.loads(Path('data/news.json').read_text(encoding='utf-8'))
           meta=json.loads(Path('seo/seo-modes.json').read_text(encoding='utf-8'))
           assert meta['urls']==meta['counts']['code']+meta['counts']['direct']
           files=list(Path('seo').glob('*/index.html'))
@@ -244,5 +239,3 @@ jobs:
         if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v5
-
-# Production audit trigger: rerun after full static contract review.
