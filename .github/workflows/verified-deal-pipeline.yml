@@ -144,6 +144,42 @@ jobs:
           print('PUBLISHED VERIFIED OFFERS:', len(news))
           PY
 
+      - name: Remove legacy generated category and brand pages
+        if: github.ref == 'refs/heads/main'
+        run: |
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          import sys
+
+          root = Path('.')
+          sys.path.insert(0, str(root))
+          from bot.catalog_utils import CATALOG, brand_slug
+
+          allowed_brands = {brand_slug(entry['name']) for entries in CATALOG.values() for entry in entries}
+          brand_root = root / 'brand'
+          removed_brands = 0
+          if brand_root.exists():
+              for child in brand_root.iterdir():
+                  if child.is_dir() and child.name not in allowed_brands:
+                      shutil.rmtree(child)
+                      removed_brands += 1
+
+          legacy_categories = {
+              'beauty', 'consumer', 'food-grocery', 'travel-hotels',
+              'gaming', 'sports-outdoor', 'software-digital-services',
+              'baby-kids-family-family', 'automotive-accessories', 'books-education-media'
+          }
+          removed_categories = 0
+          for slug in legacy_categories:
+              path = root / slug
+              if path.exists() and path.is_dir():
+                  shutil.rmtree(path)
+                  removed_categories += 1
+
+          print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed_brands}, removed_category_pages={removed_categories}')
+          PY
+
       - name: Sync verified deals to Supabase
         if: github.ref == 'refs/heads/main'
         env:
@@ -165,6 +201,9 @@ jobs:
           set -euo pipefail
           git add data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
           git add brand sitemap.xml sitemap-brands.xml robots.txt
+          for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do
+            git add -A -- "$legacy" 2>/dev/null || true
+          done
           if git diff --cached --quiet; then
             echo 'NO_CANONICAL_OUTPUT_CHANGES'
           else
