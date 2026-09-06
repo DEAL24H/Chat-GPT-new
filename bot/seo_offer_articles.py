@@ -28,7 +28,7 @@ BENEFIT_RE = re.compile(
 )
 BAD_TEXT_RE = re.compile(
     r"\b(?:your cart is empty|estimated total|current price|original price|"
-    r"add to wishlist|add to cart|checkout|sign in|log in|login|create account|"
+    r"add to wishlist|add to cart|checkout|cart|sign in|log in|login|create account|"
     r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|"
     r"shipping address|billing address|search results|compare products|recently viewed|"
     r"recommended for you|sort by|filter by|size guide|store locator|customer service|help center|"
@@ -38,11 +38,12 @@ BAD_TEXT_RE = re.compile(
 
 # Scraped pages frequently contain navigation/product-card/UI fragments around
 # the real promotion. Remove those fragments before publishing SEO text rather
-# than rejecting an otherwise verified offer.
+# than rejecting an otherwise verified offer. Keep this list aligned with the
+# visible-text validator, including standalone "cart".
 NOISE_FRAGMENT_RE = re.compile(
-    r"(?:your cart is empty|estimated total|current price|original price|add to wishlist|"
-    r"add to cart|checkout|sign in|log in|login|create account|privacy policy|"
-    r"terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|"
+    r"(?:your cart is empty|estimated total|current price|regular price|original price|"
+    r"add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|"
+    r"privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|"
     r"billing address|search results|compare products|recently viewed|recommended for you|"
     r"sort by|filter by|size guide|store locator|customer service|help center|"
     r"amazon devices small business deals)",
@@ -66,10 +67,15 @@ def clean_content(value):
     text = clean(value)
     if not text:
         return ""
-    text = NOISE_FRAGMENT_RE.sub(" ", text)
-    # Remove common punctuation-only separators left after UI fragments.
-    text = re.sub(r"\s*[|•·]+\s*", " ", text)
-    return clean(text)
+    # Remove repeated UI fragments, including phrases where the scraper has
+    # separated words such as "shopping cart".
+    previous = None
+    while text and text != previous:
+        previous = text
+        text = NOISE_FRAGMENT_RE.sub(" ", text)
+        text = re.sub(r"\s*[|•·]+\s*", " ", text)
+        text = clean(text)
+    return text
 
 
 def load():
