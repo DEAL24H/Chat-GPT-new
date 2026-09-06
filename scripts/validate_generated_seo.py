@@ -1,11 +1,15 @@
 import json
 import re
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from bot.seo_offer_articles import VISIBLE_NOISE_RE, make_article
 
-ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 SEO = ROOT / "seo"
 SITEMAP = ROOT / "sitemap-seo.xml"
@@ -115,7 +119,7 @@ def main():
     if counts != expected_counts:
         errors.append(f"MODE_COUNTS_MISMATCH:expected={expected_counts}:actual={counts}")
 
-    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
+    sitemap_urls = set(re.findall(r"<loc>(https://deal24h\\.net/seo/[^<]+/)</loc>", SITEMAP.read_text(encoding="utf-8"))) if SITEMAP.exists() else set()
     if sitemap_urls != seen:
         errors.append(f"SITEMAP_MISMATCH:missing={len(seen-sitemap_urls)}:extra={len(sitemap_urls-seen)}")
 
