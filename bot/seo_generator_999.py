@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
 BASE = "https://deal24h.net"
 GA4 = "G-R7E164DCZL"
-CATEGORY_SLUGS = {"Fashion": "fashion", "Electronics": "electronics", "Beauty & Personal Care": "beauty-personal-care", "Home & Living": "home-living"}
+CATEGORY_SLUGS = {"Fashion": "fashion", "Electronics": "electronics", "Beauty & Personal Care": "beauty-personal-care", "Home & Living": "home-and-living"}
 
 def esc(v): return html.escape(str(v or ""), quote=True)
 def load_items():
