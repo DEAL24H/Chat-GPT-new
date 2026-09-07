@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from bot.catalog_utils import brand_slug
+from bot.seo_market_scope import market_info
 
 DATA = ROOT / "data" / "news.json"
 BASE = "https://deal24h.net"
@@ -66,18 +67,20 @@ def make_article(item):
     if not title: return None
     code = clean(item.get("code")); purchase = clean(item.get("final_purchase_url")); promotion_url = clean(item.get("promotion_url")); discount = sanitize_visible(item.get("discount")); content = sanitize_visible(item.get("content"))
     if not content: return None
-    if len(content) > 900: content = content[:897].rsplit(" ", 1)[0] + "..."
-    identity = "|".join((merchant, title, code, purchase, promotion_url, discount, content)); digest = hashlib.sha1(identity.encode()).hexdigest()[:10]
+    market = market_info(item)
+    market_label = market["label"]
+    identity = "|".join((merchant, title, code, purchase, promotion_url, discount, content, market["scope"], ",".join(market["countries"]))); digest = hashlib.sha1(identity.encode()).hexdigest()[:10]
     canonical = f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"; label = "Promo code" if code else "Direct deal"
     code_html = f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span><button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>' if code else ""
     cta = f'<a class="cta" href="{esc(purchase)}" target="_blank" rel="noopener noreferrer sponsored">{"GET CODE" if code else "GET DEAL"} ↗</a>'
     source = clean(item.get("source_url")); source_html = f'<p class="source-note">Verified from the official {esc(merchant)} source.</p>'; source_link = f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ""
+    market_html = f'<div class="market-scope"><strong>Availability:</strong> {esc(market_label)}</div>'
     category = clean(item.get("category")); category_slug = {"Fashion":"fashion","Electronics":"electronics","Beauty & Personal Care":"beauty-personal-care","Home & Living":"home-and-living"}.get(category)
     brand_link = f'<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>'
     category_link = f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ""
     lead_discount = f"{discount} — " if discount else ""
-    body = f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc(lead_discount)}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2><p>{esc(content)}</p>{code_html}<p>{cta}</p>{source_html}{source_link}{brand_link}{category_link}</article>'
-    return canonical, page(f"{merchant} — {title} | DEAL 24H", f"{merchant} {label.lower()}: {title}. Verified official merchant promotion with the correct purchase destination.", canonical, body), label, {"canonical": canonical, "merchant": merchant, "category": category, "title": title, "label": label}
+    body = f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc(lead_discount)}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}<p>{cta}</p>{source_html}{source_link}{brand_link}{category_link}</article>'
+    return canonical, page(f"{merchant} — {title} | DEAL 24H", f"{merchant} {label.lower()}: {title}. Verified official merchant promotion with the correct purchase destination.", canonical, body), label, {"canonical": canonical, "merchant": merchant, "category": category, "title": title, "label": label, "market_scope": market["scope"], "countries": market["countries"], "market_label": market_label}
 
 def main():
     out = ROOT / "seo"
@@ -106,8 +109,8 @@ def main():
     if bad_visible: raise SystemExit("SEO OFFER ARTICLES FAILED: visible UI noise remained: "+", ".join(bad_visible[:20]))
     today=datetime.now(timezone.utc).date().isoformat(); sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n" for u in sorted(urls))+"</urlset>\n"
     (ROOT/"sitemap-seo.xml").write_text(sitemap,encoding="utf-8")
-    (out/"seo-index.json").write_text(json.dumps({"schema":1,"generated_at":datetime.now(timezone.utc).isoformat(),"counts":counts,"urls":len(urls),"rejected_non_qualified":rejected,"visible_text_noise":0,"offers":sorted(records,key=lambda x:x["canonical"])},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    (out/"seo-modes.json").write_text(json.dumps({"generated_at":datetime.now(timezone.utc).isoformat(),"counts":counts,"urls":len(urls),"rejected_non_qualified":rejected,"visible_text_noise":0},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (out/"seo-index.json").write_text(json.dumps({"schema":2,"generated_at":datetime.now(timezone.utc).isoformat(),"counts":counts,"urls":len(urls),"rejected_non_qualified":rejected,"visible_text_noise":0,"offers":sorted(records,key=lambda x:x["canonical"])},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (out/"seo-modes.json").write_text(json.dumps({"schema":2,"generated_at":datetime.now(timezone.utc).isoformat(),"counts":counts,"urls":len(urls),"rejected_non_qualified":rejected,"visible_text_noise":0},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(f"SEO OFFER ARTICLES: code={counts['code']} direct={counts['direct']} total={len(urls)} rejected={rejected} visible_text_noise=0")
 
 if __name__ == "__main__": main()
