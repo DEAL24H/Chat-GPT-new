@@ -70,10 +70,17 @@ def brand_slug(value):
     return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower().replace("&", " and ").replace("'", "")).strip("-")
 
 
+def _host(value):
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    parsed = urlparse(raw if "://" in raw else "https://" + raw)
+    return (parsed.hostname or "").lower().removeprefix("www.")
+
+
 def _same_host(left, right):
-    a = urlparse(str(left or "").strip()).hostname or ""
-    b = urlparse(str(right or "").strip()).hostname or ""
-    return bool(a and b) and a.lower().removeprefix("www.") == b.lower().removeprefix("www.")
+    a, b = _host(left), _host(right)
+    return bool(a and b) and (a == b or a.endswith("." + b) or b.endswith("." + a))
 
 
 def _not_expired(item):
