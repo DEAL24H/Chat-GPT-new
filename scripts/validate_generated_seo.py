@@ -1,12 +1,14 @@
 import json
 import re
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in __import__("sys").path:
-    __import__("sys").path.insert(0, str(ROOT))
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
+from bot.catalog_utils import brand_slug
 from bot.seo_offer_articles import VISIBLE_NOISE_RE, make_article
 
 DATA = ROOT / "data" / "news.json"
@@ -79,7 +81,7 @@ def main():
         if expected["label"]=="Promo code" and not is_code: errors.append(f"EXPECTED_CODE_MODE:{path}")
         if expected["label"]=="Direct deal" and not is_direct: errors.append(f"EXPECTED_DIRECT_MODE:{path}")
         if not expected["purchase"] or expected["purchase"] not in parser.links: errors.append(f"CTA_NOT_EXACT_PURCHASE_URL:{path}:{expected['purchase']}")
-        brand_href=f"/brand/{re.sub(r'[^a-z0-9]+','-',record['merchant'].lower()).strip('-')}/"; category_href=f"/{CATEGORY_SLUGS.get(record['category'], '')}/"
+        brand_href=f"/brand/{brand_slug(record['merchant'])}/"; category_href=f"/{CATEGORY_SLUGS.get(record['category'], '')}/"
         if brand_href not in parser.links: errors.append(f"SEO_PAGE_MISSING_BRAND_LINK:{path}:{brand_href}")
         if not category_href or category_href=="/": errors.append(f"SEO_PAGE_BAD_CATEGORY:{path}:{record['category']}")
         elif category_href not in parser.links: errors.append(f"SEO_PAGE_MISSING_CATEGORY_LINK:{path}:{category_href}")
@@ -99,10 +101,18 @@ def main():
         for href in parser.links:
             if href.startswith(f"{BASE}/seo/"): linked_from_categories.add(href)
             elif href.startswith("/seo/"): linked_from_categories.add(BASE+href)
+    # Validate each canonical brand page once. Multiple offers from one brand are
+    # expected and must not create duplicate missing-page errors.
+    brand_pages={}
     for r in records:
-        p=ROOT/"brand"/re.sub(r"[^a-z0-9]+","-",str(r["merchant"]).lower()).strip("-")/"index.html"
-        if not p.exists(): errors.append(f"BRAND_PAGE_MISSING:{r['merchant']}"); continue
-        parser=page_parsers.get(str(p)) or parse_html(p)
+        merchant=str(r.get("merchant") or "").strip()
+        if merchant:
+            brand_pages.setdefault(brand_slug(merchant), merchant)
+    for slug, merchant in brand_pages.items():
+        p=ROOT/"brand"/slug/"index.html"
+        if not p.exists(): errors.append(f"BRAND_PAGE_MISSING:{merchant}"); continue
+        parser=parse_html(p)
+        page_parsers[str(p)]=parser
         for href in parser.links:
             if href.startswith(f"{BASE}/seo/"): linked_from_brands.add(href)
             elif href.startswith("/seo/"): linked_from_brands.add(BASE+href)
