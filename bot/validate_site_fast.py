@@ -12,7 +12,7 @@ CATEGORY_SLUGS = {
     "Fashion": "fashion",
     "Electronics": "electronics",
     "Beauty & Personal Care": "beauty-personal-care",
-    "Home & Living": "home-living",
+    "Home & Living": "home-and-living",
 }
 
 
@@ -138,5 +138,4 @@ def main():
     )
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
