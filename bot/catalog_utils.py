@@ -2,11 +2,15 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "data" / "brand_catalog.json"
 EXPECTED_CATEGORIES = ("Fashion", "Electronics", "Beauty & Personal Care", "Home & Living")
 CATEGORY_LABELS = {c: c for c in EXPECTED_CATEGORIES}
+PUBLISHED_STATUS = "live_verified"
+SOURCE_AUTHORITY = "assistant_verified_first_party"
+PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
 
 
 def normalize_brand(value):
@@ -66,10 +70,14 @@ def brand_slug(value):
     return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower().replace("&", " and ").replace("'", "")).strip("-")
 
 
-def is_active_offer(item):
+def _same_host(left, right):
+    a = urlparse(str(left or "").strip()).hostname or ""
+    b = urlparse(str(right or "").strip()).hostname or ""
+    return bool(a and b) and a.lower().removeprefix("www.") == b.lower().removeprefix("www.")
+
+
+def _not_expired(item):
     if str(item.get("status", "active")).lower() in {"expired", "inactive"}:
-        return False
-    if not (item.get("code") or item.get("promotion_url")):
         return False
     raw = str(item.get("expires_at", "")).strip()
     if not raw:
@@ -81,3 +89,43 @@ def is_active_offer(item):
         return dt > datetime.now(timezone.utc)
     except ValueError:
         return False
+
+
+def is_published_verified_offer(item):
+    """Single downstream publish contract for shards, SEO and Supabase."""
+    if not isinstance(item, dict) or item.get("category") not in EXPECTED_CATEGORIES:
+        return False
+    brand = resolve_brand(item.get("merchant"))
+    if not brand or brand.get("category") != item.get("category"):
+        return False
+    if item.get("offer_qualified") is not True:
+        return False
+    if item.get("official_source") is not True:
+        return False
+    if item.get("source_verification_status") != SOURCE_AUTHORITY:
+        return False
+    if item.get("purchase_url_verification_status") != PUBLISHED_STATUS:
+        return False
+    if item.get("published_offer_authority") != PUBLISHED_AUTHORITY:
+        return False
+    source = str(item.get("source_url") or "").strip()
+    promotion = str(item.get("promotion_url") or "").strip()
+    purchase = str(item.get("final_purchase_url") or "").strip()
+    url = str(item.get("url") or "").strip()
+    official_domain = str(brand.get("domain") or "").strip()
+    if not source or not promotion or not purchase or url != purchase or not official_domain:
+        return False
+    if not _same_host(promotion, source) or not _same_host(source, official_domain):
+        return False
+    if not _same_host(purchase, official_domain) or not _not_expired(item):
+        return False
+    return True
+
+
+def is_active_offer(item):
+    """Compatibility alias: downstream code must use the published contract."""
+    return is_published_verified_offer(item)
+
+
+def published_items(items):
+    return [item for item in items if is_published_verified_offer(item)]
