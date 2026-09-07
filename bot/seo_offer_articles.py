@@ -3,11 +3,15 @@ import html
 import json
 import re
 import shutil
+import sys
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 DATA = ROOT / "data" / "news.json"
 BASE = "https://deal24h.net"
 
