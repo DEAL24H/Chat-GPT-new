@@ -1,11 +1,11 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-07T12:26:15.900917+00:00",
+  "generated_at": "2026-09-07T16:58:28.337306+00:00",
   "counts": {
-    "code": 15,
-    "direct": 351
+    "code": 16,
+    "direct": 357
   },
-  "urls": 366,
+  "urls": 373,
   "rejected_non_qualified": 0,
   "visible_text_noise": 0,
   "offers": [
@@ -90,7 +90,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/dunelm-30-off-clearance-fogarty-anti-allergy-100-cotton-fitted-sheet-6-30-to--ad2f651771/",
+      "canonical": "https://deal24h.net/seo/dunelm-30-off-clearance-fogarty-anti-allergy-100-cotton-fitted-sheet-6-30-to--cb235f61d1/",
       "merchant": "Dunelm",
       "category": "Home & Living",
       "title": "30% Off - Clearance Fogarty Anti Allergy 100% Cotton Fitted Sheet £6.30 - to £10.50 was £9 - to £15 3 Colours Add to your Favourites",
@@ -230,6 +230,16 @@
       "market_label": "Applies internationally"
     },
     {
+      "canonical": "https://deal24h.net/seo/dunelm-50-off-clearance-dorma-sumptuous-down-like-4-5-tog-summer-duvet-32-50--6a140be88f/",
+      "merchant": "Dunelm",
+      "category": "Home & Living",
+      "title": "50% Off - Clearance Dorma Sumptuous Down Like 4.5 Tog Summer Duvet £32.50 - £37.50 was £65 - £75",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
       "canonical": "https://deal24h.net/seo/dunelm-50-off-clearance-dorma-whispering-leaves-duvet-cover-and-pillowcase-se-6578455100/",
       "merchant": "Dunelm",
       "category": "Home & Living",
@@ -250,7 +260,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/dunelm-50-off-clearance-fogarty-cool-sleep-mattress-protector-15-30-was-30-60-8604542417/",
+      "canonical": "https://deal24h.net/seo/dunelm-50-off-clearance-fogarty-cool-sleep-mattress-protector-15-30-was-30-60-cf691063d9/",
       "merchant": "Dunelm",
       "category": "Home & Living",
       "title": "50% Off - Clearance Fogarty Cool Sleep Mattress Protector £15 - £30 was £30 - £60",
@@ -314,6 +324,16 @@
       "merchant": "Dunelm",
       "category": "Home & Living",
       "title": "50% Off - Clearance Petit 3 Drawer Chest, Green £189.50 was £379",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/dunelm-50-off-clearance-set-of-2-water-resist-round-seat-pads-6-was-12-9e2695b30f/",
+      "merchant": "Dunelm",
+      "category": "Home & Living",
+      "title": "50% Off - Clearance Set of 2 Water Resist Round Seat Pads £6 was £12",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -650,20 +670,40 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/john-lewis-partners-creed-aventus-eau-de-parfum-148-75-718-25-price-matched-save-15-on-sel-62d6f9f6e5/",
+      "canonical": "https://deal24h.net/seo/john-lewis-partners-there-are-2191-reviews-2191-33-60-156-00-price-matched-save-20-on-sele-f2221370bf/",
       "merchant": "John Lewis & Partners",
       "category": "Home & Living",
-      "title": "CREED Aventus Eau de Parfum £148.75 – £718.25 Price matched: save 15% on selected products View offers",
+      "title": "There are 2191 reviews 2191 £33.60 – £156.00 Price matched: save 20% on selected products View offers",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/john-lewis-partners-tom-ford-black-orchid-eau-de-parfum-33-60-156-00-price-matched-save-20-d4aea05ee6/",
+      "canonical": "https://deal24h.net/seo/john-lewis-partners-there-are-22966-reviews-22966-66-00-120-00-get-the-est-e-lauder-5-piec-506ced7b7d/",
       "merchant": "John Lewis & Partners",
       "category": "Home & Living",
-      "title": "TOM FORD Black Orchid Eau de Parfum £33.60 – £156.00 Price matched: save 20% on selected products View offers",
+      "title": "There are 22966 reviews 22966 £66.00 – £120.00 Get the Estée Lauder 5-Piece Skincare Set Gift with Purchase for free when you spend £75 or",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/john-lewis-partners-there-are-547-reviews-547-148-75-718-25-price-matched-save-15-on-selec-135142f027/",
+      "merchant": "John Lewis & Partners",
+      "category": "Home & Living",
+      "title": "There are 547 reviews 547 £148.75 – £718.25 Price matched: save 15% on selected products View offers",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/john-lewis-partners-there-are-9256-reviews-9256-39-50-1-316-67-per-1l-56-get-the-est-e-lau-69b6156b2e/",
+      "merchant": "John Lewis & Partners",
+      "category": "Home & Living",
+      "title": "There are 9256 reviews 9256 £39.50 £1,316.67 per 1L + 56 Get the Estée Lauder 5-Piece Skincare Set Gift with Purchase for free when you",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -700,7 +740,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/logitech-astro-a50-gen-5-lightspeed-wireless-gaming-headset-and-base-station-wi-643199ef18/",
+      "canonical": "https://deal24h.net/seo/logitech-astro-a50-gen-5-lightspeed-wireless-gaming-headset-and-base-station-wi-68d965ec9e/",
       "merchant": "Logitech",
       "category": "Electronics",
       "title": "ASTRO A50 (Gen 5) LIGHTSPEED Wireless Gaming Headset and Base Station with PLAYSYNC Audio Gift with Purchase $259.99 $299.99 $40.00 off",
@@ -860,6 +900,16 @@
       "market_label": "Applies internationally"
     },
     {
+      "canonical": "https://deal24h.net/seo/logitech-g920-g29-driving-force-steering-wheels-pedals-2-3-nm-racing-system-gif-7027663d66/",
+      "merchant": "Logitech",
+      "category": "Electronics",
+      "title": "G920/G29 Driving Force Steering Wheels & Pedals 2.3 Nm Racing System Gift with Purchase $199.99 $299.99 $100.00 off Buy now",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
       "canonical": "https://deal24h.net/seo/logitech-gift-with-purchase-22-99-207e974e67/",
       "merchant": "Logitech",
       "category": "Electronics",
@@ -950,10 +1000,10 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/logitech-mx-anywhere-3s-compact-wireless-performance-mouse-gift-with-purchase-7-4bc5c5c41c/",
+      "canonical": "https://deal24h.net/seo/logitech-mx-anywhere-3s-compact-wireless-performance-mouse-gift-with-purchase-7-3ecb650ca2/",
       "merchant": "Logitech",
       "category": "Electronics",
-      "title": "MX Anywhere 3S Compact Wireless Performance Mouse Gift with Purchase $79.99 $89.99 11% off Backorder",
+      "title": "MX Anywhere 3S Compact Wireless Performance Mouse Gift with Purchase $79.99 $89.99 11% off",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -970,7 +1020,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/logitech-mx-anywhere-3s-gift-with-purchase-79-99-89-99-11-off-5a57bc50bf/",
+      "canonical": "https://deal24h.net/seo/logitech-mx-anywhere-3s-gift-with-purchase-79-99-89-99-11-off-99c1bd23a8/",
       "merchant": "Logitech",
       "category": "Electronics",
       "title": "MX Anywhere 3S Gift with Purchase $79.99 $89.99 11% off",
@@ -1000,6 +1050,16 @@
       "market_label": "Applies internationally"
     },
     {
+      "canonical": "https://deal24h.net/seo/logitech-mx-keys-mini-for-mac-minimalist-wireless-illuminated-keyboard-gift-wit-f6863f67b5/",
+      "merchant": "Logitech",
+      "category": "Electronics",
+      "title": "MX Keys Mini for Mac Minimalist Wireless Illuminated Keyboard Gift with Purchase $99.99",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
       "canonical": "https://deal24h.net/seo/logitech-mx-vertical-advanced-ergonomic-mouse-gift-with-purchase-119-99-31e4763514/",
       "merchant": "Logitech",
       "category": "Electronics",
@@ -1020,30 +1080,10 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/logitech-out-of-stock-mx-keys-mini-for-mac-minimalist-wireless-illuminated-keyb-6fe3561346/",
-      "merchant": "Logitech",
-      "category": "Electronics",
-      "title": "Out of stock MX Keys Mini for Mac Minimalist Wireless Illuminated Keyboard Gift with Purchase $99.99 Out of stock Notify me",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
       "canonical": "https://deal24h.net/seo/logitech-out-of-stock-pro-x-superlight-lightspeed-wireless-gaming-mouse-gift-wi-2ca99fdaee/",
       "merchant": "Logitech",
       "category": "Electronics",
       "title": "Out of stock PRO X SUPERLIGHT LIGHTSPEED Wireless Gaming Mouse Gift with Purchase $149.99 Out of stock Notify me",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
-      "canonical": "https://deal24h.net/seo/logitech-out-of-stock-wave-keys-and-lift-combo-for-mac-gift-with-purchase-109-9-79a5792169/",
-      "merchant": "Logitech",
-      "category": "Electronics",
-      "title": "Out of stock Wave Keys and Lift Combo for Mac Gift with Purchase $109.99 $119.99 $10.00 off Out of stock Notify me",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -1150,16 +1190,6 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/logitech-pro-x-tkl-wireless-gaming-keyboard-mechanical-switches-special-offer-1-929250103b/",
-      "merchant": "Logitech",
-      "category": "Electronics",
-      "title": "PRO X TKL Wireless Gaming Keyboard- Mechanical Switches Special Offer $189.99 $219.99 $30.00 off",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
       "canonical": "https://deal24h.net/seo/logitech-pro-x-wired-7-1-gaming-headset-special-offer-99-99-129-99-30-00-off-66ebfe4d21/",
       "merchant": "Logitech",
       "category": "Electronics",
@@ -1214,6 +1244,16 @@
       "merchant": "Logitech",
       "category": "Electronics",
       "title": "REFURBISHED C40 TR Gaming Controller Gaming controller for Playstation and PC Gift with Purchase $69.99 $129.99 $60.00 off",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/logitech-rs-pedals-165-3-lbs-75-kg-load-cell-hall-effect-gift-with-purchase-149-8c5d76cd20/",
+      "merchant": "Logitech",
+      "category": "Electronics",
+      "title": "RS Pedals 165.3 lbs (75 kg) Load Cell & Hall Effect Gift with Purchase $149.99 $159.99 $10.00 off",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -1310,6 +1350,16 @@
       "market_label": "Applies internationally"
     },
     {
+      "canonical": "https://deal24h.net/seo/logitech-wave-keys-and-lift-combo-for-mac-gift-with-purchase-109-99-119-99-10-0-2181a9c461/",
+      "merchant": "Logitech",
+      "category": "Electronics",
+      "title": "Wave Keys and Lift Combo for Mac Gift with Purchase $109.99 $119.99 $10.00 off",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
       "canonical": "https://deal24h.net/seo/logitech-wave-keys-and-lift-combo-gift-with-purchase-109-99-119-99-10-00-off-906a49f8a2/",
       "merchant": "Logitech",
       "category": "Electronics",
@@ -1330,7 +1380,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/michael-kors-get-excited-for-fall-fashion-with-an-extra-50-off-sale-styles-b8260bbd03/",
+      "canonical": "https://deal24h.net/seo/michael-kors-get-excited-for-fall-fashion-with-an-extra-50-off-sale-styles-eab2f44fbf/",
       "merchant": "Michael Kors",
       "category": "Fashion",
       "title": "GET EXCITED FOR FALL FASHION WITH AN EXTRA 50% OFF SALE STYLES.",
@@ -1520,7 +1570,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/rare-beauty-friends-family-sale-20-off-sitewide-read-more-67108e9c80/",
+      "canonical": "https://deal24h.net/seo/rare-beauty-friends-family-sale-20-off-sitewide-read-more-8ac6affa18/",
       "merchant": "Rare Beauty",
       "category": "Beauty & Personal Care",
       "title": "Friends & Family Sale: 20% off sitewide. Read More",
@@ -1600,16 +1650,6 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-computing-offers-galaxy-tab-s11-ultra-save-up-to-500-with-instant-trad-e2c58a4dbc/",
-      "merchant": "Samsung",
-      "category": "Electronics",
-      "title": "Computing Offers Galaxy Tab S11 Ultra Save up to $500 with instant trade-in credit or $200 off without trade-in.",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
       "canonical": "https://deal24h.net/seo/samsung-exclusive-savings-up-to-30-off-plus-all-the-access-to-benefits-on-sams-5aa0e018f3/",
       "merchant": "Samsung",
       "category": "Electronics",
@@ -1620,7 +1660,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-galaxy-z-series-offers-galaxy-z-fold8-ultra-get-up-to-800-instant-trad-760160a04e/",
+      "canonical": "https://deal24h.net/seo/samsung-galaxy-z-series-offers-galaxy-z-fold8-ultra-get-up-to-800-instant-trad-5a1eadbabb/",
       "merchant": "Samsung",
       "category": "Electronics",
       "title": "Galaxy Z Series Offers Galaxy Z Fold8 Ultra Get up to $800 instant trade-in credit θ or $300 off without trade-in.",
@@ -1630,7 +1670,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-labor-day-offers-save-1-700-on-bespoke-4-door-french-door-plus-get-a-2-e21a7b48ca/",
+      "canonical": "https://deal24h.net/seo/samsung-labor-day-offers-save-1-700-on-bespoke-4-door-french-door-plus-get-a-2-5b649878bb/",
       "merchant": "Samsung",
       "category": "Electronics",
       "title": "Labor Day Offers Save $1,700 on Bespoke 4-Door French Door Plus, get a 2-year warranty on us ≡ and save on Samsung Care+ for extra coverage.",
@@ -1650,7 +1690,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-limited-time-benefits-limited-time-benefits-highlights-mobile-tv-av-ap-6e71761adc/",
+      "canonical": "https://deal24h.net/seo/samsung-limited-time-benefits-limited-time-benefits-highlights-mobile-tv-av-ap-5148a7bb28/",
       "merchant": "Samsung",
       "category": "Electronics",
       "title": "Limited time benefits Limited time benefits Highlights Mobile TV & AV Appliances Computing & Displays Galaxy Z Fold8 Ultra Get up to $800",
@@ -1660,7 +1700,7 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-monitor-offers-43-the-movingstyle-essential-get-an-extra-150-off-insta-5cee121d52/",
+      "canonical": "https://deal24h.net/seo/samsung-monitor-offers-43-the-movingstyle-essential-get-an-extra-150-off-insta-a21de5cd07/",
       "merchant": "Samsung",
       "category": "Electronics",
       "title": "Monitor Offers 43\" The Movingstyle Essential Get an extra $150 off instantly.",
@@ -1680,7 +1720,17 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/samsung-save-1-450-on-combi-wall-oven-plus-get-extra-199-99-off-with-code-199o-947f99b195/",
+      "canonical": "https://deal24h.net/seo/samsung-plus-save-an-extra-199-99-to-use-toward-installation-code-199off-4cd8314206/",
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "title": "Plus, save an extra $199.99 to use toward installation (code 199OFF).",
+      "label": "Promo code",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/samsung-save-1-450-on-combi-wall-oven-plus-get-extra-199-99-off-with-code-199o-3c607dee3a/",
       "merchant": "Samsung",
       "category": "Electronics",
       "title": "Save $1,450 on Combi Wall Oven Plus, get extra $199.99 off with code 199OFF to help cover the cost of installation.",
@@ -1824,6 +1874,26 @@
       "merchant": "Steve Madden",
       "category": "Fashion",
       "title": "YOUNG ADULT DISCOUNT 20% OFF Unlock",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/the-body-shop-back-our-offers-save-15-with-multi-product-routines-up-to-30-off-in-ou-c03ee66969/",
+      "merchant": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "title": "Back Our Offers Save 15% with Multi-product Routines Up to 30% off in our Outlet 10% Blue Light Card Discount (exclusions apply) 10%",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/the-body-shop-save-15-with-multi-product-routines-up-to-30-off-in-our-outlet-10-blue-b4529a9a1e/",
+      "merchant": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "title": "Save 15% with Multi-product Routines Up to 30% off in our Outlet 10% Blue Light Card Discount (exclusions apply) 10% Student Discount",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -2430,40 +2500,40 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-1-products-available-1-gift-with-purchase-4-product-0f92ae03a2/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-1-products-available-1-gift-with-purchase-3-product-19612c7b46/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Buy More, Save More 1 Products Available 1 Gift With Purchase 4 Products Available 4 On Sale 20 Products Available 20",
+      "title": "Buy More, Save More 1 Products Available 1 Gift With Purchase 3 Products Available 3 On Sale 20 Products Available 20",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-2-products-available-2-gift-with-purchase-6-product-72b98b6c95/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-2-products-available-2-gift-with-purchase-6-product-df83d8fcbe/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Buy More, Save More 2 Products Available 2 Gift With Purchase 6 Products Available 6 On Sale 6 Products Available 6",
+      "title": "Buy More, Save More 2 Products Available 2 Gift With Purchase 6 Products Available 6 On Sale 7 Products Available 7",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-41-products-available-41-gift-with-purchase-97-prod-a763896e1c/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-41-products-available-41-gift-with-purchase-97-prod-be76a32d22/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Buy More, Save More 41 Products Available 41 Gift With Purchase 97 Products Available 97 On Sale 80 Products Available 80",
+      "title": "Buy More, Save More 41 Products Available 41 Gift With Purchase 97 Products Available 97 On Sale 88 Products Available 88",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-63-products-available-63-gift-with-purchase-120-pro-aebc681e7e/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-buy-more-save-more-63-products-available-63-gift-with-purchase-120-pro-ff1ad8cac4/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Buy More, Save More 63 Products Available 63 Gift With Purchase 120 Products Available 120 On Sale 71 Products Available 71",
+      "title": "Buy More, Save More 63 Products Available 63 Gift With Purchase 120 Products Available 120 On Sale 73 Products Available 73",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -2740,16 +2810,6 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-drybar-dry-martini-microfiber-hair-wrap-drybar-dry-martini-microfiber--cd542abb4b/",
-      "merchant": "Ulta Beauty",
-      "category": "Beauty & Personal Care",
-      "title": "Drybar Dry Martini Microfiber Hair Wrap Drybar Dry Martini Microfiber Hair Wrap 3.3 out of 5 stars ; 54 reviews 3.3 (54) $29.00 Diamond &",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
       "canonical": "https://deal24h.net/seo/ulta-beauty-eucerin-buy-1-get-1-40-off-add-2-to-bag-40-off-item-must-be-of-equal-o-6b2e570a2b/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
@@ -2830,20 +2890,40 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1023-products-available-1023-8c69c3d0d3/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1-products-available-1-65b81285a5/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 1023 Products Available 1023",
+      "title": "Gift With Purchase 1 Products Available 1",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1023-products-available-1023-buy-more-save-more-517-3dfba5e336/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1-products-available-1-on-sale-5-products-available-14b440c301/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 1023 Products Available 1023 Buy More, Save More 517 Products Available 517 On Sale 771 Products Available 771",
+      "title": "Gift With Purchase 1 Products Available 1 On Sale 5 Products Available 5",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1010-products-available-1010-8e71bddccd/",
+      "merchant": "Ulta Beauty",
+      "category": "Beauty & Personal Care",
+      "title": "Gift With Purchase 1010 Products Available 1010",
+      "label": "Direct deal",
+      "market_scope": "global",
+      "countries": [],
+      "market_label": "Applies internationally"
+    },
+    {
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-1010-products-available-1010-buy-more-save-more-517-d1bfe093d1/",
+      "merchant": "Ulta Beauty",
+      "category": "Beauty & Personal Care",
+      "title": "Gift With Purchase 1010 Products Available 1010 Buy More, Save More 517 Products Available 517 On Sale 775 Products Available 775",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -2880,10 +2960,10 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-2-products-available-2-on-sale-5-products-available-5b9af9feb7/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-3-products-available-3-714d1cd3c2/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 2 Products Available 2 On Sale 5 Products Available 5",
+      "title": "Gift With Purchase 3 Products Available 3",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -2900,10 +2980,10 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-30-products-available-30-buy-more-save-more-6-produ-bd6250728b/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-30-products-available-30-buy-more-save-more-6-produ-38593fc6e5/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 30 Products Available 30 Buy More, Save More 6 Products Available 6 On Sale 32 Products Available 32",
+      "title": "Gift With Purchase 30 Products Available 30 Buy More, Save More 6 Products Available 6 On Sale 34 Products Available 34",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -2950,20 +3030,20 @@
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-490-products-available-490-401fdc708f/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-487-products-available-487-buy-more-save-more-65-pr-d7b0914d24/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 490 Products Available 490",
+      "title": "Gift With Purchase 487 Products Available 487 Buy More, Save More 65 Products Available 65 On Sale 95 Products Available 95",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
       "market_label": "Applies internationally"
     },
     {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-490-products-available-490-buy-more-save-more-65-pr-c263e9162e/",
+      "canonical": "https://deal24h.net/seo/ulta-beauty-gift-with-purchase-487-products-available-487-efc33cfbc4/",
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
-      "title": "Gift With Purchase 490 Products Available 490 Buy More, Save More 65 Products Available 65 On Sale 61 Products Available 61",
+      "title": "Gift With Purchase 487 Products Available 487",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
@@ -3634,16 +3714,6 @@
       "merchant": "Ulta Beauty",
       "category": "Beauty & Personal Care",
       "title": "Vaseline Buy 1 Get 1 40% off -Add 2 to bag (40% off item must be of equal or lesser value to the lowest-priced item purchased.",
-      "label": "Direct deal",
-      "market_scope": "global",
-      "countries": [],
-      "market_label": "Applies internationally"
-    },
-    {
-      "canonical": "https://deal24h.net/seo/ulta-beauty-vaseline-illuminate-me-whipped-body-butter-vaseline-illuminate-me-whip-1ac4210f2c/",
-      "merchant": "Ulta Beauty",
-      "category": "Beauty & Personal Care",
-      "title": "Vaseline Illuminate Me Whipped Body Butter Vaseline Illuminate Me Whipped Body Butter 4.8 out of 5 stars ; 29 reviews 4.8 (29) $13.99 Buy 1",
       "label": "Direct deal",
       "market_scope": "global",
       "countries": [],
