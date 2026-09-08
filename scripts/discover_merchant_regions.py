@@ -8,15 +8,19 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from bot.site_adapters import SiteAdapterClient
 
-ROOT = Path(__file__).resolve().parents[1]
 SELECTION = ROOT / "data/assistant_verified_source_selection.json"
 OUT = ROOT / "data/merchant_regions.json"
 WORKERS = 12
@@ -75,7 +79,6 @@ def code_from_hreflang(value: str) -> str:
 
 
 def explicit_country_code(text: str) -> str:
-    # Conservative labels commonly exposed by first-party country selectors.
     labels = {
         "united states": "US", "usa": "US", "canada": "CA", "united kingdom": "GB",
         "uk": "GB", "australia": "AU", "new zealand": "NZ", "japan": "JP",
@@ -110,7 +113,7 @@ def discover(source: dict, client: SiteAdapterClient) -> tuple[dict, list[dict],
         return source, [], error
 
     soup = BeautifulSoup(response.text, "html.parser")
-    found: dict[str, dict] = {}
+    found: dict[tuple[str, str], dict] = {}
 
     def add(code: str, url: str, evidence: str, locale: str = ""):
         code = code.upper().strip()
@@ -134,7 +137,8 @@ def discover(source: dict, client: SiteAdapterClient) -> tuple[dict, list[dict],
             continue
         code = code_from_hreflang(str(link.get("hreflang")))
         if code:
-            add(code, link.get("href"), "hreflang", str(link.get("hreflang")))
+            from urllib.parse import urljoin
+            add(code, urljoin(response.url, link.get("href")), "hreflang", str(link.get("hreflang")))
 
     for a in soup.find_all("a", href=True):
         url = a.get("href")
@@ -154,7 +158,6 @@ def discover(source: dict, client: SiteAdapterClient) -> tuple[dict, list[dict],
         if code and re.search(r"\b(?:country|region|language|location|international|global)\b", text, re.I):
             add(code, url, "locale_link", text[:120])
 
-    # Some official stores expose country-specific hosts in their global selector.
     for a in soup.find_all("a", href=True):
         url = a.get("href")
         if not str(url).startswith(("http://", "https://")) or not same_domain(url, domain):
