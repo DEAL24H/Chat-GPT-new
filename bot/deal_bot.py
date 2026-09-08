@@ -1,11 +1,5 @@
-"""DEAL24H single canonical Bot runtime.
-
-This is the only Bot orchestration layer. It combines the discovery/extraction
-engine with Manus' Requests + Playwright acquisition and verified first-party
-locale destinations. No second Bot pipeline is executed.
-"""
+"""DEAL24H single canonical Bot runtime."""
 from __future__ import annotations
-import json
 import sys
 from copy import deepcopy
 from pathlib import Path
@@ -13,44 +7,41 @@ ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 from bot import deal_discovery_core as deal_bot
 from bot.site_adapters import SiteAdapterClient
-REGIONS=ROOT/'data/merchant_regions.json'
+from bot.merchant_country_registry import locales_for
 _adapter=SiteAdapterClient(timeout=deal_bot.TIMEOUT,retries=deal_bot.RETRIES)
 deal_bot.fetch=lambda url,domain:_adapter.fetch(url,domain,deal_bot.H)
 _original_collect=deal_bot.collect
 _original_extract=deal_bot.extract
 
-def _locale_rows():
- if not REGIONS.exists():return {}
- data=json.loads(REGIONS.read_text(encoding='utf-8'))
- if data.get('version')==1 and not data.get('brands'):return {}
- if (data.get('version')!=3 or data.get('total_brands')!=120 or data.get('brands_audited')!=120 or len(data.get('brands',{}))!=120 or data.get('verification_method')!='live_official_domain_and_commercial_sales_page_check'):
-  raise RuntimeError('VERIFIED LOCALE REGISTRY CONTRACT FAILED: expected completed 120-brand live-sales verification')
- for merchant,entry in data.get('brands',{}).items():
-  for locale in entry.get('locales',[]):
-   if locale.get('verification_status')!='verified_live_sales_destination' or not locale.get('verified_url') or not locale.get('status_code'):
-    raise RuntimeError(f'VERIFIED LOCALE REGISTRY CONTRACT FAILED: invalid verified locale for {merchant}')
- return data.get('brands',{})
-
-def _collect_with_verified_locales(source):
- brands=_locale_rows();entry=brands.get(source.get('merchant'),{});locales=entry.get('locales') or []
- if not locales:return _original_collect(source)
- all_items=[];errors=[]
- for locale in locales:
-  regional=deepcopy(source);regional['official_homepage']=locale['verified_url'];regional['country']=locale['country_code'];regional['locale']=locale.get('locale',locale['country_code'].lower())
-  _,items,locale_errors=_original_collect(regional)
-  for item in items:
-   item['country']=locale['country_code'];item['locale']=regional['locale'];item['locale_source']=locale['evidence'];item['official_homepage']=source['official_homepage'];item['source_domain']=source['domain']
-  all_items.extend(items);errors.extend(locale_errors)
- return source,all_items,errors[:20]
+def _collect_from_fixed_country_urls(source):
+    locales=locales_for(source.get("merchant"))
+    if not locales:
+        return source,[],[f"No fixed country URL listed for {source.get('merchant')}"]
+    all_items=[]; errors=[]
+    for locale in locales:
+        regional=deepcopy(source)
+        regional["official_homepage"]=locale["url"]
+        regional["country"]=locale["market"]
+        regional["locale"]=locale["market"]
+        _,items,locale_errors=_original_collect(regional)
+        for item in items:
+            item["country"]=locale["market"]
+            item["locale"]=locale["market"]
+            item["locale_source"]="user_provided_fixed_country_url_list"
+            item["official_homepage"]=source.get("official_homepage")
+            item["source_domain"]=source.get("domain")
+        all_items.extend(items)
+        errors.extend(locale_errors)
+    return source,all_items,errors[:20]
 
 def _extract_with_locale(response,source):
- items=_original_extract(response,source)
- country=source.get('country','International')
- for item in items:item['country']=country
- return items
+    items=_original_extract(response,source)
+    country=source.get("country","International")
+    for item in items:item["country"]=country
+    return items
 
-deal_bot.collect=_collect_with_verified_locales
+deal_bot.collect=_collect_from_fixed_country_urls
 deal_bot.extract=_extract_with_locale
 
-def main():deal_bot.main()
-if __name__=='__main__':main()
+def main(): deal_bot.main()
+if __name__=='__main__': main()
