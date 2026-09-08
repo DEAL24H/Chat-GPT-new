@@ -61,6 +61,19 @@ jobs:
           assert len(d.get('sources',[]))==120
           print('SOURCE SELECTION CONTRACT PASS:',d['counts'])
           PY
+      - name: Discover verified merchant locales
+        run: python scripts/discover_merchant_regions.py
+      - name: Verify merchant locale registry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/merchant_regions.json').read_text(encoding='utf-8'))
+          assert d.get('total_brands')==120
+          assert len(d.get('brands',{}))==120
+          assert d.get('source_authority')=='assistant_verified_manifests_plus_first_party_locale_evidence'
+          print('MERCHANT LOCALE REGISTRY PASS:', d.get('brands_with_verified_locales'), 'brands with verified locales')
+          PY
       - name: Crawl verified promotions
         run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
@@ -91,7 +104,7 @@ jobs:
           import hashlib,json
           from datetime import datetime,timezone
           from pathlib import Path
-          root=Path('data'); files=[root/'news.json',root/'data-manifest.json',root/'search-index.json']+sorted((root/'shards').glob('*.json'))
+          root=Path('data'); files=[root/'news.json',root/'data-manifest.json',root/'search-index.json',root/'merchant_regions.json']+sorted((root/'shards').glob('*.json'))
           h=hashlib.sha256()
           for p in files:
               h.update(str(p.relative_to(root)).encode()); h.update(p.read_bytes())
@@ -107,6 +120,7 @@ jobs:
           expected=['Fashion','Electronics','Beauty & Personal Care','Home & Living']
           selection=json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
           news=json.loads(Path('data/news.json').read_text(encoding='utf-8'))
+          regions=json.loads(Path('data/merchant_regions.json').read_text(encoding='utf-8'))
           assert selection.get('total')==120
           assert selection.get('counts')=={c:30 for c in expected}, selection.get('counts')
           assert len(selection.get('sources',[]))==120
@@ -115,6 +129,7 @@ jobs:
           assert selection.get('unique_merchants_per_category') is True
           assert len({(x.get('category'),str(x.get('merchant')).casefold()) for x in selection['sources']})==120
           assert all(x.get('verification_status')=='assistant_verified_first_party' for x in selection['sources'])
+          assert regions.get('total_brands')==120 and len(regions.get('brands',{}))==120
           assert isinstance(news,list)
           assert all(x.get('category') in expected for x in news)
           assert all(x.get('source_verification_status')=='assistant_verified_first_party' for x in news)
@@ -170,7 +185,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
+          git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/merchant_regions.json data/shards
           git add -A brand seo sitemap.xml sitemap-brands.xml sitemap-seo.xml robots.txt
           for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do
             git rm -r --ignore-unmatch "$legacy"
