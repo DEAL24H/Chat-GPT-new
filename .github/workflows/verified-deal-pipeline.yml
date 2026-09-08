@@ -6,6 +6,7 @@ on:
       - 'bot/**'
       - 'scripts/**'
       - 'data/assistant_verified_*.json'
+      - 'data/merchant_country_urls_*.csv'
       - 'data/brand_catalog.json'
       - 'data/international_brand_registry.json'
       - 'supabase/migrations/**'
@@ -61,20 +62,30 @@ jobs:
           assert len(d.get('sources',[]))==120
           print('SOURCE SELECTION CONTRACT PASS:',d['counts'])
           PY
-      - name: Discover verified merchant locales
-        run: python scripts/discover_merchant_regions.py
-      - name: Verify merchant locale registry
+      - name: Verify fixed 120-brand country URL registry
         run: |
           python - <<'PY'
-          import json
+          import csv
           from pathlib import Path
-          d=json.loads(Path('data/merchant_regions.json').read_text(encoding='utf-8'))
-          assert d.get('total_brands')==120
-          assert len(d.get('brands',{}))==120
-          assert d.get('source_authority')=='assistant_verified_manifests_plus_first_party_locale_evidence'
-          print('MERCHANT LOCALE REGISTRY PASS:', d.get('brands_with_verified_locales'), 'brands with verified locales')
+          files=[
+            Path('data/merchant_country_urls_fashion.csv'),
+            Path('data/merchant_country_urls_electronics.csv'),
+            Path('data/merchant_country_urls_beauty.csv'),
+            Path('data/merchant_country_urls_home.csv'),
+          ]
+          rows=[]
+          for p in files:
+            with p.open(encoding='utf-8',newline='') as f:
+              r=csv.DictReader(f)
+              assert set(r.fieldnames or [])=={'brand','market','url'}, p
+              rows.extend(r)
+          brands={r['brand'].strip() for r in rows}
+          assert len(brands)==120, len(brands)
+          assert len(rows)==440, len(rows)
+          assert all(r['url'].startswith(('http://','https://')) for r in rows)
+          print('FIXED COUNTRY URL REGISTRY PASS: brands=120 rows=440 country/market rows=320 plus 120 roots')
           PY
-      - name: Crawl verified promotions
+      - name: Crawl fixed country URLs
         run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
         run: python scripts/validate_deal_contract.py
@@ -107,8 +118,8 @@ jobs:
           root=Path('data'); files=[root/'news.json',root/'data-manifest.json',root/'search-index.json',root/'merchant_regions.json']+sorted((root/'shards').glob('*.json'))
           h=hashlib.sha256()
           for p in files:
-              h.update(str(p.relative_to(root)).encode()); h.update(p.read_bytes())
-          payload={'schema':1,'generated_at':datetime.now(timezone.utc).isoformat(),'version':h.hexdigest(),'files':[str(p.relative_to(root)) for p in files]}
+              if p.exists(): h.update(str(p.relative_to(root)).encode()); h.update(p.read_bytes())
+          payload={'schema':1,'generated_at':datetime.now(timezone.utc).isoformat(),'version':h.hexdigest(),'files':[str(p.relative_to(root)) for p in files if p.exists()]}
           (root/'data-version.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('CANONICAL DATA VERSION:',payload['version'])
           PY
@@ -120,7 +131,6 @@ jobs:
           expected=['Fashion','Electronics','Beauty & Personal Care','Home & Living']
           selection=json.loads(Path('data/assistant_verified_source_selection.json').read_text(encoding='utf-8'))
           news=json.loads(Path('data/news.json').read_text(encoding='utf-8'))
-          regions=json.loads(Path('data/merchant_regions.json').read_text(encoding='utf-8'))
           assert selection.get('total')==120
           assert selection.get('counts')=={c:30 for c in expected}, selection.get('counts')
           assert len(selection.get('sources',[]))==120
@@ -129,7 +139,6 @@ jobs:
           assert selection.get('unique_merchants_per_category') is True
           assert len({(x.get('category'),str(x.get('merchant')).casefold()) for x in selection['sources']})==120
           assert all(x.get('verification_status')=='assistant_verified_first_party' for x in selection['sources'])
-          assert regions.get('total_brands')==120 and len(regions.get('brands',{}))==120
           assert isinstance(news,list)
           assert all(x.get('category') in expected for x in news)
           assert all(x.get('source_verification_status')=='assistant_verified_first_party' for x in news)
@@ -185,7 +194,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
-          git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/merchant_regions.json data/shards
+          git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
           git add -A brand seo sitemap.xml sitemap-brands.xml sitemap-seo.xml robots.txt
           for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do
             git rm -r --ignore-unmatch "$legacy"
