@@ -28,6 +28,7 @@ concurrency:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -67,12 +68,7 @@ jobs:
           python - <<'PY'
           import csv
           from pathlib import Path
-          files=[
-            Path('data/merchant_country_urls_fashion.csv'),
-            Path('data/merchant_country_urls_electronics.csv'),
-            Path('data/merchant_country_urls_beauty.csv'),
-            Path('data/merchant_country_urls_home.csv'),
-          ]
+          files=[Path('data/merchant_country_urls_fashion.csv'),Path('data/merchant_country_urls_electronics.csv'),Path('data/merchant_country_urls_beauty.csv'),Path('data/merchant_country_urls_home.csv')]
           rows=[]
           for p in files:
             with p.open(encoding='utf-8',newline='') as f:
@@ -85,6 +81,8 @@ jobs:
           assert all(r['url'].startswith(('http://','https://')) for r in rows)
           print('FIXED COUNTRY URL REGISTRY PASS: brands=120 rows=440 country/market rows=320 plus 120 roots')
           PY
+      - name: Verify exact fixed crawl contract
+        run: python scripts/validate_fixed_crawl_contract.py
       - name: Crawl fixed country URLs
         run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
@@ -158,18 +156,18 @@ jobs:
           python - <<'PY'
           import shutil,sys
           from pathlib import Path
-          root=Path('.'); sys.path.insert(0,str(root))
+          root=Path('.');sys.path.insert(0,str(root))
           from bot.catalog_utils import CATALOG,brand_slug
           allowed={brand_slug(e['name']) for entries in CATALOG.values() for e in entries}
-          br=root/'brand'; removed=0
+          br=root/'brand';removed=0
           if br.exists():
               for child in br.iterdir():
-                  if child.is_dir() and child.name not in allowed: shutil.rmtree(child); removed+=1
+                  if child.is_dir() and child.name not in allowed:shutil.rmtree(child);removed+=1
           legacy={'beauty','consumer','food-grocery','travel-hotels','gaming','sports-outdoor','software-digital-services','baby-kids-family-family','automotive-accessories','books-education-media'}
           rc=0
           for slug in legacy:
               p=root/slug
-              if p.exists() and p.is_dir(): shutil.rmtree(p); rc+=1
+              if p.exists() and p.is_dir():shutil.rmtree(p);rc+=1
           print(f'LEGACY SEO CLEANUP: removed_brand_pages={removed}, removed_category_pages={rc}')
           PY
       - name: Sync verified deals to Supabase
@@ -196,29 +194,23 @@ jobs:
           set -euo pipefail
           git add -A data/news.json data/data-manifest.json data/search-index.json data/data-version.json data/shards
           git add -A brand seo sitemap.xml sitemap-brands.xml sitemap-seo.xml robots.txt
-          for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do
-            git rm -r --ignore-unmatch "$legacy"
-          done
+          for legacy in beauty consumer food-grocery travel-hotels gaming sports-outdoor software-digital-services baby-kids-family-family automotive-accessories books-education-media; do git rm -r --ignore-unmatch "$legacy"; done
           git status --short
       - name: Commit generated output
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
           git fetch origin main
-          remote_sha=$(git rev-parse origin/main)
-          local_sha=$(git rev-parse HEAD)
+          remote_sha=$(git rev-parse origin/main);local_sha=$(git rev-parse HEAD)
           if [ "$remote_sha" != "$local_sha" ]; then
             echo "Remote main advanced from $local_sha to $remote_sha while this run was executing."
             echo 'Discarding this run’s stale generated workspace and deploying the current main safely.'
-            git reset --hard "$remote_sha"
-            git clean -fd
+            git reset --hard "$remote_sha";git clean -fd
           elif git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
-            git config user.name 'deal24h-bot'
-            git config user.email 'deal24h-bot@users.noreply.github.com'
-            git commit -m 'chore: publish verified DEAL24H offers and SEO'
-            git push origin main
+            git config user.name 'deal24h-bot';git config user.email 'deal24h-bot@users.noreply.github.com'
+            git commit -m 'chore: publish verified DEAL24H offers and SEO';git push origin main
           fi
       - name: Configure Pages
         if: github.ref == 'refs/heads/main'
