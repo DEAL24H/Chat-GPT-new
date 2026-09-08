@@ -7,15 +7,12 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "data" / "brand_catalog.json"
 EXPECTED_CATEGORIES = ("Fashion", "Electronics", "Beauty & Personal Care", "Home & Living")
-CATEGORY_LABELS = {c: c for c in EXPECTED_CATEGORIES}
 PUBLISHED_STATUS = "live_verified"
 SOURCE_AUTHORITY = "assistant_verified_first_party"
 PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
 
-
 def normalize_brand(value):
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower().replace("’", "'")).strip()
-
 
 def load_catalog():
     try:
@@ -29,110 +26,68 @@ def load_catalog():
     except Exception as exc:
         raise RuntimeError(f"Cannot load canonical brand catalog: {exc}") from exc
 
-
 CATALOG = load_catalog()
 BRAND_INDEX = {}
 for category, entries in CATALOG.items():
     for entry in entries:
         name = str(entry.get("name", "")).strip()
         if name:
-            BRAND_INDEX[normalize_brand(name)] = {
-                "name": name,
-                "category": category,
-                "domain": str(entry.get("domain", "")).strip(),
-            }
+            BRAND_INDEX[normalize_brand(name)] = {"name": name, "category": category, "domain": str(entry.get("domain", "")).strip()}
 
-
-def resolve_brand(value):
-    return BRAND_INDEX.get(normalize_brand(value))
-
-
+def resolve_brand(value): return BRAND_INDEX.get(normalize_brand(value))
 def canonical_brand_name(value):
-    hit = resolve_brand(value)
-    return hit["name"] if hit else str(value or "").strip()
-
-
+    hit = resolve_brand(value); return hit["name"] if hit else str(value or "").strip()
 def category_for_brand(value):
-    hit = resolve_brand(value)
-    return hit["category"] if hit else ""
-
-
+    hit = resolve_brand(value); return hit["category"] if hit else ""
 def canonicalize_item(item):
-    item = dict(item)
-    hit = resolve_brand(item.get("merchant"))
-    if hit:
-        item["merchant"] = hit["name"]
-        item["category"] = hit["category"]
+    item = dict(item); hit = resolve_brand(item.get("merchant"))
+    if hit: item["merchant"], item["category"] = hit["name"], hit["category"]
     return item
-
-
-def brand_slug(value):
-    return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower().replace("&", " and ").replace("'", "")).strip("-")
-
-
+def brand_slug(value): return re.sub(r"[^a-z0-9]+", "-", str(value or "").lower().replace("&", " and ").replace("'", "")).strip("-")
 def _host(value):
     raw = str(value or "").strip()
-    if not raw:
-        return ""
+    if not raw: return ""
     parsed = urlparse(raw if "://" in raw else "https://" + raw)
     return (parsed.hostname or "").lower().removeprefix("www.")
-
-
 def _same_host(left, right):
-    a, b = _host(left), _host(right)
-    return bool(a and b) and (a == b or a.endswith("." + b) or b.endswith("." + a))
-
-
+    a,b=_host(left),_host(right)
+    return bool(a and b) and (a==b or a.endswith("."+b) or b.endswith("."+a))
 def _not_expired(item):
-    if str(item.get("status", "active")).lower() in {"expired", "inactive"}:
-        return False
-    raw = str(item.get("expires_at", "")).strip()
-    if not raw:
-        return True
+    if str(item.get("status","active")).lower() in {"expired","inactive"}: return False
+    raw=str(item.get("expires_at","")).strip()
+    if not raw: return True
     try:
-        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt > datetime.now(timezone.utc)
-    except ValueError:
-        return False
+        dt=datetime.fromisoformat(raw.replace("Z","+00:00"))
+        if dt.tzinfo is None: dt=dt.replace(tzinfo=timezone.utc)
+        return dt>datetime.now(timezone.utc)
+    except ValueError: return False
 
+def _brand_allowed_host(merchant, host):
+    """Allow only the canonical domain or an exact host from the fixed country URL list."""
+    hit=resolve_brand(merchant)
+    if not hit or not host: return False
+    if _same_host(host, hit.get("domain")): return True
+    try:
+        from bot.merchant_country_registry import allowed_hosts_for
+        return host in allowed_hosts_for(hit["name"])
+    except Exception:
+        return False
 
 def is_published_verified_offer(item):
-    """Single downstream publish contract for shards, SEO and Supabase."""
-    if not isinstance(item, dict) or item.get("category") not in EXPECTED_CATEGORIES:
-        return False
-    brand = resolve_brand(item.get("merchant"))
-    if not brand or brand.get("category") != item.get("category"):
-        return False
-    if item.get("offer_qualified") is not True:
-        return False
-    if item.get("official_source") is not True:
-        return False
-    if item.get("source_verification_status") != SOURCE_AUTHORITY:
-        return False
-    if item.get("purchase_url_verification_status") != PUBLISHED_STATUS:
-        return False
-    if item.get("published_offer_authority") != PUBLISHED_AUTHORITY:
-        return False
-    source = str(item.get("source_url") or "").strip()
-    promotion = str(item.get("promotion_url") or "").strip()
-    purchase = str(item.get("final_purchase_url") or "").strip()
-    url = str(item.get("url") or "").strip()
-    official_domain = str(brand.get("domain") or "").strip()
-    if not source or not promotion or not purchase or url != purchase or not official_domain:
-        return False
-    if not _same_host(promotion, source) or not _same_host(source, official_domain):
-        return False
-    if not _same_host(purchase, official_domain) or not _not_expired(item):
-        return False
-    return True
+    if not isinstance(item,dict) or item.get("category") not in EXPECTED_CATEGORIES: return False
+    brand=resolve_brand(item.get("merchant"))
+    if not brand or brand.get("category")!=item.get("category"): return False
+    if item.get("offer_qualified") is not True or item.get("official_source") is not True: return False
+    if item.get("source_verification_status")!=SOURCE_AUTHORITY: return False
+    if item.get("purchase_url_verification_status")!=PUBLISHED_STATUS: return False
+    if item.get("published_offer_authority")!=PUBLISHED_AUTHORITY: return False
+    source=str(item.get("source_url") or "").strip(); promotion=str(item.get("promotion_url") or "").strip(); purchase=str(item.get("final_purchase_url") or "").strip(); url=str(item.get("url") or "").strip()
+    official_domain=str(brand.get("domain") or "").strip()
+    if not source or not promotion or not purchase or url!=purchase or not official_domain: return False
+    if not _same_host(promotion,source): return False
+    if not _brand_allowed_host(brand["name"],_host(source)): return False
+    if not _brand_allowed_host(brand["name"],_host(purchase)): return False
+    return _not_expired(item)
 
-
-def is_active_offer(item):
-    """Compatibility alias: downstream code must use the published contract."""
-    return is_published_verified_offer(item)
-
-
-def published_items(items):
-    return [item for item in items if is_published_verified_offer(item)]
+def is_active_offer(item): return is_published_verified_offer(item)
+def published_items(items): return [item for item in items if is_published_verified_offer(item)]
