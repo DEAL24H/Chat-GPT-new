@@ -23,7 +23,7 @@ permissions:
   id-token: write
 concurrency:
   group: deal24h-main-publisher
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   pipeline:
     runs-on: ubuntu-latest
