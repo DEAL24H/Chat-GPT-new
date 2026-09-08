@@ -24,8 +24,26 @@ def _locale_rows():
     if not REGIONS.exists():
         raise RuntimeError("VERIFIED LOCALE REGISTRY MISSING")
     data = json.loads(REGIONS.read_text(encoding="utf-8"))
-    if data.get("version") != 3 or data.get("total_brands") != 120 or len(data.get("brands", {})) != 120:
-        raise RuntimeError("VERIFIED LOCALE REGISTRY CONTRACT FAILED: expected completed 120-brand registry")
+    if (
+        data.get("version") != 3
+        or data.get("total_brands") != 120
+        or data.get("brands_audited") != 120
+        or len(data.get("brands", {})) != 120
+        or data.get("verification_method") != "live_official_domain_and_commercial_sales_page_check"
+    ):
+        raise RuntimeError("VERIFIED LOCALE REGISTRY CONTRACT FAILED: expected completed 120-brand live-sales verification")
+
+    for merchant, entry in data.get("brands", {}).items():
+        for locale in entry.get("locales", []):
+            if locale.get("verification_status") != "verified_live_sales_destination":
+                raise RuntimeError(
+                    f"VERIFIED LOCALE REGISTRY CONTRACT FAILED: unverified locale retained for {merchant}"
+                )
+            if not locale.get("verified_url") or not locale.get("status_code"):
+                raise RuntimeError(
+                    f"VERIFIED LOCALE REGISTRY CONTRACT FAILED: incomplete verified locale for {merchant}"
+                )
+
     return data.get("brands", {})
 
 
@@ -43,7 +61,6 @@ def _collect_with_verified_locales(source):
         regional["country"] = locale["country_code"]
         _, items, locale_errors = _original_collect(regional)
         for item in items:
-            # Keep canonical merchant identity; locale is only the sales destination.
             item["country"] = locale["country_code"]
             item["locale"] = locale.get("locale", locale["country_code"].lower())
             item["locale_source"] = locale["evidence"]
