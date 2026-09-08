@@ -38,6 +38,8 @@ jobs:
           python-version: '3.12'
       - name: Install bot dependencies
         run: pip install -r bot/requirements.txt
+      - name: Install Playwright Chromium
+        run: python -m playwright install chromium
       - name: Syntax gate
         run: |
           python -m py_compile bot/*.py scripts/*.py
@@ -60,7 +62,7 @@ jobs:
           print('SOURCE SELECTION CONTRACT PASS:',d['counts'])
           PY
       - name: Crawl verified promotions
-        run: python bot/deal_bot.py
+        run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
         run: python scripts/validate_deal_contract.py
       - name: Verify live offer purchase destinations
