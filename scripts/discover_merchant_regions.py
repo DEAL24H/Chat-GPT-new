@@ -33,7 +33,9 @@ COUNTRY_SUBDOMAIN_RE = re.compile(r"^([a-z]{2})\.", re.I)
 LANG_REGION_RE = re.compile(r"^[a-z]{2,3}-([a-z]{2})$", re.I)
 CC_TLD = {".co.uk":"GB",".com.au":"AU",".co.nz":"NZ",".co.jp":"JP",".co.kr":"KR",".com.br":"BR",".com.mx":"MX",".com.tr":"TR",".com.sg":"SG",".com.my":"MY",".com.tw":"TW",".com.hk":"HK",".co.in":"IN",".co.za":"ZA",".com.cn":"CN",".com.ar":"AR",".com.ua":"UA",".com.vn":"VN",".fr":"FR",".de":"DE",".es":"ES",".it":"IT",".nl":"NL",".be":"BE",".at":"AT",".ch":"CH",".ca":"CA",".dk":"DK",".se":"SE",".no":"NO",".fi":"FI",".pl":"PL",".pt":"PT",".gr":"GR",".ie":"IE",".cz":"CZ",".ro":"RO",".hu":"HU",".nz":"NZ",".au":"AU",".jp":"JP"}
 COUNTRY_LABELS = {"united states":"US","usa":"US","canada":"CA","united kingdom":"GB","uk":"GB","australia":"AU","new zealand":"NZ","japan":"JP","china":"CN","hong kong":"HK","taiwan":"TW","south korea":"KR","korea":"KR","singapore":"SG","india":"IN","germany":"DE","france":"FR","italy":"IT","spain":"ES","portugal":"PT","netherlands":"NL","belgium":"BE","switzerland":"CH","austria":"AT","denmark":"DK","sweden":"SE","norway":"NO","finland":"FI","poland":"PL","ireland":"IE","mexico":"MX","brazil":"BR","argentina":"AR","chile":"CL","colombia":"CO","peru":"PE","united arab emirates":"AE","saudi arabia":"SA","south africa":"ZA","thailand":"TH","malaysia":"MY","indonesia":"ID","vietnam":"VN","turkey":"TR","türkiye":"TR","greece":"GR","czech republic":"CZ","romania":"RO","hungary":"HU","ukraine":"UA","russia":"RU"}
-SALES_TERMS = re.compile(r"(?:add to (?:bag|cart)|buy now|shop now|add-to-cart|shopping cart|product(?:s)?|price|checkout|sale|shop|store|sku|in stock|select size)", re.I)
+# Deliberately exclude generic words such as "shop", "store", and "sale".
+# A locale passes only with direct commerce evidence or Product/Offer JSON-LD.
+DIRECT_SALES_TERMS = re.compile(r"(?:add to (?:bag|cart)|add-to-cart|buy now|shopping cart|checkout|select size|in stock|sku|product(?:s)?\b.{0,80}\b(?:price|\$|€|£)|(?:price|\$|€|£).{0,80}\bproduct)", re.I | re.S)
 
 def host(url): return (urlparse(url).hostname or "").lower().removeprefix("www.")
 def same_domain(url, domain):
@@ -90,9 +92,12 @@ def verify_locale(row,source,client):
     if not response:return None,{"url":row["url"],"reason":error or "unreachable"}
     if response.status_code>=400 or not same_domain(response.url,domain):return None,{"url":row["url"],"reason":f"HTTP_{response.status_code}_or_non_official_redirect","final_url":response.url}
     soup=BeautifulSoup(response.text,"html.parser"); visible=soup.get_text(" ",strip=True)
-    product_json=bool(soup.find("script",type=re.compile(r"ld\+json",re.I))) and bool(re.search(r'"(?:Product|offers|price)"',response.text,re.I))
-    if not (SALES_TERMS.search(visible) or product_json):return None,{"url":row["url"],"reason":"locale_page_not_verified_as_sales_destination","final_url":response.url}
-    verified=dict(row);verified.update({"verification_status":"verified_live_sales_destination","verified_url":response.url,"status_code":response.status_code,"sales_page_evidence":"commercial_page_content","verified_on":date.today().isoformat()});return verified,None
+    jsonld_text=" ".join(x.get_text(" ",strip=True) for x in soup.find_all("script",type=re.compile(r"ld\+json",re.I)))
+    product_json=bool(re.search(r'"(?:@type"\s*:\s*"(?:Product|Offer)|Product|offers|priceCurrency|price)"',jsonld_text,re.I))
+    direct_sales=bool(DIRECT_SALES_TERMS.search(visible))
+    if not (direct_sales or product_json):
+        return None,{"url":row["url"],"reason":"locale_page_not_verified_as_direct_sales_destination","final_url":response.url}
+    verified=dict(row);verified.update({"verification_status":"verified_live_sales_destination","verified_url":response.url,"status_code":response.status_code,"sales_page_evidence":"direct_commerce_content_or_product_offer_jsonld","verified_on":date.today().isoformat()});return verified,None
 
 def main():
     selection=json.loads(SELECTION.read_text(encoding="utf-8"));sources=selection.get("sources",[])
