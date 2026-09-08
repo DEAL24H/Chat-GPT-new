@@ -3,5 +3,7 @@
   "authority": "user_provided_120_brand_country_url_list",
   "total_brands": 120,
   "total_country_market_urls": 320,
-  "brands": {}
+  "brands": {
+    "Zara": {"category":"Fashion","official_homepage":"https://www.zara.com","locales":[{"market":"Việt Nam","url":"https://www.zara.com/vn/"},{"market":"Mỹ","url":"https://www.zara.com/us/"},{"market":"Anh","url":"https://www.zara.com/uk/"},{"market":"Pháp","url":"https://www.zara.com/fr/"},{"market":"Đức","url":"https://www.zara.com/de/"},{"market":"Tây Ban Nha","url":"https://www.zara.com/es/"}]}
+  }
 }
