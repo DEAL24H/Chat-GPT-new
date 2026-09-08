@@ -2,13 +2,17 @@
 from __future__ import annotations
 
 import json
+import sys
 from copy import deepcopy
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from bot import deal_bot
 from bot.site_adapters import SiteAdapterClient
 
-ROOT = Path(__file__).resolve().parents[1]
 REGIONS = ROOT / "data/merchant_regions.json"
 _adapter = SiteAdapterClient(timeout=deal_bot.TIMEOUT, retries=deal_bot.RETRIES)
 deal_bot.fetch = lambda url, domain: _adapter.fetch(url, domain, deal_bot.H)
@@ -33,9 +37,9 @@ def _collect_with_verified_locales(source):
 
     all_items = []
     errors = []
-    # Each locale URL was discovered from first-party evidence. Keep the
-    # canonical merchant/domain identity unchanged; only the crawl destination
-    # and resulting country are varied.
+    # Locale URLs are supplied only by the verified merchant locale registry.
+    # Keep canonical merchant/domain identity unchanged; only crawl destination
+    # and resulting country/locale are varied.
     for locale in locales:
         regional = deepcopy(source)
         regional["official_homepage"] = locale["url"]
