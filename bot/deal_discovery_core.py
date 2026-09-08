@@ -7,7 +7,7 @@ from urllib.parse import urljoin,urlparse
 import requests
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1];SELECTION=ROOT/'data/assistant_verified_source_selection.json';OUT=ROOT/'data/news.json'
-CATS=['Fashion','Electronics','Beauty & Personal Care','Home & Living'];WORKERS=12;TIMEOUT=15;RETRIES=3;MAX_PAGES=40
+CATS=['Fashion','Electronics','Beauty & Personal Care','Home & Living'];WORKERS=12;TIMEOUT=15;RETRIES=3;MAX_PAGES=24
 H={'User-Agent':'Deal24H/7.0 (+https://deal24h.net/ official promotion crawler)','Accept':'text/html,application/xhtml+xml','Accept-Language':'en-US,en;q=0.9'}
 PROMO=re.compile(r'\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|specials?|savings|voucher|limited time|member (?:price|savings|offer)|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|without (?:a )?code)\b',re.I)
 BENEFIT=re.compile(r'(?:\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\bbuy\s+\d+\s+get\s+\d+\b|\bbuy one get one\b|\bfree\s+(?:gift|shipping|delivery|item|set)\b|\bgift with purchase\b|\bspend\s+\$?\d+(?:[.,]\d+)?\s*(?:or more|\+)?\b|\b(?:no code required|code not required|without (?:a )?code)\b|\bmember (?:price|savings|offer)\b|\bbundle\b)',re.I)
