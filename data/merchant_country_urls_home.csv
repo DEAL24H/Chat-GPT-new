@@ -1,0 +1,89 @@
+brand,market,url
+IKEA,Gốc / Quốc tế,https://www.ikea.com
+IKEA,Việt Nam,https://www.ikea.com/vn/en/
+IKEA,Mỹ,https://www.ikea.com/us/en/
+IKEA,Anh,https://www.ikea.com/gb/en/
+Lowe's,Gốc / Quốc tế,https://www.lowes.com
+Lowe's,Thị trường chính (Mỹ),https://www.lowes.com
+Wayfair,Gốc / Quốc tế,https://www.wayfair.com
+Wayfair,Mỹ,https://www.wayfair.com
+Wayfair,Anh,https://www.wayfair.co.uk
+Walmart,Gốc / Quốc tế,https://www.walmart.com
+Walmart,Thị trường chính (Mỹ),https://www.walmart.com
+Target,Gốc / Quốc tế,https://www.target.com
+Target,Thị trường chính (Mỹ),https://www.target.com
+Ashley,Gốc / Quốc tế,https://www.ashleyfurniture.com
+Ashley,Mỹ,https://www.ashleyfurniture.com
+Ashley,Anh,https://www.ashleyfurniture.co.uk
+Ace Hardware,Gốc / Quốc tế,https://www.acehardware.com
+Ace Hardware,Mỹ,https://www.acehardware.com
+Ace Hardware,Anh,https://www.acehardware.co.uk
+Costco,Gốc / Quốc tế,https://www.costco.com
+Costco,Mỹ,https://www.costco.com
+Costco,Anh,https://www.costco.co.uk
+Amazon Home,Gốc / Quốc tế,https://www.amazon.com
+Amazon Home,Mỹ,https://www.amazon.com
+Amazon Home,Anh,https://www.amazon.co.uk
+Dyson,Gốc / Quốc tế,https://www.dyson.com
+Dyson,Việt Nam,https://www.dyson.vn/
+Dyson,Mỹ,https://www.dyson.com/
+Dyson,Anh,https://www.dyson.co.uk/
+Shark,Gốc / Quốc tế,https://www.sharkclean.com
+Shark,Mỹ,https://www.sharkclean.com
+Shark,Anh,https://www.sharkclean.co.uk
+Bosch,Gốc / Quốc tế,https://www.bosch.com
+Bosch,Việt Nam,https://www.bosch.com/vn/
+Bosch,Mỹ,https://www.bosch.com/us/
+Bosch,Anh,https://www.bosch.com/uk/
+KitchenAid,Gốc / Quốc tế,https://www.kitchenaid.com
+KitchenAid,Việt Nam,https://www.kitchenaid.com/vn/
+KitchenAid,Mỹ,https://www.kitchenaid.com/us/
+KitchenAid,Anh,https://www.kitchenaid.com/uk/
+Whirlpool,Gốc / Quốc tế,https://www.whirlpool.com
+Whirlpool,Việt Nam,https://www.whirlpool.com/vn/
+Whirlpool,Mỹ,https://www.whirlpool.com/us/
+Whirlpool,Anh,https://www.whirlpool.com/uk/
+GE Appliances,Gốc / Quốc tế,https://www.geappliances.com
+GE Appliances,Mỹ,https://www.geappliances.com
+GE Appliances,Anh,https://www.geappliances.co.uk
+Pottery Barn,Gốc / Quốc tế,https://www.potterybarn.com
+Pottery Barn,Mỹ,https://www.potterybarn.com
+Pottery Barn,Anh,https://www.potterybarn.co.uk
+West Elm,Gốc / Quốc tế,https://www.westelm.com
+West Elm,Mỹ,https://www.westelm.com
+West Elm,Anh,https://www.westelm.co.uk
+Crate & Barrel,Gốc / Quốc tế,https://www.crateandbarrel.com
+Crate & Barrel,Mỹ,https://www.crateandbarrel.com
+Crate & Barrel,Anh,https://www.crateandbarrel.co.uk
+La-Z-Boy,Gốc / Quốc tế,https://www.la-z-boy.com
+La-Z-Boy,Mỹ,https://www.la-z-boy.com
+La-Z-Boy,Anh,https://www.la-z-boy.co.uk
+Harbor Freight,Gốc / Quốc tế,https://www.harborfreight.com
+Harbor Freight,Mỹ,https://www.harborfreight.com
+Harbor Freight,Anh,https://www.harborfreight.co.uk
+Uline,Gốc / Quốc tế,https://www.uline.com
+Uline,Mỹ,https://www.uline.com
+Uline,Anh,https://www.uline.co.uk
+Mattress Firm,Gốc / Quốc tế,https://www.mattressfirm.com
+Mattress Firm,Mỹ,https://www.mattressfirm.com
+Mattress Firm,Anh,https://www.mattressfirm.co.uk
+Dunelm,Gốc / Quốc tế,https://www.dunelm.com
+Dunelm,Thị trường chính (Anh),https://www.dunelm.com
+Habitat,Gốc / Quốc tế,https://www.habitat.co.uk
+Habitat,Mỹ,https://www.habitat.co.uk
+Habitat,Anh,https://www.habitat.co.uk
+Homebase,Gốc / Quốc tế,https://www.homebase.co.uk
+Homebase,Thị trường chính (Anh),https://www.homebase.co.uk
+The Range,Gốc / Quốc tế,https://www.therange.co.uk
+The Range,Thị trường chính (Anh),https://www.therange.co.uk
+John Lewis & Partners,Gốc / Quốc tế,https://www.johnlewis.com
+John Lewis & Partners,Mỹ,https://www.johnlewis.com
+John Lewis & Partners,Anh,https://www.johnlewis.co.uk
+Argos,Gốc / Quốc tế,https://www.argos.co.uk
+Argos,Thị trường chính (Anh),https://www.argos.co.uk
+Bed Bath & Beyond,Gốc / Quốc tế,https://www.bedbathandbeyond.com
+Bed Bath & Beyond,Mỹ,https://www.bedbathandbeyond.com
+Bed Bath & Beyond,Anh,https://www.bedbathandbeyond.co.uk
+Overstock,Gốc / Quốc tế,https://www.overstock.com
+Overstock,Mỹ,https://www.overstock.com
+Overstock,Anh,https://www.overstock.co.uk
