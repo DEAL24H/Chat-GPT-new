@@ -17,8 +17,16 @@ def same(a,b):
  x,y=host(a),host(b);return bool(x and y and(x==y or x.endswith('.'+y) or y.endswith('.'+x)))
 def purchase(v):
  if not str(v).startswith(('http://','https://')):return False
- p=urlparse(v);path=f'{p.path} {p.query}'
+ p=urlparse(v)
  return bool(host(v)) and not(BAD.search(p.path) and not SHOP_PATH.search(p.path))
+def allowed_host(merchant,value):
+ try:
+  from bot.merchant_country_registry import allowed_hosts_for
+  catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
+  canonical={str(e.get('name','')).casefold():str(e.get('domain','')) for es in catalog.values() for e in es}.get(str(merchant).casefold(),'')
+  h=host(value)
+  return bool(h and canonical and (same(h,canonical) or h in allowed_hosts_for(merchant)))
+ except Exception:return False
 def live(item):
  u=str(item.get('final_purchase_url') or '').strip()
  try:r=requests.get(u,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'},timeout=TIMEOUT,allow_redirects=True)
@@ -26,14 +34,14 @@ def live(item):
  f=r.url
  if r.status_code in INACCESSIBLE:return'runtime_inaccessible',f'DESTINATION_RUNTIME_HTTP_{r.status_code}',f
  if r.status_code>=400:return'failed',f'DESTINATION_HTTP_{r.status_code}',f
- if not same(item.get('official_homepage') or item.get('source_url'),f):return'failed','DESTINATION_LEFT_OFFICIAL_DOMAIN',f
+ if not allowed_host(item.get('merchant'),f):return'failed','DESTINATION_LEFT_ALLOWED_BRAND_DOMAIN',f
  if not purchase(f):return'failed','DESTINATION_NOT_ALLOWED_PAGE',f
  soup=BeautifulSoup(r.text,'html.parser');text=soup.get_text(' ',strip=True)[:160000];html=r.text.lower();path=urlparse(f).path
  commerce=bool(SHOP_PATH.search(path) or CTA.search(text) or re.search(r'addtocart|add-to-cart|buy-now|checkout',html) or re.search(r'\$|€|£|¥|\b(?:USD|EUR|GBP|CAD|AUD)\b',text))
  if not commerce:return'failed','NO_COMMERCE_SIGNAL',f
  return'live_verified','LIVE_BRAND_SALES_DESTINATION_VERIFIED',f
 def main():
- data=json.loads(DATA.read_text(encoding='utf-8'));catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{});domains={str(e.get('name','')).casefold():str(e.get('domain','')) for es in catalog.values() for e in es}
+ data=json.loads(DATA.read_text(encoding='utf-8'));catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
  if not isinstance(data,list):raise SystemExit('news.json is not a list')
  published=[];rejected=[];now=datetime.now(timezone.utc).isoformat()
  for item in data:
@@ -41,9 +49,10 @@ def main():
   if category not in EXPECTED:reason='NON_CANONICAL_CATEGORY'
   elif item.get('source_verification_status')!='assistant_verified_first_party':reason='SOURCE_NOT_ASSISTANT_VERIFIED'
   elif not src.startswith(('http://','https://')):reason='INVALID_SOURCE_URL'
+  elif not allowed_host(merchant,src):reason='SOURCE_NOT_ALLOWED_BRAND_DOMAIN'
   elif not promotion.startswith(('http://','https://')) or not same(promotion,src):reason='PROMOTION_URL_NOT_SOURCE_DOMAIN'
   elif not purchase(dest):reason='DESTINATION_NOT_ALLOWED_PAGE'
-  elif not same(domains.get(merchant.casefold(),src),dest):reason='DESTINATION_LEFT_CATALOG_DOMAIN'
+  elif not allowed_host(merchant,dest):reason='DESTINATION_NOT_ALLOWED_BRAND_DOMAIN'
   if reason:rejected.append((merchant,reason,dest));continue
   status,vr,final=live(item)
   if status!='live_verified':rejected.append((merchant,vr,final));continue
