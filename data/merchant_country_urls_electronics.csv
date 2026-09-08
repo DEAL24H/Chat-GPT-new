@@ -1,0 +1,106 @@
+brand,market,url
+Apple,Gốc / Quốc tế,https://www.apple.com
+Apple,Việt Nam,https://www.apple.com/vn/
+Apple,Mỹ,https://www.apple.com/
+Apple,Anh,https://www.apple.com/uk/
+Apple,Nhật Bản,https://www.apple.com/jp/
+Samsung,Gốc / Quốc tế,https://www.samsung.com
+Samsung,Việt Nam,https://www.samsung.com/vn/
+Samsung,Mỹ,https://www.samsung.com/us/
+Samsung,Anh,https://www.samsung.com/uk/
+Samsung,Nhật Bản,https://www.samsung.com/jp/
+Sony,Gốc / Quốc tế,https://www.sony.com
+Sony,Việt Nam,https://www.sony.com.vn/
+Sony,Mỹ,https://www.sony.com/en_us/
+Sony,Anh,https://www.sony.co.uk/
+Xiaomi,Gốc / Quốc tế,https://www.mi.com
+Xiaomi,Việt Nam,https://www.mi.com/vn/
+Xiaomi,Mỹ,https://www.mi.com/us/
+Xiaomi,Toàn cầu,https://www.mi.com/global/
+LG,Gốc / Quốc tế,https://www.lg.com
+LG,Việt Nam,https://www.lg.com/vn/
+LG,Mỹ,https://www.lg.com/us/
+LG,Anh,https://www.lg.com/uk/
+Lenovo,Gốc / Quốc tế,https://www.lenovo.com
+Lenovo,Việt Nam,https://www.lenovo.com/vn/
+Lenovo,Mỹ,https://www.lenovo.com/us/
+Lenovo,Anh,https://www.lenovo.com/uk/
+HP,Gốc / Quốc tế,https://www.hp.com
+HP,Việt Nam,https://www.hp.com/vn/
+HP,Mỹ,https://www.hp.com/us/
+HP,Anh,https://www.hp.com/uk/
+Dell,Gốc / Quốc tế,https://www.dell.com
+Dell,Việt Nam,https://www.dell.com/en-vn
+Dell,Mỹ,https://www.dell.com/en-us
+Dell,Anh,https://www.dell.com/en-gb
+ASUS,Gốc / Quốc tế,https://www.asus.com
+ASUS,Việt Nam,https://www.asus.com/vn/
+ASUS,Mỹ,https://www.asus.com/us/
+ASUS,Anh,https://www.asus.com/uk/
+Huawei,Gốc / Quốc tế,https://www.huawei.com
+Huawei,Việt Nam,https://www.huawei.com/vn/
+Huawei,Mỹ,https://www.huawei.com/us/
+Huawei,Anh,https://www.huawei.com/uk/
+Microsoft,Gốc / Quốc tế,https://www.microsoft.com
+Microsoft,Việt Nam,https://www.microsoft.com/vn/
+Microsoft,Mỹ,https://www.microsoft.com/us/
+Microsoft,Anh,https://www.microsoft.com/uk/
+Google,Gốc / Quốc tế,https://www.google.com
+Google,Việt Nam,https://www.google.com/vn/
+Google,Mỹ,https://www.google.com/us/
+Google,Anh,https://www.google.com/uk/
+Panasonic,Gốc / Quốc tế,https://www.panasonic.com
+Panasonic,Việt Nam,https://www.panasonic.com/vn/
+Panasonic,Mỹ,https://www.panasonic.com/us/
+Panasonic,Anh,https://www.panasonic.com/uk/
+Canon,Gốc / Quốc tế,https://www.canon.com
+Canon,Mỹ,https://www.canon.com
+Canon,Anh,https://www.canon.co.uk
+Nikon,Gốc / Quốc tế,https://www.nikonusa.com
+Nikon,Mỹ,https://www.nikonusa.com
+Nikon,Anh,https://www.nikonusa.co.uk
+Bose,Gốc / Quốc tế,https://www.bose.com
+Bose,Mỹ,https://www.bose.com
+Bose,Anh,https://www.bose.co.uk
+JBL,Gốc / Quốc tế,https://www.jbl.com
+JBL,Mỹ,https://www.jbl.com
+JBL,Anh,https://www.jbl.co.uk
+Philips,Gốc / Quốc tế,https://www.philips.com
+Philips,Mỹ,https://www.philips.com
+Philips,Anh,https://www.philips.co.uk
+Nintendo,Gốc / Quốc tế,https://www.nintendo.com
+Nintendo,Mỹ,https://www.nintendo.com
+Nintendo,Anh,https://www.nintendo.co.uk
+GoPro,Gốc / Quốc tế,https://www.gopro.com
+GoPro,Mỹ,https://www.gopro.com
+GoPro,Anh,https://www.gopro.co.uk
+OnePlus,Gốc / Quốc tế,https://www.oneplus.com
+OnePlus,Mỹ,https://www.oneplus.com
+OnePlus,Anh,https://www.oneplus.co.uk
+Acer,Gốc / Quốc tế,https://www.acer.com
+Acer,Mỹ,https://www.acer.com
+Acer,Anh,https://www.acer.co.uk
+MSI,Gốc / Quốc tế,https://www.msi.com
+MSI,Mỹ,https://www.msi.com
+MSI,Anh,https://www.msi.co.uk
+Razer,Gốc / Quốc tế,https://www.razer.com
+Razer,Mỹ,https://www.razer.com
+Razer,Anh,https://www.razer.co.uk
+Logitech,Gốc / Quốc tế,https://www.logitech.com
+Logitech,Mỹ,https://www.logitech.com
+Logitech,Anh,https://www.logitech.co.uk
+Garmin,Gốc / Quốc tế,https://www.garmin.com
+Garmin,Mỹ,https://www.garmin.com
+Garmin,Anh,https://www.garmin.co.uk
+Amazon Devices,Gốc / Quốc tế,https://www.amazon.com
+Amazon Devices,Mỹ,https://www.amazon.com
+Amazon Devices,Anh,https://www.amazon.co.uk
+Alienware,Gốc / Quốc tế,https://www.alienware.com
+Alienware,Mỹ,https://www.alienware.com
+Alienware,Anh,https://www.alienware.co.uk
+iRobot,Gốc / Quốc tế,https://www.irobot.com
+iRobot,Mỹ,https://www.irobot.com
+iRobot,Anh,https://www.irobot.co.uk
+Sonos,Gốc / Quốc tế,https://www.sonos.com
+Sonos,Mỹ,https://www.sonos.com
+Sonos,Anh,https://www.sonos.co.uk
