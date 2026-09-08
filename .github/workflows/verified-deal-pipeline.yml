@@ -1,7 +1,7 @@
 name: Verified Deal Pipeline
 on:
   push:
-    branches: [TN01, main]
+    branches: [TN01, main, bot-manus-single-core-integration]
     paths:
       - 'bot/**'
       - 'scripts/**'
