@@ -5,9 +5,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]
 FILES=(ROOT/"data/merchant_country_urls_fashion.csv",ROOT/"data/merchant_country_urls_electronics.csv",ROOT/"data/merchant_country_urls_beauty.csv",ROOT/"data/merchant_country_urls_home.csv")
-
 def _host(url): return (urlparse(str(url).strip()).hostname or "").lower().removeprefix("www.")
-
 def load_registry():
  rows=[]
  for path in FILES:
@@ -24,5 +22,11 @@ def load_registry():
  if len(by_brand)!=120: raise RuntimeError(f"COUNTRY URL REGISTRY BRAND COUNT FAILED: {len(by_brand)} != 120")
  return by_brand
 REGISTRY=load_registry()
-def locales_for(merchant): return list(REGISTRY.get(str(merchant).strip(),()))
+def locales_for(merchant):
+ seen=set(); result=[]
+ for row in REGISTRY.get(str(merchant).strip(),()):
+  if row["market"].strip().lower().startswith("gốc"): continue
+  if row["url"] in seen: continue
+  seen.add(row["url"]); result.append(row)
+ return result
 def allowed_hosts_for(merchant): return {_host(r["url"]) for r in locales_for(merchant) if _host(r["url"])}
