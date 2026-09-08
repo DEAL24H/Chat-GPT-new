@@ -108,8 +108,10 @@ class BrowserRenderer:
         page = browser.new_page(extra_http_headers=headers)
         try:
             response = page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
+            # Do not wait up to 8s for full network idle. Promotion pages often
+            # keep analytics/personalisation connections open indefinitely.
             try:
-                page.wait_for_load_state("networkidle", timeout=min(timeout_ms, 8000))
+                page.wait_for_load_state("networkidle", timeout=min(timeout_ms, 3000))
             except Exception:
                 pass
             text = page.content()
