@@ -13,21 +13,23 @@ deal_bot.fetch=lambda url,domain:_adapter.fetch(url,domain,deal_bot.H)
 _original_collect=deal_bot.collect
 _original_extract=deal_bot.extract
 
-def _collect_from_fixed_country_urls(source):
-    locales=locales_for(source.get("merchant"))
-    if not locales:
-        return source,[],[f"No fixed country URL listed for {source.get('merchant')}"]
-    all_items=[]; errors=[]
-    for locale in locales:
+def _collect_from_fixed_urls(source):
+    targets=[{"market":"Gốc / Quốc tế","url":source["official_homepage"]}]
+    targets.extend(locales_for(source.get("merchant")))
+    seen=set(); all_items=[]; errors=[]
+    for target in targets:
+        url=target["url"]
+        if url in seen: continue
+        seen.add(url)
         regional=deepcopy(source)
-        regional["official_homepage"]=locale["url"]
-        regional["country"]=locale["market"]
-        regional["locale"]=locale["market"]
+        regional["official_homepage"]=url
+        regional["country"]=target["market"]
+        regional["locale"]=target["market"]
         _,items,locale_errors=_original_collect(regional)
         for item in items:
-            item["country"]=locale["market"]
-            item["locale"]=locale["market"]
-            item["locale_source"]="user_provided_fixed_country_url_list"
+            item["country"]=target["market"]
+            item["locale"]=target["market"]
+            item["locale_source"]="user_provided_fixed_country_url_list" if target["market"] != "Gốc / Quốc tế" else "catalog_root_url"
             item["official_homepage"]=source.get("official_homepage")
             item["source_domain"]=source.get("domain")
         all_items.extend(items)
@@ -40,7 +42,7 @@ def _extract_with_locale(response,source):
     for item in items:item["country"]=country
     return items
 
-deal_bot.collect=_collect_from_fixed_country_urls
+deal_bot.collect=_collect_from_fixed_urls
 deal_bot.extract=_extract_with_locale
 
 def main(): deal_bot.main()
