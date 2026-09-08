@@ -16,15 +16,16 @@ from bot.site_adapters import SiteAdapterClient
 REGIONS = ROOT / "data/merchant_regions.json"
 _adapter = SiteAdapterClient(timeout=deal_bot.TIMEOUT, retries=deal_bot.RETRIES)
 deal_bot.fetch = lambda url, domain: _adapter.fetch(url, domain, deal_bot.H)
-
 _original_collect = deal_bot.collect
 _original_extract = deal_bot.extract
 
 
 def _locale_rows():
     if not REGIONS.exists():
-        return {}
+        raise RuntimeError("VERIFIED LOCALE REGISTRY MISSING")
     data = json.loads(REGIONS.read_text(encoding="utf-8"))
+    if data.get("version") != 3 or data.get("total_brands") != 120 or len(data.get("brands", {})) != 120:
+        raise RuntimeError("VERIFIED LOCALE REGISTRY CONTRACT FAILED: expected completed 120-brand registry")
     return data.get("brands", {})
 
 
@@ -35,20 +36,19 @@ def _collect_with_verified_locales(source):
     if not locales:
         return _original_collect(source)
 
-    all_items = []
-    errors = []
-    # Locale URLs are supplied only by the verified merchant locale registry.
-    # Keep canonical merchant/domain identity unchanged; only crawl destination
-    # and resulting country/locale are varied.
+    all_items, errors = [], []
     for locale in locales:
         regional = deepcopy(source)
-        regional["official_homepage"] = locale["url"]
+        regional["official_homepage"] = locale["verified_url"]
         regional["country"] = locale["country_code"]
         _, items, locale_errors = _original_collect(regional)
         for item in items:
+            # Keep canonical merchant identity; locale is only the sales destination.
             item["country"] = locale["country_code"]
             item["locale"] = locale.get("locale", locale["country_code"].lower())
             item["locale_source"] = locale["evidence"]
+            item["official_homepage"] = source["official_homepage"]
+            item["source_domain"] = source["domain"]
         all_items.extend(items)
         errors.extend(locale_errors)
     return source, all_items, errors[:20]
