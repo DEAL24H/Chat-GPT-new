@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ALLOWLIST = ROOT / "data" / "allowed_brand_urls.json"
 
 _JS_SHELL = re.compile(
-    r"(?:__next|__nuxt|webpack|vite|react|angular|svelte|application/ld\+json|id=[\"'](?:app|root)[\"'])",
+    r"(?:__next|__nuxt|webpack|vite|react|angular|svelte|id=[\"'](?:app|root)[\"'])",
     re.I,
 )
 

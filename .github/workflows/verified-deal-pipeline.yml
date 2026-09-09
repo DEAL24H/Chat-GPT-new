@@ -66,34 +66,43 @@ jobs:
         timeout-minutes: 30
         run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
+        timeout-minutes: 5
         run: python scripts/validate_deal_contract.py
       - name: Verify live offer purchase destinations
+        timeout-minutes: 20
         run: python scripts/validate_offer_links.py
       - name: Build canonical data shards
+        timeout-minutes: 5
         run: python scripts/build_data_shards.py
       - name: Sync verified deals to Supabase
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 10
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python scripts/sync_supabase.py
       - name: Generate canonical offer SEO pages and navigation index
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 10
         run: python bot/seo_offer_articles.py
       - name: Generate canonical brand/category SEO pages and site sitemap
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 10
         run: python bot/seo_generator_999.py
       - name: Validate generated SEO output and site navigation
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
         run: python scripts/validate_generated_seo.py
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
         run: python bot/validate_site_fast.py
       - name: Configure Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
+        timeout-minutes: 10
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
