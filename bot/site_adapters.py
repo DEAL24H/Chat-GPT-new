@@ -96,10 +96,13 @@ class BrowserRenderer:
 
     @classmethod
     def fetch(cls, url: str, timeout_ms: int, headers: dict[str, str]) -> AdapterResponse:
-        cls._slots.acquire()
-        browser = cls._browser()
-        page = browser.new_page(extra_http_headers=headers)
+        acquired = cls._slots.acquire(timeout=max(1.0, timeout_ms / 1000))
+        if not acquired:
+            raise TimeoutError("browser fallback slot timeout")
+        page = None
         try:
+            browser = cls._browser()
+            page = browser.new_page(extra_http_headers=headers)
             response = page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
             try:
                 page.wait_for_load_state("networkidle", timeout=min(timeout_ms, 8000))
@@ -110,8 +113,13 @@ class BrowserRenderer:
             status = response.status if response else 200
             return AdapterResponse(final_url, text, status, {"content-type": "text/html"}, "playwright")
         finally:
-            page.close()
-            cls._slots.release()
+            if page is not None:
+                try:
+                    page.close()
+                finally:
+                    cls._slots.release()
+            else:
+                cls._slots.release()
 
 
 @atexit.register

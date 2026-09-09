@@ -63,6 +63,7 @@ jobs:
           print('EXACT URL ALLOWLIST CONTRACT PASS: brands=120 urls=440')
           PY
       - name: Crawl verified promotions
+        timeout-minutes: 30
         run: python bot/deal_bot_with_adapters.py
       - name: Validate canonical deal contract
         run: python scripts/validate_deal_contract.py
