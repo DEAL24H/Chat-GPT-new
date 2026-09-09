@@ -62,16 +62,19 @@ def _not_expired(item):
         return dt>datetime.now(timezone.utc)
     except ValueError: return False
 
-def _brand_allowed_host(merchant, host):
-    """Allow only the canonical domain or an exact host from the fixed country URL list."""
-    hit=resolve_brand(merchant)
-    if not hit or not host: return False
-    if _same_host(host, hit.get("domain")): return True
-    try:
-        from bot.merchant_country_registry import allowed_hosts_for
-        return host in allowed_hosts_for(hit["name"])
-    except Exception:
+def is_brand_host_allowed(merchant, value):
+    """Single canonical host policy: catalog domain or configured country-market host."""
+    hit = resolve_brand(merchant)
+    h = _host(value)
+    if not hit or not h:
         return False
+    if _same_host(h, hit.get("domain", "")):
+        return True
+    from bot.merchant_country_registry import allowed_hosts_for
+    return h in allowed_hosts_for(hit["name"])
+
+def _brand_allowed_host(merchant, host):
+    return is_brand_host_allowed(merchant, host)
 
 def is_published_verified_offer(item):
     if not isinstance(item,dict) or item.get("category") not in EXPECTED_CATEGORIES: return False
@@ -85,8 +88,8 @@ def is_published_verified_offer(item):
     official_domain=str(brand.get("domain") or "").strip()
     if not source or not promotion or not purchase or url!=purchase or not official_domain: return False
     if not _same_host(promotion,source): return False
-    if not _brand_allowed_host(brand["name"],_host(source)): return False
-    if not _brand_allowed_host(brand["name"],_host(purchase)): return False
+    if not is_brand_host_allowed(brand["name"],source): return False
+    if not is_brand_host_allowed(brand["name"],purchase): return False
     return _not_expired(item)
 
 def is_active_offer(item): return is_published_verified_offer(item)
