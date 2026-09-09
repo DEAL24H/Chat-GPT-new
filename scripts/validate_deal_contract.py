@@ -2,6 +2,7 @@ import json
 import re
 from pathlib import Path
 from urllib.parse import urlparse
+from bot.catalog_utils import is_brand_host_allowed
 ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/news.json';CATEGORIES={'Fashion','Electronics','Beauty & Personal Care','Home & Living'}
 BAD_TEXT_RE=re.compile(r'\b(?:your cart is empty|estimated total|current price|original price|add to wishlist|sign in|log in|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center)\b',re.I)
 PROMO_RE=re.compile(r'\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|member (?:price|savings|offer))\b',re.I)
@@ -12,28 +13,20 @@ def host(value):
  return(urlparse(raw).hostname or '').lower().removeprefix('www.')
 def same_domain(a,b):
  x,y=host(a),host(b);return bool(x and y and(x==y or x.endswith('.'+y) or y.endswith('.'+x)))
-def allowed_host(merchant,value,source_domain=''):
- h=host(value)
- if not h:return False
- if source_domain and same_domain(h,source_domain):return True
- try:
-  from bot.merchant_country_registry import allowed_hosts_for
-  return h in allowed_hosts_for(merchant)
- except Exception:return False
 def main():
  data=json.loads(DATA.read_text(encoding='utf-8'))
  if not isinstance(data,list):raise SystemExit('DEAL CONTRACT FAILED: news.json is not a list')
  failures=[];counts={category:0 for category in CATEGORIES}
  for index,item in enumerate(data):
-  category=str(item.get('category') or '').strip();title=str(item.get('title') or '').strip();content=str(item.get('content') or '').strip();destination=str(item.get('final_purchase_url') or '').strip();promotion_url=str(item.get('promotion_url') or '').strip();source=str(item.get('source_url') or '').strip();code=str(item.get('code') or '').strip();source_domain=str(item.get('source_domain') or '').strip()
+  category=str(item.get('category') or '').strip();title=str(item.get('title') or '').strip();content=str(item.get('content') or '').strip();destination=str(item.get('final_purchase_url') or '').strip();promotion_url=str(item.get('promotion_url') or '').strip();source=str(item.get('source_url') or '').strip();code=str(item.get('code') or '').strip()
   if category not in CATEGORIES:failures.append((index,'bad_category',category));continue
   if item.get('offer_qualified') is not True:failures.append((index,'not_offer_qualified',title))
   if item.get('official_source') is not True:failures.append((index,'not_official_source',title))
   if item.get('source_verification_status')!='assistant_verified_first_party':failures.append((index,'bad_source_verification',title))
   if not destination or not promotion_url or not source or not host(destination) or not host(promotion_url) or not host(source):failures.append((index,'missing_destination_promotion_or_source',title))
-  if not allowed_host(item.get('merchant'),source,source_domain):failures.append((index,'source_not_allowed_brand_host',source))
+  if not is_brand_host_allowed(item.get('merchant'),source):failures.append((index,'source_not_allowed_brand_host',source))
   if not same_domain(promotion_url,source):failures.append((index,'promotion_url_left_source_domain',promotion_url))
-  if not allowed_host(item.get('merchant'),destination,source_domain):failures.append((index,'destination_not_allowed_brand_host',destination))
+  if not is_brand_host_allowed(item.get('merchant'),destination):failures.append((index,'destination_not_allowed_brand_host',destination))
   if BAD_TEXT_RE.search(title):failures.append((index,'ui_or_product_noise_title',title))
   evidence=f'{title} {content}'
   if not PROMO_RE.search(evidence):failures.append((index,'no_promotion_evidence',title))
