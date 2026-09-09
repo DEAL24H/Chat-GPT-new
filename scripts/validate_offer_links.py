@@ -22,8 +22,8 @@ def purchase(v):
 def allowed_host(merchant,value):
  try:
   from bot.merchant_country_registry import allowed_hosts_for
-  catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
-  canonical={str(e.get('name','')).casefold():str(e.get('domain','')) for es in catalog.values() for e in es}.get(str(merchant).casefold(),'')
+  categories=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
+  canonical={str(e.get('name','')).casefold():str(e.get('domain','')) for entries in categories.values() if isinstance(entries,list) for e in entries if isinstance(e,dict)}.get(str(merchant).casefold(),'')
   h=host(value)
   return bool(h and canonical and (same(h,canonical) or h in allowed_hosts_for(merchant)))
  except Exception:return False
@@ -41,7 +41,7 @@ def live(item):
  if not commerce:return'failed','NO_COMMERCE_SIGNAL',f
  return'live_verified','LIVE_BRAND_SALES_DESTINATION_VERIFIED',f
 def main():
- data=json.loads(DATA.read_text(encoding='utf-8'));catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
+ data=json.loads(DATA.read_text(encoding='utf-8'))
  if not isinstance(data,list):raise SystemExit('news.json is not a list')
  published=[];rejected=[];now=datetime.now(timezone.utc).isoformat()
  for item in data:
