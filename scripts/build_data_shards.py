@@ -1,8 +1,5 @@
 """Build browser-friendly data shards and a compact global search index."""
-import hashlib
-import json
-import re
-import sys
+import hashlib,json,re,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; SOURCE=DATA/'news.json'; OUT=DATA/'shards'
 sys.path.insert(0,str(ROOT))
@@ -14,7 +11,7 @@ def stable_id(item):
 def active(item):return is_published_verified_offer(item)
 def compact(item,shard):
  destination=item.get('final_purchase_url') or ''; promotion=item.get('promotion_url') or item.get('source_url') or ''
- return {'id':stable_id(item),'title':item.get('title',''),'content':item.get('content',''),'code':item.get('code',''),'discount':item.get('discount',''),'merchant':item.get('merchant',''),'category':item.get('category',''),'final_purchase_url':destination,'promotion_url':promotion,'official_source':bool(item.get('official_source')),'expires_at':item.get('expires_at',''),'status':item.get('status','active'),'_shard':shard}
+ return {'id':stable_id(item),'title':item.get('title',''),'content':item.get('content',''),'code':item.get('code',''),'discount':item.get('discount',''),'merchant':item.get('merchant',''),'category':item.get('category',''),'country':item.get('country',''),'locale':item.get('locale',''),'source_url':item.get('source_url',''),'final_purchase_url':destination,'promotion_url':promotion,'official_source':bool(item.get('official_source')),'expires_at':item.get('expires_at',''),'status':item.get('status','active'),'_shard':shard}
 def main():
  raw=json.loads(SOURCE.read_text(encoding='utf-8')); items=raw if isinstance(raw,list) else raw.get('items',[]); OUT.mkdir(parents=True,exist_ok=True)
  for old in OUT.glob('*.json'):old.unlink()
@@ -25,7 +22,7 @@ def main():
   if not slug:
    if category:skipped.add(str(category))
    continue
-  row=compact(item,f'shards/{slug}.json'); shards[slug].append(row); search.append({'id':row['id'],'shard':row['_shard'],'merchant':row['merchant'],'category':row['category'],'text':norm(' '.join([row['merchant'],row['title'],row['code'],row['content']]))[:600]})
+  row=compact(item,f'shards/{slug}.json'); shards[slug].append(row); search.append({'id':row['id'],'shard':row['_shard'],'merchant':row['merchant'],'category':row['category'],'country':row['country'],'locale':row['locale'],'text':norm(' '.join([row['merchant'],row['title'],row['code'],row['content']]))[:600]})
  counts={category:len(shards[slug]) for category,slug in CATEGORY_SLUGS.items()}; total=sum(counts.values())
  manifest={'version':3,'categories':list(CATEGORY_SLUGS),'total':total,'counts':counts,'shards':{},'search':'search-index.json'}
  for category,slug in CATEGORY_SLUGS.items():
