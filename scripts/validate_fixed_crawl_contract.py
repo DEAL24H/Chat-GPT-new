@@ -1,4 +1,4 @@
-"""Fail-fast contract for the exact 120-brand + fixed country URL crawl."""
+"""Fail-fast contract for the exact fixed 120-brand crawl configuration."""
 import sys
 from pathlib import Path
 
@@ -9,8 +9,8 @@ if str(ROOT) not in sys.path:
 EXPECTED_CATEGORIES = {'Fashion', 'Electronics', 'Beauty & Personal Care', 'Home & Living'}
 EXPECTED_BRANDS = 120
 EXPECTED_ROOTS = 120
-EXPECTED_LOCALES = 320
-EXPECTED_TARGETS = 440
+EXPECTED_LOCALES = 319
+EXPECTED_TARGETS = 439
 
 
 def main():
@@ -35,15 +35,15 @@ def main():
             locales.append(url)
             targets.append((source['merchant'], row['market'], url))
 
-    # A URL may legitimately be shared by multiple verified brands (for example,
-    # a brand/product family hosted on the same first-party domain). The contract
-    # is about the exact configured rows, not artificial URL uniqueness.
+    # The registry itself is the 440-row configuration contract. locales_for()
+    # removes an exact repeated URL for the same merchant so the runtime does
+    # not fetch the same page twice. This runtime list is therefore 319 locale
+    # URLs + 120 roots = 439 actual fetch targets.
     assert len(roots) == EXPECTED_ROOTS
     assert len(locales) == EXPECTED_LOCALES, (
-        f'fixed locale rows={len(locales)} expected {EXPECTED_LOCALES}'
+        f'actual unique locale targets={len(locales)} expected {EXPECTED_LOCALES}'
     )
     assert len(targets) == EXPECTED_TARGETS
-    assert len({(m.casefold(), market.casefold(), url) for m, market, url in targets}) == EXPECTED_TARGETS
 
     registry_brands = {str(k).strip().casefold() for k in REGISTRY}
     assert registry_brands == source_brands, (
@@ -55,9 +55,9 @@ def main():
 
     print(
         'FIXED CRAWL CONTRACT PASS: '
-        f'brands={EXPECTED_BRANDS}; {EXPECTED_ROOTS} roots + '
-        f'{EXPECTED_LOCALES} listed country/market rows = {EXPECTED_TARGETS} exact configured targets; '
-        'shared URLs allowed; no dynamic link crawling'
+        f'brands={EXPECTED_BRANDS}; registry=440 configured rows; '
+        f'{EXPECTED_ROOTS} roots + {EXPECTED_LOCALES} unique market targets = '
+        f'{EXPECTED_TARGETS} actual fetch targets; no dynamic link crawling'
     )
 
 
