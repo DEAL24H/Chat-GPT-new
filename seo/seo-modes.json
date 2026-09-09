@@ -1,11 +1,12 @@
 {
   "schema": 2,
-  "generated_at": "2026-09-07T16:58:28.340266+00:00",
+  "generated_at": "2026-09-09T05:05:28.212910+00:00",
   "counts": {
     "code": 16,
-    "direct": 357
+    "direct": 356
   },
-  "urls": 373,
+  "urls": 372,
   "rejected_non_qualified": 0,
+  "deduplicated_equivalent_offers": 1,
   "visible_text_noise": 0
 }
