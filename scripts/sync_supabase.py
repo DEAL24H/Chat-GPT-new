@@ -5,7 +5,7 @@ final_purchase_url/url = first-party live-verified destination where the user bu
 """
 import hashlib, json, os, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data/news.json'; SELECTION=DATA/'assistant_verified_source_selection.json'
+ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data/news.json'; SELECTION=ROOT/'data/assistant_verified_source_selection.json'
 CATEGORIES=("Fashion","Electronics","Beauty & Personal Care","Home & Living")
 def normalize_base_url(value):
  raw=str(value or '').strip().rstrip('/')
@@ -20,7 +20,7 @@ if selection.get('total')!=120 or selection.get('counts')!={c:30 for c in CATEGO
 if selection.get('source_authority')!='assistant_verified_manifests': raise SystemExit('Supabase contract: unexpected source authority')
 allowed={(str(r.get('merchant') or '').casefold(),str(r.get('category') or '')):r for r in selection.get('sources',[])}
 if len(allowed)!=120: raise SystemExit(f'Supabase contract: expected 120 unique assistant-verified merchants, found {len(allowed)}')
-raw=json.loads(DATA/'news.json'.read_text(encoding='utf-8')) if False else json.loads((DATA/'news.json').read_text(encoding='utf-8'))
+raw=json.loads(DATA.read_text(encoding='utf-8'))
 items=raw if isinstance(raw,list) else raw.get('items',[]); rows=[]
 for x in items:
  if not isinstance(x,dict) or x.get('status') in {'expired','inactive'}: continue
