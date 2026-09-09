@@ -4,7 +4,8 @@ from pathlib import Path
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
-ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/news.json';CATALOG=ROOT/'data/brand_catalog.json';TIMEOUT=15
+from bot.catalog_utils import is_brand_host_allowed
+ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/news.json';TIMEOUT=15
 UA='Mozilla/5.0 (compatible; Deal24HOfferLinkValidator/7.0; +https://deal24h.net/)'
 EXPECTED={'Fashion','Electronics','Beauty & Personal Care','Home & Living'}
 BAD=re.compile(r'/(?:privacy|legal|terms|help|faq|support|returns?|contact|account|login|signin|search|wishlist)(?:/|$)',re.I)
@@ -20,13 +21,7 @@ def purchase(v):
  p=urlparse(v)
  return bool(host(v)) and not(BAD.search(p.path) and not SHOP_PATH.search(p.path))
 def allowed_host(merchant,value):
- try:
-  from bot.merchant_country_registry import allowed_hosts_for
-  categories=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{})
-  canonical={str(e.get('name','')).casefold():str(e.get('domain','')) for entries in categories.values() if isinstance(entries,list) for e in entries if isinstance(e,dict)}.get(str(merchant).casefold(),'')
-  h=host(value)
-  return bool(h and canonical and (same(h,canonical) or h in allowed_hosts_for(merchant)))
- except Exception:return False
+ return is_brand_host_allowed(merchant,value)
 def live(item):
  u=str(item.get('final_purchase_url') or '').strip()
  try:r=requests.get(u,headers={'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'},timeout=TIMEOUT,allow_redirects=True)
