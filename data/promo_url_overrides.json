@@ -1,0 +1,880 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "merchant": "Ace Hardware",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.acehardware.com",
+      "to_url": "https://www.acehardware.com/ace-rewards-offers"
+    },
+    {
+      "merchant": "Ace Hardware",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.acehardware.com",
+      "to_url": "https://www.acehardware.com/ace-rewards-offers"
+    },
+    {
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.apple.com/uk/",
+      "to_url": "https://www.apple.com/uk/legal/sales-support/sales-policies/retail_uk.html"
+    },
+    {
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.apple.com",
+      "to_url": "https://www.apple.com/shop/buy-iphone/carrier-offers"
+    },
+    {
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.apple.com/",
+      "to_url": "https://www.apple.com/shop/buy-iphone/carrier-offers"
+    },
+    {
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Nhật Bản",
+      "from_url": "https://www.apple.com/jp/",
+      "to_url": "https://www.apple.com/jp/shop/buy-iphone/carrier-offers"
+    },
+    {
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.apple.com/vn/",
+      "to_url": "https://www.apple.com/vn/shop/browse/open/salespolicies"
+    },
+    {
+      "merchant": "ASOS",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.asos.com",
+      "to_url": "https://www.asos.com/men/ctas/generic-promos/promotion-14/cat/?cid=51293"
+    },
+    {
+      "merchant": "ASOS",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "from_url": "https://www.asos.com",
+      "to_url": "https://www.asos.com/men/ctas/generic-promos/promotion-14/cat/?cid=51293"
+    },
+    {
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.asus.com/uk/",
+      "to_url": "https://www.asus.com/uk/content/asus-offers-adobe-creative-cloud/"
+    },
+    {
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.asus.com/us/",
+      "to_url": "https://www.asus.com/us/deals/ec-bundle-sales/?utm_source=OPBG+eShop&utm_medium=DROPDOWN&utm_campaign=Wifi7+Bundle"
+    },
+    {
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.asus.com/vn/",
+      "to_url": "https://www.asus.com/vn/events/infoM/activity_expertbook-promo?utm_source=asus-local&utm_medium=banner&utm_campaign=26q3_1%20year%20warranty%20extension_vn&utm_content=website_banner"
+    },
+    {
+      "merchant": "Aveeno",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.aveeno.com",
+      "to_url": "https://www.aveeno.com/email-sign-up"
+    },
+    {
+      "merchant": "Aveeno",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.aveeno.com",
+      "to_url": "https://www.aveeno.com/email-sign-up"
+    },
+    {
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "from_url": "https://www.balenciaga.com/us/",
+      "to_url": "https://www.balenciaga.com/en-us/discover/explore-special-projects/explore-series-winter-26-campaign"
+    },
+    {
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Pháp",
+      "from_url": "https://www.balenciaga.com/fr/",
+      "to_url": "https://www.balenciaga.com/fr-fr/decouvrir/explore-special-projects/explore-series-winter-26-campaign"
+    },
+    {
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Việt Nam",
+      "from_url": "https://www.balenciaga.com/vn/",
+      "to_url": "https://www.balenciaga.com/en-en/discover/explore-special-projects/explore-series-winter-26-campaign"
+    },
+    {
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Đức",
+      "from_url": "https://www.balenciaga.com/de/",
+      "to_url": "https://www.balenciaga.com/de-de/entdecken/explore-special-projects/explore-series-winter-26-campaign"
+    },
+    {
+      "merchant": "Bose",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.bose.co.uk",
+      "to_url": "https://www.bose.co.uk/legal/terms-of-sale"
+    },
+    {
+      "merchant": "Bose",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.bose.com",
+      "to_url": "https://www.bose.com/legal/terms-of-sale"
+    },
+    {
+      "merchant": "Bose",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.bose.com",
+      "to_url": "https://www.bose.com/legal/terms-of-sale"
+    },
+    {
+      "merchant": "Calvin Klein",
+      "category": "Fashion",
+      "market": "Anh",
+      "from_url": "https://www.calvinklein.co.uk",
+      "to_url": "https://www.calvinklein.co.uk/outlet"
+    },
+    {
+      "merchant": "Canon",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.canon.co.uk",
+      "to_url": "https://www.canon.co.uk/offers/"
+    },
+    {
+      "merchant": "CeraVe",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.cerave.com",
+      "to_url": "https://www.cerave.com/coupons-new"
+    },
+    {
+      "merchant": "CeraVe",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.cerave.com",
+      "to_url": "https://www.cerave.com/coupons-new"
+    },
+    {
+      "merchant": "Clinique",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.clinique.com",
+      "to_url": "https://www.clinique.com/appreciation-discount/military-first-responders"
+    },
+    {
+      "merchant": "Clinique",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.clinique.com",
+      "to_url": "https://www.clinique.com/appreciation-discount/military-first-responders"
+    },
+    {
+      "merchant": "COSRX",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.cosrx.com",
+      "to_url": "https://www.cosrx.com/collections/last-chance-deal"
+    },
+    {
+      "merchant": "COSRX",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.cosrx.com",
+      "to_url": "https://www.cosrx.com/collections/last-chance-deal"
+    },
+    {
+      "merchant": "Costco",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.costco.co.uk",
+      "to_url": "https://www.costco.co.uk/offers"
+    },
+    {
+      "merchant": "Costco",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.costco.com",
+      "to_url": "https://www.costco.com/special-events.html"
+    },
+    {
+      "merchant": "Costco",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.costco.com",
+      "to_url": "https://www.costco.com/special-events.html"
+    },
+    {
+      "merchant": "Crate & Barrel",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.crateandbarrel.com",
+      "to_url": "https://www.crateandbarrel.com/sale/labor-day-entertaining-sale/"
+    },
+    {
+      "merchant": "Crate & Barrel",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.crateandbarrel.com",
+      "to_url": "https://www.crateandbarrel.com/sale/labor-day-entertaining-sale/"
+    },
+    {
+      "merchant": "Dell",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.dell.com/en-us",
+      "to_url": "https://www.dell.com/en-us/shop/deals/computer-monitor-deals"
+    },
+    {
+      "merchant": "Dell",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.dell.com/en-vn",
+      "to_url": "https://www.dell.com/en-vn/lp/legal/terms-of-sale"
+    },
+    {
+      "merchant": "Dunelm",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.dunelm.com",
+      "to_url": "https://www.dunelm.com/info/help/promotions-terms-and-conditions"
+    },
+    {
+      "merchant": "Dunelm",
+      "category": "Home & Living",
+      "market": "Thị trường chính (Anh)",
+      "from_url": "https://www.dunelm.com",
+      "to_url": "https://www.dunelm.com/info/help/promotions-terms-and-conditions"
+    },
+    {
+      "merchant": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "from_url": "https://www.elfcosmetics.co.uk",
+      "to_url": "https://www.elfcosmetics.co.uk/pages/promotion-details"
+    },
+    {
+      "merchant": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.elfcosmetics.com",
+      "to_url": "https://www.elfcosmetics.com/pages/promotion-details"
+    },
+    {
+      "merchant": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.elfcosmetics.com",
+      "to_url": "https://www.elfcosmetics.com/pages/promotion-details"
+    },
+    {
+      "merchant": "Fenty Beauty",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "from_url": "https://www.fentybeauty.co.uk",
+      "to_url": "https://fentybeauty.co.uk/pages/student-discount"
+    },
+    {
+      "merchant": "GE Appliances",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.geappliances.com",
+      "to_url": "https://www.geappliances.com/military-discount"
+    },
+    {
+      "merchant": "GE Appliances",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.geappliances.com",
+      "to_url": "https://www.geappliances.com/military-discount"
+    },
+    {
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "from_url": "https://www.gucci.com/us/",
+      "to_url": "https://www.gucci.com/us/en/ca/gifts/gifts-for-women/special-gifts-for-her-c-special-gift-her"
+    },
+    {
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Pháp",
+      "from_url": "https://www.gucci.com/fr/",
+      "to_url": "https://www.gucci.com/fr/fr/nst/capsule/gifts-services"
+    },
+    {
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Đức",
+      "from_url": "https://www.gucci.com/de/",
+      "to_url": "https://www.gucci.com/de/de/ca/women/travel-bags-for-women/hard-sided-for-women-c-women-hard-sided-luggage"
+    },
+    {
+      "merchant": "Habitat",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.habitat.co.uk",
+      "to_url": "https://www.habitat.co.uk/list/shop-home-and-seasonal-clearance?tag=homepage:spot10:link1:shop-home-and-seasonal-clearance:week28"
+    },
+    {
+      "merchant": "Habitat",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.habitat.co.uk",
+      "to_url": "https://www.habitat.co.uk/list/shop-home-and-seasonal-clearance?tag=homepage:spot10:link1:shop-home-and-seasonal-clearance:week28"
+    },
+    {
+      "merchant": "Habitat",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.habitat.co.uk",
+      "to_url": "https://www.habitat.co.uk/list/shop-home-and-seasonal-clearance?tag=homepage:spot10:link1:shop-home-and-seasonal-clearance:week28"
+    },
+    {
+      "merchant": "HP",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.hp.com/uk/",
+      "to_url": "https://www.hp.com/gb-en/shop/deals"
+    },
+    {
+      "merchant": "HP",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.hp.com/us/",
+      "to_url": "https://www.hp.com/us-en/shop/slp/weekly-deals/accessories"
+    },
+    {
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.ikea.com/gb/en/",
+      "to_url": "https://www.ikea.com/gb/en/cat/in-store-only-offers-700841/"
+    },
+    {
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.ikea.com",
+      "to_url": "https://www.ikea.com/global/en/international-sales/"
+    },
+    {
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.ikea.com/us/en/",
+      "to_url": "https://www.ikea.com/us/en/offers/"
+    },
+    {
+      "merchant": "iRobot",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.irobot.co.uk",
+      "to_url": "https://www.irobot.co.uk/en_GB/deals.html"
+    },
+    {
+      "merchant": "iRobot",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.irobot.com",
+      "to_url": "https://www.irobot.com/en_US/accessory-deals.html"
+    },
+    {
+      "merchant": "iRobot",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.irobot.com",
+      "to_url": "https://www.irobot.com/en_US/accessory-deals.html"
+    },
+    {
+      "merchant": "JBL",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.jbl.co.uk",
+      "to_url": "https://www.jbl.co.uk/services/storage-and-clearance"
+    },
+    {
+      "merchant": "John Lewis & Partners",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.johnlewis.com",
+      "to_url": "https://www.johnlewis.com/special-offers/c50000110"
+    },
+    {
+      "merchant": "John Lewis & Partners",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.johnlewis.com",
+      "to_url": "https://www.johnlewis.com/special-offers/c50000110"
+    },
+    {
+      "merchant": "L'Oréal",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "from_url": "https://www.loreal.com/uk/",
+      "to_url": "https://www.loreal.com/en/commitments-and-responsibilities/for-the-people/promoting-diversity-and-inclusion/"
+    },
+    {
+      "merchant": "La-Z-Boy",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.la-z-boy.co.uk",
+      "to_url": "https://la-z-boy.co.uk/comfort-care/after-sales/"
+    },
+    {
+      "merchant": "La-Z-Boy",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.la-z-boy.com",
+      "to_url": "https://www.la-z-boy.com/no-results"
+    },
+    {
+      "merchant": "La-Z-Boy",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.la-z-boy.com",
+      "to_url": "https://www.la-z-boy.com/no-results"
+    },
+    {
+      "merchant": "Lenovo",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.lenovo.com/uk/",
+      "to_url": "https://www.lenovo.com/gb/en/d/sale/"
+    },
+    {
+      "merchant": "Lenovo",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.lenovo.com/us/",
+      "to_url": "https://www.lenovo.com/us/en/d/deals/doorbusters/"
+    },
+    {
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.lg.com/uk/",
+      "to_url": "https://www.lg.com/uk/promotion/soundbar-offer/"
+    },
+    {
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.lg.com/us/",
+      "to_url": "https://www.lg.com/us/promotions?f-ec_category_3=Cooktops%20%26%20Hoods,Dishwashers,Microwaves,Ranges%20%26%20Wall%20Ovens,Refrigerators"
+    },
+    {
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.lg.com/vn/",
+      "to_url": "https://www.lg.com/vn/khuyen-mai/flash-sale-cuoi-tuan/"
+    },
+    {
+      "merchant": "Mango",
+      "category": "Fashion",
+      "market": "Việt Nam",
+      "from_url": "https://www.mango.com/vn/",
+      "to_url": "https://shop.mango.com/gb/en/gift-voucher"
+    },
+    {
+      "merchant": "Maybelline",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.maybelline.com",
+      "to_url": "https://www.maybelline.com/lip-makeup/lip-liner/super-stay-peel-off-lip-liner"
+    },
+    {
+      "merchant": "Maybelline",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.maybelline.com",
+      "to_url": "https://www.maybelline.com/lip-makeup/lip-liner/super-stay-peel-off-lip-liner"
+    },
+    {
+      "merchant": "Microsoft",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.microsoft.com/uk/",
+      "to_url": "https://www.microsoft.com/en-gb/store/b/sale?icid=DSM_TopNavDeals"
+    },
+    {
+      "merchant": "MSI",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.msi.com",
+      "to_url": "https://ph.msi.com/Promotion/2026-Captain-Tsubasa-2-NB-bundle/nb"
+    },
+    {
+      "merchant": "NARS",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.narscosmetics.com",
+      "to_url": "https://www.narscosmetics.com/USA/beauty-offers.html"
+    },
+    {
+      "merchant": "NARS",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.narscosmetics.com",
+      "to_url": "https://www.narscosmetics.com/USA/beauty-offers.html"
+    },
+    {
+      "merchant": "Neutrogena",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.neutrogena.com",
+      "to_url": "https://www.neutrogena.com/offers"
+    },
+    {
+      "merchant": "Neutrogena",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.neutrogena.com",
+      "to_url": "https://www.neutrogena.com/offers"
+    },
+    {
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.nike.com",
+      "to_url": "https://www.nike.com/promo-code"
+    },
+    {
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "from_url": "https://www.nike.com/jp/",
+      "to_url": "https://www.nike.com/jp/w/kids-sale-accessories-equipment-3yaepzawwpwzv4dh"
+    },
+    {
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Pháp",
+      "from_url": "https://www.nike.com/fr/",
+      "to_url": "https://www.nike.com/fr/help/a/appliquer-code-promo"
+    },
+    {
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Việt Nam",
+      "from_url": "https://www.nike.com/vn/",
+      "to_url": "https://www.nike.com/vn/w/womens-sale-3yaepz5e1x6"
+    },
+    {
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Đức",
+      "from_url": "https://www.nike.com/de/",
+      "to_url": "https://www.nike.com/de/help/a/aktionscode-verwenden"
+    },
+    {
+      "merchant": "Nikon",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.nikonusa.com",
+      "to_url": "https://www.nikonusa.com/where-to-buy/nikon_img_auth_dealers.pdf"
+    },
+    {
+      "merchant": "Nikon",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.nikonusa.com",
+      "to_url": "https://www.nikonusa.com/where-to-buy/nikon_img_auth_dealers.pdf"
+    },
+    {
+      "merchant": "Olaplex",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.olaplex.com",
+      "to_url": "https://olaplex.com/pages/offers-page"
+    },
+    {
+      "merchant": "Olaplex",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.olaplex.com",
+      "to_url": "https://olaplex.com/pages/offers-page"
+    },
+    {
+      "merchant": "Olay",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.olay.com",
+      "to_url": "https://www.olay.com/collections/clearance"
+    },
+    {
+      "merchant": "Olay",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.olay.com",
+      "to_url": "https://www.olay.com/collections/clearance"
+    },
+    {
+      "merchant": "Overstock",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.overstock.com",
+      "to_url": "https://www.overstock.com/promotional-terms-and-conditions"
+    },
+    {
+      "merchant": "Overstock",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.overstock.com",
+      "to_url": "https://www.overstock.com/promotional-terms-and-conditions"
+    },
+    {
+      "merchant": "Panasonic",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.panasonic.com/vn/",
+      "to_url": "https://www.panasonic.com/vn/consumer/batteries/specialty-batteries/cylindrical-lithium-batteries.html"
+    },
+    {
+      "merchant": "Philips",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.philips.co.uk",
+      "to_url": "https://www.philips.co.uk/c-e/shop/bundle-deals-mother-and-child-care"
+    },
+    {
+      "merchant": "Pottery Barn",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.potterybarn.co.uk",
+      "to_url": "https://www.potterybarn.co.uk/sale/limited-time-offers"
+    },
+    {
+      "merchant": "Prada",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "from_url": "https://www.prada.com/jp/",
+      "to_url": "https://www.prada.com/jp/ja/pradasphere/special-projects/2026/prada-gentle-monster.html"
+    },
+    {
+      "merchant": "Prada",
+      "category": "Fashion",
+      "market": "Đức",
+      "from_url": "https://www.prada.com/de/",
+      "to_url": "https://www.prada.com/de/de/womens/travel/luggage-and-carry-on/c/10097EU"
+    },
+    {
+      "merchant": "Rare Beauty",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.rarebeauty.com",
+      "to_url": "https://www.rarebeauty.com/pages/salesandpromotions"
+    },
+    {
+      "merchant": "Rare Beauty",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.rarebeauty.com",
+      "to_url": "https://www.rarebeauty.com/pages/salesandpromotions"
+    },
+    {
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.samsung.com/uk/",
+      "to_url": "https://www.samsung.com/uk/estore/static/link-terms-and-conditions-of-sale/"
+    },
+    {
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "from_url": "https://www.samsung.com/us/",
+      "to_url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/"
+    },
+    {
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Nhật Bản",
+      "from_url": "https://www.samsung.com/jp/",
+      "to_url": "https://www.samsung.com/jp/offer/samsung-education-store/"
+    },
+    {
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.samsung.com/vn/",
+      "to_url": "https://www.samsung.com/vn/offer/samsung-care-plus/mobile/"
+    },
+    {
+      "merchant": "Sony",
+      "category": "Electronics",
+      "market": "Anh",
+      "from_url": "https://www.sony.co.uk/",
+      "to_url": "https://www.sony.co.uk/deals-offers?cpint=EURO_FOOTER_PROMOTIONSPAGE"
+    },
+    {
+      "merchant": "Sony",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "from_url": "https://www.sony.com.vn/",
+      "to_url": "https://www.sony.com.vn/microsite/online-store-campaigns/latest-promotion/index.html?cpint=homepage_promotion_tiles-Promotion%20Tiles-vi_VN-responsivegrid_structure_top_promotiontiles_copy_1&cpint=homepage_promotion_tiles-Promotion%20Tiles-vi_VN-responsivegrid_structure_top_promotiontiles_copy_1"
+    },
+    {
+      "merchant": "Steve Madden",
+      "category": "Fashion",
+      "market": "Anh",
+      "from_url": "https://www.stevemadden.co.uk",
+      "to_url": "https://stevemadden.co.uk/collections/seasonal-offers"
+    },
+    {
+      "merchant": "Steve Madden",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.stevemadden.com",
+      "to_url": "https://www.stevemadden.com/pages/military-discount"
+    },
+    {
+      "merchant": "Steve Madden",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "from_url": "https://www.stevemadden.com",
+      "to_url": "https://www.stevemadden.com/pages/military-discount"
+    },
+    {
+      "merchant": "Target",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.target.com",
+      "to_url": "https://www.target.com/c/30-off-select-adult-kids-bedding-bath-window-treatments-rugs-more-home-deals/-/N-o7twh"
+    },
+    {
+      "merchant": "Target",
+      "category": "Home & Living",
+      "market": "Thị trường chính (Mỹ)",
+      "from_url": "https://www.target.com",
+      "to_url": "https://www.target.com/c/30-off-select-adult-kids-bedding-bath-window-treatments-rugs-more-home-deals/-/N-o7twh"
+    },
+    {
+      "merchant": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "from_url": "https://www.tatcha.co.uk",
+      "to_url": "https://www.tatcha.co.uk/collections/special-value-sizes"
+    },
+    {
+      "merchant": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.tatcha.com",
+      "to_url": "https://tatcha.com/pages/terms-of-sale"
+    },
+    {
+      "merchant": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.tatcha.com",
+      "to_url": "https://tatcha.com/pages/terms-of-sale"
+    },
+    {
+      "merchant": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.thebodyshop.com",
+      "to_url": "https://www.thebodyshop.com/pages/promotion-terms-conditions"
+    },
+    {
+      "merchant": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "market": "Mỹ",
+      "from_url": "https://www.thebodyshop.com",
+      "to_url": "https://www.thebodyshop.com/pages/promotion-terms-conditions"
+    },
+    {
+      "merchant": "Uline",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.uline.com",
+      "to_url": "https://www.uline.com/Promotion/FreeOffersByDollarAmt?dup=products"
+    },
+    {
+      "merchant": "Uline",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.uline.com",
+      "to_url": "https://www.uline.com/Promotion/FreeOffersByDollarAmt?dup=products"
+    },
+    {
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Anh",
+      "from_url": "https://www.uniqlo.com/uk/",
+      "to_url": "https://www.uniqlo.com/uk/en/women/special-collaboration"
+    },
+    {
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "from_url": "https://www.uniqlo.com/jp/",
+      "to_url": "https://www.uniqlo.com/jp/ja/special-feature/cp/bottoms-collections"
+    },
+    {
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Pháp",
+      "from_url": "https://www.uniqlo.com/fr/",
+      "to_url": "https://www.uniqlo.com/fr/fr/women/special-collaboration/uniqlo-u"
+    },
+    {
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Đức",
+      "from_url": "https://www.uniqlo.com/de/",
+      "to_url": "https://www.uniqlo.com/de/de/women/special-collaboration/uniqlo-u"
+    },
+    {
+      "merchant": "West Elm",
+      "category": "Home & Living",
+      "market": "Anh",
+      "from_url": "https://www.westelm.co.uk",
+      "to_url": "https://www.westelm.co.uk/sale-sale/limited-time-offers/shop-all-sale"
+    },
+    {
+      "merchant": "Whirlpool",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.whirlpool.com",
+      "to_url": "https://www.whirlpool.com/content/whirlpoolv2/en_us/appliance-sales.html"
+    },
+    {
+      "merchant": "Whirlpool",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "from_url": "https://www.whirlpool.com/us/",
+      "to_url": "https://www.whirlpool.com/content/whirlpoolv2/en_us/appliance-sales.html"
+    },
+    {
+      "merchant": "Burberry",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "from_url": "https://www.burberry.com",
+      "to_url": "https://int.burberry.com/l/sale/"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
-  "version": 1,
-  "source": "120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx",
-  "mode": "exact_source_url_allowlist",
+  "version": 2,
+  "source": "root_homepages_plus_verified_promo_urls",
+  "mode": "root_and_verified_promo_allowlist",
   "allow_discovery": false,
   "allow_redirect_source_expansion": false,
   "total_brands": 120,
-  "total_urls": 440,
+  "total_urls": 213,
   "entries": [
     {
       "id": 1,
@@ -14,61 +14,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.zara.com",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.zara.com/vn/",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.zara.com/us/",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.zara.com/uk/",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.zara.com/jp/",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.zara.com/fr/",
-      "domain": "zara.com"
-    },
-    {
-      "id": 1,
-      "merchant": "Zara",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.zara.com/de/",
-      "domain": "zara.com"
+      "domain": "zara.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 2,
@@ -77,61 +24,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.nike.com",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.nike.com/vn/",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.nike.com/us/",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.nike.com/uk/",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.nike.com/jp/",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.nike.com/fr/",
-      "domain": "nike.com"
-    },
-    {
-      "id": 2,
-      "merchant": "Nike",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.nike.com/de/",
-      "domain": "nike.com"
+      "domain": "nike.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 3,
@@ -140,61 +34,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.adidas.com",
-      "domain": "adidas.com"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.adidas.com/vn/",
-      "domain": "adidas.com"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.adidas.com/us/",
-      "domain": "adidas.com"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.adidas.co.uk/",
-      "domain": "adidas.co.uk"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.adidas.com/jp/",
-      "domain": "adidas.com"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.adidas.com/fr/",
-      "domain": "adidas.com"
-    },
-    {
-      "id": 3,
-      "merchant": "Adidas",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.adidas.com/de/",
-      "domain": "adidas.com"
+      "domain": "adidas.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 4,
@@ -203,61 +44,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.mango.com",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.mango.com/vn/",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.mango.com/us/",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.mango.com/uk/",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.mango.com/jp/",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.mango.com/fr/",
-      "domain": "mango.com"
-    },
-    {
-      "id": 4,
-      "merchant": "Mango",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.mango.com/de/",
-      "domain": "mango.com"
+      "domain": "mango.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 5,
@@ -266,61 +54,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.uniqlo.com",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.uniqlo.com/vn/",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.uniqlo.com/us/",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.uniqlo.com/uk/",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.uniqlo.com/jp/",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.uniqlo.com/fr/",
-      "domain": "uniqlo.com"
-    },
-    {
-      "id": 5,
-      "merchant": "UNIQLO",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.uniqlo.com/de/",
-      "domain": "uniqlo.com"
+      "domain": "uniqlo.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 6,
@@ -329,61 +64,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.hm.com",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.hm.com/vn/",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.hm.com/us/",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.hm.com/uk/",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.hm.com/jp/",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.hm.com/fr/",
-      "domain": "hm.com"
-    },
-    {
-      "id": 6,
-      "merchant": "H&M",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.hm.com/de/",
-      "domain": "hm.com"
+      "domain": "hm.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 7,
@@ -392,25 +74,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.newbalance.com",
-      "domain": "newbalance.com"
-    },
-    {
-      "id": 7,
-      "merchant": "New Balance",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.newbalance.com",
-      "domain": "newbalance.com"
-    },
-    {
-      "id": 7,
-      "merchant": "New Balance",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.newbalance.co.uk",
-      "domain": "newbalance.co.uk"
+      "domain": "newbalance.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 8,
@@ -419,25 +84,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.puma.com",
-      "domain": "puma.com"
-    },
-    {
-      "id": 8,
-      "merchant": "PUMA",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.puma.com",
-      "domain": "puma.com"
-    },
-    {
-      "id": 8,
-      "merchant": "PUMA",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.puma.co.uk",
-      "domain": "puma.co.uk"
+      "domain": "puma.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 9,
@@ -446,61 +94,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.louisvuitton.com",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.louisvuitton.com/vn/",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.louisvuitton.com/us/",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.louisvuitton.com/uk/",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.louisvuitton.com/jp/",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.louisvuitton.com/fr/",
-      "domain": "louisvuitton.com"
-    },
-    {
-      "id": 9,
-      "merchant": "Louis Vuitton",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.louisvuitton.com/de/",
-      "domain": "louisvuitton.com"
+      "domain": "louisvuitton.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 10,
@@ -509,25 +104,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.coach.com",
-      "domain": "coach.com"
-    },
-    {
-      "id": 10,
-      "merchant": "Coach",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.coach.com",
-      "domain": "coach.com"
-    },
-    {
-      "id": 10,
-      "merchant": "Coach",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.coach.co.uk",
-      "domain": "coach.co.uk"
+      "domain": "coach.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 11,
@@ -536,25 +114,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.asos.com",
-      "domain": "asos.com"
-    },
-    {
-      "id": 11,
-      "merchant": "ASOS",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.asos.com",
-      "domain": "asos.com"
-    },
-    {
-      "id": 11,
-      "merchant": "ASOS",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.asos.co.uk",
-      "domain": "asos.co.uk"
+      "domain": "asos.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 12,
@@ -563,25 +124,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.ugg.com",
-      "domain": "ugg.com"
-    },
-    {
-      "id": 12,
-      "merchant": "UGG",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.ugg.com",
-      "domain": "ugg.com"
-    },
-    {
-      "id": 12,
-      "merchant": "UGG",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.ugg.co.uk",
-      "domain": "ugg.co.uk"
+      "domain": "ugg.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 13,
@@ -590,25 +134,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.vans.com",
-      "domain": "vans.com"
-    },
-    {
-      "id": 13,
-      "merchant": "Vans",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.vans.com",
-      "domain": "vans.com"
-    },
-    {
-      "id": 13,
-      "merchant": "Vans",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.vans.co.uk",
-      "domain": "vans.co.uk"
+      "domain": "vans.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 14,
@@ -617,25 +144,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.hermes.com",
-      "domain": "hermes.com"
-    },
-    {
-      "id": 14,
-      "merchant": "Hermès",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.hermes.com",
-      "domain": "hermes.com"
-    },
-    {
-      "id": 14,
-      "merchant": "Hermès",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.hermes.co.uk",
-      "domain": "hermes.co.uk"
+      "domain": "hermes.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 15,
@@ -644,25 +154,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.levi.com",
-      "domain": "levi.com"
-    },
-    {
-      "id": 15,
-      "merchant": "Levi's",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.levi.com",
-      "domain": "levi.com"
-    },
-    {
-      "id": 15,
-      "merchant": "Levi's",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.levi.co.uk",
-      "domain": "levi.co.uk"
+      "domain": "levi.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 16,
@@ -671,25 +164,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.tommy.com",
-      "domain": "tommy.com"
-    },
-    {
-      "id": 16,
-      "merchant": "Tommy Hilfiger",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.tommy.com",
-      "domain": "tommy.com"
-    },
-    {
-      "id": 16,
-      "merchant": "Tommy Hilfiger",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.tommy.co.uk",
-      "domain": "tommy.co.uk"
+      "domain": "tommy.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 17,
@@ -698,25 +174,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.ralphlauren.com",
-      "domain": "ralphlauren.com"
-    },
-    {
-      "id": 17,
-      "merchant": "Ralph Lauren",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.ralphlauren.com",
-      "domain": "ralphlauren.com"
-    },
-    {
-      "id": 17,
-      "merchant": "Ralph Lauren",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.ralphlauren.co.uk",
-      "domain": "ralphlauren.co.uk"
+      "domain": "ralphlauren.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 18,
@@ -725,25 +184,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.converse.com",
-      "domain": "converse.com"
-    },
-    {
-      "id": 18,
-      "merchant": "Converse",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.converse.com",
-      "domain": "converse.com"
-    },
-    {
-      "id": 18,
-      "merchant": "Converse",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.converse.co.uk",
-      "domain": "converse.co.uk"
+      "domain": "converse.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 19,
@@ -752,25 +194,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.urbanoutfitters.com",
-      "domain": "urbanoutfitters.com"
-    },
-    {
-      "id": 19,
-      "merchant": "Urban Outfitters",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.urbanoutfitters.com",
-      "domain": "urbanoutfitters.com"
-    },
-    {
-      "id": 19,
-      "merchant": "Urban Outfitters",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.urbanoutfitters.co.uk",
-      "domain": "urbanoutfitters.co.uk"
+      "domain": "urbanoutfitters.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 20,
@@ -779,61 +204,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.burberry.com",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.burberry.com/vn/",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.burberry.com/us/",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.burberry.com/uk/",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.burberry.com/jp/",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.burberry.com/fr/",
-      "domain": "burberry.com"
-    },
-    {
-      "id": 20,
-      "merchant": "Burberry",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.burberry.com/de/",
-      "domain": "burberry.com"
+      "domain": "burberry.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 21,
@@ -842,61 +214,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.dior.com",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.dior.com/vn/",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.dior.com/us/",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.dior.com/uk/",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.dior.com/jp/",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.dior.com/fr/",
-      "domain": "dior.com"
-    },
-    {
-      "id": 21,
-      "merchant": "Dior",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.dior.com/de/",
-      "domain": "dior.com"
+      "domain": "dior.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 22,
@@ -905,25 +224,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.calvinklein.com",
-      "domain": "calvinklein.com"
-    },
-    {
-      "id": 22,
-      "merchant": "Calvin Klein",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.calvinklein.com",
-      "domain": "calvinklein.com"
-    },
-    {
-      "id": 22,
-      "merchant": "Calvin Klein",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.calvinklein.co.uk",
-      "domain": "calvinklein.co.uk"
+      "domain": "calvinklein.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 23,
@@ -932,61 +234,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.chanel.com",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.chanel.com/vn/",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.chanel.com/us/",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.chanel.com/uk/",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.chanel.com/jp/",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.chanel.com/fr/",
-      "domain": "chanel.com"
-    },
-    {
-      "id": 23,
-      "merchant": "Chanel",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.chanel.com/de/",
-      "domain": "chanel.com"
+      "domain": "chanel.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 24,
@@ -995,61 +244,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.gucci.com",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.gucci.com/vn/",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.gucci.com/us/",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.gucci.com/uk/",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.gucci.com/jp/",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.gucci.com/fr/",
-      "domain": "gucci.com"
-    },
-    {
-      "id": 24,
-      "merchant": "Gucci",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.gucci.com/de/",
-      "domain": "gucci.com"
+      "domain": "gucci.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 25,
@@ -1058,25 +254,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.timberland.com",
-      "domain": "timberland.com"
-    },
-    {
-      "id": 25,
-      "merchant": "Timberland",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.timberland.com",
-      "domain": "timberland.com"
-    },
-    {
-      "id": 25,
-      "merchant": "Timberland",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.timberland.co.uk",
-      "domain": "timberland.co.uk"
+      "domain": "timberland.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 26,
@@ -1085,25 +264,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.michaelkors.com",
-      "domain": "michaelkors.com"
-    },
-    {
-      "id": 26,
-      "merchant": "Michael Kors",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.michaelkors.com",
-      "domain": "michaelkors.com"
-    },
-    {
-      "id": 26,
-      "merchant": "Michael Kors",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.michaelkors.co.uk",
-      "domain": "michaelkors.co.uk"
+      "domain": "michaelkors.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 27,
@@ -1112,61 +274,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.prada.com",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.prada.com/vn/",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.prada.com/us/",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.prada.com/uk/",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.prada.com/jp/",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.prada.com/fr/",
-      "domain": "prada.com"
-    },
-    {
-      "id": 27,
-      "merchant": "Prada",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.prada.com/de/",
-      "domain": "prada.com"
+      "domain": "prada.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 28,
@@ -1175,25 +284,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.valentino.com",
-      "domain": "valentino.com"
-    },
-    {
-      "id": 28,
-      "merchant": "Valentino",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.valentino.com",
-      "domain": "valentino.com"
-    },
-    {
-      "id": 28,
-      "merchant": "Valentino",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.valentino.co.uk",
-      "domain": "valentino.co.uk"
+      "domain": "valentino.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 29,
@@ -1202,61 +294,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.balenciaga.com",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.balenciaga.com/vn/",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.balenciaga.com/us/",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.balenciaga.com/uk/",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.balenciaga.com/jp/",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Pháp",
-      "country": "Pháp",
-      "url": "https://www.balenciaga.com/fr/",
-      "domain": "balenciaga.com"
-    },
-    {
-      "id": 29,
-      "merchant": "Balenciaga",
-      "category": "Fashion",
-      "market": "Đức",
-      "country": "Đức",
-      "url": "https://www.balenciaga.com/de/",
-      "domain": "balenciaga.com"
+      "domain": "balenciaga.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 30,
@@ -1265,25 +304,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.stevemadden.com",
-      "domain": "stevemadden.com"
-    },
-    {
-      "id": 30,
-      "merchant": "Steve Madden",
-      "category": "Fashion",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.stevemadden.com",
-      "domain": "stevemadden.com"
-    },
-    {
-      "id": 30,
-      "merchant": "Steve Madden",
-      "category": "Fashion",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.stevemadden.co.uk",
-      "domain": "stevemadden.co.uk"
+      "domain": "stevemadden.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 31,
@@ -1292,43 +314,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.apple.com",
-      "domain": "apple.com"
-    },
-    {
-      "id": 31,
-      "merchant": "Apple",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.apple.com/vn/",
-      "domain": "apple.com"
-    },
-    {
-      "id": 31,
-      "merchant": "Apple",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.apple.com/",
-      "domain": "apple.com"
-    },
-    {
-      "id": 31,
-      "merchant": "Apple",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.apple.com/uk/",
-      "domain": "apple.com"
-    },
-    {
-      "id": 31,
-      "merchant": "Apple",
-      "category": "Electronics",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.apple.com/jp/",
-      "domain": "apple.com"
+      "domain": "apple.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 32,
@@ -1337,43 +324,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.samsung.com",
-      "domain": "samsung.com"
-    },
-    {
-      "id": 32,
-      "merchant": "Samsung",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.samsung.com/vn/",
-      "domain": "samsung.com"
-    },
-    {
-      "id": 32,
-      "merchant": "Samsung",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.samsung.com/us/",
-      "domain": "samsung.com"
-    },
-    {
-      "id": 32,
-      "merchant": "Samsung",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.samsung.com/uk/",
-      "domain": "samsung.com"
-    },
-    {
-      "id": 32,
-      "merchant": "Samsung",
-      "category": "Electronics",
-      "market": "Nhật Bản",
-      "country": "Nhật Bản",
-      "url": "https://www.samsung.com/jp/",
-      "domain": "samsung.com"
+      "domain": "samsung.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 33,
@@ -1382,34 +334,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.sony.com",
-      "domain": "sony.com"
-    },
-    {
-      "id": 33,
-      "merchant": "Sony",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.sony.com.vn/",
-      "domain": "sony.com.vn"
-    },
-    {
-      "id": 33,
-      "merchant": "Sony",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.sony.com/en_us/",
-      "domain": "sony.com"
-    },
-    {
-      "id": 33,
-      "merchant": "Sony",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.sony.co.uk/",
-      "domain": "sony.co.uk"
+      "domain": "sony.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 34,
@@ -1418,34 +344,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.mi.com",
-      "domain": "mi.com"
-    },
-    {
-      "id": 34,
-      "merchant": "Xiaomi",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.mi.com/vn/",
-      "domain": "mi.com"
-    },
-    {
-      "id": 34,
-      "merchant": "Xiaomi",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.mi.com/us/",
-      "domain": "mi.com"
-    },
-    {
-      "id": 34,
-      "merchant": "Xiaomi",
-      "category": "Electronics",
-      "market": "Toàn cầu",
-      "country": "Toàn cầu",
-      "url": "https://www.mi.com/global/",
-      "domain": "mi.com"
+      "domain": "mi.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 35,
@@ -1454,34 +354,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.lg.com",
-      "domain": "lg.com"
-    },
-    {
-      "id": 35,
-      "merchant": "LG",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.lg.com/vn/",
-      "domain": "lg.com"
-    },
-    {
-      "id": 35,
-      "merchant": "LG",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.lg.com/us/",
-      "domain": "lg.com"
-    },
-    {
-      "id": 35,
-      "merchant": "LG",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.lg.com/uk/",
-      "domain": "lg.com"
+      "domain": "lg.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 36,
@@ -1490,34 +364,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.lenovo.com",
-      "domain": "lenovo.com"
-    },
-    {
-      "id": 36,
-      "merchant": "Lenovo",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.lenovo.com/vn/",
-      "domain": "lenovo.com"
-    },
-    {
-      "id": 36,
-      "merchant": "Lenovo",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.lenovo.com/us/",
-      "domain": "lenovo.com"
-    },
-    {
-      "id": 36,
-      "merchant": "Lenovo",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.lenovo.com/uk/",
-      "domain": "lenovo.com"
+      "domain": "lenovo.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 37,
@@ -1526,34 +374,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.hp.com",
-      "domain": "hp.com"
-    },
-    {
-      "id": 37,
-      "merchant": "HP",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.hp.com/vn/",
-      "domain": "hp.com"
-    },
-    {
-      "id": 37,
-      "merchant": "HP",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.hp.com/us/",
-      "domain": "hp.com"
-    },
-    {
-      "id": 37,
-      "merchant": "HP",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.hp.com/uk/",
-      "domain": "hp.com"
+      "domain": "hp.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 38,
@@ -1562,34 +384,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.dell.com",
-      "domain": "dell.com"
-    },
-    {
-      "id": 38,
-      "merchant": "Dell",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.dell.com/en-vn",
-      "domain": "dell.com"
-    },
-    {
-      "id": 38,
-      "merchant": "Dell",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.dell.com/en-us",
-      "domain": "dell.com"
-    },
-    {
-      "id": 38,
-      "merchant": "Dell",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.dell.com/en-gb",
-      "domain": "dell.com"
+      "domain": "dell.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 39,
@@ -1598,34 +394,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.asus.com",
-      "domain": "asus.com"
-    },
-    {
-      "id": 39,
-      "merchant": "ASUS",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.asus.com/vn/",
-      "domain": "asus.com"
-    },
-    {
-      "id": 39,
-      "merchant": "ASUS",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.asus.com/us/",
-      "domain": "asus.com"
-    },
-    {
-      "id": 39,
-      "merchant": "ASUS",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.asus.com/uk/",
-      "domain": "asus.com"
+      "domain": "asus.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 40,
@@ -1634,34 +404,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.huawei.com",
-      "domain": "huawei.com"
-    },
-    {
-      "id": 40,
-      "merchant": "Huawei",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.huawei.com/vn/",
-      "domain": "huawei.com"
-    },
-    {
-      "id": 40,
-      "merchant": "Huawei",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.huawei.com/us/",
-      "domain": "huawei.com"
-    },
-    {
-      "id": 40,
-      "merchant": "Huawei",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.huawei.com/uk/",
-      "domain": "huawei.com"
+      "domain": "huawei.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 41,
@@ -1670,34 +414,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.microsoft.com",
-      "domain": "microsoft.com"
-    },
-    {
-      "id": 41,
-      "merchant": "Microsoft",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.microsoft.com/vn/",
-      "domain": "microsoft.com"
-    },
-    {
-      "id": 41,
-      "merchant": "Microsoft",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.microsoft.com/us/",
-      "domain": "microsoft.com"
-    },
-    {
-      "id": 41,
-      "merchant": "Microsoft",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.microsoft.com/uk/",
-      "domain": "microsoft.com"
+      "domain": "microsoft.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 42,
@@ -1706,34 +424,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.google.com",
-      "domain": "google.com"
-    },
-    {
-      "id": 42,
-      "merchant": "Google",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.google.com/vn/",
-      "domain": "google.com"
-    },
-    {
-      "id": 42,
-      "merchant": "Google",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.google.com/us/",
-      "domain": "google.com"
-    },
-    {
-      "id": 42,
-      "merchant": "Google",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.google.com/uk/",
-      "domain": "google.com"
+      "domain": "google.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 43,
@@ -1742,34 +434,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.panasonic.com",
-      "domain": "panasonic.com"
-    },
-    {
-      "id": 43,
-      "merchant": "Panasonic",
-      "category": "Electronics",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.panasonic.com/vn/",
-      "domain": "panasonic.com"
-    },
-    {
-      "id": 43,
-      "merchant": "Panasonic",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.panasonic.com/us/",
-      "domain": "panasonic.com"
-    },
-    {
-      "id": 43,
-      "merchant": "Panasonic",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.panasonic.com/uk/",
-      "domain": "panasonic.com"
+      "domain": "panasonic.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 44,
@@ -1778,25 +444,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.canon.com",
-      "domain": "canon.com"
-    },
-    {
-      "id": 44,
-      "merchant": "Canon",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.canon.com",
-      "domain": "canon.com"
-    },
-    {
-      "id": 44,
-      "merchant": "Canon",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.canon.co.uk",
-      "domain": "canon.co.uk"
+      "domain": "canon.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 45,
@@ -1805,25 +454,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.nikonusa.com",
-      "domain": "nikonusa.com"
-    },
-    {
-      "id": 45,
-      "merchant": "Nikon",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.nikonusa.com",
-      "domain": "nikonusa.com"
-    },
-    {
-      "id": 45,
-      "merchant": "Nikon",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.nikonusa.co.uk",
-      "domain": "nikonusa.co.uk"
+      "domain": "nikonusa.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 46,
@@ -1832,25 +464,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.bose.com",
-      "domain": "bose.com"
-    },
-    {
-      "id": 46,
-      "merchant": "Bose",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.bose.com",
-      "domain": "bose.com"
-    },
-    {
-      "id": 46,
-      "merchant": "Bose",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.bose.co.uk",
-      "domain": "bose.co.uk"
+      "domain": "bose.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 47,
@@ -1859,25 +474,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.jbl.com",
-      "domain": "jbl.com"
-    },
-    {
-      "id": 47,
-      "merchant": "JBL",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.jbl.com",
-      "domain": "jbl.com"
-    },
-    {
-      "id": 47,
-      "merchant": "JBL",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.jbl.co.uk",
-      "domain": "jbl.co.uk"
+      "domain": "jbl.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 48,
@@ -1886,25 +484,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.philips.com",
-      "domain": "philips.com"
-    },
-    {
-      "id": 48,
-      "merchant": "Philips",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.philips.com",
-      "domain": "philips.com"
-    },
-    {
-      "id": 48,
-      "merchant": "Philips",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.philips.co.uk",
-      "domain": "philips.co.uk"
+      "domain": "philips.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 49,
@@ -1913,25 +494,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.nintendo.com",
-      "domain": "nintendo.com"
-    },
-    {
-      "id": 49,
-      "merchant": "Nintendo",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.nintendo.com",
-      "domain": "nintendo.com"
-    },
-    {
-      "id": 49,
-      "merchant": "Nintendo",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.nintendo.co.uk",
-      "domain": "nintendo.co.uk"
+      "domain": "nintendo.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 50,
@@ -1940,25 +504,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.gopro.com",
-      "domain": "gopro.com"
-    },
-    {
-      "id": 50,
-      "merchant": "GoPro",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.gopro.com",
-      "domain": "gopro.com"
-    },
-    {
-      "id": 50,
-      "merchant": "GoPro",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.gopro.co.uk",
-      "domain": "gopro.co.uk"
+      "domain": "gopro.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 51,
@@ -1967,25 +514,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.oneplus.com",
-      "domain": "oneplus.com"
-    },
-    {
-      "id": 51,
-      "merchant": "OnePlus",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.oneplus.com",
-      "domain": "oneplus.com"
-    },
-    {
-      "id": 51,
-      "merchant": "OnePlus",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.oneplus.co.uk",
-      "domain": "oneplus.co.uk"
+      "domain": "oneplus.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 52,
@@ -1994,25 +524,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.acer.com",
-      "domain": "acer.com"
-    },
-    {
-      "id": 52,
-      "merchant": "Acer",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.acer.com",
-      "domain": "acer.com"
-    },
-    {
-      "id": 52,
-      "merchant": "Acer",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.acer.co.uk",
-      "domain": "acer.co.uk"
+      "domain": "acer.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 53,
@@ -2021,25 +534,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.msi.com",
-      "domain": "msi.com"
-    },
-    {
-      "id": 53,
-      "merchant": "MSI",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.msi.com",
-      "domain": "msi.com"
-    },
-    {
-      "id": 53,
-      "merchant": "MSI",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.msi.co.uk",
-      "domain": "msi.co.uk"
+      "domain": "msi.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 54,
@@ -2048,25 +544,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.razer.com",
-      "domain": "razer.com"
-    },
-    {
-      "id": 54,
-      "merchant": "Razer",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.razer.com",
-      "domain": "razer.com"
-    },
-    {
-      "id": 54,
-      "merchant": "Razer",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.razer.co.uk",
-      "domain": "razer.co.uk"
+      "domain": "razer.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 55,
@@ -2075,25 +554,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.logitech.com",
-      "domain": "logitech.com"
-    },
-    {
-      "id": 55,
-      "merchant": "Logitech",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.logitech.com",
-      "domain": "logitech.com"
-    },
-    {
-      "id": 55,
-      "merchant": "Logitech",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.logitech.co.uk",
-      "domain": "logitech.co.uk"
+      "domain": "logitech.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 56,
@@ -2102,25 +564,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.garmin.com",
-      "domain": "garmin.com"
-    },
-    {
-      "id": 56,
-      "merchant": "Garmin",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.garmin.com",
-      "domain": "garmin.com"
-    },
-    {
-      "id": 56,
-      "merchant": "Garmin",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.garmin.co.uk",
-      "domain": "garmin.co.uk"
+      "domain": "garmin.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 57,
@@ -2129,25 +574,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.amazon.com",
-      "domain": "amazon.com"
-    },
-    {
-      "id": 57,
-      "merchant": "Amazon Devices",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.amazon.com",
-      "domain": "amazon.com"
-    },
-    {
-      "id": 57,
-      "merchant": "Amazon Devices",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.amazon.co.uk",
-      "domain": "amazon.co.uk"
+      "domain": "amazon.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 58,
@@ -2156,25 +584,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.alienware.com",
-      "domain": "alienware.com"
-    },
-    {
-      "id": 58,
-      "merchant": "Alienware",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.alienware.com",
-      "domain": "alienware.com"
-    },
-    {
-      "id": 58,
-      "merchant": "Alienware",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.alienware.co.uk",
-      "domain": "alienware.co.uk"
+      "domain": "alienware.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 59,
@@ -2183,25 +594,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.irobot.com",
-      "domain": "irobot.com"
-    },
-    {
-      "id": 59,
-      "merchant": "iRobot",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.irobot.com",
-      "domain": "irobot.com"
-    },
-    {
-      "id": 59,
-      "merchant": "iRobot",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.irobot.co.uk",
-      "domain": "irobot.co.uk"
+      "domain": "irobot.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 60,
@@ -2210,25 +604,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.sonos.com",
-      "domain": "sonos.com"
-    },
-    {
-      "id": 60,
-      "merchant": "Sonos",
-      "category": "Electronics",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.sonos.com",
-      "domain": "sonos.com"
-    },
-    {
-      "id": 60,
-      "merchant": "Sonos",
-      "category": "Electronics",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.sonos.co.uk",
-      "domain": "sonos.co.uk"
+      "domain": "sonos.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 61,
@@ -2237,34 +614,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.loreal.com",
-      "domain": "loreal.com"
-    },
-    {
-      "id": 61,
-      "merchant": "L'Oréal",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.loreal.com/vn/",
-      "domain": "loreal.com"
-    },
-    {
-      "id": 61,
-      "merchant": "L'Oréal",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.loreal.com",
-      "domain": "loreal.com"
-    },
-    {
-      "id": 61,
-      "merchant": "L'Oréal",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.loreal.com/uk/",
-      "domain": "loreal.com"
+      "domain": "loreal.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 62,
@@ -2273,34 +624,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.maybelline.com",
-      "domain": "maybelline.com"
-    },
-    {
-      "id": 62,
-      "merchant": "Maybelline",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.maybelline.com/vn/",
-      "domain": "maybelline.com"
-    },
-    {
-      "id": 62,
-      "merchant": "Maybelline",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.maybelline.com",
-      "domain": "maybelline.com"
-    },
-    {
-      "id": 62,
-      "merchant": "Maybelline",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.maybelline.com/uk/",
-      "domain": "maybelline.com"
+      "domain": "maybelline.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 63,
@@ -2309,25 +634,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.elfcosmetics.com",
-      "domain": "elfcosmetics.com"
-    },
-    {
-      "id": 63,
-      "merchant": "e.l.f. Cosmetics",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.elfcosmetics.com",
-      "domain": "elfcosmetics.com"
-    },
-    {
-      "id": 63,
-      "merchant": "e.l.f. Cosmetics",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.elfcosmetics.co.uk",
-      "domain": "elfcosmetics.co.uk"
+      "domain": "elfcosmetics.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 64,
@@ -2336,34 +644,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.cerave.com",
-      "domain": "cerave.com"
-    },
-    {
-      "id": 64,
-      "merchant": "CeraVe",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.cerave.com/vn/",
-      "domain": "cerave.com"
-    },
-    {
-      "id": 64,
-      "merchant": "CeraVe",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.cerave.com",
-      "domain": "cerave.com"
-    },
-    {
-      "id": 64,
-      "merchant": "CeraVe",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.cerave.com/uk/",
-      "domain": "cerave.com"
+      "domain": "cerave.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 65,
@@ -2372,34 +654,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.theordinary.com",
-      "domain": "theordinary.com"
-    },
-    {
-      "id": 65,
-      "merchant": "The Ordinary",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.theordinary.com/vn/",
-      "domain": "theordinary.com"
-    },
-    {
-      "id": 65,
-      "merchant": "The Ordinary",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.theordinary.com",
-      "domain": "theordinary.com"
-    },
-    {
-      "id": 65,
-      "merchant": "The Ordinary",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.theordinary.com/uk/",
-      "domain": "theordinary.com"
+      "domain": "theordinary.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 66,
@@ -2408,25 +664,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.fentybeauty.com",
-      "domain": "fentybeauty.com"
-    },
-    {
-      "id": 66,
-      "merchant": "Fenty Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.fentybeauty.com",
-      "domain": "fentybeauty.com"
-    },
-    {
-      "id": 66,
-      "merchant": "Fenty Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.fentybeauty.co.uk",
-      "domain": "fentybeauty.co.uk"
+      "domain": "fentybeauty.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 67,
@@ -2435,25 +674,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.nyxcosmetics.com",
-      "domain": "nyxcosmetics.com"
-    },
-    {
-      "id": 67,
-      "merchant": "NYX Professional Makeup",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.nyxcosmetics.com",
-      "domain": "nyxcosmetics.com"
-    },
-    {
-      "id": 67,
-      "merchant": "NYX Professional Makeup",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.nyxcosmetics.co.uk",
-      "domain": "nyxcosmetics.co.uk"
+      "domain": "nyxcosmetics.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 68,
@@ -2462,25 +684,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.glossier.com",
-      "domain": "glossier.com"
-    },
-    {
-      "id": 68,
-      "merchant": "Glossier",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.glossier.com",
-      "domain": "glossier.com"
-    },
-    {
-      "id": 68,
-      "merchant": "Glossier",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.glossier.co.uk",
-      "domain": "glossier.co.uk"
+      "domain": "glossier.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 69,
@@ -2489,25 +694,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.rarebeauty.com",
-      "domain": "rarebeauty.com"
-    },
-    {
-      "id": 69,
-      "merchant": "Rare Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.rarebeauty.com",
-      "domain": "rarebeauty.com"
-    },
-    {
-      "id": 69,
-      "merchant": "Rare Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.rarebeauty.co.uk",
-      "domain": "rarebeauty.co.uk"
+      "domain": "rarebeauty.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 70,
@@ -2516,34 +704,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.esteelauder.com",
-      "domain": "esteelauder.com"
-    },
-    {
-      "id": 70,
-      "merchant": "Estée Lauder",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.esteelauder.com/vn/",
-      "domain": "esteelauder.com"
-    },
-    {
-      "id": 70,
-      "merchant": "Estée Lauder",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.esteelauder.com",
-      "domain": "esteelauder.com"
-    },
-    {
-      "id": 70,
-      "merchant": "Estée Lauder",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.esteelauder.com/uk/",
-      "domain": "esteelauder.com"
+      "domain": "esteelauder.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 71,
@@ -2552,34 +714,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.laroche-posay.us",
-      "domain": "laroche-posay.us"
-    },
-    {
-      "id": 71,
-      "merchant": "La Roche-Posay",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.laroche-posay.us/vn/",
-      "domain": "laroche-posay.us"
-    },
-    {
-      "id": 71,
-      "merchant": "La Roche-Posay",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.laroche-posay.us",
-      "domain": "laroche-posay.us"
-    },
-    {
-      "id": 71,
-      "merchant": "La Roche-Posay",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.laroche-posay.us/uk/",
-      "domain": "laroche-posay.us"
+      "domain": "laroche-posay.us",
+      "source": "official_brand_homepage"
     },
     {
       "id": 72,
@@ -2588,25 +724,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.dior.com",
-      "domain": "dior.com"
-    },
-    {
-      "id": 72,
-      "merchant": "Dior Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.dior.com",
-      "domain": "dior.com"
-    },
-    {
-      "id": 72,
-      "merchant": "Dior Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.dior.co.uk",
-      "domain": "dior.co.uk"
+      "domain": "dior.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 73,
@@ -2615,25 +734,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.cosrx.com",
-      "domain": "cosrx.com"
-    },
-    {
-      "id": 73,
-      "merchant": "COSRX",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.cosrx.com",
-      "domain": "cosrx.com"
-    },
-    {
-      "id": 73,
-      "merchant": "COSRX",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.cosrx.co.uk",
-      "domain": "cosrx.co.uk"
+      "domain": "cosrx.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 74,
@@ -2642,25 +744,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.revlon.com",
-      "domain": "revlon.com"
-    },
-    {
-      "id": 74,
-      "merchant": "Revlon",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.revlon.com",
-      "domain": "revlon.com"
-    },
-    {
-      "id": 74,
-      "merchant": "Revlon",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.revlon.co.uk",
-      "domain": "revlon.co.uk"
+      "domain": "revlon.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 75,
@@ -2669,25 +754,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.narscosmetics.com",
-      "domain": "narscosmetics.com"
-    },
-    {
-      "id": 75,
-      "merchant": "NARS",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.narscosmetics.com",
-      "domain": "narscosmetics.com"
-    },
-    {
-      "id": 75,
-      "merchant": "NARS",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.narscosmetics.co.uk",
-      "domain": "narscosmetics.co.uk"
+      "domain": "narscosmetics.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 76,
@@ -2696,34 +764,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.clinique.com",
-      "domain": "clinique.com"
-    },
-    {
-      "id": 76,
-      "merchant": "Clinique",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.clinique.com/vn/",
-      "domain": "clinique.com"
-    },
-    {
-      "id": 76,
-      "merchant": "Clinique",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.clinique.com",
-      "domain": "clinique.com"
-    },
-    {
-      "id": 76,
-      "merchant": "Clinique",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.clinique.com/uk/",
-      "domain": "clinique.com"
+      "domain": "clinique.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 77,
@@ -2732,34 +774,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.lancome-usa.com",
-      "domain": "lancome-usa.com"
-    },
-    {
-      "id": 77,
-      "merchant": "Lancôme",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.lancome.com.vn",
-      "domain": "lancome.com.vn"
-    },
-    {
-      "id": 77,
-      "merchant": "Lancôme",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.lancome-usa.com",
-      "domain": "lancome-usa.com"
-    },
-    {
-      "id": 77,
-      "merchant": "Lancôme",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.lancome-usa.com/uk/",
-      "domain": "lancome-usa.com"
+      "domain": "lancome-usa.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 78,
@@ -2768,25 +784,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.hudabeauty.com",
-      "domain": "hudabeauty.com"
-    },
-    {
-      "id": 78,
-      "merchant": "Huda Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.hudabeauty.com",
-      "domain": "hudabeauty.com"
-    },
-    {
-      "id": 78,
-      "merchant": "Huda Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.hudabeauty.co.uk",
-      "domain": "hudabeauty.co.uk"
+      "domain": "hudabeauty.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 79,
@@ -2795,25 +794,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.thebodyshop.com",
-      "domain": "thebodyshop.com"
-    },
-    {
-      "id": 79,
-      "merchant": "The Body Shop",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.thebodyshop.com",
-      "domain": "thebodyshop.com"
-    },
-    {
-      "id": 79,
-      "merchant": "The Body Shop",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.thebodyshop.co.uk",
-      "domain": "thebodyshop.co.uk"
+      "domain": "thebodyshop.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 80,
@@ -2822,34 +804,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.neutrogena.com",
-      "domain": "neutrogena.com"
-    },
-    {
-      "id": 80,
-      "merchant": "Neutrogena",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.neutrogena.com/vn/",
-      "domain": "neutrogena.com"
-    },
-    {
-      "id": 80,
-      "merchant": "Neutrogena",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.neutrogena.com",
-      "domain": "neutrogena.com"
-    },
-    {
-      "id": 80,
-      "merchant": "Neutrogena",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.neutrogena.com/uk/",
-      "domain": "neutrogena.com"
+      "domain": "neutrogena.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 81,
@@ -2858,34 +814,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.olay.com",
-      "domain": "olay.com"
-    },
-    {
-      "id": 81,
-      "merchant": "Olay",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.olay.com/vn/",
-      "domain": "olay.com"
-    },
-    {
-      "id": 81,
-      "merchant": "Olay",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.olay.com",
-      "domain": "olay.com"
-    },
-    {
-      "id": 81,
-      "merchant": "Olay",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.olay.com/uk/",
-      "domain": "olay.com"
+      "domain": "olay.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 82,
@@ -2894,34 +824,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.aveeno.com",
-      "domain": "aveeno.com"
-    },
-    {
-      "id": 82,
-      "merchant": "Aveeno",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.aveeno.com/vn/",
-      "domain": "aveeno.com"
-    },
-    {
-      "id": 82,
-      "merchant": "Aveeno",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.aveeno.com",
-      "domain": "aveeno.com"
-    },
-    {
-      "id": 82,
-      "merchant": "Aveeno",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.aveeno.com/uk/",
-      "domain": "aveeno.com"
+      "domain": "aveeno.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 83,
@@ -2930,25 +834,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.kyliecosmetics.com",
-      "domain": "kyliecosmetics.com"
-    },
-    {
-      "id": 83,
-      "merchant": "Kylie Cosmetics",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.kyliecosmetics.com",
-      "domain": "kyliecosmetics.com"
-    },
-    {
-      "id": 83,
-      "merchant": "Kylie Cosmetics",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.kyliecosmetics.co.uk",
-      "domain": "kyliecosmetics.co.uk"
+      "domain": "kyliecosmetics.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 84,
@@ -2957,25 +844,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.olaplex.com",
-      "domain": "olaplex.com"
-    },
-    {
-      "id": 84,
-      "merchant": "Olaplex",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.olaplex.com",
-      "domain": "olaplex.com"
-    },
-    {
-      "id": 84,
-      "merchant": "Olaplex",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.olaplex.co.uk",
-      "domain": "olaplex.co.uk"
+      "domain": "olaplex.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 85,
@@ -2984,25 +854,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.tatcha.com",
-      "domain": "tatcha.com"
-    },
-    {
-      "id": 85,
-      "merchant": "Tatcha",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.tatcha.com",
-      "domain": "tatcha.com"
-    },
-    {
-      "id": 85,
-      "merchant": "Tatcha",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.tatcha.co.uk",
-      "domain": "tatcha.co.uk"
+      "domain": "tatcha.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 86,
@@ -3011,34 +864,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.kiehls.com",
-      "domain": "kiehls.com"
-    },
-    {
-      "id": 86,
-      "merchant": "Kiehl's",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.kiehls.com/vn/",
-      "domain": "kiehls.com"
-    },
-    {
-      "id": 86,
-      "merchant": "Kiehl's",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.kiehls.com",
-      "domain": "kiehls.com"
-    },
-    {
-      "id": 86,
-      "merchant": "Kiehl's",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.kiehls.com/uk/",
-      "domain": "kiehls.com"
+      "domain": "kiehls.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 87,
@@ -3047,34 +874,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.sephora.com",
-      "domain": "sephora.com"
-    },
-    {
-      "id": 87,
-      "merchant": "Sephora",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.sephora.com/vn/",
-      "domain": "sephora.com"
-    },
-    {
-      "id": 87,
-      "merchant": "Sephora",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.sephora.com",
-      "domain": "sephora.com"
-    },
-    {
-      "id": 87,
-      "merchant": "Sephora",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.sephora.com/uk/",
-      "domain": "sephora.com"
+      "domain": "sephora.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 88,
@@ -3083,25 +884,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.alta.com",
-      "domain": "alta.com"
-    },
-    {
-      "id": 88,
-      "merchant": "Ulta Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.alta.com",
-      "domain": "alta.com"
-    },
-    {
-      "id": 88,
-      "merchant": "Ulta Beauty",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.alta.co.uk",
-      "domain": "alta.co.uk"
+      "domain": "alta.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 89,
@@ -3110,34 +894,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.paulaschoice.com",
-      "domain": "paulaschoice.com"
-    },
-    {
-      "id": 89,
-      "merchant": "Paula's Choice",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.paulaschoice.com/vn/",
-      "domain": "paulaschoice.com"
-    },
-    {
-      "id": 89,
-      "merchant": "Paula's Choice",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.paulaschoice.com",
-      "domain": "paulaschoice.com"
-    },
-    {
-      "id": 89,
-      "merchant": "Paula's Choice",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.paulaschoice.com/uk/",
-      "domain": "paulaschoice.com"
+      "domain": "paulaschoice.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 90,
@@ -3146,34 +904,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.us.laneige.com",
-      "domain": "us.laneige.com"
-    },
-    {
-      "id": 90,
-      "merchant": "LANEIGE",
-      "category": "Beauty & Personal Care",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.us.laneige.com/vn/",
-      "domain": "us.laneige.com"
-    },
-    {
-      "id": 90,
-      "merchant": "LANEIGE",
-      "category": "Beauty & Personal Care",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.us.laneige.com",
-      "domain": "us.laneige.com"
-    },
-    {
-      "id": 90,
-      "merchant": "LANEIGE",
-      "category": "Beauty & Personal Care",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.us.laneige.com/uk/",
-      "domain": "us.laneige.com"
+      "domain": "us.laneige.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 91,
@@ -3182,34 +914,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.ikea.com",
-      "domain": "ikea.com"
-    },
-    {
-      "id": 91,
-      "merchant": "IKEA",
-      "category": "Home & Living",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.ikea.com/vn/en/",
-      "domain": "ikea.com"
-    },
-    {
-      "id": 91,
-      "merchant": "IKEA",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.ikea.com/us/en/",
-      "domain": "ikea.com"
-    },
-    {
-      "id": 91,
-      "merchant": "IKEA",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.ikea.com/gb/en/",
-      "domain": "ikea.com"
+      "domain": "ikea.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 92,
@@ -3218,16 +924,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.lowes.com",
-      "domain": "lowes.com"
-    },
-    {
-      "id": 92,
-      "merchant": "Lowe's",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Mỹ)",
-      "country": "Thị trường chính (Mỹ)",
-      "url": "https://www.lowes.com",
-      "domain": "lowes.com"
+      "domain": "lowes.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 93,
@@ -3236,25 +934,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.wayfair.com",
-      "domain": "wayfair.com"
-    },
-    {
-      "id": 93,
-      "merchant": "Wayfair",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.wayfair.com",
-      "domain": "wayfair.com"
-    },
-    {
-      "id": 93,
-      "merchant": "Wayfair",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.wayfair.co.uk",
-      "domain": "wayfair.co.uk"
+      "domain": "wayfair.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 94,
@@ -3263,16 +944,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.walmart.com",
-      "domain": "walmart.com"
-    },
-    {
-      "id": 94,
-      "merchant": "Walmart",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Mỹ)",
-      "country": "Thị trường chính (Mỹ)",
-      "url": "https://www.walmart.com",
-      "domain": "walmart.com"
+      "domain": "walmart.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 95,
@@ -3281,16 +954,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.target.com",
-      "domain": "target.com"
-    },
-    {
-      "id": 95,
-      "merchant": "Target",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Mỹ)",
-      "country": "Thị trường chính (Mỹ)",
-      "url": "https://www.target.com",
-      "domain": "target.com"
+      "domain": "target.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 96,
@@ -3299,25 +964,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.ashleyfurniture.com",
-      "domain": "ashleyfurniture.com"
-    },
-    {
-      "id": 96,
-      "merchant": "Ashley",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.ashleyfurniture.com",
-      "domain": "ashleyfurniture.com"
-    },
-    {
-      "id": 96,
-      "merchant": "Ashley",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.ashleyfurniture.co.uk",
-      "domain": "ashleyfurniture.co.uk"
+      "domain": "ashleyfurniture.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 97,
@@ -3326,25 +974,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.acehardware.com",
-      "domain": "acehardware.com"
-    },
-    {
-      "id": 97,
-      "merchant": "Ace Hardware",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.acehardware.com",
-      "domain": "acehardware.com"
-    },
-    {
-      "id": 97,
-      "merchant": "Ace Hardware",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.acehardware.co.uk",
-      "domain": "acehardware.co.uk"
+      "domain": "acehardware.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 98,
@@ -3353,25 +984,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.costco.com",
-      "domain": "costco.com"
-    },
-    {
-      "id": 98,
-      "merchant": "Costco",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.costco.com",
-      "domain": "costco.com"
-    },
-    {
-      "id": 98,
-      "merchant": "Costco",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.costco.co.uk",
-      "domain": "costco.co.uk"
+      "domain": "costco.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 99,
@@ -3380,25 +994,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.amazon.com",
-      "domain": "amazon.com"
-    },
-    {
-      "id": 99,
-      "merchant": "Amazon Home",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.amazon.com",
-      "domain": "amazon.com"
-    },
-    {
-      "id": 99,
-      "merchant": "Amazon Home",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.amazon.co.uk",
-      "domain": "amazon.co.uk"
+      "domain": "amazon.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 100,
@@ -3407,34 +1004,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.dyson.com",
-      "domain": "dyson.com"
-    },
-    {
-      "id": 100,
-      "merchant": "Dyson",
-      "category": "Home & Living",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.dyson.vn/",
-      "domain": "dyson.vn"
-    },
-    {
-      "id": 100,
-      "merchant": "Dyson",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.dyson.com/",
-      "domain": "dyson.com"
-    },
-    {
-      "id": 100,
-      "merchant": "Dyson",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.dyson.co.uk/",
-      "domain": "dyson.co.uk"
+      "domain": "dyson.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 101,
@@ -3443,25 +1014,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.sharkclean.com",
-      "domain": "sharkclean.com"
-    },
-    {
-      "id": 101,
-      "merchant": "Shark",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.sharkclean.com",
-      "domain": "sharkclean.com"
-    },
-    {
-      "id": 101,
-      "merchant": "Shark",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.sharkclean.co.uk",
-      "domain": "sharkclean.co.uk"
+      "domain": "sharkclean.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 102,
@@ -3470,34 +1024,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.bosch.com",
-      "domain": "bosch.com"
-    },
-    {
-      "id": 102,
-      "merchant": "Bosch",
-      "category": "Home & Living",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.bosch.com/vn/",
-      "domain": "bosch.com"
-    },
-    {
-      "id": 102,
-      "merchant": "Bosch",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.bosch.com/us/",
-      "domain": "bosch.com"
-    },
-    {
-      "id": 102,
-      "merchant": "Bosch",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.bosch.com/uk/",
-      "domain": "bosch.com"
+      "domain": "bosch.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 103,
@@ -3506,34 +1034,8 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.kitchenaid.com",
-      "domain": "kitchenaid.com"
-    },
-    {
-      "id": 103,
-      "merchant": "KitchenAid",
-      "category": "Home & Living",
-      "market": "Việt Nam",
-      "country": "Việt Nam",
-      "url": "https://www.kitchenaid.com/vn/",
-      "domain": "kitchenaid.com"
-    },
-    {
-      "id": 103,
-      "merchant": "KitchenAid",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.kitchenaid.com/us/",
-      "domain": "kitchenaid.com"
-    },
-    {
-      "id": 103,
-      "merchant": "KitchenAid",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.kitchenaid.com/uk/",
-      "domain": "kitchenaid.com"
+      "domain": "kitchenaid.com",
+      "source": "official_brand_homepage"
     },
     {
       "id": 104,
@@ -3542,34 +1044,988 @@
       "market": "Gốc / Quốc tế",
       "country": "International",
       "url": "https://www.whirlpool.com",
-      "domain": "whirlpool.com"
+      "domain": "whirlpool.com",
+      "source": "official_brand_homepage"
     },
     {
-      "id": 104,
-      "merchant": "Whirlpool",
+      "id": 105,
+      "merchant": "GE Appliances",
       "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.geappliances.com",
+      "domain": "geappliances.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 106,
+      "merchant": "Pottery Barn",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.potterybarn.com",
+      "domain": "potterybarn.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 107,
+      "merchant": "West Elm",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.westelm.com",
+      "domain": "westelm.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 108,
+      "merchant": "Crate & Barrel",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.crateandbarrel.com",
+      "domain": "crateandbarrel.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 109,
+      "merchant": "La-Z-Boy",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.la-z-boy.com",
+      "domain": "la-z-boy.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 110,
+      "merchant": "Harbor Freight",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.harborfreight.com",
+      "domain": "harborfreight.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 111,
+      "merchant": "Uline",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.uline.com",
+      "domain": "uline.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 112,
+      "merchant": "Mattress Firm",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.mattressfirm.com",
+      "domain": "mattressfirm.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 113,
+      "merchant": "Dunelm",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.dunelm.com",
+      "domain": "dunelm.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 114,
+      "merchant": "Habitat",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.habitat.co.uk",
+      "domain": "habitat.co.uk",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 115,
+      "merchant": "Homebase",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.homebase.co.uk",
+      "domain": "homebase.co.uk",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 116,
+      "merchant": "The Range",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.therange.co.uk",
+      "domain": "therange.co.uk",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 117,
+      "merchant": "John Lewis & Partners",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.johnlewis.com",
+      "domain": "johnlewis.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 118,
+      "merchant": "Argos",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.argos.co.uk",
+      "domain": "argos.co.uk",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 119,
+      "merchant": "Bed Bath & Beyond",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.bedbathandbeyond.com",
+      "domain": "bedbathandbeyond.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 120,
+      "merchant": "Overstock",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.overstock.com",
+      "domain": "overstock.com",
+      "source": "official_brand_homepage"
+    },
+    {
+      "id": 2,
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.nike.com/promo-code",
+      "domain": "nike.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 2,
+      "merchant": "Nike",
+      "category": "Fashion",
       "market": "Việt Nam",
       "country": "Việt Nam",
-      "url": "https://www.whirlpool.com/vn/",
-      "domain": "whirlpool.com"
+      "url": "https://www.nike.com/vn/w/womens-sale-3yaepz5e1x6",
+      "domain": "nike.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 2,
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "country": "Nhật Bản",
+      "url": "https://www.nike.com/jp/w/kids-sale-accessories-equipment-3yaepzawwpwzv4dh",
+      "domain": "nike.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 2,
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Pháp",
+      "country": "Pháp",
+      "url": "https://www.nike.com/fr/help/a/appliquer-code-promo",
+      "domain": "nike.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 2,
+      "merchant": "Nike",
+      "category": "Fashion",
+      "market": "Đức",
+      "country": "Đức",
+      "url": "https://www.nike.com/de/help/a/aktionscode-verwenden",
+      "domain": "nike.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 4,
+      "merchant": "Mango",
+      "category": "Fashion",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://shop.mango.com/gb/en/gift-voucher",
+      "domain": "shop.mango.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 5,
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.uniqlo.com/uk/en/women/special-collaboration",
+      "domain": "uniqlo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 5,
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "country": "Nhật Bản",
+      "url": "https://www.uniqlo.com/jp/ja/special-feature/cp/bottoms-collections",
+      "domain": "uniqlo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 5,
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Pháp",
+      "country": "Pháp",
+      "url": "https://www.uniqlo.com/fr/fr/women/special-collaboration/uniqlo-u",
+      "domain": "uniqlo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 5,
+      "merchant": "UNIQLO",
+      "category": "Fashion",
+      "market": "Đức",
+      "country": "Đức",
+      "url": "https://www.uniqlo.com/de/de/women/special-collaboration/uniqlo-u",
+      "domain": "uniqlo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 11,
+      "merchant": "ASOS",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.asos.com/men/ctas/generic-promos/promotion-14/cat/?cid=51293",
+      "domain": "asos.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 20,
+      "merchant": "Burberry",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://int.burberry.com/l/sale/",
+      "domain": "int.burberry.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 22,
+      "merchant": "Calvin Klein",
+      "category": "Fashion",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.calvinklein.co.uk/outlet",
+      "domain": "calvinklein.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 24,
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.gucci.com/us/en/ca/gifts/gifts-for-women/special-gifts-for-her-c-special-gift-her",
+      "domain": "gucci.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 24,
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Pháp",
+      "country": "Pháp",
+      "url": "https://www.gucci.com/fr/fr/nst/capsule/gifts-services",
+      "domain": "gucci.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 24,
+      "merchant": "Gucci",
+      "category": "Fashion",
+      "market": "Đức",
+      "country": "Đức",
+      "url": "https://www.gucci.com/de/de/ca/women/travel-bags-for-women/hard-sided-for-women-c-women-hard-sided-luggage",
+      "domain": "gucci.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 27,
+      "merchant": "Prada",
+      "category": "Fashion",
+      "market": "Nhật Bản",
+      "country": "Nhật Bản",
+      "url": "https://www.prada.com/jp/ja/pradasphere/special-projects/2026/prada-gentle-monster.html",
+      "domain": "prada.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 27,
+      "merchant": "Prada",
+      "category": "Fashion",
+      "market": "Đức",
+      "country": "Đức",
+      "url": "https://www.prada.com/de/de/womens/travel/luggage-and-carry-on/c/10097EU",
+      "domain": "prada.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 29,
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.balenciaga.com/en-en/discover/explore-special-projects/explore-series-winter-26-campaign",
+      "domain": "balenciaga.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 29,
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.balenciaga.com/en-us/discover/explore-special-projects/explore-series-winter-26-campaign",
+      "domain": "balenciaga.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 29,
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Pháp",
+      "country": "Pháp",
+      "url": "https://www.balenciaga.com/fr-fr/decouvrir/explore-special-projects/explore-series-winter-26-campaign",
+      "domain": "balenciaga.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 29,
+      "merchant": "Balenciaga",
+      "category": "Fashion",
+      "market": "Đức",
+      "country": "Đức",
+      "url": "https://www.balenciaga.com/de-de/entdecken/explore-special-projects/explore-series-winter-26-campaign",
+      "domain": "balenciaga.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 30,
+      "merchant": "Steve Madden",
+      "category": "Fashion",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.stevemadden.com/pages/military-discount",
+      "domain": "stevemadden.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 30,
+      "merchant": "Steve Madden",
+      "category": "Fashion",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://stevemadden.co.uk/collections/seasonal-offers",
+      "domain": "stevemadden.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 31,
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.apple.com/shop/buy-iphone/carrier-offers",
+      "domain": "apple.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 31,
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.apple.com/vn/shop/browse/open/salespolicies",
+      "domain": "apple.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 31,
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.apple.com/uk/legal/sales-support/sales-policies/retail_uk.html",
+      "domain": "apple.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 31,
+      "merchant": "Apple",
+      "category": "Electronics",
+      "market": "Nhật Bản",
+      "country": "Nhật Bản",
+      "url": "https://www.apple.com/jp/shop/buy-iphone/carrier-offers",
+      "domain": "apple.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 32,
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.samsung.com/vn/offer/samsung-care-plus/mobile/",
+      "domain": "samsung.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 32,
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+      "domain": "samsung.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 32,
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.samsung.com/uk/estore/static/link-terms-and-conditions-of-sale/",
+      "domain": "samsung.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 32,
+      "merchant": "Samsung",
+      "category": "Electronics",
+      "market": "Nhật Bản",
+      "country": "Nhật Bản",
+      "url": "https://www.samsung.com/jp/offer/samsung-education-store/",
+      "domain": "samsung.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 33,
+      "merchant": "Sony",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.sony.com.vn/microsite/online-store-campaigns/latest-promotion/index.html?cpint=homepage_promotion_tiles-Promotion%20Tiles-vi_VN-responsivegrid_structure_top_promotiontiles_copy_1&cpint=homepage_promotion_tiles-Promotion%20Tiles-vi_VN-responsivegrid_structure_top_promotiontiles_copy_1",
+      "domain": "sony.com.vn",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 33,
+      "merchant": "Sony",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.sony.co.uk/deals-offers?cpint=EURO_FOOTER_PROMOTIONSPAGE",
+      "domain": "sony.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 35,
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.lg.com/vn/khuyen-mai/flash-sale-cuoi-tuan/",
+      "domain": "lg.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 35,
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.lg.com/us/promotions?f-ec_category_3=Cooktops%20%26%20Hoods,Dishwashers,Microwaves,Ranges%20%26%20Wall%20Ovens,Refrigerators",
+      "domain": "lg.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 35,
+      "merchant": "LG",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.lg.com/uk/promotion/soundbar-offer/",
+      "domain": "lg.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 36,
+      "merchant": "Lenovo",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.lenovo.com/us/en/d/deals/doorbusters/",
+      "domain": "lenovo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 36,
+      "merchant": "Lenovo",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.lenovo.com/gb/en/d/sale/",
+      "domain": "lenovo.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 37,
+      "merchant": "HP",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.hp.com/us-en/shop/slp/weekly-deals/accessories",
+      "domain": "hp.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 37,
+      "merchant": "HP",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.hp.com/gb-en/shop/deals",
+      "domain": "hp.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 38,
+      "merchant": "Dell",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.dell.com/en-vn/lp/legal/terms-of-sale",
+      "domain": "dell.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 38,
+      "merchant": "Dell",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.dell.com/en-us/shop/deals/computer-monitor-deals",
+      "domain": "dell.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 39,
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.asus.com/vn/events/infoM/activity_expertbook-promo?utm_source=asus-local&utm_medium=banner&utm_campaign=26q3_1%20year%20warranty%20extension_vn&utm_content=website_banner",
+      "domain": "asus.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 39,
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.asus.com/us/deals/ec-bundle-sales/?utm_source=OPBG+eShop&utm_medium=DROPDOWN&utm_campaign=Wifi7+Bundle",
+      "domain": "asus.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 39,
+      "merchant": "ASUS",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.asus.com/uk/content/asus-offers-adobe-creative-cloud/",
+      "domain": "asus.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 41,
+      "merchant": "Microsoft",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.microsoft.com/en-gb/store/b/sale?icid=DSM_TopNavDeals",
+      "domain": "microsoft.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 43,
+      "merchant": "Panasonic",
+      "category": "Electronics",
+      "market": "Việt Nam",
+      "country": "Việt Nam",
+      "url": "https://www.panasonic.com/vn/consumer/batteries/specialty-batteries/cylindrical-lithium-batteries.html",
+      "domain": "panasonic.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 44,
+      "merchant": "Canon",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.canon.co.uk/offers/",
+      "domain": "canon.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 45,
+      "merchant": "Nikon",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.nikonusa.com/where-to-buy/nikon_img_auth_dealers.pdf",
+      "domain": "nikonusa.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 46,
+      "merchant": "Bose",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.bose.com/legal/terms-of-sale",
+      "domain": "bose.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 46,
+      "merchant": "Bose",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.bose.co.uk/legal/terms-of-sale",
+      "domain": "bose.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 47,
+      "merchant": "JBL",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.jbl.co.uk/services/storage-and-clearance",
+      "domain": "jbl.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 48,
+      "merchant": "Philips",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.philips.co.uk/c-e/shop/bundle-deals-mother-and-child-care",
+      "domain": "philips.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 53,
+      "merchant": "MSI",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://ph.msi.com/Promotion/2026-Captain-Tsubasa-2-NB-bundle/nb",
+      "domain": "ph.msi.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 59,
+      "merchant": "iRobot",
+      "category": "Electronics",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.irobot.com/en_US/accessory-deals.html",
+      "domain": "irobot.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 59,
+      "merchant": "iRobot",
+      "category": "Electronics",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.irobot.co.uk/en_GB/deals.html",
+      "domain": "irobot.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 61,
+      "merchant": "L'Oréal",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.loreal.com/en/commitments-and-responsibilities/for-the-people/promoting-diversity-and-inclusion/",
+      "domain": "loreal.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 62,
+      "merchant": "Maybelline",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.maybelline.com/lip-makeup/lip-liner/super-stay-peel-off-lip-liner",
+      "domain": "maybelline.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 63,
+      "merchant": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.elfcosmetics.com/pages/promotion-details",
+      "domain": "elfcosmetics.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 63,
+      "merchant": "e.l.f. Cosmetics",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.elfcosmetics.co.uk/pages/promotion-details",
+      "domain": "elfcosmetics.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 64,
+      "merchant": "CeraVe",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.cerave.com/coupons-new",
+      "domain": "cerave.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 66,
+      "merchant": "Fenty Beauty",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://fentybeauty.co.uk/pages/student-discount",
+      "domain": "fentybeauty.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 69,
+      "merchant": "Rare Beauty",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.rarebeauty.com/pages/salesandpromotions",
+      "domain": "rarebeauty.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 73,
+      "merchant": "COSRX",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.cosrx.com/collections/last-chance-deal",
+      "domain": "cosrx.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 75,
+      "merchant": "NARS",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.narscosmetics.com/USA/beauty-offers.html",
+      "domain": "narscosmetics.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 76,
+      "merchant": "Clinique",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.clinique.com/appreciation-discount/military-first-responders",
+      "domain": "clinique.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 79,
+      "merchant": "The Body Shop",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.thebodyshop.com/pages/promotion-terms-conditions",
+      "domain": "thebodyshop.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 80,
+      "merchant": "Neutrogena",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.neutrogena.com/offers",
+      "domain": "neutrogena.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 81,
+      "merchant": "Olay",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.olay.com/collections/clearance",
+      "domain": "olay.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 82,
+      "merchant": "Aveeno",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.aveeno.com/email-sign-up",
+      "domain": "aveeno.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 84,
+      "merchant": "Olaplex",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://olaplex.com/pages/offers-page",
+      "domain": "olaplex.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 85,
+      "merchant": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://tatcha.com/pages/terms-of-sale",
+      "domain": "tatcha.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 85,
+      "merchant": "Tatcha",
+      "category": "Beauty & Personal Care",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.tatcha.co.uk/collections/special-value-sizes",
+      "domain": "tatcha.co.uk",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 91,
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.ikea.com/global/en/international-sales/",
+      "domain": "ikea.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 91,
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Mỹ",
+      "country": "Mỹ",
+      "url": "https://www.ikea.com/us/en/offers/",
+      "domain": "ikea.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 91,
+      "merchant": "IKEA",
+      "category": "Home & Living",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.ikea.com/gb/en/cat/in-store-only-offers-700841/",
+      "domain": "ikea.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 95,
+      "merchant": "Target",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.target.com/c/30-off-select-adult-kids-bedding-bath-window-treatments-rugs-more-home-deals/-/N-o7twh",
+      "domain": "target.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 97,
+      "merchant": "Ace Hardware",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.acehardware.com/ace-rewards-offers",
+      "domain": "acehardware.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 98,
+      "merchant": "Costco",
+      "category": "Home & Living",
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.costco.com/special-events.html",
+      "domain": "costco.com",
+      "source": "audited_official_promo_url"
+    },
+    {
+      "id": 98,
+      "merchant": "Costco",
+      "category": "Home & Living",
+      "market": "Anh",
+      "country": "Anh",
+      "url": "https://www.costco.co.uk/offers",
+      "domain": "costco.co.uk",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 104,
       "merchant": "Whirlpool",
       "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.whirlpool.com/us/",
-      "domain": "whirlpool.com"
-    },
-    {
-      "id": 104,
-      "merchant": "Whirlpool",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.whirlpool.com/uk/",
-      "domain": "whirlpool.com"
+      "market": "Gốc / Quốc tế",
+      "country": "International",
+      "url": "https://www.whirlpool.com/content/whirlpoolv2/en_us/appliance-sales.html",
+      "domain": "whirlpool.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 105,
@@ -3577,44 +2033,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.geappliances.com",
-      "domain": "geappliances.com"
-    },
-    {
-      "id": 105,
-      "merchant": "GE Appliances",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.geappliances.com",
-      "domain": "geappliances.com"
-    },
-    {
-      "id": 105,
-      "merchant": "GE Appliances",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.geappliances.co.uk",
-      "domain": "geappliances.co.uk"
-    },
-    {
-      "id": 106,
-      "merchant": "Pottery Barn",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.potterybarn.com",
-      "domain": "potterybarn.com"
-    },
-    {
-      "id": 106,
-      "merchant": "Pottery Barn",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.potterybarn.com",
-      "domain": "potterybarn.com"
+      "url": "https://www.geappliances.com/military-discount",
+      "domain": "geappliances.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 106,
@@ -3622,26 +2043,9 @@
       "category": "Home & Living",
       "market": "Anh",
       "country": "Anh",
-      "url": "https://www.potterybarn.co.uk",
-      "domain": "potterybarn.co.uk"
-    },
-    {
-      "id": 107,
-      "merchant": "West Elm",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.westelm.com",
-      "domain": "westelm.com"
-    },
-    {
-      "id": 107,
-      "merchant": "West Elm",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.westelm.com",
-      "domain": "westelm.com"
+      "url": "https://www.potterybarn.co.uk/sale/limited-time-offers",
+      "domain": "potterybarn.co.uk",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 107,
@@ -3649,8 +2053,9 @@
       "category": "Home & Living",
       "market": "Anh",
       "country": "Anh",
-      "url": "https://www.westelm.co.uk",
-      "domain": "westelm.co.uk"
+      "url": "https://www.westelm.co.uk/sale-sale/limited-time-offers/shop-all-sale",
+      "domain": "westelm.co.uk",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 108,
@@ -3658,26 +2063,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.crateandbarrel.com",
-      "domain": "crateandbarrel.com"
-    },
-    {
-      "id": 108,
-      "merchant": "Crate & Barrel",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.crateandbarrel.com",
-      "domain": "crateandbarrel.com"
-    },
-    {
-      "id": 108,
-      "merchant": "Crate & Barrel",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.crateandbarrel.co.uk",
-      "domain": "crateandbarrel.co.uk"
+      "url": "https://www.crateandbarrel.com/sale/labor-day-entertaining-sale/",
+      "domain": "crateandbarrel.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 109,
@@ -3685,17 +2073,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.la-z-boy.com",
-      "domain": "la-z-boy.com"
-    },
-    {
-      "id": 109,
-      "merchant": "La-Z-Boy",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.la-z-boy.com",
-      "domain": "la-z-boy.com"
+      "url": "https://www.la-z-boy.com/no-results",
+      "domain": "la-z-boy.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 109,
@@ -3703,35 +2083,9 @@
       "category": "Home & Living",
       "market": "Anh",
       "country": "Anh",
-      "url": "https://www.la-z-boy.co.uk",
-      "domain": "la-z-boy.co.uk"
-    },
-    {
-      "id": 110,
-      "merchant": "Harbor Freight",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.harborfreight.com",
-      "domain": "harborfreight.com"
-    },
-    {
-      "id": 110,
-      "merchant": "Harbor Freight",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.harborfreight.com",
-      "domain": "harborfreight.com"
-    },
-    {
-      "id": 110,
-      "merchant": "Harbor Freight",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.harborfreight.co.uk",
-      "domain": "harborfreight.co.uk"
+      "url": "https://la-z-boy.co.uk/comfort-care/after-sales/",
+      "domain": "la-z-boy.co.uk",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 111,
@@ -3739,53 +2093,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.uline.com",
-      "domain": "uline.com"
-    },
-    {
-      "id": 111,
-      "merchant": "Uline",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.uline.com",
-      "domain": "uline.com"
-    },
-    {
-      "id": 111,
-      "merchant": "Uline",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.uline.co.uk",
-      "domain": "uline.co.uk"
-    },
-    {
-      "id": 112,
-      "merchant": "Mattress Firm",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.mattressfirm.com",
-      "domain": "mattressfirm.com"
-    },
-    {
-      "id": 112,
-      "merchant": "Mattress Firm",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.mattressfirm.com",
-      "domain": "mattressfirm.com"
-    },
-    {
-      "id": 112,
-      "merchant": "Mattress Firm",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.mattressfirm.co.uk",
-      "domain": "mattressfirm.co.uk"
+      "url": "https://www.uline.com/Promotion/FreeOffersByDollarAmt?dup=products",
+      "domain": "uline.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 113,
@@ -3793,17 +2103,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.dunelm.com",
-      "domain": "dunelm.com"
-    },
-    {
-      "id": 113,
-      "merchant": "Dunelm",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Anh)",
-      "country": "Thị trường chính (Anh)",
-      "url": "https://www.dunelm.com",
-      "domain": "dunelm.com"
+      "url": "https://www.dunelm.com/info/help/promotions-terms-and-conditions",
+      "domain": "dunelm.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 114,
@@ -3811,62 +2113,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.habitat.co.uk",
-      "domain": "habitat.co.uk"
-    },
-    {
-      "id": 114,
-      "merchant": "Habitat",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.habitat.co.uk",
-      "domain": "habitat.co.uk"
-    },
-    {
-      "id": 114,
-      "merchant": "Habitat",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.habitat.co.uk",
-      "domain": "habitat.co.uk"
-    },
-    {
-      "id": 115,
-      "merchant": "Homebase",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.homebase.co.uk",
-      "domain": "homebase.co.uk"
-    },
-    {
-      "id": 115,
-      "merchant": "Homebase",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Anh)",
-      "country": "Thị trường chính (Anh)",
-      "url": "https://www.homebase.co.uk",
-      "domain": "homebase.co.uk"
-    },
-    {
-      "id": 116,
-      "merchant": "The Range",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.therange.co.uk",
-      "domain": "therange.co.uk"
-    },
-    {
-      "id": 116,
-      "merchant": "The Range",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Anh)",
-      "country": "Thị trường chính (Anh)",
-      "url": "https://www.therange.co.uk",
-      "domain": "therange.co.uk"
+      "url": "https://www.habitat.co.uk/list/shop-home-and-seasonal-clearance?tag=homepage:spot10:link1:shop-home-and-seasonal-clearance:week28",
+      "domain": "habitat.co.uk",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 117,
@@ -3874,71 +2123,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.johnlewis.com",
-      "domain": "johnlewis.com"
-    },
-    {
-      "id": 117,
-      "merchant": "John Lewis & Partners",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.johnlewis.com",
-      "domain": "johnlewis.com"
-    },
-    {
-      "id": 117,
-      "merchant": "John Lewis & Partners",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.johnlewis.co.uk",
-      "domain": "johnlewis.co.uk"
-    },
-    {
-      "id": 118,
-      "merchant": "Argos",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.argos.co.uk",
-      "domain": "argos.co.uk"
-    },
-    {
-      "id": 118,
-      "merchant": "Argos",
-      "category": "Home & Living",
-      "market": "Thị trường chính (Anh)",
-      "country": "Thị trường chính (Anh)",
-      "url": "https://www.argos.co.uk",
-      "domain": "argos.co.uk"
-    },
-    {
-      "id": 119,
-      "merchant": "Bed Bath & Beyond",
-      "category": "Home & Living",
-      "market": "Gốc / Quốc tế",
-      "country": "International",
-      "url": "https://www.bedbathandbeyond.com",
-      "domain": "bedbathandbeyond.com"
-    },
-    {
-      "id": 119,
-      "merchant": "Bed Bath & Beyond",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.bedbathandbeyond.com",
-      "domain": "bedbathandbeyond.com"
-    },
-    {
-      "id": 119,
-      "merchant": "Bed Bath & Beyond",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.bedbathandbeyond.co.uk",
-      "domain": "bedbathandbeyond.co.uk"
+      "url": "https://www.johnlewis.com/special-offers/c50000110",
+      "domain": "johnlewis.com",
+      "source": "audited_official_promo_url"
     },
     {
       "id": 120,
@@ -3946,26 +2133,9 @@
       "category": "Home & Living",
       "market": "Gốc / Quốc tế",
       "country": "International",
-      "url": "https://www.overstock.com",
-      "domain": "overstock.com"
-    },
-    {
-      "id": 120,
-      "merchant": "Overstock",
-      "category": "Home & Living",
-      "market": "Mỹ",
-      "country": "Mỹ",
-      "url": "https://www.overstock.com",
-      "domain": "overstock.com"
-    },
-    {
-      "id": 120,
-      "merchant": "Overstock",
-      "category": "Home & Living",
-      "market": "Anh",
-      "country": "Anh",
-      "url": "https://www.overstock.co.uk",
-      "domain": "overstock.co.uk"
+      "url": "https://www.overstock.com/promotional-terms-and-conditions",
+      "domain": "overstock.com",
+      "source": "audited_official_promo_url"
     }
   ]
 }
