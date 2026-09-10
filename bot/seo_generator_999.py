@@ -68,7 +68,10 @@ def offer_card(item):
     text = text[:187].rsplit(" ", 1)[0] + "…" if len(text) > 190 else text
     img = logo(brand)
     image = f'<img class="brandlogo-img" src="{esc(img)}" alt="{esc(brand)} logo" loading="lazy">' if img else ""
-    cta = f'<a class="cta" href="{esc(purchase)}" target="_blank" rel="nofollow noopener sponsored">{"GET CODE" if code else "GET DEAL"} ↗</a>' if purchase else ""
+    affiliate = bool(item.get("is_affiliate") and item.get("affiliate_tracking_url"))
+    destination = str(item.get("affiliate_tracking_url") or purchase).strip() if affiliate else purchase
+    rel = "nofollow noopener sponsored" if affiliate else "noopener"
+    cta = f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>' if destination else ""
     code_html = f'<div class="code"><small>CODE</small><strong>{esc(code)}</strong></div>' if code else ""
     return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{image}</div><div class="brandinfo"><a class="brandname" href="/brand/{brand_slug(brand)}/">{esc(brand)}</a><span class="tag">{esc("PROMO CODE" if code else "DEAL")} · {esc(item.get("category", "Deals"))}</span></div></div><div class="offer-benefit">{esc(benefit)}</div><h3>{esc(title)}</h3><p>{esc(text or "Official merchant offer.")}</p>{code_html}<div class="meta">{cta}</div></article>'
 
@@ -139,10 +142,13 @@ def main():
             brand_seo = seo_by_brand.get(brand, [])
             offer_links = "".join(f'<li><a href="{esc(r["canonical"])}">{esc(r["title"])}</a></li>' for r in brand_seo)
             offer_section = f'<section><h2>Verified {esc(brand)} offers</h2><ul>{offer_links}</ul></section>' if brand_seo else '<section><h2>Verified offers</h2><p>No active verified offers are currently listed.</p></section>'
+            has_verified_offers = bool(brand_seo)
+            robots = "index,follow" if has_verified_offers else "noindex,follow"
             body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{image}</div><div><p class="eyebrow">{esc(category.upper())} · BRAND</p><h1>About {esc(brand)}</h1></div></div><p class="lead">A short introduction to {esc(brand)} and its official website.</p></section>{brand_intro(brand, category)}{offer_section}<p><a class="cta" href="{esc(official_homepage(brand))}" target="_blank" rel="noopener">Visit {esc(brand)} official website ↗</a></p>'
             schema = {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": brand, "url": official_homepage(brand)}, {"@type": "WebPage", "name": f"About {brand}", "url": brand_url}]}
-            write(path, page(f"About {brand} | DEAL 24H", f"A short introduction to {brand} with a link to the official {brand} website.", brand_url, body, schema))
-            brand_urls.append(brand_url)
+            write(path, page(f"About {brand} | DEAL 24H", f"A short introduction to {brand} with a link to the official {brand} website.", brand_url, body, schema).replace('<meta name="robots" content="index,follow">', f'<meta name="robots" content="{robots}">'))
+            if has_verified_offers:
+                brand_urls.append(brand_url)
 
     today = datetime.now(timezone.utc).date().isoformat()
 

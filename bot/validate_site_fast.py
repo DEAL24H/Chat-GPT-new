@@ -88,7 +88,12 @@ def main():
 
     sitemap_text = SITEMAP_BRANDS.read_text(encoding="utf-8") if SITEMAP_BRANDS.exists() else ""
     sitemap_urls = set(re.findall(r"<loc>https://deal24h\.net/brand/([^<]+)/</loc>", sitemap_text))
-    expected_urls = {brand_slug(entry["name"]) for entries in CATALOG.values() for entry in entries}
+    active_brand_slugs = set()
+    for item in active:
+        hit = resolve_brand(item.get("merchant"))
+        if hit:
+            active_brand_slugs.add(brand_slug(hit["name"]))
+    expected_urls = active_brand_slugs
     if sitemap_urls != expected_urls:
         missing = sorted(expected_urls - sitemap_urls)
         extra = sorted(sitemap_urls - expected_urls)
@@ -110,8 +115,10 @@ def main():
                 text,
                 flags=re.I,
             )
-            if not robots_match or robots_match.group(1).strip().lower() != "index,follow":
-                errors.append(f"catalog brand is not indexable: {brand}")
+            robots = robots_match.group(1).strip().lower() if robots_match else ""
+            expected_robots = "index,follow" if brand_slug(brand) in active_brand_slugs else "noindex,follow"
+            if robots != expected_robots:
+                errors.append(f"catalog brand robots mismatch: {brand}: expected {expected_robots}, got {robots or 'missing'}")
 
     html_files = list((ROOT / "brand").glob("*/index.html")) + [
         ROOT / slug / "index.html" for slug in CATEGORY_SLUGS.values()
@@ -133,8 +140,8 @@ def main():
         raise SystemExit(1)
 
     print(
-        f"SITE VALIDATION PASSED: 4 categories x 30 merchants = "
-        f"{expected_brand_count} indexable brand URLs; {len(active)} active offers"
+        f"SITE VALIDATION PASSED: {len(active_brand_slugs)} verified brand URLs indexable; "
+        f"{expected_brand_count - len(active_brand_slugs)} catalog brands noindex; {len(active)} active offers"
     )
 
 

@@ -12,6 +12,18 @@ on:
       - 'assets/app-home.js'
       - 'index.html'
       - '.github/workflows/verified-deal-pipeline.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bot/**'
+      - 'scripts/**'
+      - 'data/brand_catalog.json'
+      - 'data/120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx'
+      - 'data/allowed_brand_urls.json'
+      - 'supabase/migrations/**'
+      - 'assets/app-home.js'
+      - 'index.html'
+      - '.github/workflows/verified-deal-pipeline.yml'
   schedule:
     - cron: '17 0 * * *'
     - cron: '17 8 * * *'
@@ -93,6 +105,14 @@ jobs:
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
         run: python scripts/validate_generated_seo.py
+      - name: Validate fixed-scope pre-affiliate publication contract
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
+        run: python scripts/validate_pre_affiliate.py
+      - name: Validate static release consistency
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
+        run: python scripts/validate_release_consistency.py
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
