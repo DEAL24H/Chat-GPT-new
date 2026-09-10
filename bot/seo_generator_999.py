@@ -159,7 +159,7 @@ def main():
     seo_urls = [str(r["canonical"]) for r in seo_records]
     write(ROOT / "sitemap-brands.xml", sitemap(brand_urls))
     write(ROOT / "sitemap.xml", sitemap([BASE + "/"] + category_urls + brand_urls + seo_urls))
-    write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap-brands.xml\nSitemap: {BASE}/sitemap-seo.xml\n")
+    write(ROOT / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /dashboard/\nDisallow: /data/\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/sitemap-brands.xml\nSitemap: {BASE}/sitemap-seo.xml\n")
     print(f"SEO 999 catalog: persistent_brand_pages={len(brand_urls)}, category_pages={len(category_urls)}, linked_seo_pages={len(seo_records)}, duplicate_title_groups={duplicate_titles}")
 
 
