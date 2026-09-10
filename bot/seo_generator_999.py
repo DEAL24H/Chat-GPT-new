@@ -70,7 +70,7 @@ def offer_card(item):
     image = f'<img class="brandlogo-img" src="{esc(img)}" alt="{esc(brand)} logo" loading="lazy">' if img else ""
     affiliate = bool(item.get("is_affiliate") and item.get("affiliate_tracking_url"))
     destination = str(item.get("affiliate_tracking_url") or purchase).strip() if affiliate else purchase
-    rel = "nofollow noopener sponsored" if affiliate else "noopener"
+    rel = "sponsored nofollow noopener" if affiliate else "nofollow noopener noreferrer"
     cta = f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>' if destination else ""
     code_html = f'<div class="code"><small>CODE</small><strong>{esc(code)}</strong></div>' if code else ""
     return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{image}</div><div class="brandinfo"><a class="brandname" href="/brand/{brand_slug(brand)}/">{esc(brand)}</a><span class="tag">{esc("PROMO CODE" if code else "DEAL")} · {esc(item.get("category", "Deals"))}</span></div></div><div class="offer-benefit">{esc(benefit)}</div><h3>{esc(title)}</h3><p>{esc(text or "Official merchant offer.")}</p>{code_html}<div class="meta">{cta}</div></article>'

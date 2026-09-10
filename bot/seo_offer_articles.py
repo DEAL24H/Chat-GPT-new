@@ -53,7 +53,7 @@ def make_article(item):
  code_html=f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span><button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>' if code else ''
  affiliate=bool(item.get('is_affiliate') and item.get('affiliate_tracking_url'))
  destination=clean(item.get('affiliate_tracking_url')) if affiliate else purchase
- rel='noopener noreferrer sponsored' if affiliate else 'noopener noreferrer'
+ rel='sponsored nofollow noopener noreferrer' if affiliate else 'nofollow noopener noreferrer'
  cta=f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>'
  source=clean(item.get('source_url')); source_link=f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ''
  market_html=f'<div class="market-scope"><strong>Availability:</strong> {esc(market["label"])}</div>'
