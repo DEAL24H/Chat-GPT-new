@@ -51,11 +51,17 @@ def make_article(item):
  digest=hashlib.sha1(identity.encode()).hexdigest()[:10]
  canonical=f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"; label='Promo code' if code else 'Direct deal'
  code_html=f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span><button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>' if code else ''
- cta=f'<a class="cta" href="{esc(purchase)}" target="_blank" rel="noopener noreferrer sponsored">{"GET CODE" if code else "GET DEAL"} ↗</a>'
+ affiliate=bool(item.get('is_affiliate') and item.get('affiliate_tracking_url'))
+ destination=clean(item.get('affiliate_tracking_url')) if affiliate else purchase
+ rel='noopener noreferrer sponsored' if affiliate else 'noopener noreferrer'
+ cta=f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>'
  source=clean(item.get('source_url')); source_link=f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ''
  market_html=f'<div class="market-scope"><strong>Availability:</strong> {esc(market["label"])}</div>'
  category=clean(item.get('category')); category_slug={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}.get(category)
- body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}<p>{cta}</p><p class="source-note">Verified from the official {esc(merchant)} source.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
+ checked=clean(item.get('purchase_url_verified_at') or item.get('last_checked') or item.get('detected_at'))
+ checked_html=f'<p class="verification-meta"><strong>Last verified:</strong> {esc(checked)}</p>' if checked else '<p class="verification-meta"><strong>Verification:</strong> Official source checked by the publishing pipeline.</p>'
+ affiliate_html='<p class="affiliate-disclosure">This page may contain an affiliate link. The price you pay is not changed by this link.</p>' if affiliate else ''
+ body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}{checked_html}<p>{cta}</p>{affiliate_html}<p class="source-note">Verified from the official {esc(merchant)} source.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
  return canonical,page(f'{merchant} — {title} | DEAL 24H',f'{merchant} {label.lower()}: {title}. Verified official merchant promotion with the correct purchase destination.',canonical,body),label,{'canonical':canonical,'merchant':merchant,'category':category,'title':title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
 def main():
  out=ROOT/'seo'

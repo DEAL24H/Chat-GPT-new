@@ -93,6 +93,14 @@ jobs:
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
         run: python scripts/validate_generated_seo.py
+      - name: Validate fixed-scope pre-affiliate publication contract
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
+        run: python scripts/validate_pre_affiliate.py
+      - name: Validate static release consistency
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
+        run: python scripts/validate_release_consistency.py
       - name: Validate canonical site
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
