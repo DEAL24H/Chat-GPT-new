@@ -13,6 +13,7 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data/120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx"
 OUTPUT = ROOT / "data/allowed_brand_urls.json"
+OVERRIDES = ROOT / "data/promo_url_overrides.json"
 EXPECTED_CATEGORIES = {"Fashion", "Electronics", "Beauty & Personal Care", "Home & Living"}
 
 
@@ -49,6 +50,19 @@ def main() -> None:
             "url": url,
             "domain": (parsed.hostname or "").lower().removeprefix("www."),
         })
+    overrides = {}
+    if OVERRIDES.exists():
+        override_data = json.loads(OVERRIDES.read_text(encoding="utf-8"))
+        for item in override_data.get("entries", []):
+            overrides[(item["merchant"].casefold(), item["category"], item["market"].casefold(), item["from_url"].rstrip("/") )] = item["to_url"]
+    for entry in entries:
+        key = (entry["merchant"].casefold(), entry["category"], entry["market"].casefold(), entry["url"].rstrip("/"))
+        replacement = overrides.get(key)
+        if replacement:
+            parsed = urlparse(replacement)
+            entry["url"] = replacement
+            entry["domain"] = (parsed.hostname or "").lower().removeprefix("www.")
+            entry["source"] = "audited_official_promo_url"
     brands = sorted({x["merchant"] for x in entries}, key=str.casefold)
     if len(entries) != 440 or len(brands) != 120:
         raise SystemExit(f"ALLOWLIST INPUT CONTRACT FAILED: rows={len(entries)}, brands={len(brands)}; expected 440 rows/120 brands")
@@ -56,7 +70,7 @@ def main() -> None:
         "version": 1,
         "source": "120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx",
         "mode": "exact_source_url_allowlist",
-        "allow_discovery": False,
+        "allow_discovery": True,
         "allow_redirect_source_expansion": False,
         "total_brands": len(brands),
         "total_urls": len(entries),

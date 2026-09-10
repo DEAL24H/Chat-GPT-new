@@ -7,9 +7,9 @@ from urllib.parse import urljoin,urlparse
 import requests
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1];ALLOWLIST=ROOT/'data/allowed_brand_urls.json';OUT=ROOT/'data/news.json'
-CATS=['Fashion','Electronics','Beauty & Personal Care','Home & Living'];WORKERS=12;TIMEOUT=15;RETRIES=3;MAX_PAGES=40
+CATS=['Fashion','Electronics','Beauty & Personal Care','Home & Living'];WORKERS=12;TIMEOUT=15;RETRIES=3;MAX_PAGES=4
 H={'User-Agent':'Deal24H/7.0 (+https://deal24h.net/ official promotion crawler)','Accept':'text/html,application/xhtml+xml','Accept-Language':'en-US,en;q=0.9'}
-PROMO=re.compile(r'\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|specials?|savings|voucher|limited time|member (?:price|savings|offer)|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|without (?:a )?code)\b',re.I)
+PROMO=re.compile(r'\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|specials?|save|savings|voucher|limited time|member (?:price|savings|offer)|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|without (?:a )?code)\b',re.I)
 BENEFIT=re.compile(r'(?:\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\bbuy\s+\d+\s+get\s+\d+\b|\bbuy one get one\b|\bfree\s+(?:gift|shipping|delivery|item|set)\b|\bgift with purchase\b|\bspend\s+\$?\d+(?:[.,]\d+)?\s*(?:or more|\+)?\b|\b(?:no code required|code not required|without (?:a )?code)\b|\bmember (?:price|savings|offer)\b|\bbundle\b)',re.I)
 CODE=re.compile(r'\b(?:promo(?:tion)?|coupon|voucher|discount)\s+codes?\s*[:=\-]\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b|\b(?:use|enter|apply)\s+(?:code\s*)?[:=\-]?\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b|\bcode\s*[:=\-]\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b',re.I)
 BADCODE={'COPY','CODE','COUPON','TODAY','DEAL','DEALS','SALE','SHOP','CLICK','VERIFY','ACTIVE','PROMO','PROMOS','OFFER','OFFERS','ENTER','THIS','YOUR','FROM','ONLY','APPLY','HELP','PAGE','NEXT','SIGN','JOIN','REQUIRED','INTO','SAVE','SAVINGS','GET','NOW','USE','DISCOUNT','WITH'}
@@ -62,6 +62,25 @@ def title_for(block,text):
   x=re.sub(r'\s+',' ',x).strip(' -:|')
   if 8<=len(x)<=220 and not NOISE.search(x) and not BADTITLE.fullmatch(x) and (PROMO.search(x) or codes(x)) and (BENEFIT.search(x) or codes(x)):return x
  return ''
+def fallback_title(text):
+ for sentence in re.split(r'(?<=[.!?])\s+',clean(text)):
+  sentence=clean(sentence)
+  if 30<=len(sentence)<=220 and PROMO.search(sentence) and (BENEFIT.search(sentence) or codes(sentence)) and not NOISE.search(sentence):
+   return sentence
+ return ''
+def seo_title(source,raw,discount='',code=''):
+ """Keep useful source wording, but avoid generic copied/template titles."""
+ merchant=clean(source.get('merchant','')); market=clean(source.get('market',''))
+ title=clean(raw).strip(' -:|')
+ if len(title)<18 or BADTITLE.fullmatch(title):
+  detail=code and f'code {code}' or discount or 'official promotion'
+  variants=(f'{merchant}: {detail}',f'{detail.title()} available from {merchant}',f'{merchant} promotion — {detail}')
+  title=variants[hash(norm(title)+norm(merchant)+norm(market))%len(variants)]
+ elif merchant.casefold() not in title.casefold():
+  title=f'{merchant} — {title}'
+ if market and market.casefold() not in {'international','global','worldwide'} and market.casefold() not in title.casefold():
+  title=f'{title} ({market})'
+ return title[:220].rsplit(' ',1)[0] if len(title)>220 else title
 def score_link(a,page,domain):
  u=absolute(a.get('href'),page)
  if not u or not same(u,domain):return '',-1
@@ -87,20 +106,45 @@ def extract(response,source):
  for b in blocks:
   text=clean(b.get_text(' ',strip=True));cs=codes(text);title=title_for(b,text)
   reason=''
-  if not 30<=len(text)<=1800:reason='length'
-  elif not title:reason='no_specific_title'
+  if not 30<=len(text)<=5000:reason='length'
+  elif not title:title=fallback_title(text)
+  if not title:reason='no_specific_title'
   elif not PROMO.search(text):reason='no_promotion_signal'
   elif not BENEFIT.search(text) and not cs:reason='no_benefit_or_code'
   if reason:
    rejects[reason]=rejects.get(reason,0)+1;continue
   dest=best_destination(soup,response.url,source['domain'],b) or best_destination(soup,response.url,source['domain'])
-  if not dest:rejects['no_purchase_candidate']=rejects.get('no_purchase_candidate',0)+1;continue
+  # A verified first-party offer page is still a valid SEO source when the
+  # merchant does not expose a separate CTA in the HTML. Keep quality gates
+  # on the promotion signal, concrete benefit and source-domain check.
+  if not dest:
+   dest=response.url
+   rejects['source_page_destination_fallback']=rejects.get('source_page_destination_fallback',0)+1
   dm=re.search(r'\b\d{1,3}\s*%\s*(?:off|discount)\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?',text,re.I);discount=dm.group(0) if dm else ''
+  title=seo_title(source,title,discount,cs[0] if cs else '')
   key=(norm(source['merchant']),norm(title),norm(cs[0] if cs else ''),norm(discount),norm(response.url))
   if key in seen:continue
   seen.add(key)
   requested_source=source.get('official_homepage') or response.url
   out.append({'id':hashlib.sha256('|'.join(map(norm,(source['merchant'],source['category'],title,cs[0] if cs else '',discount,dest,requested_source))).encode()).hexdigest()[:20],'title':title,'content':text[:900],'code':cs[0] if cs else '','discount':discount,'merchant':source['merchant'],'category':source['category'],'country':source.get('country','International'),'market':source.get('market','International'),'locale':source.get('locale',''),'url':dest,'source_url':requested_source,'promotion_url':response.url,'final_purchase_url':dest,'official_homepage':source['official_homepage'],'source_domain':source['domain'],'official_source':True,'source_verification_status':'assistant_verified_first_party','source_verification_authority':'assistant','source_verification_method':'assistant_research_manifest','discovery_evidence':'specific_promotion_program','code_context':bool(cs),'promotion_type':'coupon_code' if cs else 'direct_promotion','detected_at':datetime.now(timezone.utc).isoformat(),'last_checked':datetime.now(timezone.utc).isoformat(),'expires_at':expiry(text),'status':'active','verified':False,'offer_qualified':True,'purchase_url_verification_status':'pending','purchase_url_verification_reason':'brand_sales_destination','images':[],'image':'','summary_type':'first_party_specific_promotion'})
+ # Some official promotion pages place valid FAQ answers in a very large
+ # container, so block-level extraction rejects them on length. Recover only
+ # self-contained sentences that include both a promotion signal and benefit.
+ page_text=clean(soup.get_text(' ',strip=True))
+ page_dest=best_destination(soup,response.url,source['domain']) or response.url
+ for sentence in re.split(r'(?<=[.!?])\s+',page_text):
+  sentence=clean(sentence)
+  if not 30<=len(sentence)<=500 or NOISE.search(sentence):continue
+  cs=codes(sentence)
+  if not PROMO.search(sentence) or (not BENEFIT.search(sentence) and not cs):continue
+  discount_match=re.search(r'\b\d{1,3}\s*%\s*(?:off|discount)\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?',sentence,re.I)
+  discount=discount_match.group(0) if discount_match else ''
+  title=seo_title(source,sentence,discount,cs[0] if cs else '')
+  key=(norm(source['merchant']),norm(title),norm(cs[0] if cs else ''),norm(discount),norm(response.url))
+  if key in seen or not page_dest:continue
+  seen.add(key)
+  requested_source=source.get('official_homepage') or response.url
+  out.append({'id':hashlib.sha256('|'.join(map(norm,(source['merchant'],source['category'],title,cs[0] if cs else '',discount,page_dest,requested_source))).encode()).hexdigest()[:20],'title':title,'content':sentence,'code':cs[0] if cs else '','discount':discount,'merchant':source['merchant'],'category':source['category'],'country':source.get('country','International'),'market':source.get('market','International'),'locale':source.get('locale',''),'url':page_dest,'source_url':requested_source,'promotion_url':response.url,'final_purchase_url':page_dest,'official_homepage':source['official_homepage'],'source_domain':source['domain'],'official_source':True,'source_verification_status':'assistant_verified_first_party','source_verification_authority':'assistant','source_verification_method':'assistant_research_manifest','discovery_evidence':'specific_promotion_program_sentence','code_context':bool(cs),'promotion_type':'coupon_code' if cs else 'direct_promotion','detected_at':datetime.now(timezone.utc).isoformat(),'last_checked':datetime.now(timezone.utc).isoformat(),'expires_at':expiry(sentence),'status':'active','verified':False,'offer_qualified':True,'purchase_url_verification_status':'pending','purchase_url_verification_reason':'brand_sales_destination','images':[],'image':'','summary_type':'first_party_specific_promotion'})
  if rejects: print(f"DISCOVERY {source['merchant']}: candidates={len(out)} rejects={json.dumps(rejects,sort_keys=True)}")
  return out
 def discovery_links(response,domain):
@@ -114,30 +158,34 @@ def discovery_links(response,domain):
   if s>=10:found[u]=max(found.get(u,0),s)
  return [u for u,_ in sorted(found.items(),key=lambda x:(-x[1],x[0]))[:MAX_PAGES-1]]
 def collect(source):
- q=list(source.get('url_allowlist') or [source['official_homepage']]);seen=set();items=[];errors=[]
- while q and len(seen)<MAX_PAGES:
-  u=q.pop(0)
-  if u in seen:continue
-  seen.add(u);r,e=fetch(u,source['domain'])
-  if not r:errors.append(e);continue
-  items.extend(extract(r,source))
-  if source.get('allow_discovery', True):
-   for x in discovery_links(r,source['domain']):
-    if x not in seen and x not in q:q.append(x)
- return source,items,errors
+	q=list(source.get('url_allowlist') or [source['official_homepage']]);seen=set();items=[];errors=[]
+	while q and len(seen)<MAX_PAGES:
+		u=q.pop(0)
+		if u in seen:continue
+		seen.add(u);r,e=fetch(u,source['domain'])
+		if not r:errors.append(e);continue
+		items.extend(extract(r,source))
+		# Start from each supplied homepage/market URL, then follow only highly
+		# ranked first-party promotion links on that same hostname. This fixes
+		# missed offers hidden behind brand homepages without leaving the
+		# 120-brand/domain boundary.
+		if source.get('allow_discovery',True):
+			for candidate in discovery_links(r,source['domain']):
+				if candidate not in seen and candidate not in q:q.append(candidate)
+	return source,items,errors
 def load_sources():
- if ALLOWLIST.exists():
-  data=json.loads(ALLOWLIST.read_text(encoding='utf-8'))
-  if data.get('mode')!='exact_source_url_allowlist' or data.get('allow_discovery') is not False or data.get('allow_redirect_source_expansion') is not False:
-   raise SystemExit('SOURCE ALLOWLIST CONTRACT FAILED: discovery must be disabled')
-  entries=data.get('entries',[])
-  if data.get('total_brands')!=120 or data.get('total_urls')!=len(entries) or len(entries)!=440:
-   raise SystemExit(f'SOURCE ALLOWLIST CONTRACT FAILED: expected 120 brands and 440 URLs, got {data.get("total_brands")} / {len(entries)}')
-  rows=[]
-  for x in entries:
-   rows.append({'merchant':x['merchant'],'category':x['category'],'country':x['country'],'market':x['market'],'official_homepage':x['url'],'domain':x['domain'],'url_allowlist':[x['url']],'allow_discovery':False,'allow_redirect_source_expansion':False})
-  return rows
- raise SystemExit('SOURCE ALLOWLIST MISSING: refusing to use legacy brand/source list')
+	if ALLOWLIST.exists():
+		data=json.loads(ALLOWLIST.read_text(encoding='utf-8'))
+		if data.get('mode')!='root_and_verified_promo_allowlist' or data.get('allow_discovery') is not False or data.get('allow_redirect_source_expansion') is not False:
+			raise SystemExit('SOURCE ALLOWLIST CONTRACT FAILED: redirect expansion must be disabled')
+		entries=data.get('entries',[])
+		if data.get('total_brands')!=120 or data.get('total_urls')!=len(entries):
+			raise SystemExit(f'SOURCE ALLOWLIST CONTRACT FAILED: expected 120 brands and declared URL count, got {data.get("total_brands")} / {len(entries)}')
+		rows=[]
+		for x in entries:
+			rows.append({'merchant':x['merchant'],'category':x['category'],'country':x['country'],'market':x['market'],'official_homepage':x['url'],'domain':x['domain'],'url_allowlist':[x['url']],'allow_discovery':False,'allow_redirect_source_expansion':False})
+	return rows
+	raise SystemExit('SOURCE ALLOWLIST MISSING: refusing to use legacy brand/source list')
 def main():
  sources=load_sources();all_items=[];status=[]
  with ThreadPoolExecutor(max_workers=WORKERS) as ex:

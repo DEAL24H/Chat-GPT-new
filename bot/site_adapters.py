@@ -39,8 +39,8 @@ class AdapterRegistry:
     def __init__(self, path: Path = ALLOWLIST):
         data = json.loads(path.read_text(encoding="utf-8"))
         sources = data.get("entries", [])
-        if data.get("mode") != "exact_source_url_allowlist" or len(sources) != 440:
-            raise RuntimeError("ADAPTER REGISTRY CONTRACT FAILED: expected 440 exact allowlisted URLs")
+        if data.get("mode") != "root_and_verified_promo_allowlist" or len(sources) != data.get("total_urls") or data.get("total_brands") != 120:
+            raise RuntimeError("ADAPTER REGISTRY CONTRACT FAILED: expected root plus verified promo URL manifest")
         self._sites = {}
         for source in sources:
             domain = self._domain(source.get("url") or source.get("domain") or "")
