@@ -67,12 +67,12 @@ jobs:
           import json
           from pathlib import Path
           d=json.loads(Path('data/allowed_brand_urls.json').read_text(encoding='utf-8'))
-          assert d.get('mode')=='exact_source_url_allowlist'
+          assert d.get('mode')=='root_and_verified_promo_allowlist'
           assert d.get('allow_discovery') is False
           assert d.get('total_brands')==120
-          assert d.get('total_urls')==440
-          assert len(d.get('entries',[]))==440
-          print('EXACT URL ALLOWLIST CONTRACT PASS: brands=120 urls=440')
+          assert d.get('total_urls')==len(d.get('entries',[]))
+          assert len([x for x in d['entries'] if x.get('source')=='audited_official_promo_url']) >= 1
+          print(f"ROOT+VERIFIED ALLOWLIST CONTRACT PASS: brands=120 urls={d['total_urls']}")
           PY
       - name: Crawl verified promotions
         timeout-minutes: 30

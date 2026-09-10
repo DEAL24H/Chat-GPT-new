@@ -63,21 +63,32 @@ def main() -> None:
             entry["url"] = replacement
             entry["domain"] = (parsed.hostname or "").lower().removeprefix("www.")
             entry["source"] = "audited_official_promo_url"
+    # Keep one supplied homepage per brand plus only explicitly audited promo
+    # replacements. All other workbook market rows remain out of crawl scope.
+    selected = []
+    first_brand = set()
+    for entry in entries:
+        if entry["merchant"] not in first_brand:
+            selected.append(entry)
+            first_brand.add(entry["merchant"])
+        elif entry.get("source") == "audited_official_promo_url":
+            selected.append(entry)
+    entries = selected
     brands = sorted({x["merchant"] for x in entries}, key=str.casefold)
-    if len(entries) != 440 or len(brands) != 120:
-        raise SystemExit(f"ALLOWLIST INPUT CONTRACT FAILED: rows={len(entries)}, brands={len(brands)}; expected 440 rows/120 brands")
+    if len(brands) != 120 or not all(any(x["merchant"] == brand for x in entries) for brand in brands):
+        raise SystemExit(f"ALLOWLIST INPUT CONTRACT FAILED: rows={len(entries)}, brands={len(brands)}; expected one root per 120 brands")
     payload = {
         "version": 1,
         "source": "120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx",
-        "mode": "exact_source_url_allowlist",
-        "allow_discovery": True,
+        "mode": "root_and_verified_promo_allowlist",
+        "allow_discovery": False,
         "allow_redirect_source_expansion": False,
         "total_brands": len(brands),
         "total_urls": len(entries),
         "entries": entries,
     }
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"ALLOWLIST CREATED: brands={len(brands)} urls={len(entries)} output={OUTPUT}")
+    print(f"ALLOWLIST CREATED: brands={len(brands)} urls={len(entries)} roots={len(brands)} verified_promo={sum(x.get('source') == 'audited_official_promo_url' for x in entries)} output={OUTPUT}")
 
 
 if __name__ == "__main__":
