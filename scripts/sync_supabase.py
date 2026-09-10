@@ -19,8 +19,8 @@ def normalize_base_url(value):
 URL=normalize_base_url(os.getenv('SUPABASE_URL','')); KEY=os.getenv('SUPABASE_SERVICE_ROLE_KEY','')
 if not URL or not KEY: raise SystemExit('Supabase sync requires SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY')
 manifest=json.loads(ALLOWLIST.read_text(encoding='utf-8'))
-if manifest.get('mode')!='exact_source_url_allowlist' or manifest.get('allow_discovery') is not False or len(manifest.get('entries',[]))!=440:
- raise SystemExit('Supabase contract: invalid exact URL allowlist')
+if manifest.get('mode')!='root_and_verified_promo_allowlist' or manifest.get('allow_discovery') is not False or len(manifest.get('entries',[]))!=manifest.get('total_urls') or manifest.get('total_brands')!=120:
+ raise SystemExit('Supabase contract: invalid root and verified promo URL allowlist')
 allowed={str(r.get('url','')).rstrip('/'):r for r in manifest['entries']}
 raw=json.loads(DATA.read_text(encoding='utf-8')); items=raw if isinstance(raw,list) else raw.get('items',[]); rows=[]
 for x in items:
