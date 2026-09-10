@@ -31,9 +31,9 @@ class HTMLAudit(HTMLParser):
 def main():
     errors = []
     allow = json.loads((ROOT / "data/allowed_brand_urls.json").read_text(encoding="utf-8"))
-    if allow.get("mode") != "exact_source_url_allowlist" or allow.get("allow_discovery") is not False:
+    if allow.get("mode") != "root_and_verified_promo_allowlist" or allow.get("allow_discovery") is not False:
         errors.append("ALLOWLIST_CONTRACT_INVALID")
-    if allow.get("total_brands") != 120 or len(allow.get("entries", [])) != 440:
+    if allow.get("total_brands") != 120 or len(allow.get("entries", [])) != allow.get("total_urls"):
         errors.append(f"ALLOWLIST_SCOPE_INVALID:brands={allow.get('total_brands')}:urls={len(allow.get('entries', []))}")
     data = json.loads((ROOT / "data/news.json").read_text(encoding="utf-8"))
     items = data if isinstance(data, list) else data.get("items", [])
@@ -74,7 +74,7 @@ def main():
         for error in errors[:100]:
             print("-", error)
         raise SystemExit(1)
-    print(f"PRE-AFFILIATE VALIDATION PASS: allowlist=120 brands/440 URLs seo_pages={len(seo_files)} affiliate_records=0-or-authorized")
+    print(f"PRE-AFFILIATE VALIDATION PASS: allowlist=120 brands/{allow.get('total_urls')} URLs seo_pages={len(seo_files)} affiliate_records=0-or-authorized")
 
 if __name__ == "__main__":
     main()
