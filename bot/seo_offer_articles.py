@@ -40,7 +40,7 @@ def meaningful_title(item,merchant):
  if title and len(title)>=8 and not re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return title[:140].rsplit(' ',1)[0] if len(title)>140 else title
  return ''
 def page(title,description,canonical,body):
- return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v=20260903d"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion.</div></footer></body></html>'''
+ return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v=20260903d"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion. <small>Some links may be affiliate links; any commission does not change your price.</small></div></footer></body></html>'''
 def make_article(item):
  merchant=sanitize_visible(item.get('merchant')) or 'Merchant'
  if not valid_offer(item):return None
@@ -53,15 +53,14 @@ def make_article(item):
  code_html=f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span><button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>' if code else ''
  affiliate=bool(item.get('is_affiliate') and item.get('affiliate_tracking_url'))
  destination=clean(item.get('affiliate_tracking_url')) if affiliate else purchase
- rel='noopener noreferrer sponsored' if affiliate else 'noopener noreferrer'
+ rel='sponsored nofollow noopener noreferrer' if affiliate else 'nofollow noopener noreferrer'
  cta=f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>'
  source=clean(item.get('source_url')); source_link=f'<p><a href="{esc(source)}" target="_blank" rel="noopener">View the official source</a></p>' if source else ''
  market_html=f'<div class="market-scope"><strong>Availability:</strong> {esc(market["label"])}</div>'
  category=clean(item.get('category')); category_slug={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}.get(category)
  checked=clean(item.get('purchase_url_verified_at') or item.get('last_checked') or item.get('detected_at'))
  checked_html=f'<p class="verification-meta"><strong>Last verified:</strong> {esc(checked)}</p>' if checked else '<p class="verification-meta"><strong>Verification:</strong> Official source checked by the publishing pipeline.</p>'
- affiliate_html='<p class="affiliate-disclosure">This page may contain an affiliate link. The price you pay is not changed by this link.</p>' if affiliate else ''
- body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}{checked_html}<p>{cta}</p>{affiliate_html}<p class="source-note">Verified from the official {esc(merchant)} source.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
+ body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}{checked_html}<p>{cta}</p><p class="source-note">Verified from the official {esc(merchant)} source.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
  return canonical,page(f'{merchant} — {title} | DEAL 24H',f'{merchant} {label.lower()}: {title}. Verified official merchant promotion with the correct purchase destination.',canonical,body),label,{'canonical':canonical,'merchant':merchant,'category':category,'title':title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
 def main():
  out=ROOT/'seo'
