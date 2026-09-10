@@ -12,6 +12,18 @@ on:
       - 'assets/app-home.js'
       - 'index.html'
       - '.github/workflows/verified-deal-pipeline.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bot/**'
+      - 'scripts/**'
+      - 'data/brand_catalog.json'
+      - 'data/120_thuong_hieu_kem_trang_goc_va_quoc_gia.xlsx'
+      - 'data/allowed_brand_urls.json'
+      - 'supabase/migrations/**'
+      - 'assets/app-home.js'
+      - 'index.html'
+      - '.github/workflows/verified-deal-pipeline.yml'
   schedule:
     - cron: '17 0 * * *'
     - cron: '17 8 * * *'
