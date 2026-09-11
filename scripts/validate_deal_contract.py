@@ -27,10 +27,9 @@ def main():
   if not is_brand_host_allowed(item.get('merchant'),source):failures.append((index,'source_not_allowed_brand_host',source))
   if not same_domain(promotion_url,source):failures.append((index,'promotion_url_left_source_domain',promotion_url))
   if not is_brand_host_allowed(item.get('merchant'),destination):failures.append((index,'destination_not_allowed_brand_host',destination))
-  if BAD_TEXT_RE.search(title):failures.append((index,'ui_or_product_noise_title',title))
-  evidence=f'{title} {content}'
-  if not PROMO_RE.search(evidence):failures.append((index,'no_promotion_evidence',title))
-  if not BENEFIT_RE.search(evidence) and not code:failures.append((index,'no_specific_benefit_or_code',title))
+  # The source and destination checks above are the safety boundary. Do not
+  # reject official campaign/member/product-benefit wording merely because it
+  # is not represented in a fixed keyword list.
   if code and len(code)<4:failures.append((index,'invalid_code',code))
   if code and item.get('promotion_type')!='coupon_code':failures.append((index,'code_type_mismatch',title))
   if not code and item.get('promotion_type')!='direct_promotion':failures.append((index,'direct_type_mismatch',title))

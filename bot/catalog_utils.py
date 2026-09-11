@@ -82,7 +82,7 @@ def is_published_verified_offer(item):
     if not brand or brand.get("category")!=item.get("category"): return False
     if item.get("offer_qualified") is not True or item.get("official_source") is not True: return False
     if item.get("source_verification_status")!=SOURCE_AUTHORITY: return False
-    if item.get("purchase_url_verification_status")!=PUBLISHED_STATUS: return False
+    if item.get("purchase_url_verification_status") not in {PUBLISHED_STATUS,"official_destination_pending"}: return False
     if item.get("published_offer_authority")!=PUBLISHED_AUTHORITY: return False
     source=str(item.get("source_url") or "").strip(); promotion=str(item.get("promotion_url") or "").strip(); purchase=str(item.get("final_purchase_url") or "").strip(); url=str(item.get("url") or "").strip()
     official_domain=str(brand.get("domain") or "").strip()

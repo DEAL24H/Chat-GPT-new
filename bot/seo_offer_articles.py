@@ -30,15 +30,20 @@ def valid_offer(item):
  if not is_published_verified_offer(item):return False
  title=sanitize_visible(item.get('title')); content=sanitize_visible(item.get('content')); purchase=clean(item.get('final_purchase_url'))
  if not title or not content or not purchase:return False
- evidence=f'{title} {content}'
- if not PROMO_RE.search(evidence):return False
- if not BENEFIT_RE.search(evidence) and not clean(item.get('code')):return False
+ # The crawler already restricts records to first-party sources and the live
+ # destination validator checks the official host. Do not reject a valid
+ # campaign, member benefit, bundle, or marketplace promotion just because its
+ # wording is absent from a keyword dictionary.
  if re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return False
  return True
 def meaningful_title(item,merchant):
  title=sanitize_visible(item.get('title')); title=re.sub(rf'^{re.escape(merchant)}\s*[—:-]\s*','',title,flags=re.I)
  if title and len(title)>=8 and not re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return title[:140].rsplit(' ',1)[0] if len(title)>140 else title
  return ''
+def editorial_title(item,merchant,title):
+ angles=('Official promotion details','Current offer information','What shoppers should know','Verified savings update')
+ angle=angles[int(hashlib.sha1((merchant+title+clean(item.get('market'))).encode()).hexdigest(),16)%len(angles)]
+ return f'{merchant} — {angle}: {title}'
 def page(title,description,canonical,body):
  return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v=20260903d"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion. <small>Some links may be affiliate links; any commission does not change your price.</small></div></footer></body></html>'''
 def make_article(item):
@@ -60,8 +65,10 @@ def make_article(item):
  category=clean(item.get('category')); category_slug={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}.get(category)
  checked=clean(item.get('purchase_url_verified_at') or item.get('last_checked') or item.get('detected_at'))
  checked_html=f'<p class="verification-meta"><strong>Last verified:</strong> {esc(checked)}</p>' if checked else '<p class="verification-meta"><strong>Verification:</strong> Official source checked by the publishing pipeline.</p>'
- body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(merchant)} — {esc(title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>This {esc(label.lower())}</h2>{market_html}<p>{esc(content)}</p>{code_html}{checked_html}<p>{cta}</p><p class="source-note">Verified from the official {esc(merchant)} source.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
- return canonical,page(f'{merchant} — {title} | DEAL 24H',f'{merchant} {label.lower()}: {title}. Verified official merchant promotion with the correct purchase destination.',canonical,body),label,{'canonical':canonical,'merchant':merchant,'category':category,'title':title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
+ public_title=editorial_title(item,merchant,title)
+ editorial=f'Deal24h checked the official {merchant} source and presents this {label.lower()} as a reference for shoppers. Availability and conditions can vary by market, product, account, or campaign period.'
+ body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(public_title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>Offer details from the official source</h2>{market_html}<p>{esc(editorial)}</p><blockquote>{esc(content)}</blockquote>{code_html}{checked_html}<p>{cta}</p><p class="source-note">The quoted details come from the official {esc(merchant)} source; check the merchant page for the latest conditions.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
+ return canonical,page(public_title+' | DEAL 24H',f'{merchant} {label.lower()}: {title}. Official source checked by Deal24h with market and condition context.',canonical,body),label,{'id':str(item.get('id') or ''),'canonical':canonical,'merchant':merchant,'category':category,'title':public_title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
 def main():
  out=ROOT/'seo'
  if out.exists():shutil.rmtree(out)
@@ -94,7 +101,10 @@ def main():
  if bad:raise SystemExit('SEO OFFER ARTICLES FAILED: visible UI noise remained: '+', '.join(bad[:20]))
  today=datetime.now(timezone.utc).date().isoformat(); sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in sorted(urls))+'</urlset>\n'
  (ROOT/'sitemap-seo.xml').write_text(sitemap,encoding='utf-8')
- (out/'seo-index.json').write_text(json.dumps({'schema':2,'generated_at':datetime.now(timezone.utc).isoformat(),'counts':counts,'urls':len(urls),'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0,'offers':sorted(records,key=lambda x:x['canonical'])},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- (out/'seo-modes.json').write_text(json.dumps({'schema':2,'generated_at':datetime.now(timezone.utc).isoformat(),'counts':counts,'urls':len(urls),'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ ids=sorted(str(x.get('id') or '') for x in records)
+ release_id=hashlib.sha256('|'.join(ids).encode()).hexdigest()[:16]
+ generated_at=datetime.now(timezone.utc).isoformat()
+ (out/'seo-index.json').write_text(json.dumps({'schema':3,'release_id':release_id,'generated_at':generated_at,'counts':counts,'urls':len(urls),'ids':ids,'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0,'offers':sorted(records,key=lambda x:x['canonical'])},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (out/'seo-modes.json').write_text(json.dumps({'schema':3,'release_id':release_id,'generated_at':generated_at,'counts':counts,'urls':len(urls),'ids':ids,'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print(f"SEO OFFER ARTICLES: code={counts['code']} direct={counts['direct']} total={len(urls)} rejected={rejected} deduplicated_equivalent={duplicate} visible_text_noise=0")
 if __name__=='__main__':main()

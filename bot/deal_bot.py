@@ -60,12 +60,12 @@ def title_for(block,text):
  vals+=re.split(r'(?<=[.!?])\s+',text)
  for x in vals:
   x=re.sub(r'\s+',' ',x).strip(' -:|')
-  if 8<=len(x)<=220 and not NOISE.search(x) and not BADTITLE.fullmatch(x) and (PROMO.search(x) or codes(x)) and (BENEFIT.search(x) or codes(x)):return x
+  if 8<=len(x)<=220 and not NOISE.search(x) and not BADTITLE.fullmatch(x):return x
  return ''
 def fallback_title(text):
  for sentence in re.split(r'(?<=[.!?])\s+',clean(text)):
   sentence=clean(sentence)
-  if 30<=len(sentence)<=220 and PROMO.search(sentence) and (BENEFIT.search(sentence) or codes(sentence)) and not NOISE.search(sentence):
+  if 30<=len(sentence)<=220 and not NOISE.search(sentence):
    return sentence
  return ''
 def seo_title(source,raw,discount='',code=''):
@@ -108,9 +108,7 @@ def extract(response,source):
   reason=''
   if not 30<=len(text)<=5000:reason='length'
   elif not title:title=fallback_title(text)
-  if not title:reason='no_specific_title'
-  elif not PROMO.search(text):reason='no_promotion_signal'
-  elif not BENEFIT.search(text) and not cs:reason='no_benefit_or_code'
+  if not title:reason='no_readable_title'
   if reason:
    rejects[reason]=rejects.get(reason,0)+1;continue
   dest=best_destination(soup,response.url,source['domain'],b) or best_destination(soup,response.url,source['domain'])
@@ -134,9 +132,11 @@ def extract(response,source):
  page_dest=best_destination(soup,response.url,source['domain']) or response.url
  for sentence in re.split(r'(?<=[.!?])\s+',page_text):
   sentence=clean(sentence)
-  if not 30<=len(sentence)<=500 or NOISE.search(sentence):continue
+  if not 30<=len(sentence)<=700 or NOISE.search(sentence):continue
   cs=codes(sentence)
-  if not PROMO.search(sentence) or (not BENEFIT.search(sentence) and not cs):continue
+  # The source itself is official and already inside the fixed allowlist. Do
+  # not discard a useful sentence merely because the merchant uses wording that
+  # is not in our promotion dictionary.
   discount_match=re.search(r'\b\d{1,3}\s*%\s*(?:off|discount)\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?',sentence,re.I)
   discount=discount_match.group(0) if discount_match else ''
   title=seo_title(source,sentence,discount,cs[0] if cs else '')
