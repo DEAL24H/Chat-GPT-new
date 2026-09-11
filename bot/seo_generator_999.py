@@ -54,7 +54,7 @@ def official_homepage(brand):
 def page(title, description, canonical, body, schema=None):
     ld = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>' if schema else ""
     ga = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4}',{{anonymize_ip:true}});</script>'''
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{ld}<link rel="stylesheet" href="/assets/style.css?v=20260903d">{ga}</head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{ld}<link rel="stylesheet" href="/assets/style.css?v=20260911a">{ga}</head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
 
 
 def offer_card(item):
@@ -129,7 +129,7 @@ def main():
         cards = "".join(offer_card(x) for x in active[:60]) or '<p>No active coupons or deals are currently listed.</p>'
         brand_links = "".join(f'<li><a href="/brand/{brand_slug(e["name"])}/">{esc(e["name"])} brand page</a></li>' for e in entries)
         seo_links = "".join(f'<li><a href="{esc(r["canonical"])}">{esc(r["merchant"])} — {esc(r["title"])}</a></li>' for r in seo_by_category.get(category, []))
-        body = f'<section class="hero"><p class="eyebrow">BRANDS · OFFERS</p><h1>{esc(category)} Brands & Offers</h1><p class="lead">Browse catalog brands and every verified offer SEO page in this category.</p></section><section><h2>Latest {esc(category)} offers</h2><div class="grid">{cards}</div></section><section><h2>Verified offer pages</h2><ul>{seo_links}</ul></section><section><h2>Brands</h2><ul>{brand_links}</ul></section>'
+        body = f'<section class="hero"><p class="eyebrow">BRANDS · OFFERS</p><h1>{esc(category)} Brands & Offers</h1><p class="lead">Browse catalog brands and every verified offer SEO page in this category.</p></section><section><h2>Latest {esc(category)} offers</h2><div class="grid">{cards}</div></section><section><h2>Verified offer pages</h2><ul class="seo-offer-list">{seo_links}</ul></section><section><h2>Brands</h2><ul>{brand_links}</ul></section>'
         schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": f"{category} Brands & Offers", "url": category_url}
         write(ROOT / category_slug / "index.html", page(f"{category} Brands & Offers | DEAL 24H", f"Browse {category.lower()} brands and verified offers on DEAL 24H.", category_url, body, schema))
 
@@ -141,7 +141,7 @@ def main():
             image = f'<img class="brandhero-img" src="{esc(img)}" alt="{esc(brand)} logo" loading="eager">' if img else '<span class="brandfallback" aria-hidden="true">B</span>'
             brand_seo = seo_by_brand.get(brand, [])
             offer_links = "".join(f'<li><a href="{esc(r["canonical"])}">{esc(r["title"])}</a></li>' for r in brand_seo)
-            offer_section = f'<section><h2>Verified {esc(brand)} offers</h2><ul>{offer_links}</ul></section>' if brand_seo else '<section><h2>Verified offers</h2><p>No active verified offers are currently listed.</p></section>'
+            offer_section = f'<section><h2>Verified {esc(brand)} offers</h2><ul class="seo-offer-list">{offer_links}</ul></section>' if brand_seo else '<section><h2>Verified offers</h2><p>No active verified offers are currently listed.</p></section>'
             has_verified_offers = bool(brand_seo)
             robots = "index,follow" if has_verified_offers else "noindex,follow"
             body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{image}</div><div><p class="eyebrow">{esc(category.upper())} · BRAND</p><h1>About {esc(brand)}</h1></div></div><p class="lead">A short introduction to {esc(brand)} and its official website.</p></section>{brand_intro(brand, category)}{offer_section}<p><a class="cta" href="{esc(official_homepage(brand))}" target="_blank" rel="noopener">Visit {esc(brand)} official website ↗</a></p>'
