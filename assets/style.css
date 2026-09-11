@@ -11,3 +11,11 @@
 .seo-offer-list a:hover{border-color:#111;transform:translateY(-1px)}
 @media(max-width:650px){.seo-offer-list{grid-template-columns:1fr;gap:10px}}
 .seo-offer-list a{min-height:88px;display:flex;align-items:center;position:relative;transition:transform .15s,border-color .15s,box-shadow .15s}.seo-offer-list a::before{content:'DEAL';flex:0 0 auto;margin-right:10px;padding:5px 7px;border-radius:6px;background:#111;color:#fff;font-size:9px;letter-spacing:.8px;line-height:1;font-weight:900}.seo-offer-list a:hover{box-shadow:0 6px 18px rgba(0,0,0,.07)}
+
+/* SEO offer cards: one title per card on brand and category pages */
+ul.seo-offer-list{list-style:none;padding:0;margin:18px 0 55px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ul.seo-offer-list>li{list-style:none;margin:0;min-width:0}
+ul.seo-offer-list>li>a,.seo-offer-list>li>a:visited{min-height:96px;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #deded9;border-radius:14px;padding:15px 17px;color:#111;text-decoration:none;font-weight:800;line-height:1.35;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:transform .15s,border-color .15s,box-shadow .15s}
+ul.seo-offer-list>li>a::before{content:'DEAL';flex:0 0 auto;padding:6px 8px;border-radius:6px;background:#111;color:#fff;font-size:9px;letter-spacing:.8px;line-height:1;font-weight:900}
+ul.seo-offer-list>li>a:hover{border-color:#111;transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+@media(max-width:650px){ul.seo-offer-list{grid-template-columns:1fr;gap:10px}ul.seo-offer-list>li>a{min-height:86px;padding:13px 14px}}
