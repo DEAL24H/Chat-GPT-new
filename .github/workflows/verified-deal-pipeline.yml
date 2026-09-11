@@ -60,6 +60,8 @@ jobs:
           node --check assets/app-home.js
       - name: Fast SEO generator preflight
         run: python scripts/test_seo_offer_contract.py
+      - name: Deterministic pipeline contract
+        run: python scripts/test_deterministic_pipeline.py
       - name: Build exact URL allowlist from supplied workbook
         run: |
           python scripts/build_allowed_url_manifest.py
