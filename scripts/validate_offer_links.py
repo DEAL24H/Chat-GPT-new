@@ -62,6 +62,8 @@ def main():
   else:
    item['purchase_url_verification_status']='live_verified';item['purchase_url_verification_reason']=vr;item['purchase_url_verified_at']=now;item['final_purchase_url']=final;item['url']=final
   item['published_offer_authority']='assistant_verified_source_plus_live_brand_purchase_destination';item['purchase_destination_kind']='brand_sales_or_product_page'
+  from bot.seo_offer_articles import valid_offer
+  if not valid_offer(item):return None,(merchant,'NOT_SEO_INDEXABLE',dest)
   return item,None
  with ThreadPoolExecutor(max_workers=12) as pool:
   futures=[pool.submit(validate_one,item) for item in data]
