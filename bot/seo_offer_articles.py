@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
-from bot.catalog_utils import brand_slug, publication_key
+from bot.catalog_utils import MOJIBAKE, NON_PROMO, brand_slug, publication_key, repair_text
 from bot.seo_market_scope import market_info
 DATA=ROOT/'data/news.json'; BASE='https://deal24h.net'
 PROMO_RE=re.compile(r"\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|member (?:price|savings|offer))\b",re.I)
@@ -17,7 +17,7 @@ BENEFIT_RE=re.compile(r"(?:\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+\
 VISIBLE_NOISE_RE=re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|amazon devices small business deals)",re.I)
 def esc(v):return html.escape(str(v or ''),quote=True)
 def slug(v):return re.sub(r'[^a-z0-9]+','-',str(v or '').lower()).strip('-')
-def clean(v):return re.sub(r'\s+',' ',str(v or '')).strip()
+def clean(v):return re.sub(r'\s+',' ',repair_text(v)).strip()
 def sanitize_visible(v):
  t=clean(v); p=None
  while t and t!=p:
@@ -30,6 +30,8 @@ def valid_offer(item):
  if not is_indexable_offer(item):return False
  title=sanitize_visible(item.get('title')); content=sanitize_visible(item.get('content')); purchase=clean(item.get('final_purchase_url'))
  if not title or not content or not purchase:return False
+ if NON_PROMO.search(title) or NON_PROMO.search(content):return False
+ if MOJIBAKE.search(title) or MOJIBAKE.search(content):return False
  # The crawler already restricts records to first-party sources and the live
  # destination validator checks the official host. Do not reject a valid
  # campaign, member benefit, bundle, or marketplace promotion just because its
@@ -38,7 +40,7 @@ def valid_offer(item):
  return True
 def meaningful_title(item,merchant):
  title=sanitize_visible(item.get('title')); title=re.sub(rf'^{re.escape(merchant)}\s*[—:-]\s*','',title,flags=re.I)
- if title and len(title)>=8 and not re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return title[:140].rsplit(' ',1)[0] if len(title)>140 else title
+ if title and len(title)>=8 and not NON_PROMO.search(title) and not MOJIBAKE.search(title) and not re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return title[:140].rsplit(' ',1)[0] if len(title)>140 else title
  return ''
 def editorial_title(item,merchant,title):
  angles=('Official promotion details','Current offer information','What shoppers should know','Verified savings update')
@@ -94,11 +96,16 @@ def main():
   def handle_data(self,data):
    if not self.skip_depth:self.parts.append(data)
   def text(self):return ' '.join(self.parts)
- bad=[]
+ bad=[]; bad_non_promo=[]; bad_encoding=[]
  for p in out.glob('*/index.html'):
   parser=VisibleText();parser.feed(p.read_text(encoding='utf-8'))
-  if VISIBLE_NOISE_RE.search(parser.text()):bad.append(str(p))
+  visible=parser.text()
+  if VISIBLE_NOISE_RE.search(visible):bad.append(str(p))
+  if NON_PROMO.search(visible):bad_non_promo.append(str(p))
+  if MOJIBAKE.search(visible):bad_encoding.append(str(p))
  if bad:raise SystemExit('SEO OFFER ARTICLES FAILED: visible UI noise remained: '+', '.join(bad[:20]))
+ if bad_non_promo:raise SystemExit('SEO OFFER ARTICLES FAILED: legal/non-promotion text remained: '+', '.join(bad_non_promo[:20]))
+ if bad_encoding:raise SystemExit('SEO OFFER ARTICLES FAILED: mojibake remained: '+', '.join(bad_encoding[:20]))
  today=datetime.now(timezone.utc).date().isoformat(); sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in sorted(urls))+'</urlset>\n'
  (ROOT/'sitemap-seo.xml').write_text(sitemap,encoding='utf-8')
  ids=sorted(str(x.get('id') or '') for x in records)
