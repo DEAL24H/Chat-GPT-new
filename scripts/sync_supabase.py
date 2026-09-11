@@ -21,13 +21,13 @@ if not URL or not KEY: raise SystemExit('Supabase sync requires SUPABASE_URL and
 manifest=json.loads(ALLOWLIST.read_text(encoding='utf-8'))
 if manifest.get('mode')!='root_and_verified_promo_allowlist' or manifest.get('allow_discovery') is not False or len(manifest.get('entries',[]))!=manifest.get('total_urls') or manifest.get('total_brands')!=120:
  raise SystemExit('Supabase contract: invalid root and verified promo URL allowlist')
-allowed={str(r.get('url','')).rstrip('/'):r for r in manifest['entries']}
+allowed={(str(r.get('merchant','')).casefold(),str(r.get('url','')).rstrip('/').casefold()):r for r in manifest['entries']}
 raw=json.loads(DATA.read_text(encoding='utf-8')); items=raw if isinstance(raw,list) else raw.get('items',[]); rows=[]
 for x in items:
  if not isinstance(x,dict) or x.get('status') in {'expired','inactive'}: continue
  merchant=str(x.get('merchant') or '').strip(); category=str(x.get('category') or '').strip(); source_url=str(x.get('source_url') or '').strip().rstrip('/')
  if category not in CATEGORIES: raise SystemExit(f'Supabase contract: non-canonical category for {merchant}: {category}')
- source=allowed.get(source_url)
+ source=allowed.get((merchant.casefold(),source_url.casefold()))
  if not source: raise SystemExit(f'Supabase contract: source URL outside exact allowlist: {source_url}')
  if source.get('merchant')!=merchant or source.get('category')!=category: raise SystemExit(f'Supabase contract: source identity mismatch for {merchant}')
  promotion=str(x.get('promotion_url') or '').strip(); final=str(x.get('final_purchase_url') or '').strip(); url=str(x.get('url') or '').strip()
