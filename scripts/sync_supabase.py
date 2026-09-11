@@ -52,10 +52,12 @@ def exact_count(query=''):
  if '/' not in cr: raise RuntimeError('Supabase deals: missing Content-Range verification header')
  return int(cr.rsplit('/',1)[1])
 ids=[r['id'] for r in rows]
-if rows: request('POST','deals',rows)
-if ids:
- encoded=','.join(urllib.parse.quote(i,safe='') for i in ids); request('DELETE','deals',query=f'?id=not.in.({encoded})')
-else: request('DELETE','deals',query='?id=not.is.null')
+# Replace each canonical category atomically. The previous `id=not.in(...)`
+# cleanup encoded thousands of IDs into one URL and hit HTTP 414. Category
+# replacement keeps the same canonical result without an oversized query.
+for c in CATEGORIES:
+ request('DELETE','deals',query='?category=eq.'+urllib.parse.quote(c,safe=''))
+ if by_category[c]: request('POST','deals',by_category[c])
 actual=exact_count()
 if actual!=len(rows): raise RuntimeError(f'Supabase deals: expected {len(rows)} rows, found {actual}')
 for c in CATEGORIES:
