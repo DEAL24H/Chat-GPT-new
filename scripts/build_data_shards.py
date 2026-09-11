@@ -4,13 +4,13 @@ from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; SOURCE=DATA/'news.json'; OUT=DATA/'shards'
 sys.path.insert(0,str(ROOT))
-from bot.catalog_utils import is_published_verified_offer
+from bot.catalog_utils import is_indexable_offer
 CATEGORY_SLUGS={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}
 def norm(value):return re.sub(r'[^a-z0-9]+',' ',str(value or '').lower()).strip()
 def stable_id(item):
  raw=str(item.get('id') or '')
  return raw or hashlib.sha1(json.dumps(item,sort_keys=True).encode()).hexdigest()[:16]
-def active(item):return is_published_verified_offer(item)
+def active(item):return is_indexable_offer(item)
 def compact(item,shard):
  destination=item.get('final_purchase_url') or ''; promotion=item.get('promotion_url') or item.get('source_url') or ''
  return {'id':stable_id(item),'title':item.get('title',''),'content':item.get('content',''),'code':item.get('code',''),'discount':item.get('discount',''),'merchant':item.get('merchant',''),'category':item.get('category',''),'country':item.get('country',''),'locale':item.get('locale',''),'source_url':item.get('source_url',''),'final_purchase_url':destination,'promotion_url':promotion,'official_source':bool(item.get('official_source')),'expires_at':item.get('expires_at',''),'status':item.get('status','active'),'_shard':shard}
