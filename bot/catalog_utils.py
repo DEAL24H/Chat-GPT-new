@@ -1,5 +1,6 @@
 import json
 import re
+from bot.seo_market_scope import market_info
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -114,6 +115,13 @@ def has_indexable_content(item):
 def is_indexable_offer(item):
     """Single final gate shared by every public publication layer."""
     return is_published_verified_offer(item) and has_indexable_content(item)
+
+def publication_key(item):
+    """Identity used to deduplicate equivalent offers in every output layer."""
+    title=_indexable_text(item.get('title')); merchant=_indexable_text(item.get('merchant'))
+    title=re.sub(rf'^{re.escape(merchant)}\s*[—:-]\s*','',title,flags=re.I)
+    info=market_info(item)
+    return '|'.join((merchant,title,str(item.get('code') or '').strip(),str(item.get('final_purchase_url') or '').strip(),_indexable_text(item.get('discount')), _indexable_text(item.get('content')),info['scope'],','.join(info['countries'])))
 
 def is_active_offer(item): return is_published_verified_offer(item)
 def published_items(items): return [item for item in items if is_published_verified_offer(item)]
