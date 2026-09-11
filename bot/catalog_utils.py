@@ -12,7 +12,7 @@ PUBLISHED_STATUS = "live_verified"
 SOURCE_AUTHORITY = "assistant_verified_first_party"
 PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
 VISIBLE_NOISE = re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|amazon devices small business deals)", re.I)
-NON_PROMO = re.compile(r"(?:the promoter|promoter cannot|promoter excludes|to the fullest extent permitted|terms and conditions|privacy notice|privacy policy|legal disclaimer|limitation of liability|liable for|liability|governing law|jurisdiction|personal data|data protection|cookie policy|entry requirements|prize draw|winner(?:s)? will|county location|subject to availability|intellectual property|copyright|returns? policy|delivery information|opening hours)", re.I)
+NON_PROMO = re.compile(r"(?:the promoter|promoter cannot|promoter excludes|to the fullest extent permitted|terms and conditions|privacy notice|privacy policy|legal disclaimer|limitation of liability|liable for|liability|governing law|jurisdiction|personal data|data protection|cookie policy|entry requirements|prize draw|winner(?:s)? will|county location|eligible participants?|aged \d+|resident in|subject to availability|non[- ]transferable|may not be exchanged|cannot be used to purchase|gift cards? cannot|online use only|in conjunction with|intellectual property|copyright|returns? policy|delivery information|opening hours)", re.I)
 MOJIBAKE = re.compile(r"(?:Ã.|Â.|â[€™œ‘“”—–…]|�)")
 PROMO_SIGNAL = re.compile(r"(?:\b(?:sale|offer|deal|promotion|discount|coupon|promo|clearance|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|free\s+(?:gift|shipping|delivery|item)|gift with purchase|member (?:price|savings|offer))\b|\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+[$£€]?\d|[$£€]\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\b(?:no code|code required)\b)", re.I)
 PRODUCT_PRICE = re.compile(r"(?:[$£€]\s?\d+(?:[.,]\d+)?|\b\d+(?:[.,]\d+)?\s*[£€$])")
@@ -20,11 +20,11 @@ PRODUCT_PRICE = re.compile(r"(?:[$£€]\s?\d+(?:[.,]\d+)?|\b\d+(?:[.,]\d+)?\s*[
 def repair_text(value):
     text=str(value or "")
     if MOJIBAKE.search(text):
-        try:
-            fixed=text.encode("latin1").decode("utf-8")
-            if fixed.count("�") < text.count("�") or not MOJIBAKE.search(fixed): text=fixed
-        except (UnicodeEncodeError, UnicodeDecodeError):
-            pass
+        def fix_chunk(match):
+            chunk=match.group(0)
+            try: return chunk.encode("latin1").decode("utf-8")
+            except (UnicodeEncodeError, UnicodeDecodeError): return chunk
+        text=re.sub(r"(?:Ã.|Â.|â[€™œ‘“”—–…])", fix_chunk, text)
     return text
 
 def _indexable_text(value):
