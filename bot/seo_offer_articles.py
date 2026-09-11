@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
-from bot.catalog_utils import brand_slug
+from bot.catalog_utils import brand_slug, publication_key
 from bot.seo_market_scope import market_info
 DATA=ROOT/'data/news.json'; BASE='https://deal24h.net'
 PROMO_RE=re.compile(r"\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|member (?:price|savings|offer))\b",re.I)
@@ -52,7 +52,7 @@ def make_article(item):
  title=meaningful_title(item,merchant)
  if not title:return None
  code=clean(item.get('code')); purchase=clean(item.get('final_purchase_url')); discount=sanitize_visible(item.get('discount')); content=sanitize_visible(item.get('content'))
- market=market_info(item); identity='|'.join((merchant,title,code,purchase,discount,content,market['scope'],','.join(market['countries'])))
+ market=market_info(item); identity=publication_key(item)
  digest=hashlib.sha1(identity.encode()).hexdigest()[:10]
  canonical=f"{BASE}/seo/{slug(merchant)}-{slug(title)[:70]}-{digest}/"; label='Promo code' if code else 'Direct deal'
  code_html=f'<div class="code"><span><small>CODE</small><strong>{esc(code)}</strong></span><button class="copy-code" type="button" data-code="{esc(code)}">Copy code</button></div>' if code else ''
@@ -78,7 +78,7 @@ def main():
   if not valid_offer(item):rejected+=1;continue
   merchant=sanitize_visible(item.get('merchant')) or 'Merchant'; title=meaningful_title(item,merchant)
   if not title:rejected+=1;continue
-  market=market_info(item); identity='|'.join((merchant,title,clean(item.get('code')),clean(item.get('final_purchase_url')),sanitize_visible(item.get('discount')),sanitize_visible(item.get('content')),market['scope'],','.join(market['countries'])))
+  market=market_info(item); identity=publication_key(item)
   if identity in seen:duplicate+=1;continue
   seen.add(identity)
   result=make_article(item)

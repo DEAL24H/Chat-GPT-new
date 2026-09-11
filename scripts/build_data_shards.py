@@ -4,7 +4,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; SOURCE=DATA/'news.json'; OUT=DATA/'shards'
 sys.path.insert(0,str(ROOT))
-from bot.catalog_utils import is_indexable_offer
+from bot.catalog_utils import is_indexable_offer, publication_key
 CATEGORY_SLUGS={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}
 def norm(value):return re.sub(r'[^a-z0-9]+',' ',str(value or '').lower()).strip()
 def stable_id(item):
@@ -17,13 +17,16 @@ def compact(item,shard):
 def main():
  raw=json.loads(SOURCE.read_text(encoding='utf-8')); items=raw if isinstance(raw,list) else raw.get('items',[]); OUT.mkdir(parents=True,exist_ok=True)
  for old in OUT.glob('*.json'):old.unlink()
- shards={slug:[] for slug in CATEGORY_SLUGS.values()}; search=[]; skipped=set()
+ shards={slug:[] for slug in CATEGORY_SLUGS.values()}; search=[]; skipped=set(); seen=set()
  for item in items:
   if not active(item):continue
   category=item.get('category') or ''; slug=CATEGORY_SLUGS.get(category)
   if not slug:
    if category:skipped.add(str(category))
    continue
+  key=publication_key(item)
+  if key in seen:continue
+  seen.add(key)
   row=compact(item,f'shards/{slug}.json'); shards[slug].append(row); search.append({'id':row['id'],'shard':row['_shard'],'merchant':row['merchant'],'category':row['category'],'country':row['country'],'locale':row['locale'],'text':norm(' '.join([row['merchant'],row['title'],row['code'],row['content']]))[:600]})
  counts={category:len(shards[slug]) for category,slug in CATEGORY_SLUGS.items()}; total=sum(counts.values())
  generated_at=datetime.now(timezone.utc).isoformat()
