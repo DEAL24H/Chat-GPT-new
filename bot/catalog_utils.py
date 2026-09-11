@@ -12,9 +12,23 @@ PUBLISHED_STATUS = "live_verified"
 SOURCE_AUTHORITY = "assistant_verified_first_party"
 PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
 VISIBLE_NOISE = re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|amazon devices small business deals)", re.I)
+NON_PROMO = re.compile(r"(?:the promoter|promoter cannot|promoter excludes|to the fullest extent permitted|terms and conditions|privacy notice|privacy policy|legal disclaimer|limitation of liability|liable for|liability|governing law|jurisdiction|personal data|data protection|cookie policy|entry requirements|prize draw|winner(?:s)? will|county location|subject to availability|intellectual property|copyright|returns? policy|delivery information|opening hours)", re.I)
+MOJIBAKE = re.compile(r"(?:Ã.|Â.|â[€™œ‘“”—–…]|�)")
+PROMO_SIGNAL = re.compile(r"(?:\b(?:sale|offer|deal|promotion|discount|coupon|promo|clearance|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|free\s+(?:gift|shipping|delivery|item)|gift with purchase|member (?:price|savings|offer))\b|\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+[$£€]?\d|[$£€]\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\b(?:no code|code required)\b)", re.I)
+PRODUCT_PRICE = re.compile(r"(?:[$£€]\s?\d+(?:[.,]\d+)?|\b\d+(?:[.,]\d+)?\s*[£€$])")
+
+def repair_text(value):
+    text=str(value or "")
+    if MOJIBAKE.search(text):
+        try:
+            fixed=text.encode("latin1").decode("utf-8")
+            if fixed.count("�") < text.count("�") or not MOJIBAKE.search(fixed): text=fixed
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    return text
 
 def _indexable_text(value):
-    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    text = re.sub(r"\s+", " ", repair_text(value)).strip()
     previous = None
     while text and text != previous:
         previous = text
@@ -109,6 +123,9 @@ def has_indexable_content(item):
     merchant = _indexable_text(item.get("merchant"))
     title = re.sub(rf"^{re.escape(merchant)}\s*[—:-]\s*", "", title, flags=re.I)
     if not title or len(title) < 8 or not content or not str(item.get("final_purchase_url") or "").strip(): return False
+    if NON_PROMO.search(title) or NON_PROMO.search(content): return False
+    if MOJIBAKE.search(title) or MOJIBAKE.search(content): return False
+    if PRODUCT_PRICE.search(title) and not PROMO_SIGNAL.search(title + " " + content): return False
     if re.fullmatch(r"(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?", title, re.I): return False
     return True
 

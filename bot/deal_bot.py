@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import urljoin,urlparse
 import requests
 from bs4 import BeautifulSoup
+from bot.catalog_utils import NON_PROMO, PRODUCT_PRICE, PROMO_SIGNAL, repair_text
 ROOT=Path(__file__).resolve().parents[1];ALLOWLIST=ROOT/'data/allowed_brand_urls.json';OUT=ROOT/'data/news.json'
 CATS=['Fashion','Electronics','Beauty & Personal Care','Home & Living'];WORKERS=12;TIMEOUT=15;RETRIES=3;MAX_PAGES=4
 H={'User-Agent':'Deal24H/7.0 (+https://deal24h.net/ official promotion crawler)','Accept':'text/html,application/xhtml+xml','Accept-Language':'en-US,en;q=0.9'}
@@ -14,13 +15,14 @@ BENEFIT=re.compile(r'(?:\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\
 CODE=re.compile(r'\b(?:promo(?:tion)?|coupon|voucher|discount)\s+codes?\s*[:=\-]\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b|\b(?:use|enter|apply)\s+(?:code\s*)?[:=\-]?\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b|\bcode\s*[:=\-]\s*["\'“”]?([A-Z0-9][A-Z0-9_-]{3,24})["\'“”]?\b',re.I)
 BADCODE={'COPY','CODE','COUPON','TODAY','DEAL','DEALS','SALE','SHOP','CLICK','VERIFY','ACTIVE','PROMO','PROMOS','OFFER','OFFERS','ENTER','THIS','YOUR','FROM','ONLY','APPLY','HELP','PAGE','NEXT','SIGN','JOIN','REQUIRED','INTO','SAVE','SAVINGS','GET','NOW','USE','DISCOUNT','WITH'}
 NOISE=re.compile(r'\b(?:your cart is empty|estimated total|current price|original price|sale price|add to wishlist|sign in|log in|login|create account|enter password|password|forgot password|reset password|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|shopping cart|checkout|quantity|subtotal|billing information)\b',re.I)
+BAD_CONTENT=NON_PROMO
 BADTITLE=re.compile(r'^(?:sale|sales|deals?|offers?|promotions?|discounts?|clearance|current price.*|original price.*|product\s*\d*|item\s*\d*|\$?\s*\d+(?:[.,]\d+)?(?:\s*%|\s*off)?)$',re.I)
 CTA=re.compile(r'\b(?:shop now|buy now|shop|buy|claim|redeem|get (?:deal|offer|code)|view (?:deal|offer)|see (?:deal|offer)|save now|use offer|add to (?:cart|bag)|select options|choose options|purchase)\b',re.I)
 PROMOPATH=re.compile(r'/(?:sale|deals?|offers?|promotions?|promo|coupon|coupons|clearance|specials?|campaigns?)(?:/|$)',re.I)
 COMMERCE=re.compile(r'/(?:p|product|products|shop|collections?|category|categories|sale|deals?|offers?|store|w|t)(?:/|$)',re.I)
 BADPATH=re.compile(r'/(?:privacy|legal|terms|help|faq|support|returns?|contact|about|account|login|signin|search|wishlist)(?:/|$)',re.I)
 EXPIRY=re.compile(r'\b(?:expires?|expiry|expiration|ends?|valid until|valid through|good through|offer ends?|ends on)\s*[:\-]?\s*(\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?)',re.I)
-def clean(v):return re.sub(r'\s+',' ',BeautifulSoup(str(v or ''),'html.parser').get_text(' ',strip=True)).strip()
+def clean(v):return re.sub(r'\s+',' ',BeautifulSoup(repair_text(v),'html.parser').get_text(' ',strip=True)).strip()
 def norm(v):return re.sub(r'\s+',' ',str(v or '')).strip().lower()
 def host(v):
  p=urlparse(v if '://' in str(v) else 'https://'+str(v));return (p.hostname or '').lower().removeprefix('www.')
@@ -60,12 +62,12 @@ def title_for(block,text):
  vals+=re.split(r'(?<=[.!?])\s+',text)
  for x in vals:
   x=re.sub(r'\s+',' ',x).strip(' -:|')
-  if 8<=len(x)<=220 and not NOISE.search(x) and not BADTITLE.fullmatch(x):return x
+  if 8<=len(x)<=220 and not NOISE.search(x) and not BAD_CONTENT.search(x) and not BADTITLE.fullmatch(x):return x
  return ''
 def fallback_title(text):
  for sentence in re.split(r'(?<=[.!?])\s+',clean(text)):
   sentence=clean(sentence)
-  if 30<=len(sentence)<=220 and not NOISE.search(sentence):
+  if 30<=len(sentence)<=220 and not NOISE.search(sentence) and not BAD_CONTENT.search(sentence):
    return sentence
  return ''
 def seo_title(source,raw,discount='',code=''):
@@ -108,6 +110,8 @@ def extract(response,source):
   text=clean(b.get_text(' ',strip=True));cs=codes(text);title=title_for(b,text)
   reason=''
   if not 30<=len(text)<=5000:reason='length'
+  elif BAD_CONTENT.search(text):reason='legal_or_non_promo_content'
+  elif PRODUCT_PRICE.search(text) and not PROMO_SIGNAL.search(text):reason='ordinary_product_price'
   elif not title:title=fallback_title(text)
   if not title:reason='no_readable_title'
   if reason:
@@ -133,7 +137,8 @@ def extract(response,source):
  page_dest=best_destination(soup,response.url,source['domain']) or response.url
  for sentence in re.split(r'(?<=[.!?])\s+',page_text):
   sentence=clean(sentence)
-  if not 30<=len(sentence)<=700 or NOISE.search(sentence):continue
+  if not 30<=len(sentence)<=700 or NOISE.search(sentence) or BAD_CONTENT.search(sentence):continue
+  if PRODUCT_PRICE.search(sentence) and not PROMO_SIGNAL.search(sentence):continue
   cs=codes(sentence)
   # The source itself is official and already inside the fixed allowlist. Do
   # not discard a useful sentence merely because the merchant uses wording that
