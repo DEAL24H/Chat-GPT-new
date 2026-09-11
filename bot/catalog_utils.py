@@ -10,7 +10,7 @@ EXPECTED_CATEGORIES = ("Fashion", "Electronics", "Beauty & Personal Care", "Home
 PUBLISHED_STATUS = "live_verified"
 SOURCE_AUTHORITY = "assistant_verified_first_party"
 PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
-VISIBLE_NOISE = re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center)", re.I)
+VISIBLE_NOISE = re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|amazon devices small business deals)", re.I)
 
 def _indexable_text(value):
     text = re.sub(r"\s+", " ", str(value or "")).strip()
@@ -105,7 +105,9 @@ def is_published_verified_offer(item):
 
 def has_indexable_content(item):
     title = _indexable_text(item.get("title")); content = _indexable_text(item.get("content"))
-    if not title or not content or not str(item.get("final_purchase_url") or "").strip(): return False
+    merchant = _indexable_text(item.get("merchant"))
+    title = re.sub(rf"^{re.escape(merchant)}\s*[—:-]\s*", "", title, flags=re.I)
+    if not title or len(title) < 8 or not content or not str(item.get("final_purchase_url") or "").strip(): return False
     if re.fullmatch(r"(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?", title, re.I): return False
     return True
 
