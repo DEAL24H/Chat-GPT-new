@@ -75,7 +75,8 @@ def seo_title(source,raw,discount='',code=''):
  if len(title)<18 or BADTITLE.fullmatch(title):
   detail=code and f'code {code}' or discount or 'official promotion'
   variants=(f'{merchant}: {detail}',f'{detail.title()} available from {merchant}',f'{merchant} promotion — {detail}')
-  title=variants[hash(norm(title)+norm(merchant)+norm(market))%len(variants)]
+  stable_key=f'{norm(title)}|{norm(merchant)}|{norm(market)}'.encode()
+  title=variants[int(hashlib.sha1(stable_key).hexdigest(),16)%len(variants)]
  elif merchant.casefold() not in title.casefold():
   title=f'{merchant} — {title}'
  if market and market.casefold() not in {'international','global','worldwide'} and market.casefold() not in title.casefold():
@@ -187,14 +188,20 @@ def load_sources():
 	return rows
 	raise SystemExit('SOURCE ALLOWLIST MISSING: refusing to use legacy brand/source list')
 def main():
- sources=load_sources();all_items=[];status=[]
+ sources=sorted(load_sources(),key=lambda s:(norm(s['merchant']),norm(s.get('market')),norm(s['official_homepage'])))
+ all_items=[];status=[]
  with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-  fs=[ex.submit(collect,s) for s in sources]
-  for f in as_completed(fs):
-   s,items,errors=f.result();all_items.extend(items);status.append({'merchant':s['merchant'],'category':s['category'],'status':'scanned','offers':len(items),'errors':errors[:5]})
+  fs=[(s,ex.submit(collect,s)) for s in sources]
+  results={ (norm(s['merchant']),norm(s.get('market')),norm(s['official_homepage'])): f.result() for s,f in fs }
+ for s in sources:
+   _,items,errors=results[(norm(s['merchant']),norm(s.get('market')),norm(s['official_homepage']))];all_items.extend(sorted(items,key=lambda x:(norm(x.get('merchant')),norm(x.get('category')),norm(x.get('title')),norm(x.get('code')),norm(x.get('discount')),norm(x.get('promotion_url')),norm(x.get('final_purchase_url')))))
+   status.append({'merchant':s['merchant'],'category':s['category'],'status':'scanned','offers':len(items),'errors':sorted(errors)[:5]})
  dedup={}
- for x in all_items:dedup[(norm(x['merchant']),norm(x['category']),norm(x['title']),norm(x['code']),norm(x['discount']))]=x
- all_items=list(dedup.values());OUT.write_text(json.dumps(all_items,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ for x in all_items:
+  key=(norm(x.get('merchant')),norm(x.get('category')),norm(x.get('market')),norm(x.get('country')),norm(x.get('title')),norm(x.get('code')),norm(x.get('discount')),norm(x.get('promotion_url')),norm(x.get('final_purchase_url')))
+  if key not in dedup:dedup[key]=x
+ all_items=sorted(dedup.values(),key=lambda x:(norm(x.get('merchant')),norm(x.get('category')),norm(x.get('title')),norm(x.get('code')),norm(x.get('discount')),norm(x.get('promotion_url')),norm(x.get('final_purchase_url'))))
+ OUT.write_text(json.dumps(all_items,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  bycat={c:sum(x['category']==c for x in all_items) for c in CATS};print(f'DEAL BOT: exact_allowlist_urls={len(sources)} candidates={len(all_items)} by_category={bycat}');print('SOURCE STATUS:',json.dumps(status,ensure_ascii=False))
  expected_sources=len(sources)
  if len(status)!=expected_sources:raise SystemExit(f'DEAL BOT FAILED: incomplete source scan {len(status)}/{expected_sources}')

@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from bs4 import BeautifulSoup
+from bot.catalog_utils import is_brand_host_allowed
 ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/news.json';CATALOG=ROOT/'data/brand_catalog.json';TIMEOUT=15
 UA='Mozilla/5.0 (compatible; Deal24HOfferLinkValidator/7.0; +https://deal24h.net/)'
 EXPECTED={'Fashion','Electronics','Beauty & Personal Care','Home & Living'}
@@ -35,7 +36,7 @@ def live(item):
  # that official destination; only block inaccessible or off-domain targets.
  return'live_verified','LIVE_OFFICIAL_BRAND_DESTINATION_VERIFIED',f
 def main():
- data=json.loads(DATA.read_text(encoding='utf-8'));catalog=json.loads(CATALOG.read_text(encoding='utf-8')).get('categories',{});domains={str(e.get('name','')).casefold():str(e.get('domain','')) for es in catalog.values() for e in es}
+ data=json.loads(DATA.read_text(encoding='utf-8'))
  if not isinstance(data,list):raise SystemExit('news.json is not a list')
  published=[];rejected=[];now=datetime.now(timezone.utc).isoformat()
  def validate_one(item):
@@ -45,7 +46,7 @@ def main():
   elif not src.startswith(('http://','https://')):reason='INVALID_SOURCE_URL'
   elif not promotion.startswith(('http://','https://')) or not same(promotion,src):reason='PROMOTION_URL_NOT_SOURCE_DOMAIN'
   elif not purchase(dest):reason='DESTINATION_NOT_ALLOWED_PAGE'
-  elif not same(domains.get(merchant.casefold(),src),dest):reason='DESTINATION_LEFT_CATALOG_DOMAIN'
+  elif not is_brand_host_allowed(merchant,dest):reason='DESTINATION_LEFT_ALLOWED_BRAND_HOSTS'
   if reason:return None,(merchant,reason,dest)
   status,vr,final=live(item)
   if status=='runtime_inaccessible':
