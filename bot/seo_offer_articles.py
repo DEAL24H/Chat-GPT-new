@@ -26,8 +26,8 @@ def sanitize_visible(v):
 def load():
  d=json.loads(DATA.read_text(encoding='utf-8')); return d if isinstance(d,list) else d.get('items',[])
 def valid_offer(item):
- from bot.catalog_utils import is_published_verified_offer
- if not is_published_verified_offer(item):return False
+ from bot.catalog_utils import is_indexable_offer
+ if not is_indexable_offer(item):return False
  title=sanitize_visible(item.get('title')); content=sanitize_visible(item.get('content')); purchase=clean(item.get('final_purchase_url'))
  if not title or not content or not purchase:return False
  # The crawler already restricts records to first-party sources and the live

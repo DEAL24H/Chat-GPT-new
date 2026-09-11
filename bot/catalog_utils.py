@@ -10,6 +10,17 @@ EXPECTED_CATEGORIES = ("Fashion", "Electronics", "Beauty & Personal Care", "Home
 PUBLISHED_STATUS = "live_verified"
 SOURCE_AUTHORITY = "assistant_verified_first_party"
 PUBLISHED_AUTHORITY = "assistant_verified_source_plus_live_brand_purchase_destination"
+VISIBLE_NOISE = re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center)", re.I)
+
+def _indexable_text(value):
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    previous = None
+    while text and text != previous:
+        previous = text
+        text = VISIBLE_NOISE.sub(" ", text)
+        text = re.sub(r"\s*[|•·]+\s*", " ", text)
+        text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 def normalize_brand(value):
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower().replace("’", "'")).strip()
@@ -91,6 +102,16 @@ def is_published_verified_offer(item):
     if not is_brand_host_allowed(brand["name"],source): return False
     if not is_brand_host_allowed(brand["name"],purchase): return False
     return _not_expired(item)
+
+def has_indexable_content(item):
+    title = _indexable_text(item.get("title")); content = _indexable_text(item.get("content"))
+    if not title or not content or not str(item.get("final_purchase_url") or "").strip(): return False
+    if re.fullmatch(r"(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?", title, re.I): return False
+    return True
+
+def is_indexable_offer(item):
+    """Single final gate shared by every public publication layer."""
+    return is_published_verified_offer(item) and has_indexable_content(item)
 
 def is_active_offer(item): return is_published_verified_offer(item)
 def published_items(items): return [item for item in items if is_published_verified_offer(item)]

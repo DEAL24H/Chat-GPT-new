@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from bs4 import BeautifulSoup
-from bot.catalog_utils import is_brand_host_allowed
+from bot.catalog_utils import has_indexable_content, is_brand_host_allowed
 ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/news.json';CATALOG=ROOT/'data/brand_catalog.json';TIMEOUT=15
 UA='Mozilla/5.0 (compatible; Deal24HOfferLinkValidator/7.0; +https://deal24h.net/)'
 EXPECTED={'Fashion','Electronics','Beauty & Personal Care','Home & Living'}
@@ -41,7 +41,8 @@ def main():
  published=[];rejected=[];now=datetime.now(timezone.utc).isoformat()
  def validate_one(item):
   merchant=str(item.get('merchant') or '').strip();category=str(item.get('category') or '').strip();src=str(item.get('source_url') or '').strip();promotion=str(item.get('promotion_url') or '').strip();dest=str(item.get('final_purchase_url') or '').strip();reason=''
-  if category not in EXPECTED:reason='NON_CANONICAL_CATEGORY'
+  if not has_indexable_content(item):reason='NOT_INDEXABLE_CONTENT'
+  elif category not in EXPECTED:reason='NON_CANONICAL_CATEGORY'
   elif item.get('source_verification_status')!='assistant_verified_first_party':reason='SOURCE_NOT_ASSISTANT_VERIFIED'
   elif not src.startswith(('http://','https://')):reason='INVALID_SOURCE_URL'
   elif not promotion.startswith(('http://','https://')) or not same(promotion,src):reason='PROMOTION_URL_NOT_SOURCE_DOMAIN'

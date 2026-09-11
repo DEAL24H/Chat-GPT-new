@@ -18,7 +18,7 @@ assert "if key not in dedup" in bot_source
 
 seo_source = (ROOT / "bot/seo_offer_articles.py").read_text(encoding="utf-8")
 assert "shutil.rmtree(out)" in seo_source
-assert "is_published_verified_offer" in seo_source
+assert "is_indexable_offer" in seo_source
 
 workflow = (ROOT / ".github/workflows/verified-deal-pipeline.yml").read_text(encoding="utf-8")
 assert "python scripts/test_deterministic_pipeline.py" in workflow
