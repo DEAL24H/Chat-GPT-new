@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
-from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offer, resolve_brand
+from catalog_utils import CATALOG, brand_slug, canonicalize_item, is_active_offer, is_brand_host_allowed, resolve_brand
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "news.json"
@@ -47,7 +47,7 @@ def official_destination(item, catalog_entry):
     )
     if not destination:
         return False
-    return same_domain(destination, catalog_entry.get("domain", ""))
+    return is_brand_host_allowed(catalog_entry.get("name", ""), destination)
 
 
 def main():
