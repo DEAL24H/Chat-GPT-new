@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '15 * * * *'
   push:
+    branches: [main]
     paths:
       - 'scripts/fetch_analytics.py'
       - '.github/workflows/analytics.yml'
