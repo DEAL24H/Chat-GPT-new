@@ -33,7 +33,9 @@ def load_seo_index():
     data = json.loads(SEO_INDEX.read_text(encoding="utf-8"))
     if not isinstance(data, dict) or not isinstance(data.get("offers"), list):
         raise SystemExit("SEO NAVIGATION FAILED: invalid canonical seo-index.json")
-    return data["offers"]
+    if not str(data.get("release_id") or "").strip():
+        raise SystemExit("SEO NAVIGATION FAILED: missing canonical release_id")
+    return data
 
 
 def domain(brand):
@@ -51,10 +53,17 @@ def official_homepage(brand):
     return f"https://{d}/" if d else ""
 
 
-def page(title, description, canonical, body, schema=None):
+def page(title, description, canonical, body, release_id, schema=None):
     ld = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>' if schema else ""
     ga = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA4}',{{anonymize_ip:true}});</script>'''
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{ld}<link rel="stylesheet" href="/assets/style.css?v=20260911b">{ga}</head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
+    return f'''<!doctype html><html lang="en" data-release-id="{esc(release_id)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="deal24h-release" content="{esc(release_id)}"><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{esc(canonical)}"><title>{esc(title)}</title>{ld}<link rel="stylesheet" href="/assets/style.css?v={esc(release_id)}">{ga}</head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Official merchant source attribution.</div></footer></body></html>'''
+
+
+def seo_title_cards(records):
+    return "".join(
+        f'<a class="seo-offer-card" role="listitem" href="{esc(record["canonical"])}"><span>{esc(record["title"])}</span></a>'
+        for record in records
+    )
 
 
 def offer_card(item):
@@ -89,7 +98,9 @@ def write(path, content):
 
 
 def main():
-    seo_records = load_seo_index()
+    seo_index = load_seo_index()
+    release_id = str(seo_index["release_id"])
+    seo_records = seo_index["offers"]
     seo_by_category = defaultdict(list)
     seo_by_brand = defaultdict(list)
     seo_title_counts = defaultdict(int)
@@ -128,10 +139,10 @@ def main():
         active = by_category.get(category, [])
         cards = "".join(offer_card(x) for x in active[:60]) or '<p>No active coupons or deals are currently listed.</p>'
         brand_links = "".join(f'<li><a href="/brand/{brand_slug(e["name"])}/">{esc(e["name"])} brand page</a></li>' for e in entries)
-        seo_links = "".join(f'<li><a href="{esc(r["canonical"])}">{esc(r["merchant"])} — {esc(r["title"])}</a></li>' for r in seo_by_category.get(category, []))
-        body = f'<section class="hero"><p class="eyebrow">BRANDS · OFFERS</p><h1>{esc(category)} Brands & Offers</h1><p class="lead">Browse catalog brands and every verified offer SEO page in this category.</p></section><section><h2>Latest {esc(category)} offers</h2><div class="grid">{cards}</div></section><section><h2>Verified offer pages</h2><ul class="seo-offer-list">{seo_links}</ul></section><section><h2>Brands</h2><ul>{brand_links}</ul></section>'
+        seo_links = seo_title_cards([{**r, "title": f'{r["merchant"]} — {r["title"]}'} for r in seo_by_category.get(category, [])])
+        body = f'<section class="hero"><p class="eyebrow">BRANDS · OFFERS</p><h1>{esc(category)} Brands & Offers</h1><p class="lead">Browse catalog brands and every verified offer SEO page in this category.</p></section><section><h2>Latest {esc(category)} offers</h2><div class="grid">{cards}</div></section><section><h2>Verified offer pages</h2><div class="seo-offer-list" role="list">{seo_links}</div></section><section><h2>Brands</h2><ul>{brand_links}</ul></section>'
         schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": f"{category} Brands & Offers", "url": category_url}
-        write(ROOT / category_slug / "index.html", page(f"{category} Brands & Offers | DEAL 24H", f"Browse {category.lower()} brands and verified offers on DEAL 24H.", category_url, body, schema))
+        write(ROOT / category_slug / "index.html", page(f"{category} Brands & Offers | DEAL 24H", f"Browse {category.lower()} brands and verified offers on DEAL 24H.", category_url, body, release_id, schema))
 
         for entry in entries:
             brand = entry["name"]
@@ -140,13 +151,13 @@ def main():
             img = logo(brand)
             image = f'<img class="brandhero-img" src="{esc(img)}" alt="{esc(brand)} logo" loading="eager">' if img else '<span class="brandfallback" aria-hidden="true">B</span>'
             brand_seo = seo_by_brand.get(brand, [])
-            offer_links = "".join(f'<li><a href="{esc(r["canonical"])}">{esc(r["title"])}</a></li>' for r in brand_seo)
-            offer_section = f'<section><h2>Verified {esc(brand)} offers</h2><ul class="seo-offer-list">{offer_links}</ul></section>' if brand_seo else '<section><h2>Verified offers</h2><p>No active verified offers are currently listed.</p></section>'
+            offer_links = seo_title_cards(brand_seo)
+            offer_section = f'<section><h2>Verified {esc(brand)} offers</h2><div class="seo-offer-list" role="list">{offer_links}</div></section>' if brand_seo else '<section><h2>Verified offers</h2><p>No active verified offers are currently listed.</p></section>'
             has_verified_offers = bool(brand_seo)
             robots = "index,follow" if has_verified_offers else "noindex,follow"
             body = f'<section class="hero"><div class="brandhero"><div class="brandhero-logo">{image}</div><div><p class="eyebrow">{esc(category.upper())} · BRAND</p><h1>About {esc(brand)}</h1></div></div><p class="lead">A short introduction to {esc(brand)} and its official website.</p></section>{brand_intro(brand, category)}{offer_section}<p><a class="cta" href="{esc(official_homepage(brand))}" target="_blank" rel="noopener">Visit {esc(brand)} official website ↗</a></p>'
             schema = {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": brand, "url": official_homepage(brand)}, {"@type": "WebPage", "name": f"About {brand}", "url": brand_url}]}
-            write(path, page(f"About {brand} | DEAL 24H", f"A short introduction to {brand} with a link to the official {brand} website.", brand_url, body, schema).replace('<meta name="robots" content="index,follow">', f'<meta name="robots" content="{robots}">'))
+            write(path, page(f"About {brand} | DEAL 24H", f"A short introduction to {brand} with a link to the official {brand} website.", brand_url, body, release_id, schema).replace('<meta name="robots" content="index,follow">', f'<meta name="robots" content="{robots}">'))
             if has_verified_offers:
                 brand_urls.append(brand_url)
 
@@ -154,7 +165,7 @@ def main():
 
     def sitemap(urls):
         unique = sorted(set(urls))
-        return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>' for u in unique) + '\n</urlset>\n'
+        return f'<?xml version="1.0" encoding="UTF-8"?>\n<!-- deal24h-release:{release_id} -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>' for u in unique) + '\n</urlset>\n'
 
     seo_urls = [str(r["canonical"]) for r in seo_records]
     write(ROOT / "sitemap-brands.xml", sitemap(brand_urls))
