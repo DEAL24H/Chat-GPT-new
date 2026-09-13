@@ -4,15 +4,15 @@ on:
   schedule:
     - cron: '15 * * * *'
   push:
+    branches: [main]
     paths:
       - 'scripts/fetch_analytics.py'
       - '.github/workflows/analytics.yml'
 permissions:
   id-token: write
   contents: read
-  pages: write
 concurrency:
-  group: analytics-pages
+  group: analytics-collection
   cancel-in-progress: true
 jobs:
   collect:
@@ -33,15 +33,12 @@ jobs:
         env:
           GA4_PROPERTY_ID: '552658187'
         run: python scripts/fetch_analytics.py
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-      - name: Upload Pages artifact with fresh analytics
-        uses: actions/upload-pages-artifact@v4
+      - name: Store analytics report as a workflow artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: .
-      - name: Deploy Pages with fresh analytics
-        id: deployment
-        uses: actions/deploy-pages@v5
+          name: deal24h-analytics-${{ github.run_id }}
+          path: data/analytics.json
+          retention-days: 14
 
-# Analytics is intentionally read-only with respect to GitHub main.
-# The production Deal Bot is the only workflow that publishes canonical data to main.
+# Analytics is read-only with respect to GitHub main and GitHub Pages.
+# The Verified Deal Pipeline is the only production publisher.

@@ -10,7 +10,9 @@ on:
       - 'data/allowed_brand_urls.json'
       - 'supabase/migrations/**'
       - 'assets/app-home.js'
+      - 'assets/style.css'
       - 'index.html'
+      - '.github/workflows/analytics.yml'
       - '.github/workflows/verified-deal-pipeline.yml'
   pull_request:
     branches: [main]
@@ -22,7 +24,9 @@ on:
       - 'data/allowed_brand_urls.json'
       - 'supabase/migrations/**'
       - 'assets/app-home.js'
+      - 'assets/style.css'
       - 'index.html'
+      - '.github/workflows/analytics.yml'
       - '.github/workflows/verified-deal-pipeline.yml'
   schedule:
     - cron: '17 0 * * *'
@@ -64,6 +68,8 @@ jobs:
         run: python scripts/test_deterministic_pipeline.py
       - name: Content quality contract
         run: python scripts/test_content_quality.py
+      - name: Single publisher and release UI contract
+        run: python scripts/test_publication_contract.py
       - name: Build exact URL allowlist from supplied workbook
         run: |
           python scripts/build_allowed_url_manifest.py
@@ -90,13 +96,6 @@ jobs:
       - name: Build canonical data shards
         timeout-minutes: 5
         run: python scripts/build_data_shards.py
-      - name: Sync verified deals to Supabase
-        if: github.ref == 'refs/heads/main'
-        timeout-minutes: 10
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: python scripts/sync_supabase.py
       - name: Generate canonical offer SEO pages and navigation index
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 10
@@ -105,6 +104,9 @@ jobs:
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 10
         run: python bot/seo_generator_999.py
+      - name: Stamp homepage and assets with the canonical release
+        if: github.ref == 'refs/heads/main'
+        run: python scripts/stamp_static_release.py
       - name: Validate generated SEO output and site navigation
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
@@ -121,6 +123,13 @@ jobs:
         if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
         run: python bot/validate_site_fast.py
+      - name: Sync the validated release to Supabase
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 10
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/sync_supabase.py
       - name: Configure Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5

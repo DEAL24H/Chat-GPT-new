@@ -1,10 +1,11 @@
-"""Build browser-friendly data shards and a compact global search index."""
+"""Build one browser release: manifest, versioned shards, and search index."""
 import hashlib,json,re,sys
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; SOURCE=DATA/'news.json'; OUT=DATA/'shards'
 sys.path.insert(0,str(ROOT))
 from bot.catalog_utils import is_indexable_offer, publication_key
+from bot.release_contract import release_id_for_rows
 CATEGORY_SLUGS={'Fashion':'fashion','Electronics':'electronics','Beauty & Personal Care':'beauty-personal-care','Home & Living':'home-and-living'}
 def norm(value):return re.sub(r'[^a-z0-9]+',' ',str(value or '').lower()).strip()
 def stable_id(item):
@@ -28,18 +29,19 @@ def main():
   if key in seen:continue
   seen.add(key)
   row=compact(item,f'shards/{slug}.json'); shards[slug].append(row); search.append({'id':row['id'],'shard':row['_shard'],'merchant':row['merchant'],'category':row['category'],'country':row['country'],'locale':row['locale'],'text':norm(' '.join([row['merchant'],row['title'],row['code'],row['content']]))[:600]})
+ for rows in shards.values():rows.sort(key=lambda x:(norm(x.get('merchant')),x.get('id','')))
+ search.sort(key=lambda x:(norm(x['merchant']),x['id']))
  counts={category:len(shards[slug]) for category,slug in CATEGORY_SLUGS.items()}; total=sum(counts.values())
- generated_at=datetime.now(timezone.utc).isoformat()
- ids=sorted(x['id'] for x in search); release_id=hashlib.sha256('|'.join(ids).encode()).hexdigest()[:16]
- manifest={'version':4,'release_id':release_id,'generated_at':generated_at,'categories':list(CATEGORY_SLUGS),'total':total,'counts':counts,'ids':ids,'shards':{},'search':'search-index.json'}
+ generated_at=datetime.now(timezone.utc).isoformat(); all_rows=[row for slug in CATEGORY_SLUGS.values() for row in shards[slug]]; release_id=release_id_for_rows(all_rows); ids=sorted(x['id'] for x in search)
+ manifest={'version':5,'release_id':release_id,'generated_at':generated_at,'categories':list(CATEGORY_SLUGS),'total':total,'counts':counts,'ids':ids,'catalog':'brand_catalog.json','shards':{},'search':'search-index.json'}
  for category,slug in CATEGORY_SLUGS.items():
-  rows=shards[slug]; rows.sort(key=lambda x:(norm(x.get('merchant')),x.get('id',''))); (OUT/f'{slug}.json').write_text(json.dumps(rows,ensure_ascii=False,separators=(',',':')),encoding='utf-8'); manifest['shards'][slug]={'path':f'shards/{slug}.json','count':len(rows),'category':category}
- search.sort(key=lambda x:(norm(x['merchant']),x['id'])); search_payload={'version':2,'release_id':release_id,'generated_at':generated_at,'count':len(search),'ids':ids,'items':search}
+  rows=shards[slug]; payload={'version':1,'release_id':release_id,'generated_at':generated_at,'category':category,'count':len(rows),'items':rows}; (OUT/f'{slug}.json').write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':')),encoding='utf-8'); manifest['shards'][slug]={'path':f'shards/{slug}.json','count':len(rows),'category':category}
+ search_payload={'version':3,'release_id':release_id,'generated_at':generated_at,'count':len(search),'ids':ids,'items':search}
  if manifest['total'] != len(search):raise RuntimeError(f'CANONICAL DATA BUILD MISMATCH: manifest.total={manifest["total"]} search.count={len(search)}')
  if manifest['total'] != sum(manifest['counts'].values()):raise RuntimeError(f'CANONICAL DATA BUILD MISMATCH: manifest.total={manifest["total"]} counts_sum={sum(manifest["counts"].values())}')
  if any(manifest['shards'][slug]['count'] != manifest['counts'][category] for category,slug in CATEGORY_SLUGS.items()):raise RuntimeError('CANONICAL DATA BUILD MISMATCH: shard counts differ from category counts')
  (DATA/'search-index.json').write_text(json.dumps(search_payload,ensure_ascii=False,separators=(',',':')),encoding='utf-8'); (DATA/'data-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
- print(f"Built {len(shards)} category shards, {len(search)} search records; release_id={release_id} counts={counts}"+(f"; skipped categories: {', '.join(sorted(skipped))}" if skipped else ''))
+ print(f"Built {len(shards)} release-locked category shards, {len(search)} search records; release_id={release_id} counts={counts}"+(f"; skipped categories: {', '.join(sorted(skipped))}" if skipped else ''))
 if __name__=='__main__':main()
 
 # end

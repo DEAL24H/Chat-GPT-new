@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 from bot.catalog_utils import MOJIBAKE, NON_PROMO, brand_slug, publication_key, repair_text
 from bot.seo_market_scope import market_info
-DATA=ROOT/'data/news.json'; BASE='https://deal24h.net'
+DATA=ROOT/'data/news.json'; MANIFEST=ROOT/'data/data-manifest.json'; BASE='https://deal24h.net'
 PROMO_RE=re.compile(r"\b(?:sale|offer|offers|deal|deals|promotion|promotions|discount|coupon|promo|clearance|special offer|save|savings|voucher|limited time|bundle|buy\s+\d+\s+get\s+\d+|buy one get one|free (?:gift|shipping|delivery|item|set)|gift with purchase|no code required|code not required|member (?:price|savings|offer))\b",re.I)
 BENEFIT_RE=re.compile(r"(?:\b\d{1,3}\s*%\s*(?:off|discount)\b|\b(?:save|off)\s+\$?\d+(?:[.,]\d+)?\b|\$\s?\d+(?:[.,]\d+)?\s*(?:off|discount)\b|\bbuy\s+\d+\s+get\s+\d+\b|\bbuy one get one\b|\bfree\s+(?:gift|shipping|delivery|item|set)\b|\bgift with purchase\b|\bspend\s+\$?\d+(?:[.,]\d+)?\s*(?:or more|\+)?\b|\b(?:no code required|code not required|without (?:a )?code)\b|\bmember (?:price|savings|offer)\b|\bbundle\b)",re.I)
 VISIBLE_NOISE_RE=re.compile(r"(?:your cart is empty|estimated total|current price|regular price|original price|add to wishlist|add to cart|checkout|\bcart\b|sign in|log in|login|create account|privacy policy|terms(?: and conditions)?|cookie(?:s| policy)?|product advice|shipping address|billing address|search results|compare products|recently viewed|recommended for you|sort by|filter by|size guide|store locator|customer service|help center|amazon devices small business deals)",re.I)
@@ -46,9 +46,9 @@ def editorial_title(item,merchant,title):
  angles=('Official promotion details','Current offer information','What shoppers should know','Verified savings update')
  angle=angles[int(hashlib.sha1((merchant+title+clean(item.get('market'))).encode()).hexdigest(),16)%len(angles)]
  return f'{merchant} — {angle}: {title}'
-def page(title,description,canonical,body):
- return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v=20260903d"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion. <small>Some links may be affiliate links; any commission does not change your price.</small></div></footer></body></html>'''
-def make_article(item):
+def page(title,description,canonical,body,release_id=''):
+ return f'''<!doctype html><html lang="en" data-release-id="{esc(release_id)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="deal24h-release" content="{esc(release_id)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v={esc(release_id)}"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion. <small>Some links may be affiliate links; any commission does not change your price.</small></div></footer></body></html>'''
+def make_article(item,release_id=''):
  merchant=sanitize_visible(item.get('merchant')) or 'Merchant'
  if not valid_offer(item):return None
  title=meaningful_title(item,merchant)
@@ -70,8 +70,10 @@ def make_article(item):
  public_title=editorial_title(item,merchant,title)
  editorial=f'Deal24h checked the official {merchant} source and presents this {label.lower()} as a reference for shoppers. Availability and conditions can vary by market, product, account, or campaign period.'
  body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(public_title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>Offer details from the official source</h2>{market_html}<p>{esc(editorial)}</p><blockquote>{esc(content)}</blockquote>{code_html}{checked_html}<p>{cta}</p><p class="source-note">The quoted details come from the official {esc(merchant)} source; check the merchant page for the latest conditions.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
- return canonical,page(public_title+' | DEAL 24H',f'{merchant} {label.lower()}: {title}. Official source checked by Deal24h with market and condition context.',canonical,body),label,{'id':str(item.get('id') or ''),'canonical':canonical,'merchant':merchant,'category':category,'title':public_title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
+ return canonical,page(public_title+' | DEAL 24H',f'{merchant} {label.lower()}: {title}. Official source checked by Deal24h with market and condition context.',canonical,body,release_id),label,{'id':str(item.get('id') or ''),'canonical':canonical,'merchant':merchant,'category':category,'title':public_title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
 def main():
+ manifest=json.loads(MANIFEST.read_text(encoding='utf-8')); release_id=str(manifest.get('release_id') or '').strip()
+ if not release_id:raise SystemExit('SEO OFFER ARTICLES FAILED: missing canonical release_id')
  out=ROOT/'seo'
  if out.exists():shutil.rmtree(out)
  out.mkdir(parents=True,exist_ok=True)
@@ -83,7 +85,7 @@ def main():
   market=market_info(item); identity=publication_key(item)
   if identity in seen:duplicate+=1;continue
   seen.add(identity)
-  result=make_article(item)
+  result=make_article(item,release_id)
   if not result:rejected+=1;continue
   canonical,html_text,label,record=result; path=ROOT/canonical.removeprefix(BASE+'/').rstrip('/')/'index.html'; path.parent.mkdir(parents=True,exist_ok=True); path.write_text(html_text,encoding='utf-8'); urls.append(canonical); records.append(record); counts['code' if label=='Promo code' else 'direct']+=1
  if len(urls)!=len(set(urls)):raise SystemExit('SEO OFFER ARTICLES FAILED: duplicate canonical URLs')
@@ -106,10 +108,9 @@ def main():
   # arbitrary multilingual visible text with a broad mojibake heuristic here.
  if bad:raise SystemExit('SEO OFFER ARTICLES FAILED: visible UI noise remained: '+', '.join(bad[:20]))
  if bad_non_promo:raise SystemExit('SEO OFFER ARTICLES FAILED: legal/non-promotion text remained: '+', '.join(bad_non_promo[:20]))
- today=datetime.now(timezone.utc).date().isoformat(); sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in sorted(urls))+'</urlset>\n'
+ today=datetime.now(timezone.utc).date().isoformat(); sitemap=f'<?xml version="1.0" encoding="UTF-8"?>\n<!-- deal24h-release:{release_id} -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in sorted(urls))+'</urlset>\n'
  (ROOT/'sitemap-seo.xml').write_text(sitemap,encoding='utf-8')
  ids=sorted(str(x.get('id') or '') for x in records)
- release_id=hashlib.sha256('|'.join(ids).encode()).hexdigest()[:16]
  generated_at=datetime.now(timezone.utc).isoformat()
  (out/'seo-index.json').write_text(json.dumps({'schema':3,'release_id':release_id,'generated_at':generated_at,'counts':counts,'urls':len(urls),'ids':ids,'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0,'offers':sorted(records,key=lambda x:x['canonical'])},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (out/'seo-modes.json').write_text(json.dumps({'schema':3,'release_id':release_id,'generated_at':generated_at,'counts':counts,'urls':len(urls),'ids':ids,'rejected_non_qualified':rejected,'deduplicated_equivalent_offers':duplicate,'visible_text_noise':0},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
