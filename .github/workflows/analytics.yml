@@ -8,6 +8,7 @@ on:
       - 'scripts/fetch_analytics.py'
       - '.github/workflows/analytics.yml'
 permissions:
+  id-token: write
   contents: read
 concurrency:
   group: analytics-collection
