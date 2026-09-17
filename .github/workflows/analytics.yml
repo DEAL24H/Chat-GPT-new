@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/fetch_analytics.py'
+      - 'scripts/test_analytics_resilience.py'
       - '.github/workflows/analytics.yml'
 permissions:
   id-token: write
@@ -29,7 +30,11 @@ jobs:
           python-version: '3.12'
       - name: Install analytics client
         run: pip install google-analytics-data google-auth requests
+      - name: Validate analytics isolation
+        run: python scripts/test_analytics_resilience.py
       - name: Collect GA4 data
+        id: collect
+        continue-on-error: true
         env:
           GA4_PROPERTY_ID: '552658187'
         run: python scripts/fetch_analytics.py
@@ -39,6 +44,9 @@ jobs:
           name: deal24h-analytics-${{ github.run_id }}
           path: data/analytics.json
           retention-days: 14
+      - name: Report non-fatal collection status
+        if: steps.collect.outcome == 'failure'
+        run: echo 'GA4 collection was unavailable; the previous snapshot remains intact and the scheduled collector will retry next run.'
 
 # Analytics is read-only with respect to GitHub main and GitHub Pages.
 # The Verified Deal Pipeline is the only production publisher.
