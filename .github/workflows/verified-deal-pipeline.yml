@@ -12,6 +12,8 @@ on:
       - 'assets/app-home.js'
       - 'assets/style.css'
       - 'index.html'
+      - 'admin/**'
+      - 'dashboard/**'
       - '.github/workflows/analytics.yml'
       - '.github/workflows/verified-deal-pipeline.yml'
   pull_request:
@@ -26,6 +28,8 @@ on:
       - 'assets/app-home.js'
       - 'assets/style.css'
       - 'index.html'
+      - 'admin/**'
+      - 'dashboard/**'
       - '.github/workflows/analytics.yml'
       - '.github/workflows/verified-deal-pipeline.yml'
   schedule:
