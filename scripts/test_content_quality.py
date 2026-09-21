@@ -18,6 +18,8 @@ def check(title, content, expected):
 
 check("11.A The Promoter cannot guarantee continuous access", "The Promoter cannot guarantee continuous, uninterrupted or secure access.", False)
 check("Food containers pack of 4 £2.50", "Food containers pack of 4 £2.50.", False)
-check("Save 20% on selected items", "Save 20% on selected items with code SAVE20.", True)
+check("Save 20% on selected items", "Save 20% on selected items with code SAVE20 today.", True)
+check("Free shipping on orders over $50", "Free shipping on orders over $50 for eligible orders.", True)
+check("New running shoes", "New running shoes with lightweight cushioning.", False)
 assert repair_text("cafÃ©") == "café"
 print("CONTENT QUALITY CONTRACT PASS")

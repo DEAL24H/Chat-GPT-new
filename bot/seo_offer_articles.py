@@ -43,9 +43,27 @@ def meaningful_title(item,merchant):
  if title and len(title)>=8 and not NON_PROMO.search(title) and not MOJIBAKE.search(title) and not re.fullmatch(r'(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?',title,re.I):return title[:140].rsplit(' ',1)[0] if len(title)>140 else title
  return ''
 def editorial_title(item,merchant,title):
- angles=('Official promotion details','Current offer information','What shoppers should know','Verified savings update')
- angle=angles[int(hashlib.sha1((merchant+title+clean(item.get('market'))).encode()).hexdigest(),16)%len(angles)]
- return f'{merchant} — {angle}: {title}'
+    angles=('Official promotion details','Current offer information','What shoppers should know','Verified savings update')
+    angle=angles[int(hashlib.sha1((merchant+title+clean(item.get('market'))).encode()).hexdigest(),16)%len(angles)]
+    return f'{merchant} — {angle}: {title}'
+def benefit_text(item,title,discount,code):
+    if discount:return discount
+    if code:return 'Promo code available'
+    for pattern in (r'(?i)\b(?:free shipping|free delivery|buy\s+\d+\s+get\s+\d+|buy one get one|save\s+[$£€]?\d+(?:[.,]\d+)?)\b',r'(?i)\b\d{1,3}%\s*(?:off|discount)\b'):
+        match=re.search(pattern, f'{title} {clean(item.get("content"))}')
+        if match:return match.group(0)
+    return 'Official promotion'
+def condition_text(item,code,discount):
+    terms=clean(item.get('terms') or item.get('conditions'))
+    if terms:return terms
+    parts=[]
+    if code:parts.append('A code may be required on the merchant order page.')
+    if discount:parts.append(f'The listed benefit is {discount}.')
+    parts.append('The official merchant page controls the final price, eligibility, and availability.')
+    return ' '.join(parts)
+def shopper_steps(item,merchant,code):
+    final='Enter the code on the merchant order page if the merchant requests one.' if code else 'Review the offer details on the merchant page before placing the order.'
+    return f'1. Confirm that the availability shown below matches your country or market. 2. Open the official {merchant} page using the button. 3. Check the product, account, and order conditions. 4. {final}'
 def page(title,description,canonical,body,release_id=''):
  return f'''<!doctype html><html lang="en" data-release-id="{esc(release_id)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="deal24h-release" content="{esc(release_id)}"><meta name="robots" content="index,follow"><link rel="canonical" href="{esc(canonical)}"><meta name="description" content="{esc(description)}"><title>{esc(title)}</title><link rel="stylesheet" href="/assets/style.css?v={esc(release_id)}"></head><body><header class="topbar"><div class="wrap nav"><a class="brand" href="/">DEAL 24H</a><a href="/">Home</a></div></header><main class="wrap">{body}</main><footer><div class="wrap">© {datetime.now(timezone.utc).year} DEAL 24H · Verified merchant promotion. <small>Some links may be affiliate links; any commission does not change your price.</small></div></footer></body></html>'''
 def make_article(item,release_id=''):
@@ -68,8 +86,9 @@ def make_article(item,release_id=''):
  checked=clean(item.get('purchase_url_verified_at') or item.get('last_checked') or item.get('detected_at'))
  checked_html=f'<p class="verification-meta"><strong>Last verified:</strong> {esc(checked)}</p>' if checked else '<p class="verification-meta"><strong>Verification:</strong> Official source checked by the publishing pipeline.</p>'
  public_title=editorial_title(item,merchant,title)
- editorial=f'Deal24h checked the official {merchant} source and presents this {label.lower()} as a reference for shoppers. Availability and conditions can vary by market, product, account, or campaign period.'
- body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(public_title)}</h1><p class="lead">{esc((discount+" — ") if discount else "")}{esc(label)} for {esc(merchant)}.</p></section><article><h2>Offer details from the official source</h2>{market_html}<p>{esc(editorial)}</p><blockquote>{esc(content)}</blockquote>{code_html}{checked_html}<p>{cta}</p><p class="source-note">The quoted details come from the official {esc(merchant)} source; check the merchant page for the latest conditions.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
+ benefit=benefit_text(item,title,discount,code); conditions=condition_text(item,code,discount); steps=shopper_steps(item,merchant,code)
+ editorial=f'Deal24h checked an official {merchant} source and summarizes the information below for shoppers. This page is a guide, while the merchant page controls final eligibility, stock, price, and campaign status.'
+ body=f'<section class="hero"><p class="eyebrow">{esc(label.upper())}</p><h1>{esc(public_title)}</h1><p class="lead"><strong>{esc(benefit)}</strong> · {esc(label)} for {esc(merchant)}.</p></section><article><section class="offer-summary"><h2>What shoppers can verify</h2><p>{esc(editorial)}</p>{market_html}<p><strong>Benefit:</strong> {esc(benefit)}</p><p><strong>Conditions:</strong> {esc(conditions)}</p></section><section><h2>How to use this offer</h2><p>{esc(steps)}</p></section><section><h2>Official source details</h2><blockquote>{esc(content)}</blockquote></section>{code_html}{checked_html}<p>{cta}</p><p class="source-note">The quoted details come from the official {esc(merchant)} source. Check that page for the latest conditions before purchase.</p>{source_link}<p><a href="/brand/{brand_slug(merchant)}/">More verified {esc(merchant)} offers</a></p>{f'<p><a href="/{category_slug}/">More {esc(category)} offers</a></p>' if category_slug else ''}</article>'
  return canonical,page(public_title+' | DEAL 24H',f'{merchant} {label.lower()}: {title}. Official source checked by Deal24h with market and condition context.',canonical,body,release_id),label,{'id':str(item.get('id') or ''),'canonical':canonical,'merchant':merchant,'category':category,'title':public_title,'label':label,'market_scope':market['scope'],'countries':market['countries'],'market_label':market['label']}
 def main():
  manifest=json.loads(MANIFEST.read_text(encoding='utf-8')); release_id=str(manifest.get('release_id') or '').strip()

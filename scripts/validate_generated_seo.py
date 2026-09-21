@@ -72,6 +72,10 @@ def main():
         if canonical in seen: errors.append(f"DUPLICATE_CANONICAL:{canonical}")
         seen.add(canonical)
         if VISIBLE_NOISE_RE.search(visible): errors.append(f"VISIBLE_NOISE:{path}")
+        for required_text in ("What shoppers can verify", "How to use this offer", "Conditions:"):
+            if required_text not in visible: errors.append(f"CONTENT_SECTION_MISSING:{path}:{required_text}")
+        if "Last verified:" not in visible and "Verification:" not in visible:
+            errors.append(f"VERIFICATION_CONTEXT_MISSING:{path}")
         expected=expected_by_canonical.get(canonical); record=index_by_canonical.get(canonical)
         if not expected or not record: errors.append(f"CANONICAL_NOT_IN_VERIFIED_OFFERS:{path}:{canonical}"); continue
         is_code="PROMO CODE" in visible and "Copy code" in visible and "GET CODE" in visible; is_direct="DIRECT DEAL" in visible and "GET DEAL" in visible and "Copy code" not in visible
