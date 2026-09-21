@@ -127,6 +127,16 @@ def has_indexable_content(item):
     if MOJIBAKE.search(title) or MOJIBAKE.search(content): return False
     if PRODUCT_PRICE.search(title) and not PROMO_SIGNAL.search(title + " " + content): return False
     if re.fullmatch(r"(?:\$\s*)?\d+(?:[.,]\d+)?(?:\s*%|\s*off)?", title, re.I): return False
+    # Publish only records that give a shopper a verifiable reason to visit.
+    # This is intentionally shared by the crawler's final gate and every SEO
+    # output layer, so a generic product/consent/legal snippet cannot become a
+    # public deal page merely because it came from an official domain.
+    signal_text = f"{title} {content} {_indexable_text(item.get('discount'))} {_indexable_text(item.get('code'))}"
+    has_offer_signal = bool(PROMO_SIGNAL.search(signal_text))
+    has_direct_benefit = bool(_indexable_text(item.get("discount")) or _indexable_text(item.get("code")))
+    enough_context = len(content) >= 45 or has_direct_benefit
+    if not has_offer_signal or not enough_context:
+        return False
     return True
 
 def is_indexable_offer(item):
@@ -140,5 +150,5 @@ def publication_key(item):
     info=market_info(item)
     return '|'.join((merchant,title,str(item.get('code') or '').strip(),str(item.get('final_purchase_url') or '').strip(),_indexable_text(item.get('discount')), _indexable_text(item.get('content')),info['scope'],','.join(info['countries'])))
 
-def is_active_offer(item): return is_published_verified_offer(item)
-def published_items(items): return [item for item in items if is_published_verified_offer(item)]
+def is_active_offer(item): return is_indexable_offer(item)
+def published_items(items): return [item for item in items if is_indexable_offer(item)]

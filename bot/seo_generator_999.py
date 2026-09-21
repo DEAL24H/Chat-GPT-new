@@ -75,6 +75,9 @@ def offer_card(item):
     benefit = f"{match.group(1)}% OFF" if match else str(item.get("discount") or "OFFICIAL DEAL").upper()
     title = re.sub(rf"^{re.escape(brand)}\s*[—-]\s*", "", str(item.get("title") or "").strip(), flags=re.I) or f"{brand} official deal"
     text = text[:187].rsplit(" ", 1)[0] + "…" if len(text) > 190 else text
+    market = re.sub(r"\s+", " ", str(item.get("market") or "Official market")).strip()
+    checked = str(item.get("last_checked") or item.get("detected_at") or "").strip()
+    checked = checked[:10] if checked else "Official source checked"
     img = logo(brand)
     image = f'<img class="brandlogo-img" src="{esc(img)}" alt="{esc(brand)} logo" loading="lazy">' if img else ""
     affiliate = bool(item.get("is_affiliate") and item.get("affiliate_tracking_url"))
@@ -82,14 +85,14 @@ def offer_card(item):
     rel = "sponsored nofollow noopener" if affiliate else "nofollow noopener noreferrer"
     cta = f'<a class="cta" href="{esc(destination)}" target="_blank" rel="{rel}">{"GET CODE" if code else "GET DEAL"} ↗</a>' if destination else ""
     code_html = f'<div class="code"><small>CODE</small><strong>{esc(code)}</strong></div>' if code else ""
-    return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{image}</div><div class="brandinfo"><a class="brandname" href="/brand/{brand_slug(brand)}/">{esc(brand)}</a><span class="tag">{esc("PROMO CODE" if code else "DEAL")} · {esc(item.get("category", "Deals"))}</span></div></div><div class="offer-benefit">{esc(benefit)}</div><h3>{esc(title)}</h3><p>{esc(text or "Official merchant offer.")}</p>{code_html}<div class="meta">{cta}</div></article>'
+    return f'<article class="card offer-card"><div class="brandrow"><div class="brandlogo">{image}</div><div class="brandinfo"><a class="brandname" href="/brand/{brand_slug(brand)}/">{esc(brand)}</a><span class="tag">{esc("PROMO CODE" if code else "DEAL")} · {esc(item.get("category", "Deals"))}</span></div></div><div class="offer-benefit">{esc(benefit)}</div><h3>{esc(title)}</h3><p>{esc(text or "Official merchant offer.")}</p><p class="offer-conditions"><span>{esc(market)}</span><span>Checked {esc(checked)}</span></p>{code_html}<div class="meta">{cta}</div></article>'
 
 
 def brand_intro(brand, category):
     category_copy = {"Fashion": "fashion and apparel", "Electronics": "consumer electronics and technology", "Beauty & Personal Care": "beauty and personal care", "Home & Living": "home, furniture and everyday living products"}.get(category, category.lower())
     official = official_homepage(brand)
     link = f'<a href="{esc(official)}" target="_blank" rel="noopener">Visit the official {esc(brand)} website</a>' if official else ""
-    return f'<section class="brand-about" aria-labelledby="brand-about-title"><h2 id="brand-about-title">About {esc(brand)}</h2><p>{esc(brand)} is a well-known name in {category_copy}. {link} to explore the brand’s official products and information.</p></section>'
+    return f'<section class="brand-about" aria-labelledby="brand-about-title"><h2 id="brand-about-title">About {esc(brand)}</h2><p>{esc(brand)} is a well-known name in {category_copy}. This page collects verified offer references and explains the market and conditions shown by the official source.</p><p>{link} to confirm product details, eligibility, stock, delivery, and the final price before purchase.</p></section>'
 
 
 def write(path, content):
