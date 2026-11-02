@@ -46,7 +46,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   pipeline:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       PYTHONPATH: .
     steps:
